@@ -24,13 +24,13 @@ const { logo, links, cta } = navigation;
 		</a>
 
 		{/* Desktop nav links */}
-		<ul class="hidden md:flex items-center gap-8">
+		<ul class="hidden md:flex items-center gap-6">
 			{links.map((link) => (
 				<li>
 					<a
 						href={link.href}
 						data-nav-link={link.href}
-						class="nav-link font-sans text-[15px] font-normal text-text-muted hover:text-white transition-colors duration-300 ease-in-out"
+						class="nav-link font-sans text-[14px] font-medium text-text-muted hover:text-white transition-colors duration-300 ease-in-out"
 					>
 						{link.label}
 					</a>
@@ -165,18 +165,24 @@ const { logo, links, cta } = navigation;
 
 	sections.forEach((section) => observer.observe(section));
 
-	// ── Back-to-top button ──
+	// ── Back-to-top button + floating CTA ──
 	const backToTop = document.getElementById("back-to-top");
+	const floatingCta = document.getElementById("floating-cta");
 
-	function updateBackToTop() {
-		if (!backToTop) return;
+	function toggleFloatingEl(el: HTMLElement | null, show: boolean) {
+		if (!el) return;
+		el.classList.toggle("opacity-0", !show);
+		el.classList.toggle("pointer-events-none", !show);
+		el.classList.toggle("translate-y-2", !show);
+		el.classList.toggle("opacity-100", show);
+		el.classList.toggle("pointer-events-auto", show);
+		el.classList.toggle("translate-y-0", show);
+	}
+
+	function updateFloatingEls() {
 		const show = window.scrollY > window.innerHeight;
-		backToTop.classList.toggle("opacity-0", !show);
-		backToTop.classList.toggle("pointer-events-none", !show);
-		backToTop.classList.toggle("translate-y-2", !show);
-		backToTop.classList.toggle("opacity-100", show);
-		backToTop.classList.toggle("pointer-events-auto", show);
-		backToTop.classList.toggle("translate-y-0", show);
+		toggleFloatingEl(backToTop, show);
+		toggleFloatingEl(floatingCta, show);
 	}
 
 	backToTop?.addEventListener("click", () => {
@@ -189,7 +195,7 @@ const { logo, links, cta } = navigation;
 		if (!ticking) {
 			requestAnimationFrame(() => {
 				updateProgress();
-				updateBackToTop();
+				updateFloatingEls();
 				ticking = false;
 			});
 			ticking = true;
@@ -198,5 +204,5 @@ const { logo, links, cta } = navigation;
 
 	// Initial state
 	updateProgress();
-	updateBackToTop();
+	updateFloatingEls();
 </script>
