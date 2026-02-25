@@ -17,7 +17,7 @@ export interface NavigationConfig {
 export const navigation = {
 	logo: "Forge DevKit",
 	links: [
-		{ label: "Features", href: "#features" },
+		{ label: "Features", href: "#solution" },
 		{ label: "Pricing", href: "#pricing" },
 		{ label: "FAQ", href: "#faq" },
 	],

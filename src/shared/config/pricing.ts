@@ -10,6 +10,7 @@ export interface PricingTier {
 	description: string;
 	features: string[];
 	cta: string;
+	checkoutUrl: string;
 	isPopular: boolean;
 	badge?: string;
 }
@@ -38,6 +39,8 @@ export const pricing = {
 				"Pipeline phases",
 			],
 			cta: "Get Core",
+			// TODO: Replace with real LemonSqueezy product URL
+			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-core",
 			isPopular: false,
 		},
 		{
@@ -53,6 +56,8 @@ export const pricing = {
 				"Full pipeline: from feature design to tested code",
 			],
 			cta: "Get Pro \u2192",
+			// TODO: Replace with real LemonSqueezy product URL
+			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-pro",
 			isPopular: true,
 			badge: "Popular",
 		},
@@ -71,6 +76,8 @@ export const pricing = {
 				"Multi-dev coordination",
 			],
 			cta: "Get Team",
+			// TODO: Replace with real LemonSqueezy product URL
+			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-team",
 			isPopular: false,
 		},
 	],

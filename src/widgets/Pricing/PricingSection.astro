@@ -82,7 +82,7 @@ function ctaLabel(tier: (typeof pricing.tiers)[number]): string {
 						<div class="mt-8">
 							<Button
 								variant={tier.isPopular ? "primary" : "ghost"}
-								href={`#checkout-${tier.id}`}
+								href={tier.checkoutUrl}
 								class="w-full"
 							>
 								{ctaLabel(tier)}

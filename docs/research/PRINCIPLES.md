@@ -105,3 +105,33 @@
 43. **Flat pricing on MVP, freemium deferred:** Current architecture doesn't support free tier. Transparent flat pricing ($29/$79/$149) is a trust signal. Freemium requires API work — defer to next cycle. Source: [005](./005-product-hypotheses.md)
 
 44. **CTA reflects product, not commodity:** "Audit your architecture" (devs) not "Generate rules." "Design your first feature" (entrepreneurs) not "Launch your idea." CTAs must reflect our unique pipeline, not generic AI tool actions. Source: [005](./005-product-hypotheses.md)
+
+## UX & Implementation (from Visual Audit, Phase 6.1)
+
+45. **Spacing accumulation kills rhythm:** When sections use symmetric padding (`py-24`), adjacent sections create DOUBLE gaps (96+96=192px). Use asymmetric padding (larger top, smaller bottom) or reduce padding on sequential same-type sections (e.g. 4 deep dives in a row). Source: UX Audit 2026-02-25
+
+46. **Container padding ≠ container margin:** If `max-w-[1200px]` is centered on 1440px viewport, the browser already creates 120px margins. Adding `lg:px-[120px]` INSIDE the container doubles the indentation (240px lost). Internal padding should be modest (`px-16`). Source: UX Audit 2026-02-25
+
+47. **CTA cadence — max 3 screens between CTAs:** On a conversion-focused page, never leave more than 3 screen-heights without a CTA. Users convinced mid-page must be able to act immediately. Map all CTAs with Y-positions to find dead zones. Source: UX Audit 2026-02-25 (CRO)
+
+48. **Long pages (>8 screens) need navigation aids:** Scroll progress indicator, back-to-top button, active state on nav links, and section dots/landmarks. Without them, users lose orientation and abandon. 14-screen page without indicators = 52/100 navigation score. Source: UX Audit 2026-02-25 (IA)
+
+49. **Mobile overflow prevention is non-negotiable:** Always set `overflow-x: clip` on `<html>`. Glow/blur effects with negative inset (`-inset-16`) escape containers on mobile. Test at 360px, not just 390px. Horizontal scroll on mobile = perceived broken page. Source: UX Audit 2026-02-25 (Mobile)
+
+50. **Touch targets ≥ 44x44px — no exceptions:** Every interactive element on mobile must meet 44x44px minimum (WCAG 2.1 / Apple HIG). Includes hamburger button, footer links, nav links in mobile menu, author links. Add padding to increase hit area without changing visual size. Source: UX Audit 2026-02-25 (Mobile)
+
+51. **scroll-margin-top with fixed navbar:** All anchor targets (`section[id]`) must have `scroll-margin-top` ≥ navbar height + buffer (80px for 66px navbar). Without it, anchor navigation hides section headers behind the sticky nav. Source: UX Audit 2026-02-25 (Mobile Scroll)
+
+52. **Code blocks scale down on mobile:** Monospace code at 14px is too wide for 390px screens. Use `text-[11px] sm:text-[12px] md:text-[14px]`. Also shift 2-column code layouts from `md:` to `lg:` breakpoint — at 768px each column is only ~280px, too narrow for code. Source: UX Audit 2026-02-25 (Mobile Layout)
+
+53. **Social proof is mandatory, even at launch:** No testimonials = no trust. Even pre-launch products need metrics-based proof ("50+ guardrails", "8+ frameworks", "Works with Claude Code, Cursor, Cowork"). Plan placeholder slots for future testimonials from day one. Source: UX Audit 2026-02-25 (CRO)
+
+54. **Smooth scroll on long pages = conversion blocker:** `scroll-behavior: smooth` on an 18,000px page creates 5+ second animation when clicking a CTA. Users perceive this as a freeze. Use instant scroll for distances >3000px, or remove global smooth scroll entirely. Source: UX Audit 2026-02-25 (Mobile Conversion)
+
+55. **Hero must occupy first viewport:** Hero section should use `min-h-[calc(100dvh-nav)]` with content vertically centered. Fixed padding (`py-32`) creates unpredictable above-the-fold content depending on viewport height. Source: UX Audit 2026-02-25 (Visual Design)
+
+56. **Test all anchor links before deploy:** Every `href="#..."` in navigation and CTAs must have a matching `id="..."` on the target element. Broken anchors (#features without target) are invisible bugs — no error, just nothing happens. Source: UX Audit 2026-02-25 (IA)
+
+57. **Mobile menu must lock body scroll:** When hamburger menu is open, `body.overflow` must be set to `hidden`. Otherwise users scroll the page behind the menu, causing disorientation. Also add a backdrop overlay to prevent interaction with content beneath. Source: UX Audit 2026-02-25 (Mobile Scroll)
+
+58. **Fade-up animations must be implemented, not just defined:** If CSS classes (`.fade-up`, `.is-visible`) are defined in global.css, the corresponding IntersectionObserver JS must exist. Defined-but-unused animations = dead code that confuses future developers. Source: UX Audit 2026-02-25 (Visual Design)

@@ -29,5 +29,7 @@ const locale = Astro.currentLocale ?? "en";
 	</head>
 	<body>
 		<slot />
+		{/* LemonSqueezy checkout overlay SDK — intercepts links to *.lemonsqueezy.com/buy/* */}
+		<script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
 	</body>
 </html>

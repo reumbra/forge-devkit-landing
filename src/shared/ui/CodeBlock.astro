@@ -13,7 +13,7 @@ const { lines, withGlow = false, class: className } = Astro.props;
 	{
 		withGlow && (
 			<div
-				class="glow-terminal pointer-events-none absolute -inset-16 -z-10 blur-[200px]"
+				class="glow-terminal pointer-events-none absolute -inset-8 md:-inset-16 -z-10 blur-[100px] md:blur-[200px]"
 				aria-hidden="true"
 			/>
 		)
@@ -34,7 +34,7 @@ const { lines, withGlow = false, class: className } = Astro.props;
 
 		{/* Code lines */}
 		<pre
-			class="font-mono text-[14px] leading-[1.6] text-text-secondary"
+			class="font-mono text-[11px] sm:text-[12px] md:text-[14px] leading-[1.6] text-text-secondary"
 		><code>{lines.map((line) => `${line}\n`).join("")}</code></pre>
 	</div>
 </div>
