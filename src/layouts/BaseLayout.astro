@@ -1,0 +1,33 @@
+---
+import "../styles/global.css";
+import satoshiRegular from "../assets/fonts/Satoshi-Regular.woff2";
+import satoshiBlack from "../assets/fonts/Satoshi-Black.woff2";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "Forge DevKit — Architecture-aware AI pipeline",
+	description = "Auto-generates project-specific guardrails, quality patterns, and development workflows for AI coding agents across any platform.",
+} = Astro.props;
+
+const locale = Astro.currentLocale ?? "en";
+---
+
+<!doctype html>
+<html lang={locale} class="dark">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<title>{title}</title>
+		<link rel="icon" type="image/svg+xml" href="/forge/favicon.svg" />
+		<link rel="preload" href={satoshiRegular} as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href={satoshiBlack} as="font" type="font/woff2" crossorigin />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

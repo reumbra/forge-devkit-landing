@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { t } from "../../shared/i18n/utils";
+---
+
+<BaseLayout title={t("site.title", "ru")} description={t("site.description", "ru")}>
+	<main class="min-h-screen flex items-center justify-center">
+		<div class="text-center">
+			<p class="font-mono text-secondary text-xs uppercase tracking-[0.15em] mb-4">
+				FORGE DEVKIT
+			</p>
+			<h1 class="text-5xl font-black tracking-tight mb-4">
+				AI-агенты, которые уважают<br />вашу архитектуру
+			</h1>
+			<p class="text-text-secondary text-lg max-w-xl mx-auto">
+				AI-пайплайн с пониманием архитектуры. Гайдрейлы, паттерны качества
+				и dev-скиллы для ваших AI-агентов — на любой платформе.
+			</p>
+		</div>
+	</main>
+</BaseLayout>

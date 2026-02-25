@@ -1,0 +1,4103 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "0zmu3",
+      "x": 0,
+      "y": 0,
+      "name": "Forge Landing",
+      "width": 1440,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "6RhLE",
+          "name": "Nav",
+          "width": "fill_container",
+          "height": 72,
+          "fill": "rgba(0,0,0,0.85)",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "$border-subtle"
+          },
+          "padding": [
+            0,
+            120
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "rKk9u",
+              "name": "Logo",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "qnGGt",
+                  "name": "logoDiamond",
+                  "fill": "$secondary",
+                  "content": "◇",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "fLqCK",
+                  "name": "logoText",
+                  "fill": "$text-primary",
+                  "content": "Forge DevKit",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 16,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "yoSOr",
+              "name": "Nav Links",
+              "gap": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "8LQ8L",
+                  "name": "navLink1",
+                  "fill": "$text-muted",
+                  "content": "Features",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 14
+                },
+                {
+                  "type": "text",
+                  "id": "AgsXl",
+                  "name": "navLink2",
+                  "fill": "$text-muted",
+                  "content": "Pricing",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 14
+                },
+                {
+                  "type": "text",
+                  "id": "iBhwD",
+                  "name": "navLink3",
+                  "fill": "$text-muted",
+                  "content": "FAQ",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 14
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "gCGAl",
+              "name": "Nav CTA",
+              "fill": "$primary",
+              "cornerRadius": 10,
+              "padding": [
+                8,
+                20
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "vVzMd",
+                  "name": "navCtaText",
+                  "fill": "$text-primary",
+                  "content": "Get Forge →",
+                  "fontFamily": "Satoshi",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "e7Trf",
+          "name": "Hero",
+          "width": "fill_container",
+          "height": 900,
+          "fill": "$bg",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            140,
+            120,
+            80,
+            120
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "rlRr8",
+              "name": "heroLabel",
+              "fill": "$secondary",
+              "content": "FORGE DEVKIT",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 12,
+              "fontWeight": "500",
+              "letterSpacing": 3
+            },
+            {
+              "type": "text",
+              "id": "GrVyw",
+              "name": "heroHeadline",
+              "fill": "$text-primary",
+              "content": "AI agents that respect\nyour codebase",
+              "lineHeight": 1.08,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 64,
+              "fontWeight": "900",
+              "letterSpacing": -1.5
+            },
+            {
+              "type": "text",
+              "id": "k7e7H",
+              "name": "heroSub",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": 640,
+              "content": "Architecture-aware pipeline. Project-specific guardrails, quality patterns, and dev workflows — across any platform.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "NYZhI",
+              "name": "Hero Buttons",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "y5M0o",
+                  "name": "CTA Primary",
+                  "fill": "$primary",
+                  "cornerRadius": 10,
+                  "padding": [
+                    14,
+                    36
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "8TjcA",
+                      "name": "heroCtaText",
+                      "fill": "$text-primary",
+                      "content": "Audit your architecture →",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "6ert1",
+                  "name": "CTA Ghost",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "rgba(165,165,165,0.15)"
+                  },
+                  "padding": [
+                    14,
+                    36
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "l7lWm",
+                      "name": "heroCtaGhostText",
+                      "fill": "$text-muted",
+                      "content": "How it works",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ellipse",
+              "id": "4FFd9",
+              "name": "Glow",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "radial",
+                "enabled": true,
+                "opacity": 0.06,
+                "rotation": 0,
+                "size": {
+                  "width": 1,
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#7649C4",
+                    "position": 0
+                  },
+                  {
+                    "color": "#000000",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": 700,
+              "height": 400
+            },
+            {
+              "type": "frame",
+              "id": "RTU2r",
+              "name": "Terminal",
+              "width": 620,
+              "fill": "$surface-deep",
+              "cornerRadius": 14,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "$border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "tiu2i",
+                  "name": "Terminal Header",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "fFsE1",
+                      "name": "termDot1",
+                      "fill": "#FF5F57",
+                      "width": 10,
+                      "height": 10
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "Hn4Pr",
+                      "name": "termDot2",
+                      "fill": "#FFBD2E",
+                      "width": 10,
+                      "height": 10
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "zitI5",
+                      "name": "termDot3",
+                      "fill": "#28C840",
+                      "width": 10,
+                      "height": 10
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "H6KMP",
+                  "name": "termCmd",
+                  "fill": "$secondary",
+                  "content": "$ forge setup",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "yh8lb",
+                  "name": "termBlank",
+                  "fill": "$text-secondary",
+                  "content": " ",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 8,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "0KrJU",
+                  "name": "termG1",
+                  "fill": "$text-secondary",
+                  "content": "✓ Gate 1: Stack detected — NestJS 10",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "3mPJL",
+                  "name": "termG2",
+                  "fill": "$text-secondary",
+                  "content": "✓ Gate 2: Architecture — Clean Architecture",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "xRz19",
+                  "name": "termG3",
+                  "fill": "$text-secondary",
+                  "content": "✓ Gate 3: 3 layers detected",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "OTeet",
+                  "name": "termG4",
+                  "fill": "$text-secondary",
+                  "content": "✓ Gate 4: PostgreSQL + TypeORM",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "NXcXq",
+                  "name": "termG5",
+                  "fill": "$text-secondary",
+                  "content": "✓ Gate 5: Naming conventions — consistent",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "wPvdn",
+                  "name": "termG6",
+                  "fill": "$text-secondary",
+                  "content": "✓ Gate 6: CI/CD — GitHub Actions",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "YFVtU",
+                  "name": "termG7",
+                  "fill": "$text-secondary",
+                  "content": "✓ Gate 7: 12 dev-skills generated",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "5B7B4",
+                  "name": "termBlank2",
+                  "fill": "$text-secondary",
+                  "content": " ",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 8,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "d0S4F",
+                  "name": "termResult",
+                  "fill": "$text-primary",
+                  "content": "✨ Project ready. AI is now architecture-aware.",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "9Fb7m",
+          "name": "Problem",
+          "width": "fill_container",
+          "fill": "$bg",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            80,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "whH3Y",
+              "name": "probLabel",
+              "fill": "$secondary",
+              "content": "THE PROBLEM",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 12,
+              "fontWeight": "500",
+              "letterSpacing": 3
+            },
+            {
+              "type": "text",
+              "id": "boeHf",
+              "name": "probHead",
+              "fill": "$text-primary",
+              "content": "Your AI doesn't know\nyour project",
+              "lineHeight": 1.12,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 42,
+              "fontWeight": "700",
+              "letterSpacing": -0.8
+            },
+            {
+              "type": "frame",
+              "id": "peaIf",
+              "name": "Pain Grid",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "rG6ON",
+                  "name": "Row 1",
+                  "width": "fill_container",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "isH1G",
+                      "name": "Pain Card 1",
+                      "width": "fill_container",
+                      "fill": "$surface",
+                      "cornerRadius": 14,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$border-subtle"
+                      },
+                      "layout": "vertical",
+                      "padding": 28,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "FAbEF",
+                          "name": "probQ1",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "\"AI breaks DDD modules and shortcuts validations\"",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "normal",
+                          "fontStyle": "italic"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jJQmY",
+                      "name": "Pain Card 2",
+                      "width": "fill_container",
+                      "fill": "$surface",
+                      "cornerRadius": 14,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$border-subtle"
+                      },
+                      "layout": "vertical",
+                      "padding": 28,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ohHAe",
+                          "name": "probQ2",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "\"Millions of tokens for 100 lines. $50/day in bills.\"",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "normal",
+                          "fontStyle": "italic"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "87lko",
+                  "name": "Row 2",
+                  "width": "fill_container",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "rs4l7",
+                      "name": "Pain Card 3",
+                      "width": "fill_container",
+                      "fill": "$surface",
+                      "cornerRadius": 14,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$border-subtle"
+                      },
+                      "layout": "vertical",
+                      "padding": 28,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "1Cylb",
+                          "name": "probQ3",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "\"I re-explain my architecture in every single prompt\"",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "normal",
+                          "fontStyle": "italic"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "wVD3d",
+                      "name": "Pain Card 4",
+                      "width": "fill_container",
+                      "fill": "$surface",
+                      "cornerRadius": 14,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$border-subtle"
+                      },
+                      "layout": "vertical",
+                      "padding": 28,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "0fr10",
+                          "name": "probQ4",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "\"Code looks clean but logic is completely wrong\"",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "normal",
+                          "fontStyle": "italic"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "jydcQ",
+              "name": "probTrans",
+              "fill": "$text-primary",
+              "content": "The problem isn't AI. It's unstructured AI.",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "TwlR2",
+              "name": "Ghost CTA",
+              "cornerRadius": 10,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "rgba(165,165,165,0.15)"
+              },
+              "padding": [
+                12,
+                28
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "djEFG",
+                  "name": "ghostTxt",
+                  "fill": "#A5A5A5",
+                  "content": "See how it works",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "pY2qu",
+          "name": "Solution Overview",
+          "width": "fill_container",
+          "fill": "$bg",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            80,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "y0NxG",
+              "name": "solLabel",
+              "fill": "$secondary",
+              "content": "THE SOLUTION",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 12,
+              "fontWeight": "500",
+              "letterSpacing": 3
+            },
+            {
+              "type": "text",
+              "id": "VBn6G",
+              "name": "solHead",
+              "fill": "$text-primary",
+              "content": "Architecture-aware pipeline\nfor AI agents",
+              "lineHeight": 1.12,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 42,
+              "fontWeight": "700",
+              "letterSpacing": -0.8
+            },
+            {
+              "type": "frame",
+              "id": "ftL8D",
+              "name": "Pillars",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "qcPLt",
+                  "name": "Pillar Audit",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border-subtle"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [
+                    36,
+                    28
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "2CU21",
+                      "name": "p1icon",
+                      "fill": "$secondary",
+                      "content": "◇",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 20,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VdfM5",
+                      "name": "p1label",
+                      "fill": "$secondary",
+                      "content": "AUDIT",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "F1Hw4",
+                      "name": "p1head",
+                      "fill": "$text-primary",
+                      "content": "Understands your project",
+                      "fontFamily": "Inter",
+                      "fontSize": 22,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "2xKCM",
+                      "name": "p1desc",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "7-gate wizard auto-detects stack, layers, architecture patterns, and conventions. No manual config.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "O7cu4",
+                  "name": "Pillar Guard",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border-subtle"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [
+                    36,
+                    28
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "5Ih1i",
+                      "name": "p2icon",
+                      "fill": "$secondary",
+                      "content": "◇",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 20,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "JNaEB",
+                      "name": "p2label",
+                      "fill": "$secondary",
+                      "content": "GUARD",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "1hk5b",
+                      "name": "p2head",
+                      "fill": "$text-primary",
+                      "content": "Enforces your standards",
+                      "fontFamily": "Inter",
+                      "fontSize": 22,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BoC4m",
+                      "name": "p2desc",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "50+ quality patterns, naming conventions, 15 LLM rationalization detectors. Prevention, not detection.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "m8hjM",
+                  "name": "Pillar Pipeline",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border-subtle"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [
+                    36,
+                    28
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Ab1oG",
+                      "name": "p3icon",
+                      "fill": "$secondary",
+                      "content": "◇",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 20,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "87UfM",
+                      "name": "p3label",
+                      "fill": "$secondary",
+                      "content": "PIPELINE",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "wgOIB",
+                      "name": "p3head",
+                      "fill": "$text-primary",
+                      "content": "Structures the workflow",
+                      "fontFamily": "Inter",
+                      "fontSize": 22,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VSM3b",
+                      "name": "p3desc",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Design → Build → Verify. Scoped phases with quality gates. Requirement traceability end to end.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "ihJmn",
+              "name": "solProof",
+              "fill": "$text-primary",
+              "content": "One forge setup → your AI codes like a senior engineer who's read every file.",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "6yHbR",
+          "name": "Deep Dive: Architecture",
+          "width": "fill_container",
+          "fill": "#000000",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            80,
+            120
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "sTv8h",
+              "name": "lbl4",
+              "fill": "#9A75EA",
+              "content": "ARCHITECTURE AUDIT",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 12,
+              "fontWeight": "normal",
+              "letterSpacing": 2.4
+            },
+            {
+              "type": "frame",
+              "id": "habiv",
+              "name": "Content Row",
+              "width": "fill_container",
+              "gap": 48,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Bb4uC",
+                  "name": "Text Column",
+                  "width": 520,
+                  "layout": "vertical",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YHYpo",
+                      "name": "h4",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": 500,
+                      "content": "Your AI forgets your architecture.\nForge doesn't.",
+                      "lineHeight": 1.2,
+                      "fontFamily": "Inter",
+                      "fontSize": 34,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "IrONb",
+                      "name": "fixdesc4",
+                      "fill": "#CCCCCC",
+                      "textGrowth": "fixed-width",
+                      "width": 480,
+                      "content": "7-gate wizard auto-detects your stack, layers, architecture patterns, and conventions. Generates project-specific dev-skills. No manual config. No prompt engineering.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "4hT7n",
+                  "name": "Terminal Column",
+                  "width": 520,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "6TL1K",
+                      "name": "Terminal",
+                      "width": 500,
+                      "fill": "#160B2D",
+                      "cornerRadius": 14,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Ee0OY",
+                          "name": "cmd4",
+                          "fill": "#9A75EA",
+                          "content": "$ forge setup",
+                          "lineHeight": 1.6,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "fThXN",
+                          "name": "blank4a",
+                          "fill": "#A5A5A5",
+                          "content": "Analyzing project structure...",
+                          "lineHeight": 1.6,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "EJzLv",
+                          "name": "blank4b",
+                          "fill": "#000000",
+                          "content": " ",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 8,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Huk5f",
+                          "name": "line4a",
+                          "fill": "#CCCCCC",
+                          "content": "Stack:        NestJS 10.x",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "u1Bag",
+                          "name": "line4b",
+                          "fill": "#CCCCCC",
+                          "content": "Architecture: Clean Architecture",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "3AVFB",
+                          "name": "line4c",
+                          "fill": "#CCCCCC",
+                          "content": "Layers:\n  ├─ domain/        (entities, value objects)\n  ├─ application/   (use cases, ports)\n  └─ infrastructure/ (adapters, repos)",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "fn2n1",
+                          "name": "line4d",
+                          "fill": "#CCCCCC",
+                          "content": "Database:     PostgreSQL 15 + TypeORM\nCI/CD:        GitHub Actions (3 workflows)\nTesting:      Jest + Supertest",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "QUh99",
+                          "name": "sp4",
+                          "fill": "#160B2D",
+                          "content": " ",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 6,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "0xTDe",
+                          "name": "res4a",
+                          "fill": "#9A75EA",
+                          "content": "→ 12 dev-skills generated",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "k097d",
+                          "name": "res4b",
+                          "fill": "#9A75EA",
+                          "content": "→ 47 quality patterns applied",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "CpIjX",
+                          "name": "res4c",
+                          "fill": "#A5A5A5",
+                          "content": "→ Naming: camelCase (code), kebab-case (files)",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "jylPV",
+                          "name": "sp4b",
+                          "fill": "#160B2D",
+                          "content": " ",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 6,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "YqI3I",
+                          "name": "done4",
+                          "fill": "#FFFFFF",
+                          "content": "✨ Project ready.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "q8hl9",
+              "name": "Framework Badges",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "P6dUh",
+                  "name": "b4a",
+                  "fill": "rgba(118,73,196,0.08)",
+                  "cornerRadius": 4,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "4tAps",
+                      "name": "b4at",
+                      "fill": "#9A75EA",
+                      "content": "NestJS",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "TWhj6",
+                  "name": "b4b",
+                  "fill": "rgba(118,73,196,0.08)",
+                  "cornerRadius": 4,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "0gJem",
+                      "name": "b4bt",
+                      "fill": "#9A75EA",
+                      "content": "Django",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "q3BlJ",
+                  "name": "b4c",
+                  "fill": "rgba(118,73,196,0.08)",
+                  "cornerRadius": 4,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "LBGBk",
+                      "name": "b4ct",
+                      "fill": "#9A75EA",
+                      "content": "FastAPI",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XMPjB",
+                  "name": "b4d",
+                  "fill": "rgba(118,73,196,0.08)",
+                  "cornerRadius": 4,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Bricp",
+                      "name": "b4dt",
+                      "fill": "#9A75EA",
+                      "content": "React",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "JwNVR",
+                  "name": "b4e",
+                  "fill": "rgba(118,73,196,0.08)",
+                  "cornerRadius": 4,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "531wu",
+                      "name": "b4et",
+                      "fill": "#9A75EA",
+                      "content": "Vue",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "1IAs5",
+                  "name": "b4f",
+                  "fill": "rgba(118,73,196,0.08)",
+                  "cornerRadius": 4,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "voV9l",
+                      "name": "b4ft",
+                      "fill": "#9A75EA",
+                      "content": "Angular",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ez57v",
+                  "name": "b4g",
+                  "fill": "rgba(118,73,196,0.08)",
+                  "cornerRadius": 4,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "1avlI",
+                      "name": "b4gt",
+                      "fill": "#9A75EA",
+                      "content": "Go",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "yjKdj",
+                  "name": "b4h",
+                  "fill": "rgba(118,73,196,0.08)",
+                  "cornerRadius": 4,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "x54Gr",
+                      "name": "b4ht",
+                      "fill": "#9A75EA",
+                      "content": "Rails",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xvjjb",
+          "name": "Deep Dive: Quality Patterns",
+          "width": "fill_container",
+          "fill": "#000000",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            80,
+            120
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "qKlyT",
+              "name": "lbl5",
+              "fill": "#9A75EA",
+              "content": "QUALITY PATTERNS",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 12,
+              "fontWeight": "normal",
+              "letterSpacing": 2.4
+            },
+            {
+              "type": "frame",
+              "id": "Un6xu",
+              "name": "Content Row",
+              "width": "fill_container",
+              "gap": 48,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "am5rR",
+                  "name": "Code Column",
+                  "width": 480,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "jNtyP",
+                      "name": "Code Block",
+                      "width": 460,
+                      "fill": "#160B2D",
+                      "cornerRadius": 14,
+                      "layout": "vertical",
+                      "gap": 3,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Ske2B",
+                          "name": "warn5",
+                          "fill": "#F59E0B",
+                          "content": "⚠ HALT: AI is skipping input validation",
+                          "lineHeight": 1.6,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "LHK2Y",
+                          "name": "warn5b",
+                          "fill": "#F59E0B",
+                          "content": "  on UserCreateDTO.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "voyMZ",
+                          "name": "sp5a",
+                          "fill": "#160B2D",
+                          "content": " ",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 6,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "cmPGa",
+                          "name": "rule5",
+                          "fill": "#A5A5A5",
+                          "content": "  Rule: All DTOs require class-validator\n  decorators per quality-gates.md",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "O29WT",
+                          "name": "sp5b",
+                          "fill": "#160B2D",
+                          "content": " ",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 6,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ufWH7",
+                          "name": "det5",
+                          "fill": "#CCCCCC",
+                          "content": "  Detected: No validation on 'email',\n  'name', 'password' fields.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "NNSax",
+                          "name": "sp5c",
+                          "fill": "#160B2D",
+                          "content": " ",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 6,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "sBHul",
+                          "name": "act5",
+                          "fill": "#A5A5A5",
+                          "content": "  Action: Adding validators...",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "VqLmK",
+                          "name": "sp5d",
+                          "fill": "#160B2D",
+                          "content": " ",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 6,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "dlnfQ",
+                          "name": "fix5a",
+                          "fill": "#10B981",
+                          "content": "  ✓ Fixed:",
+                          "lineHeight": 1.6,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "qq9Xe",
+                          "name": "fix5b",
+                          "fill": "#10B981",
+                          "content": "    @IsEmail()          email: string\n    @MinLength(2)       name: string\n    @IsStrongPassword()  password: string",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "6Xwiq",
+                          "name": "sp5e",
+                          "fill": "#160B2D",
+                          "content": " ",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 6,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "BMpVS",
+                          "name": "pass5",
+                          "fill": "#10B981",
+                          "content": "  ✓ Validation gate passed.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "1kSXG",
+                  "name": "Text Column",
+                  "width": 480,
+                  "layout": "vertical",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "e9SJy",
+                      "name": "h5",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": 460,
+                      "content": "50 guardrails your AI\ndoesn't know it needs.",
+                      "lineHeight": 1.2,
+                      "fontFamily": "Inter",
+                      "fontSize": 34,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "UhRxv",
+                      "name": "desc5",
+                      "fill": "#CCCCCC",
+                      "textGrowth": "fixed-width",
+                      "width": 460,
+                      "content": "Auth guards, RLS policies, decimal precision, N+1 detection, type coverage — enforced per stack. 15 LLM rationalization detectors catch AI cutting corners before it reaches your codebase.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "uG1q1",
+          "name": "Deep Dive: Structured Pipeline",
+          "width": "fill_container",
+          "fill": "#000000",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            80,
+            120
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "FEXgM",
+              "name": "lbl6",
+              "fill": "#9A75EA",
+              "content": "STRUCTURED PIPELINE",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 12,
+              "fontWeight": "normal",
+              "letterSpacing": 2.4
+            },
+            {
+              "type": "frame",
+              "id": "2VA9n",
+              "name": "Content Row",
+              "width": "fill_container",
+              "gap": 48,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oTcAN",
+                  "name": "Text Column",
+                  "width": 520,
+                  "layout": "vertical",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bW8iF",
+                      "name": "h6",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": 500,
+                      "content": "Structured AI workflows.\nNo runaway sessions.",
+                      "lineHeight": 1.2,
+                      "fontFamily": "Inter",
+                      "fontSize": 34,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "h6vVD",
+                      "name": "desc6",
+                      "fill": "#CCCCCC",
+                      "textGrowth": "fixed-width",
+                      "width": 500,
+                      "content": "Each task flows through scoped phases with quality gates. AI can't spiral into million-token rewrites. Predictable scope, predictable costs.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "5UfDv",
+                  "name": "Pipeline Column",
+                  "width": 520,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "O4xxM",
+                      "name": "Phase 0",
+                      "width": "fill_container",
+                      "fill": "#160B2D",
+                      "cornerRadius": 10,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "GnjKz",
+                          "name": "ph0t",
+                          "fill": "#9A75EA",
+                          "content": "Phase 0: Context",
+                          "lineHeight": 1.4,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "gXFzu",
+                          "name": "ph0l",
+                          "fill": "#CCCCCC",
+                          "content": "  ├─ Read specifications\n  ├─ Load dev-skills\n  └─ ✅ Context ready",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "sUzQ4",
+                      "name": "Phase 1",
+                      "width": "fill_container",
+                      "fill": "#160B2D",
+                      "cornerRadius": 10,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "FSgdW",
+                          "name": "ph1t",
+                          "fill": "#9A75EA",
+                          "content": "Phase 1: Contracts",
+                          "lineHeight": 1.4,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "08s5Q",
+                          "name": "ph1l",
+                          "fill": "#CCCCCC",
+                          "content": "  ├─ Define types and interfaces\n  ├─ Plan module boundaries\n  └─ ✅ Contracts approved",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zb33Z",
+                      "name": "Phase 2",
+                      "width": "fill_container",
+                      "fill": "#160B2D",
+                      "cornerRadius": 10,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "WnIK1",
+                          "name": "ph2t",
+                          "fill": "#9A75EA",
+                          "content": "Phase 2: Implement",
+                          "lineHeight": 1.4,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ZzOsY",
+                          "name": "ph2l",
+                          "fill": "#CCCCCC",
+                          "content": "  ├─ Build within contracts\n  ├─ Agent self-review\n  └─ ✅ Implementation clean",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "uIGIP",
+                      "name": "Phase 3",
+                      "width": "fill_container",
+                      "fill": "#160B2D",
+                      "cornerRadius": 10,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "78PG1",
+                          "name": "ph3t",
+                          "fill": "#9A75EA",
+                          "content": "Phase 3: Verify",
+                          "lineHeight": 1.4,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "2rGvp",
+                          "name": "ph3l",
+                          "fill": "#CCCCCC",
+                          "content": "  ├─ Run generated tests\n  ├─ 12/12 passing ✅\n  └─ ✅ Task complete",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "4v8WZ",
+          "name": "Deep Dive: Tests from Requirements",
+          "width": "fill_container",
+          "fill": "#000000",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            80,
+            120
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "R4s6u",
+              "name": "lbl7",
+              "fill": "#9A75EA",
+              "content": "REQUIREMENT TRACEABILITY",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 12,
+              "fontWeight": "normal",
+              "letterSpacing": 2.4
+            },
+            {
+              "type": "frame",
+              "id": "D0wJu",
+              "name": "Content Row",
+              "width": "fill_container",
+              "gap": 48,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "xyvuE",
+                  "name": "Code Column",
+                  "width": 480,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "gADyq",
+                      "name": "Test Code Block",
+                      "width": 460,
+                      "fill": "#160B2D",
+                      "cornerRadius": 14,
+                      "layout": "vertical",
+                      "gap": 3,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "jSBxH",
+                          "name": "cf7",
+                          "fill": "#9A75EA",
+                          "content": "// checkout.spec.ts",
+                          "lineHeight": 1.6,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "5ymZS",
+                          "name": "sp7a",
+                          "fill": "#160B2D",
+                          "content": " ",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 6,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "GOxaw",
+                          "name": "ds7",
+                          "fill": "#C8B8F4",
+                          "content": "describe('US-3: Order Confirmation', () => {",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "QKpUN",
+                          "name": "sp7b",
+                          "fill": "#160B2D",
+                          "content": " ",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 6,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "DYww7",
+                          "name": "ac1",
+                          "fill": "#9A75EA",
+                          "content": "  // AC: US-3.AC-1",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "njrxN",
+                          "name": "it1",
+                          "fill": "#FFFFFF",
+                          "content": "  it('creates order with valid items\n      and shipping address', async () => {",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "3QSgZ",
+                          "name": "bd1",
+                          "fill": "#CCCCCC",
+                          "content": "    const order = await checkout(validCart);\n    expect(order.status).toBe('confirmed');\n    expect(order.items).toHaveLength(3);\n  });",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "mYS3y",
+                          "name": "sp7c",
+                          "fill": "#160B2D",
+                          "content": " ",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 6,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ILnJ5",
+                          "name": "ac2",
+                          "fill": "#9A75EA",
+                          "content": "  // AC: US-3.AC-2",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "2JTNY",
+                          "name": "it2",
+                          "fill": "#FFFFFF",
+                          "content": "  it('sends confirmation email within\n      5 minutes', async () => {",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "pTLkp",
+                          "name": "bd2",
+                          "fill": "#CCCCCC",
+                          "content": "    await checkout(validCart);\n    const email = await getLastEmail(user);\n    expect(email.subject).toContain('Order');\n  });",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "2Ulys",
+                          "name": "sp7d",
+                          "fill": "#160B2D",
+                          "content": " ",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 6,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "23I7p",
+                          "name": "ac3",
+                          "fill": "#9A75EA",
+                          "content": "  // UX: loading-2",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "QefaV",
+                          "name": "it3",
+                          "fill": "#FFFFFF",
+                          "content": "  it('shows spinner during payment\n      processing', async () => {",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "GVYUs",
+                          "name": "bd3",
+                          "fill": "#CCCCCC",
+                          "content": "    const { getByRole } = render(<Checkout />);\n    fireEvent.click(getByRole('button'));\n    expect(getByRole('progressbar'))\n      .toBeVisible();\n  });\n});",
+                          "lineHeight": 1.5,
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "jrf4p",
+                  "name": "Text Column",
+                  "width": 480,
+                  "layout": "vertical",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "4snqt",
+                      "name": "h7",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": 460,
+                      "content": "Tests that trace back to\nrequirements. Not AI guesswork.",
+                      "lineHeight": 1.2,
+                      "fontFamily": "Inter",
+                      "fontSize": 34,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "hLxa6",
+                      "name": "desc7",
+                      "fill": "#CCCCCC",
+                      "textGrowth": "fixed-width",
+                      "width": 460,
+                      "content": "forge-product creates verifiable acceptance criteria BEFORE code. forge-qa generates tests FROM those criteria. Every test proves a requirement.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "PzGFn",
+          "name": "How It Works",
+          "width": "fill_container",
+          "fill": "#000000",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            80,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "NhCkM",
+              "name": "lbl8",
+              "fill": "#9A75EA",
+              "content": "HOW IT WORKS",
+              "textAlign": "center",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 12,
+              "fontWeight": "normal",
+              "letterSpacing": 2.4
+            },
+            {
+              "type": "text",
+              "id": "uEJBs",
+              "name": "h8",
+              "fill": "#FFFFFF",
+              "content": "One setup. Project-aware AI forever.",
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 42,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "pTsIj",
+              "name": "Step Connector",
+              "width": "fill_container",
+              "padding": [
+                0,
+                130
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "xmuN1",
+                  "name": "dot1",
+                  "width": 12,
+                  "height": 12,
+                  "fill": "#7649C4",
+                  "cornerRadius": 6
+                },
+                {
+                  "type": "frame",
+                  "id": "kUfAf",
+                  "name": "ln1",
+                  "width": "fill_container",
+                  "height": 2,
+                  "fill": "rgba(118,73,196,0.2)"
+                },
+                {
+                  "type": "frame",
+                  "id": "iJb6C",
+                  "name": "dot2",
+                  "width": 12,
+                  "height": 12,
+                  "fill": "#7649C4",
+                  "cornerRadius": 6
+                },
+                {
+                  "type": "frame",
+                  "id": "uehlK",
+                  "name": "ln2",
+                  "width": "fill_container",
+                  "height": 2,
+                  "fill": "rgba(118,73,196,0.2)"
+                },
+                {
+                  "type": "frame",
+                  "id": "eRWCh",
+                  "name": "dot3",
+                  "width": 12,
+                  "height": 12,
+                  "fill": "#7649C4",
+                  "cornerRadius": 6
+                },
+                {
+                  "type": "frame",
+                  "id": "iJejM",
+                  "name": "ln3",
+                  "width": "fill_container",
+                  "height": 2,
+                  "fill": "rgba(118,73,196,0.2)"
+                },
+                {
+                  "type": "frame",
+                  "id": "7IBzu",
+                  "name": "dot4",
+                  "width": 12,
+                  "height": 12,
+                  "fill": "#7649C4",
+                  "cornerRadius": 6
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "AqCbr",
+              "name": "Steps Row",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "cBgYJ",
+                  "name": "Step 1",
+                  "width": "fill_container",
+                  "fill": "#191919",
+                  "cornerRadius": 14,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": [
+                    24,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "a0wxj",
+                      "name": "s1n",
+                      "fill": "rgba(118,73,196,0.3)",
+                      "content": "01",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 32,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "a9Vor",
+                      "name": "s1l",
+                      "fill": "#9A75EA",
+                      "content": "INSTALL",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "FkoYo",
+                      "name": "s1c",
+                      "fill": "#C8B8F4",
+                      "content": "npm i -g @reumbra/forge",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rEff7",
+                      "name": "s1d",
+                      "fill": "#A5A5A5",
+                      "content": "Global CLI install",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ewjxQ",
+                  "name": "Step 2",
+                  "width": "fill_container",
+                  "fill": "#191919",
+                  "cornerRadius": 14,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": [
+                    24,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "9tcAl",
+                      "name": "s2n",
+                      "fill": "rgba(118,73,196,0.3)",
+                      "content": "02",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 32,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "1cesC",
+                      "name": "s2l",
+                      "fill": "#9A75EA",
+                      "content": "ACTIVATE",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "tFfYL",
+                      "name": "s2c",
+                      "fill": "#C8B8F4",
+                      "content": "forge activate <license>",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "RxaXg",
+                      "name": "s2d",
+                      "fill": "#A5A5A5",
+                      "content": "License key from purchase",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "42WLV",
+                  "name": "Step 3",
+                  "width": "fill_container",
+                  "fill": "#191919",
+                  "cornerRadius": 14,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": [
+                    24,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "98M9S",
+                      "name": "s3n",
+                      "fill": "rgba(118,73,196,0.3)",
+                      "content": "03",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 32,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "t3dnN",
+                      "name": "s3l",
+                      "fill": "#9A75EA",
+                      "content": "SETUP",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "IRXjb",
+                      "name": "s3c",
+                      "fill": "#C8B8F4",
+                      "content": "forge setup",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "x9YcD",
+                      "name": "s3d",
+                      "fill": "#A5A5A5",
+                      "content": "7-gate wizard analyzes project",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Pk740",
+                  "name": "Step 4",
+                  "width": "fill_container",
+                  "fill": "#191919",
+                  "cornerRadius": 14,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": [
+                    24,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jE2ly",
+                      "name": "s4n",
+                      "fill": "rgba(118,73,196,0.3)",
+                      "content": "04",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 32,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "XESmD",
+                      "name": "s4l",
+                      "fill": "#9A75EA",
+                      "content": "CODE",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "dzKG4",
+                      "name": "s4c",
+                      "fill": "#C8B8F4",
+                      "content": "Use your AI normally",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ly0H8",
+                      "name": "s4d",
+                      "fill": "#A5A5A5",
+                      "content": "Claude Code / Cursor / Cowork",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "fQ8EM",
+              "name": "Platform Badges",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "99Yiq",
+                  "name": "pb8a",
+                  "fill": "rgba(118,73,196,0.08)",
+                  "cornerRadius": 4,
+                  "padding": [
+                    5,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "HwAck",
+                      "name": "pb8at",
+                      "fill": "#9A75EA",
+                      "content": "Claude Code CLI",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "vwBit",
+                  "name": "pb8b",
+                  "fill": "rgba(118,73,196,0.08)",
+                  "cornerRadius": 4,
+                  "padding": [
+                    5,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "fSyw2",
+                      "name": "pb8bt",
+                      "fill": "#9A75EA",
+                      "content": "Claude Desktop",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Vnp91",
+                  "name": "pb8c",
+                  "fill": "rgba(118,73,196,0.08)",
+                  "cornerRadius": 4,
+                  "padding": [
+                    5,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "nXgYn",
+                      "name": "pb8ct",
+                      "fill": "#9A75EA",
+                      "content": "Cursor",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mcP54",
+                  "name": "pb8d",
+                  "fill": "rgba(118,73,196,0.08)",
+                  "cornerRadius": 4,
+                  "padding": [
+                    5,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "fdpVL",
+                      "name": "pb8dt",
+                      "fill": "#9A75EA",
+                      "content": "Claude Cowork",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "1fH17",
+              "name": "disp8",
+              "fill": "#A5A5A5",
+              "content": "Generated artifacts work independently. Remove the plugin — your rules, tests, and docs stay.",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "0SmOt",
+          "name": "Modules",
+          "width": "fill_container",
+          "fill": "#000000",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            80,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "eNfZr",
+              "name": "lbl9",
+              "fill": "#9A75EA",
+              "content": "MODULES",
+              "textAlign": "center",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 12,
+              "fontWeight": "normal",
+              "letterSpacing": 2.4
+            },
+            {
+              "type": "text",
+              "id": "klyDF",
+              "name": "h9",
+              "fill": "#FFFFFF",
+              "content": "Four modules. One pipeline.",
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 42,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "EJo7F",
+              "name": "forge-core Hero Card",
+              "width": "fill_container",
+              "fill": "#191919",
+              "cornerRadius": 14,
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                36,
+                32
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Qp1tB",
+                  "name": "hrow9",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "TsSah",
+                      "name": "hname9",
+                      "fill": "#FFFFFF",
+                      "content": "◇ forge-core",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "BkwS1",
+                      "name": "badge9",
+                      "fill": "#7649C4",
+                      "cornerRadius": 6,
+                      "padding": [
+                        4,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "1nhbF",
+                          "name": "badge9t",
+                          "fill": "#FFFFFF",
+                          "content": "★ Start here",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "XA2Sc",
+                  "name": "htag9",
+                  "fill": "#CCCCCC",
+                  "content": "Architecture audit & AI guardrails",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "rqsHC",
+                  "name": "hstat9",
+                  "fill": "#9A75EA",
+                  "content": "7-gate wizard  ·  50+ quality patterns  ·  15 rationalization detectors  ·  3 template families",
+                  "lineHeight": 1.5,
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Yl74h",
+              "name": "Module Cards Row",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "YAr3P",
+                  "name": "forge-product",
+                  "width": "fill_container",
+                  "fill": "#191919",
+                  "cornerRadius": 14,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": [
+                    28,
+                    24
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "T1TQg",
+                      "name": "mpn",
+                      "fill": "#FFFFFF",
+                      "content": "◇ forge-product",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "waZLW",
+                      "name": "mpt",
+                      "fill": "#CCCCCC",
+                      "content": "Feature design in business language",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "QhMGk",
+                      "name": "mps",
+                      "fill": "#9A75EA",
+                      "content": "8 product archetypes · User flows · Stories with AC · 50 UX criteria",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "bmntp",
+                  "name": "forge-qa",
+                  "width": "fill_container",
+                  "fill": "#191919",
+                  "cornerRadius": 14,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": [
+                    28,
+                    24
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VYqwS",
+                      "name": "mqn",
+                      "fill": "#FFFFFF",
+                      "content": "◇ forge-qa",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "06X9N",
+                      "name": "mqt",
+                      "fill": "#CCCCCC",
+                      "content": "Tests from requirements",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "NNM4i",
+                      "name": "mqs",
+                      "fill": "#9A75EA",
+                      "content": "8+ test frameworks · AC → unit tests · UC → E2E · Traceability matrix",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "odQQg",
+                  "name": "forge-tracker",
+                  "width": "fill_container",
+                  "fill": "#191919",
+                  "cornerRadius": 14,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": [
+                    28,
+                    24
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Hb0rX",
+                      "name": "mtn",
+                      "fill": "#FFFFFF",
+                      "content": "◇ forge-tracker",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "cCEb7",
+                      "name": "mtt",
+                      "fill": "#CCCCCC",
+                      "content": "Bridge backlog and development",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "t6zGs",
+                      "name": "mts",
+                      "fill": "#9A75EA",
+                      "content": "GitHub · ClickUp · Linear · Notion · Jira",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "itdZ8",
+              "name": "close9",
+              "fill": "#A5A5A5",
+              "content": "Use together for a full pipeline. Use separately — each module works standalone.",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "X7Hpb",
+          "name": "Entrepreneur Mini-Landing",
+          "width": "fill_container",
+          "fill": "#000000",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            80,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "5HqFS",
+              "name": "divider10",
+              "opacity": 0.5,
+              "fill": "#9A75EA",
+              "content": "────────  ◇  ────────  ◇  ────────  ◇  ────────",
+              "textAlign": "center",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "mUVwc",
+              "name": "lbl10",
+              "fill": "#9A75EA",
+              "content": "NOT A DEVELOPER?",
+              "textAlign": "center",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 12,
+              "fontWeight": "normal",
+              "letterSpacing": 2.4
+            },
+            {
+              "type": "text",
+              "id": "hYKo7",
+              "name": "h10",
+              "fill": "#FFFFFF",
+              "content": "MVP your future team\nwon't hate",
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 42,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "2OCjY",
+              "name": "sub10",
+              "fill": "#CCCCCC",
+              "content": "Forge guides AI to build production-grade code from your business idea.\nNo dev skills required for the design phase.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 17,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "dgCel",
+              "name": "Card: Feature Design",
+              "width": "fill_container",
+              "fill": "#191919",
+              "cornerRadius": 14,
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                36,
+                28
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "HziWh",
+                  "name": "c10al",
+                  "fill": "#9A75EA",
+                  "content": "FEATURE DESIGN",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "5N0uO",
+                  "name": "c10aq",
+                  "fill": "#A5A5A5",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "“Have an idea but no team.”",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal",
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "text",
+                  "id": "TJnSj",
+                  "name": "c10ad",
+                  "fill": "#CCCCCC",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Describe features in business language. Forge creates user flows, stories, acceptance criteria. AI builds from that spec with architecture guardrails.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "vdAJU",
+                  "name": "Mini Terminal",
+                  "width": "fill_container",
+                  "fill": "#160B2D",
+                  "cornerRadius": 10,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": [
+                    16,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ObYWd",
+                      "name": "c10atc",
+                      "fill": "#9A75EA",
+                      "content": "$ forge design \"subscription checkout\"",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "0mM3b",
+                      "name": "c10ats",
+                      "fill": "#160B2D",
+                      "content": " ",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 4,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "9eIsf",
+                      "name": "c10at1",
+                      "fill": "#CCCCCC",
+                      "content": "→ User flow generated (5 steps)",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "smh7W",
+                      "name": "c10at2",
+                      "fill": "#CCCCCC",
+                      "content": "→ 4 user stories with AC",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BNk5Y",
+                      "name": "c10at3",
+                      "fill": "#CCCCCC",
+                      "content": "→ 12 UX criteria applied",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "YttoO",
+                      "name": "c10at4",
+                      "fill": "#10B981",
+                      "content": "→ Ready for implementation",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vNsZn",
+              "name": "Card: Transparent Pipeline",
+              "width": "fill_container",
+              "fill": "#191919",
+              "cornerRadius": 14,
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                36,
+                28
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "XHE0d",
+                  "name": "c10bl",
+                  "fill": "#9A75EA",
+                  "content": "TRANSPARENT PIPELINE",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "qpLPQ",
+                  "name": "c10bq",
+                  "fill": "#A5A5A5",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "“AI changes files but I don’t know what it did.”",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal",
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "text",
+                  "id": "eR5to",
+                  "name": "c10bd",
+                  "fill": "#CCCCCC",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "See every phase: design → build → verify. Green/red test results without reading code. Every piece traces back to a requirement you wrote.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "FhNlu",
+                  "name": "Phase Indicators",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "btQWA",
+                      "name": "c10bp1",
+                      "fill": "#10B981",
+                      "content": "Phase 1: contracts ✅",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "yM0np",
+                      "name": "c10bp2",
+                      "fill": "#10B981",
+                      "content": "Phase 2: implement ✅",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "17SHX",
+                      "name": "c10bp3",
+                      "fill": "#10B981",
+                      "content": "Phase 3: verify (12/12 tests pass) ✅",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "9o3ze",
+              "name": "Card: Handoff-Ready",
+              "width": "fill_container",
+              "fill": "#191919",
+              "cornerRadius": 14,
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                36,
+                28
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "jupjT",
+                  "name": "c10cl",
+                  "fill": "#9A75EA",
+                  "content": "HANDOFF-READY",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "INOH3",
+                  "name": "c10cq",
+                  "fill": "#A5A5A5",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "“When I hire devs, will they say throw it away and rewrite?”",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal",
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "text",
+                  "id": "0TWbG",
+                  "name": "c10cd",
+                  "fill": "#CCCCCC",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Production-grade code from day one. Clean architecture, naming conventions, quality patterns, generated tests. Forge artifacts survive removal — your code, rules, and tests stay yours.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "h4LFy",
+                  "name": "c10cc",
+                  "fill": "#FFFFFF",
+                  "content": "“No team yet. But the codebase is ready for one.”",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "s2dy5",
+              "name": "Entrepreneur CTA",
+              "fill": "#7649C4",
+              "cornerRadius": 10,
+              "padding": [
+                14,
+                36
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ernwX",
+                  "name": "cta10t",
+                  "fill": "#FFFFFF",
+                  "content": "Design your first feature →",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "pkz0H",
+          "name": "Pricing",
+          "width": "fill_container",
+          "fill": "#000000",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            80,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "5WSIQ",
+              "name": "lbl11",
+              "fill": "#9A75EA",
+              "content": "PRICING",
+              "textAlign": "center",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 12,
+              "fontWeight": "normal",
+              "letterSpacing": 2.4
+            },
+            {
+              "type": "text",
+              "id": "JdYJF",
+              "name": "h11",
+              "fill": "#FFFFFF",
+              "content": "Transparent pricing. No token billing.",
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 42,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "2Mph8",
+              "name": "Pricing Cards",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "rcbee",
+                  "name": "Core Tier",
+                  "width": "fill_container",
+                  "fill": "#191919",
+                  "cornerRadius": 14,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [
+                    36,
+                    28
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pdh8c",
+                      "name": "coren",
+                      "fill": "#9A75EA",
+                      "content": "CORE",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "KS3U8",
+                      "name": "corep",
+                      "fill": "#FFFFFF",
+                      "content": "$29/mo",
+                      "fontFamily": "Inter",
+                      "fontSize": 48,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "qeP1b",
+                      "name": "corei",
+                      "fill": "#C8B8F4",
+                      "content": "forge-core",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "GatAa",
+                      "name": "coref",
+                      "fill": "#CCCCCC",
+                      "content": "✓ Architecture audit\n✓ Quality patterns\n✓ Dev-skills generation\n✓ Pipeline phases",
+                      "lineHeight": 1.8,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "lnflp",
+                      "name": "coreb",
+                      "width": "fill_container",
+                      "fill": "transparent",
+                      "cornerRadius": 10,
+                      "padding": [
+                        12,
+                        0
+                      ],
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "7cYJo",
+                          "name": "corebt",
+                          "fill": "#CCCCCC",
+                          "content": "Get Core",
+                          "textAlign": "center",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "h2NaE",
+                  "name": "Pro Tier",
+                  "width": "fill_container",
+                  "fill": "#191919",
+                  "cornerRadius": 14,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [
+                    36,
+                    28
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "2ie4b",
+                      "name": "probd",
+                      "fill": "#7649C4",
+                      "cornerRadius": 6,
+                      "padding": [
+                        4,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "gAPFa",
+                          "name": "probdt",
+                          "fill": "#FFFFFF",
+                          "content": "★ Popular",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "RhPP9",
+                      "name": "pron",
+                      "fill": "#9A75EA",
+                      "content": "PRO",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "0gFmD",
+                      "name": "prop",
+                      "fill": "#FFFFFF",
+                      "content": "$79/mo",
+                      "fontFamily": "Inter",
+                      "fontSize": 48,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FcJiu",
+                      "name": "proi",
+                      "fill": "#C8B8F4",
+                      "content": "forge-core + forge-product + forge-qa",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "uFNll",
+                      "name": "prof",
+                      "fill": "#CCCCCC",
+                      "content": "✓ Everything in Core\n✓ Feature design from business language\n✓ Tests from requirements\n✓ Full pipeline: design to tested code",
+                      "lineHeight": 1.8,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ikONk",
+                      "name": "prob",
+                      "width": "fill_container",
+                      "fill": "#7649C4",
+                      "cornerRadius": 10,
+                      "padding": [
+                        14,
+                        0
+                      ],
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "bDWv6",
+                          "name": "probt",
+                          "fill": "#FFFFFF",
+                          "content": "Get Pro →",
+                          "textAlign": "center",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "kdzPf",
+                  "name": "Team Tier",
+                  "width": "fill_container",
+                  "fill": "#191919",
+                  "cornerRadius": 14,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [
+                    36,
+                    28
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pR1eL",
+                      "name": "teamn",
+                      "fill": "#9A75EA",
+                      "content": "TEAM",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "7pynh",
+                      "name": "teamp",
+                      "fill": "#FFFFFF",
+                      "content": "$149/mo",
+                      "fontFamily": "Inter",
+                      "fontSize": 48,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Gjgra",
+                      "name": "teami",
+                      "fill": "#C8B8F4",
+                      "content": "All 4 modules + team features",
+                      "lineHeight": 1.5,
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gmLC6",
+                      "name": "teamf",
+                      "fill": "#CCCCCC",
+                      "content": "✓ Everything in Pro\n✓ forge-tracker integration\n✓ Team roles & review workflow\n✓ Multi-dev coordination",
+                      "lineHeight": 1.8,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "UcURf",
+                      "name": "teamb",
+                      "width": "fill_container",
+                      "fill": "transparent",
+                      "cornerRadius": 10,
+                      "padding": [
+                        12,
+                        0
+                      ],
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "NcU7F",
+                          "name": "teambt",
+                          "fill": "#CCCCCC",
+                          "content": "Get Team",
+                          "textAlign": "center",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "3bbPQ",
+              "name": "trust11",
+              "fill": "#A5A5A5",
+              "content": "Flat monthly. No per-token charges. Cancel anytime.\nYour generated artifacts stay forever.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "3NhT0",
+          "name": "Author / Trust",
+          "width": "fill_container",
+          "fill": "#000000",
+          "layout": "vertical",
+          "gap": 36,
+          "padding": [
+            80,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "1RnaX",
+              "name": "lbl12",
+              "fill": "#9A75EA",
+              "content": "BUILT BY",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 12,
+              "fontWeight": "normal",
+              "letterSpacing": 2.4
+            },
+            {
+              "type": "text",
+              "id": "wt1JV",
+              "name": "h12",
+              "fill": "#FFFFFF",
+              "content": "By a developer, for developers",
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 36,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "6QI70",
+              "name": "Author Row",
+              "gap": 24,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "12t7f",
+                  "name": "Photo Placeholder",
+                  "width": 96,
+                  "height": 96,
+                  "fill": "#191919",
+                  "cornerRadius": 14
+                },
+                {
+                  "type": "frame",
+                  "id": "r9chO",
+                  "name": "ainfo",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Zax5N",
+                      "name": "aname",
+                      "fill": "#FFFFFF",
+                      "content": "Martin Sikora",
+                      "fontFamily": "Inter",
+                      "fontSize": 22,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "QNC7D",
+                      "name": "atitle",
+                      "fill": "#CCCCCC",
+                      "content": "Senior Engineer · Founder, Reumbra",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "a5bn8",
+              "name": "Quote Block",
+              "width": 640,
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "amUb7",
+                  "name": "quotel",
+                  "width": 2,
+                  "height": "fill_container",
+                  "fill": "#7649C4"
+                },
+                {
+                  "type": "text",
+                  "id": "kkZ2Y",
+                  "name": "quotet",
+                  "fill": "#CCCCCC",
+                  "textGrowth": "fixed-width",
+                  "width": 600,
+                  "content": "“I built Forge because I was tired of re-explaining my architecture to AI agents. Every project, every prompt, the same context from scratch. So I encoded 10 years of engineering decisions into a system that does it automatically.”",
+                  "lineHeight": 1.7,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal",
+                  "fontStyle": "italic"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "qbl6c",
+              "name": "alink",
+              "fill": "#9A75EA",
+              "content": "reumbra.com →",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "V1VsI",
+          "name": "FAQ",
+          "width": "fill_container",
+          "fill": "#000000",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            80,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "6O1k4",
+              "name": "lbl13",
+              "fill": "#9A75EA",
+              "content": "FAQ",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 12,
+              "fontWeight": "normal",
+              "letterSpacing": 2.4
+            },
+            {
+              "type": "text",
+              "id": "ovAqi",
+              "name": "h13",
+              "fill": "#FFFFFF",
+              "content": "Frequently asked questions",
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 36,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "hO4JE",
+              "name": "FAQ Items",
+              "width": "fill_container",
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "iHb84",
+                  "name": "FAQ 1 (expanded)",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MJLOH",
+                      "name": "fq1",
+                      "fill": "#FFFFFF",
+                      "content": "▾  How is this different from writing .cursorrules myself?",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "sOpdW",
+                      "name": "fa1",
+                      "fill": "#CCCCCC",
+                      "content": "Auto-generated from architecture audit. Full pipeline, not just rules. Platform-agnostic — works in Cursor AND Claude Code AND Cowork.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Z59sf",
+                  "name": "FAQ 2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "qvTVQ",
+                      "name": "fq2",
+                      "fill": "#FFFFFF",
+                      "content": "▸  Does it work with my stack?",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "zwe6G",
+                  "name": "FAQ 3",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "EfaQd",
+                      "name": "fq3",
+                      "fill": "#FFFFFF",
+                      "content": "▸  What if I remove Forge?",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fC285",
+                  "name": "FAQ 4",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "igqpH",
+                      "name": "fq4",
+                      "fill": "#FFFFFF",
+                      "content": "▸  Does it work outside Claude Code?",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "hN1nG",
+                  "name": "FAQ 5",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "njINB",
+                      "name": "fq5",
+                      "fill": "#FFFFFF",
+                      "content": "▸  Do I need coding skills to use this?",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "InzDH",
+                  "name": "FAQ 6",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ecKrV",
+                      "name": "fq6",
+                      "fill": "#FFFFFF",
+                      "content": "▸  How is this different from Bolt or Lovable?",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "FDc2B",
+                  "name": "FAQ 7",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uKudj",
+                      "name": "fq7",
+                      "fill": "#FFFFFF",
+                      "content": "▸  Will a real developer be able to work with this code?",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "rwIgy",
+          "name": "Final CTA",
+          "width": "fill_container",
+          "fill": "#000000",
+          "layout": "vertical",
+          "gap": 36,
+          "padding": [
+            100,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "3f5jc",
+              "name": "Glow",
+              "width": 600,
+              "height": 300,
+              "fill": "radial-gradient(circle, rgba(118,73,196,0.15) 0%, transparent 70%)"
+            },
+            {
+              "type": "text",
+              "id": "A1n8H",
+              "name": "h14",
+              "fill": "#FFFFFF",
+              "content": "Ready to make your AI\narchitecture-aware?",
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 36,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "sHqcl",
+              "name": "Final CTA Button",
+              "fill": "#7649C4",
+              "cornerRadius": 10,
+              "padding": [
+                18,
+                48
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "16uO1",
+                  "name": "cta14t",
+                  "fill": "#FFFFFF",
+                  "content": "Get Forge →",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "HoGXL",
+          "name": "Footer",
+          "width": "fill_container",
+          "fill": "#000000",
+          "padding": [
+            40,
+            120
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "bYX4T",
+              "name": "fleft",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "IvvYY",
+                  "name": "flogo",
+                  "fill": "#FFFFFF",
+                  "content": "◇ Forge DevKit",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "cTJMk",
+                  "name": "fby",
+                  "fill": "#A5A5A5",
+                  "content": "by Reumbra",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "AQU4Q",
+                  "name": "fcopy",
+                  "fill": "#A5A5A5",
+                  "content": "© 2026 Reumbra OÜ",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "97sYq",
+              "name": "fright",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "K9tap",
+                  "name": "fnav",
+                  "fill": "#A5A5A5",
+                  "content": "Docs  ·  Pricing  ·  FAQ",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "HlE1O",
+                  "name": "flegal",
+                  "fill": "#A5A5A5",
+                  "content": "Privacy Policy  ·  Terms of Service  ·  Refund Policy",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "accent-light": {
+      "type": "color",
+      "value": "#E0D7FF"
+    },
+    "accent-soft": {
+      "type": "color",
+      "value": "#C8B8F4"
+    },
+    "bg": {
+      "type": "color",
+      "value": "#000000"
+    },
+    "border-hover": {
+      "type": "color",
+      "value": "#2D1B4E"
+    },
+    "border-subtle": {
+      "type": "color",
+      "value": "#1E1235"
+    },
+    "primary": {
+      "type": "color",
+      "value": "#7649C4"
+    },
+    "secondary": {
+      "type": "color",
+      "value": "#9A75EA"
+    },
+    "success": {
+      "type": "color",
+      "value": "#10B981"
+    },
+    "surface": {
+      "type": "color",
+      "value": "#191919"
+    },
+    "surface-deep": {
+      "type": "color",
+      "value": "#160B2D"
+    },
+    "text-muted": {
+      "type": "color",
+      "value": "#A5A5A5"
+    },
+    "text-primary": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": "#CCCCCC"
+    },
+    "warning": {
+      "type": "color",
+      "value": "#F59E0B"
+    }
+  }
+}
