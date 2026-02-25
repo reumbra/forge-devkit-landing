@@ -33,8 +33,8 @@ export const modules = {
 			isHero: true,
 			badge: "Start here",
 			stats: [
-				"7-gate wizard",
-				"50+ quality patterns",
+				"8-gate wizard",
+				"24 quality patterns",
 				"15 rationalization detectors",
 				"3 template families",
 			],

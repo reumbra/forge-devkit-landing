@@ -36,8 +36,8 @@ export const footer = {
 	copyright: "\u00a9 2026 Reumbra O\u00dc",
 	finalCta: {
 		headline: "Your AI should respect your architecture.",
-		subheadline: "50+ guardrails. 7-gate audit. Tests from requirements. One setup.",
-		buttonLabel: "Start with Core \u2014 $29/mo \u2192",
+		subheadline: "24 guardrails. 8-gate audit. Tests from requirements. One setup.",
+		buttonLabel: "Start with Core \u2014 $29/yr \u2192",
 		buttonHref: "#pricing",
 		trustLine: "Cancel anytime. 14-day money-back guarantee.",
 	},

@@ -9,8 +9,8 @@ export interface SocialProofConfig {
 
 export const socialProof = {
 	stats: [
-		{ value: "50+", label: "quality patterns" },
-		{ value: "7-gate", label: "architecture audit" },
+		{ value: "24", label: "quality guardrails" },
+		{ value: "8-gate", label: "architecture audit" },
 		{ value: "8+", label: "frameworks supported" },
 	],
 } as const satisfies SocialProofConfig;

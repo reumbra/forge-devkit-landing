@@ -37,7 +37,7 @@ export const howItWorks = {
 			number: 3,
 			label: "SETUP",
 			command: "forge setup",
-			description: "7-gate wizard analyzes project, generates dev-skills",
+			description: "8-gate wizard analyzes project, generates dev-skills",
 		},
 		{
 			number: 4,

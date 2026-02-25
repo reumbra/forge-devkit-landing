@@ -30,13 +30,13 @@ export const solution = {
 			label: "AUDIT",
 			headline: "Understands your project",
 			description:
-				"7-gate wizard auto-detects stack, layers, architecture patterns, and conventions. No manual config.",
+				"8-gate wizard auto-detects stack, layers, architecture patterns, and conventions. No manual config.",
 		},
 		{
 			label: "GUARD",
 			headline: "Enforces your standards",
 			description:
-				"50+ quality patterns, naming conventions, 15 LLM rationalization detectors. Prevention, not detection.",
+				"24 quality patterns, naming conventions, 15 LLM rationalization detectors. Prevention, not detection.",
 		},
 		{
 			label: "PIPELINE",

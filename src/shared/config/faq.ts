@@ -80,7 +80,7 @@ export const faq = {
 			id: "roi",
 			question: "What's the ROI of using Forge?",
 			answer:
-				"Teams report 40-60% fewer AI-generated regressions and 2-3x faster code reviews. At $29-79/mo, one prevented production bug pays for months of the subscription.",
+				"One prevented production bug pays for the entire year. At $29\u201379/yr, the subscription costs less than a single hour of debugging AI-generated regressions.",
 			audience: "both",
 		},
 	],

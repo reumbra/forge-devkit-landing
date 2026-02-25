@@ -30,7 +30,7 @@ export const deepDives = [
 		sectionLabel: "ARCHITECTURE AUDIT",
 		headline: "Your AI forgets your architecture. Forge doesn\u2019t.",
 		description:
-			"7-gate wizard auto-detects your stack, layers, architecture patterns, and conventions. Generates project-specific dev-skills. No manual config. No prompt engineering.",
+			"8-gate wizard auto-detects your stack, layers, architecture patterns, and conventions. Generates project-specific dev-skills. No manual config. No prompt engineering.",
 		layout: "text-left",
 		visual: {
 			lines: [
@@ -49,7 +49,7 @@ export const deepDives = [
 				{ text: "Testing:    Jest + Supertest", type: "info" },
 				{ text: "", type: "blank" },
 				{ text: "\u2192 12 dev-skills generated", type: "success" },
-				{ text: "\u2192 47 quality patterns applied", type: "success" },
+				{ text: "\u2192 24 quality patterns applied", type: "success" },
 				{ text: "\u2192 Naming conventions: camelCase (code),", type: "success" },
 				{ text: "  kebab-case (files), PascalCase (classes)", type: "success" },
 				{ text: "", type: "blank" },
@@ -70,7 +70,7 @@ export const deepDives = [
 	{
 		id: "quality-patterns",
 		sectionLabel: "QUALITY PATTERNS",
-		headline: "50 guardrails your AI doesn\u2019t know it needs.",
+		headline: "24 guardrails your AI doesn\u2019t know it needs.",
 		description:
 			"Auth guards, RLS policies, decimal precision, N+1 detection, type coverage \u2014 enforced per stack. 15 LLM rationalization detectors catch AI cutting corners before it reaches your codebase.",
 		layout: "text-right",

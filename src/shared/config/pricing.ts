@@ -7,6 +7,7 @@ export interface PricingTier {
 	name: string;
 	price: number;
 	period: string;
+	monthlyEquivalent: string;
 	description: string;
 	features: string[];
 	cta: string;
@@ -30,13 +31,14 @@ export const pricing = {
 			id: "core",
 			name: "CORE",
 			price: 29,
-			period: "/mo",
+			period: "/yr",
+			monthlyEquivalent: "~$2.42/mo",
 			description: "Foundation for architecture-aware AI development",
 			features: [
-				"7-gate architecture audit",
-				"50+ quality patterns",
-				"Auto-generated dev-skills",
-				"Pipeline phase orchestration",
+				"Auto-detects your stack, layers, conventions",
+				"24 quality guardrails for AI-generated code",
+				"Project-aware dev-skills \u2014 one setup, forever",
+				"Scoped phases prevent runaway sessions",
 			],
 			cta: "Get Core",
 			// TODO: Replace with real LemonSqueezy product URL
@@ -47,12 +49,13 @@ export const pricing = {
 			id: "pro",
 			name: "PRO",
 			price: 79,
-			period: "/mo",
+			period: "/yr",
+			monthlyEquivalent: "~$6.58/mo",
 			description: "Complete pipeline from design to tested code",
 			features: [
 				"Everything in Core",
-				"Feature design in business language",
-				"Test generation from requirements",
+				"Describe features in business language \u2014 AI builds from spec",
+				"Tests that trace back to requirements, not AI guesswork",
 				"Full pipeline: design \u2192 code \u2192 test",
 			],
 			cta: "Get Pro \u2192",
@@ -62,28 +65,28 @@ export const pricing = {
 			badge: "Popular",
 		},
 		{
-			id: "team",
-			name: "TEAM",
+			id: "full",
+			name: "FULL",
 			price: 149,
-			period: "/mo",
-			description: "Scale AI-driven development across your team",
+			period: "/yr",
+			monthlyEquivalent: "~$12.42/mo",
+			description: "All modules today. Every new module tomorrow. One subscription.",
 			features: [
 				"Everything in Pro",
-				"forge-tracker integration",
-				"Roles and permissions",
-				"Review workflow",
-				"Escalation rules",
-				"Multi-dev coordination",
+				"Task tracker sync \u2014 GitHub, Linear, ClickUp, Jira, Notion",
+				"Review workflow with team roles",
+				"Blocker detection and escalation",
+				"Every future module included at no extra cost",
 			],
-			cta: "Get Team",
+			cta: "Get Full",
 			// TODO: Replace with real LemonSqueezy product URL
-			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-team",
+			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-full",
 			isPopular: false,
 		},
 	],
 	trustSignals: [
 		"14-day money-back guarantee. No questions asked.",
-		"Flat monthly. No per-token charges.",
+		"Annual billing. No per-token charges.",
 		"Cancel anytime. Your generated artifacts stay forever.",
 	],
 } as const satisfies PricingConfig;
