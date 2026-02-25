@@ -59,13 +59,6 @@ const { logo, links, cta } = navigation;
 		</button>
 	</Container>
 
-	{/* Mobile menu backdrop */}
-	<div
-		id="nav-backdrop"
-		class="fixed inset-0 top-[64px] -z-10 hidden bg-black/60 md:hidden"
-		aria-hidden="true"
-	></div>
-
 	{/* Mobile menu */}
 	<div
 		id="nav-menu"
@@ -86,6 +79,13 @@ const { logo, links, cta } = navigation;
 		</Container>
 	</div>
 </nav>
+
+{/* Mobile menu backdrop — outside nav to avoid stacking context issues */}
+<div
+	id="nav-backdrop"
+	class="fixed inset-0 top-[64px] z-40 hidden bg-black/60 md:hidden"
+	aria-hidden="true"
+></div>
 
 <script>
 	const toggle = document.getElementById("nav-toggle");
