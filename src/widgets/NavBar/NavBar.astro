@@ -41,7 +41,7 @@ const { logo, links, cta } = navigation;
 		<button
 			type="button"
 			id="nav-toggle"
-			class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px]"
+			class="md:hidden flex flex-col justify-center items-center w-11 h-11 gap-[5px]"
 			aria-label="Toggle menu"
 			aria-expanded="false"
 		>
@@ -56,11 +56,11 @@ const { logo, links, cta } = navigation;
 		id="nav-menu"
 		class="md:hidden hidden bg-nav border-t border-card"
 	>
-		<Container class="flex flex-col gap-4 py-6">
+		<Container class="flex flex-col gap-1 py-4">
 			{links.map((link) => (
 				<a
 					href={link.href}
-					class="font-sans text-[15px] font-normal text-text-muted hover:text-white transition-colors duration-300 ease-in-out"
+					class="font-sans text-[15px] font-normal text-text-muted hover:text-white transition-colors duration-300 ease-in-out py-3"
 				>
 					{link.label}
 				</a>

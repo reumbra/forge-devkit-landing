@@ -1,13 +1,20 @@
 ---
 import Container from "@shared/ui/Container.astro";
 import Button from "@shared/ui/Button.astro";
+
+interface Props {
+	label?: string;
+	href?: string;
+}
+
+const { label = "See how it works", href = "#how-it-works" } = Astro.props;
 ---
 
-<div class="py-8">
+<div class="py-6 md:py-8">
 	<Container>
 		<div class="text-center">
-			<Button variant="ghost" href="#how-it-works">
-				See how it works &#8594;
+			<Button variant="ghost" href={href}>
+				{label} &#8594;
 			</Button>
 		</div>
 	</Container>

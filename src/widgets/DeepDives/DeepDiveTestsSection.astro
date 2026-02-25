@@ -8,16 +8,16 @@ const section = deepDives[3];
 const codeLines = section.visual.lines.map((line) => line.text);
 ---
 
-<section id={section.id} class="py-24 md:py-32">
+<section id={section.id} class="py-10 md:py-20 lg:py-24">
 	<Container>
-		<div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
-			{/* Visual side — left on desktop (order-1 on md), second on mobile (order-2) */}
-			<div class="order-2 md:order-1">
+		<div class="grid grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
+			{/* Visual side — left on desktop (order-1 on lg), second on mobile (order-2) */}
+			<div class="order-2 lg:order-1">
 				<CodeBlock lines={codeLines} withGlow />
 			</div>
 
-			{/* Text side — right on desktop (order-2 on md), first on mobile (order-1) */}
-			<div class="order-1 md:order-2">
+			{/* Text side — right on desktop (order-2 on lg), first on mobile (order-1) */}
+			<div class="order-1 lg:order-2">
 				<SectionLabel text={section.sectionLabel} />
 
 				<h2 class="mt-4 font-sans text-[32px] font-bold leading-[1.15] tracking-[-0.02em] text-text md:text-[40px]">

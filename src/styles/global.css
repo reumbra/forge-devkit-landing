@@ -93,10 +93,15 @@
 /* ── Base Resets ── */
 
 html {
-	scroll-behavior: smooth;
 	overflow-x: clip;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
 }
 
 /* Anchor targets must clear the fixed navbar (66px + 14px buffer) */

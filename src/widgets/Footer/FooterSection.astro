@@ -22,12 +22,12 @@ import { footer } from "@shared/config/footer";
 			{/* Right — nav links + legal links */}
 			<div class="flex gap-12">
 				{/* Nav links column */}
-				<div class="flex flex-col gap-3">
+				<div class="flex flex-col gap-1">
 					{
 						footer.navLinks.map((link) => (
 							<a
 								href={link.href}
-								class="font-sans text-[14px] text-text-muted transition-colors duration-300 hover:text-text"
+								class="inline-block py-2 font-sans text-[14px] text-text-muted transition-colors duration-300 hover:text-text"
 							>
 								{link.label}
 							</a>
@@ -36,12 +36,12 @@ import { footer } from "@shared/config/footer";
 				</div>
 
 				{/* Legal links column */}
-				<div class="flex flex-col gap-3">
+				<div class="flex flex-col gap-1">
 					{
 						footer.legalLinks.map((link) => (
 							<a
 								href={link.href}
-								class="font-sans text-[14px] text-text-muted transition-colors duration-300 hover:text-text"
+								class="inline-block py-2 font-sans text-[14px] text-text-muted transition-colors duration-300 hover:text-text"
 							>
 								{link.label}
 							</a>

@@ -12,8 +12,10 @@ export interface FooterConfig {
 	copyright: string;
 	finalCta: {
 		headline: string;
+		subheadline: string;
 		buttonLabel: string;
 		buttonHref: string;
+		trustLine: string;
 	};
 }
 
@@ -33,8 +35,10 @@ export const footer = {
 	],
 	copyright: "\u00a9 2026 Reumbra O\u00dc",
 	finalCta: {
-		headline: "Ready to make your AI architecture-aware?",
-		buttonLabel: "Get Forge \u2192",
+		headline: "Your AI should respect your architecture.",
+		subheadline: "50+ guardrails. 7-gate audit. Tests from requirements. One setup.",
+		buttonLabel: "Start with Core \u2014 $29/mo \u2192",
 		buttonHref: "#pricing",
+		trustLine: "Cancel anytime. 14-day money-back guarantee.",
 	},
 } as const satisfies FooterConfig;
