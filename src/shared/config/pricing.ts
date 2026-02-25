@@ -31,12 +31,12 @@ export const pricing = {
 			name: "CORE",
 			price: 29,
 			period: "/mo",
-			description: "forge-core",
+			description: "Foundation for architecture-aware AI development",
 			features: [
-				"Architecture audit",
-				"Quality patterns",
-				"Dev-skills generation",
-				"Pipeline phases",
+				"7-gate architecture audit",
+				"50+ quality patterns",
+				"Auto-generated dev-skills",
+				"Pipeline phase orchestration",
 			],
 			cta: "Get Core",
 			// TODO: Replace with real LemonSqueezy product URL
@@ -48,12 +48,12 @@ export const pricing = {
 			name: "PRO",
 			price: 79,
 			period: "/mo",
-			description: "forge-core + forge-product + forge-qa",
+			description: "Complete pipeline from design to tested code",
 			features: [
 				"Everything in Core",
 				"Feature design in business language",
 				"Test generation from requirements",
-				"Full pipeline: from feature design to tested code",
+				"Full pipeline: design \u2192 code \u2192 test",
 			],
 			cta: "Get Pro \u2192",
 			// TODO: Replace with real LemonSqueezy product URL
@@ -66,7 +66,7 @@ export const pricing = {
 			name: "TEAM",
 			price: 149,
 			period: "/mo",
-			description: "All 4 modules + team features",
+			description: "Scale AI-driven development across your team",
 			features: [
 				"Everything in Pro",
 				"forge-tracker integration",
@@ -82,6 +82,7 @@ export const pricing = {
 		},
 	],
 	trustSignals: [
+		"14-day money-back guarantee. No questions asked.",
 		"Flat monthly. No per-token charges.",
 		"Cancel anytime. Your generated artifacts stay forever.",
 	],

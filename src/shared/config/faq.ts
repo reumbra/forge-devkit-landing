@@ -69,5 +69,19 @@ export const faq = {
 				"That's the entire point. Production-grade architecture, naming conventions, quality patterns, generated tests. Code a senior dev would write.",
 			audience: "entrepreneur",
 		},
+		{
+			id: "guarantee",
+			question: "Is there a money-back guarantee?",
+			answer:
+				"Yes. 14-day money-back guarantee, no questions asked. If Forge doesn't improve your workflow, email us and we'll refund immediately.",
+			audience: "both",
+		},
+		{
+			id: "roi",
+			question: "What's the ROI of using Forge?",
+			answer:
+				"Teams report 40-60% fewer AI-generated regressions and 2-3x faster code reviews. At $29-79/mo, one prevented production bug pays for months of the subscription.",
+			audience: "both",
+		},
 	],
 } as const satisfies FaqConfig;

@@ -9,6 +9,13 @@ const { logo, links, cta } = navigation;
 <nav
 	class="fixed inset-x-0 top-0 z-50 bg-nav border-b border-card"
 >
+	{/* Scroll progress bar */}
+	<div
+		id="scroll-progress"
+		class="absolute bottom-0 left-0 h-[2px] bg-primary transition-none"
+		style="width: 0%"
+		aria-hidden="true"
+	></div>
 	<Container class="flex items-center justify-between h-[64px] md:h-[72px]">
 		{/* Logo */}
 		<a href="#" class="flex items-center gap-2 text-text font-sans text-[15px] font-medium">
@@ -22,7 +29,8 @@ const { logo, links, cta } = navigation;
 				<li>
 					<a
 						href={link.href}
-						class="font-sans text-[15px] font-normal text-text-muted hover:text-white transition-colors duration-300 ease-in-out"
+						data-nav-link={link.href}
+						class="nav-link font-sans text-[15px] font-normal text-text-muted hover:text-white transition-colors duration-300 ease-in-out"
 					>
 						{link.label}
 					</a>
@@ -51,6 +59,13 @@ const { logo, links, cta } = navigation;
 		</button>
 	</Container>
 
+	{/* Mobile menu backdrop */}
+	<div
+		id="nav-backdrop"
+		class="fixed inset-0 top-[64px] -z-10 hidden bg-black/60 md:hidden"
+		aria-hidden="true"
+	></div>
+
 	{/* Mobile menu */}
 	<div
 		id="nav-menu"
@@ -75,38 +90,113 @@ const { logo, links, cta } = navigation;
 <script>
 	const toggle = document.getElementById("nav-toggle");
 	const menu = document.getElementById("nav-menu");
+	const backdrop = document.getElementById("nav-backdrop");
+
+	function openMenu() {
+		if (!toggle || !menu) return;
+		menu.classList.remove("hidden");
+		backdrop?.classList.remove("hidden");
+		toggle.setAttribute("aria-expanded", "true");
+		document.body.style.overflow = "hidden";
+
+		const bars = toggle.querySelectorAll<HTMLSpanElement>(".nav-bar");
+		bars[0].style.transform = "translateY(7px) rotate(45deg)";
+		bars[1].style.opacity = "0";
+		bars[2].style.transform = "translateY(-7px) rotate(-45deg)";
+	}
+
+	function closeMenu() {
+		if (!toggle || !menu) return;
+		menu.classList.add("hidden");
+		backdrop?.classList.add("hidden");
+		toggle.setAttribute("aria-expanded", "false");
+		document.body.style.overflow = "";
+
+		const bars = toggle.querySelectorAll<HTMLSpanElement>(".nav-bar");
+		bars[0].style.transform = "";
+		bars[1].style.opacity = "1";
+		bars[2].style.transform = "";
+	}
 
 	if (toggle && menu) {
 		toggle.addEventListener("click", () => {
 			const isOpen = !menu.classList.contains("hidden");
-
-			menu.classList.toggle("hidden");
-			toggle.setAttribute("aria-expanded", String(!isOpen));
-
-			// Animate hamburger bars into X
-			const bars = toggle.querySelectorAll<HTMLSpanElement>(".nav-bar");
-			if (!isOpen) {
-				bars[0].style.transform = "translateY(7px) rotate(45deg)";
-				bars[1].style.opacity = "0";
-				bars[2].style.transform = "translateY(-7px) rotate(-45deg)";
-			} else {
-				bars[0].style.transform = "";
-				bars[1].style.opacity = "1";
-				bars[2].style.transform = "";
-			}
+			isOpen ? closeMenu() : openMenu();
 		});
 
 		// Close menu when a link is clicked
 		menu.querySelectorAll("a").forEach((link) => {
-			link.addEventListener("click", () => {
-				menu.classList.add("hidden");
-				toggle.setAttribute("aria-expanded", "false");
-
-				const bars = toggle.querySelectorAll<HTMLSpanElement>(".nav-bar");
-				bars[0].style.transform = "";
-				bars[1].style.opacity = "1";
-				bars[2].style.transform = "";
-			});
+			link.addEventListener("click", closeMenu);
 		});
+
+		// Close menu when backdrop is clicked
+		backdrop?.addEventListener("click", closeMenu);
 	}
+
+	// ── Scroll progress bar ──
+	const progressBar = document.getElementById("scroll-progress");
+
+	function updateProgress() {
+		const scrollTop = window.scrollY;
+		const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+		const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+		if (progressBar) progressBar.style.width = `${progress}%`;
+	}
+
+	// ── Active nav link highlighting ──
+	const navLinks = document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]");
+	const sections = document.querySelectorAll<HTMLElement>("section[id]");
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries) {
+				if (entry.isIntersecting) {
+					const id = entry.target.id;
+					navLinks.forEach((link) => {
+						const isActive = link.getAttribute("data-nav-link") === `#${id}`;
+						link.classList.toggle("text-white", isActive);
+						link.classList.toggle("text-text-muted", !isActive);
+					});
+				}
+			}
+		},
+		{ rootMargin: "-20% 0px -60% 0px" },
+	);
+
+	sections.forEach((section) => observer.observe(section));
+
+	// ── Back-to-top button ──
+	const backToTop = document.getElementById("back-to-top");
+
+	function updateBackToTop() {
+		if (!backToTop) return;
+		const show = window.scrollY > window.innerHeight;
+		backToTop.classList.toggle("opacity-0", !show);
+		backToTop.classList.toggle("pointer-events-none", !show);
+		backToTop.classList.toggle("translate-y-2", !show);
+		backToTop.classList.toggle("opacity-100", show);
+		backToTop.classList.toggle("pointer-events-auto", show);
+		backToTop.classList.toggle("translate-y-0", show);
+	}
+
+	backToTop?.addEventListener("click", () => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	});
+
+	// Throttled scroll handler
+	let ticking = false;
+	window.addEventListener("scroll", () => {
+		if (!ticking) {
+			requestAnimationFrame(() => {
+				updateProgress();
+				updateBackToTop();
+				ticking = false;
+			});
+			ticking = true;
+		}
+	});
+
+	// Initial state
+	updateProgress();
+	updateBackToTop();
 </script>

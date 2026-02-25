@@ -18,6 +18,8 @@ export const navigation = {
 	logo: "Forge DevKit",
 	links: [
 		{ label: "Features", href: "#solution" },
+		{ label: "How It Works", href: "#how-it-works" },
+		{ label: "Modules", href: "#modules" },
 		{ label: "Pricing", href: "#pricing" },
 		{ label: "FAQ", href: "#faq" },
 	],
