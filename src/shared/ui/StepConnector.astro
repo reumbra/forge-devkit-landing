@@ -1,0 +1,35 @@
+---
+/**
+ * StepConnector: horizontal line with 4 numbered circles.
+ * Used in How It Works section to connect the 4 steps.
+ * Mobile: hidden (steps stack vertically without connector).
+ */
+interface Props {
+	steps?: number;
+	class?: string;
+}
+
+const { steps = 4, class: className } = Astro.props;
+---
+
+<div
+	class:list={["hidden items-center md:flex", className]}
+	role="presentation"
+	aria-hidden="true"
+>
+	{
+		Array.from({ length: steps }, (_, i) => (
+			<>
+				{/* Numbered circle */}
+				<div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-secondary/30 text-[12px] font-mono font-medium text-secondary">
+					{i + 1}
+				</div>
+
+				{/* Connecting line (not after last circle) */}
+				{i < steps - 1 && (
+					<div class="h-px flex-1 bg-gradient-to-r from-secondary/30 to-secondary/10" />
+				)}
+			</>
+		))
+	}
+</div>

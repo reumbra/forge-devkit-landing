@@ -1,0 +1,25 @@
+---
+interface Props {
+	text: string;
+	size?: "sm" | "md";
+	class?: string;
+}
+
+const { text, size = "md", class: className } = Astro.props;
+
+const sizeStyles: Record<NonNullable<Props["size"]>, string> = {
+	sm: "text-[11px] px-2.5 py-1 tracking-[0.1em]",
+	md: "text-[13px] px-3.5 py-1.5 tracking-[0.05em]",
+};
+---
+
+<span
+	class:list={[
+		"inline-block font-mono font-normal uppercase leading-[1.4]",
+		"rounded-[var(--radius-tag)] bg-tag text-secondary",
+		sizeStyles[size],
+		className,
+	]}
+>
+	{text}
+</span>

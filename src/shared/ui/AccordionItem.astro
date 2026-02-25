@@ -1,0 +1,45 @@
+---
+interface Props {
+	question: string;
+	answer: string;
+}
+
+const { question, answer } = Astro.props;
+---
+
+<details class="accordion-item group border-b border-[rgba(118,73,196,0.06)]">
+	<summary
+		class="flex w-full cursor-pointer list-none items-center justify-between py-5 text-left font-sans text-[16px] font-medium leading-[1.5] text-text transition-colors duration-300 hover:text-secondary md:text-[18px] [&::-webkit-details-marker]:hidden"
+	>
+		{question}
+		<span
+			class="ml-4 shrink-0 text-secondary transition-transform duration-300 group-open:rotate-90"
+			aria-hidden="true">▸</span
+		>
+	</summary>
+
+	<div class="accordion-content">
+		<p
+			class="pb-5 font-sans text-[16px] font-normal leading-[1.6] text-text-muted"
+		>
+			{answer}
+		</p>
+	</div>
+</details>
+
+<style>
+	/* Smooth height animation using grid trick */
+	.accordion-content {
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: grid-template-rows 0.3s ease;
+	}
+
+	.accordion-content > p {
+		overflow: hidden;
+	}
+
+	details[open] > .accordion-content {
+		grid-template-rows: 1fr;
+	}
+</style>

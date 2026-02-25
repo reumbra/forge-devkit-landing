@@ -1,0 +1,46 @@
+---
+interface Props {
+	variant: "primary" | "ghost" | "large";
+	href: string;
+	class?: string;
+}
+
+const { variant, href, class: className } = Astro.props;
+
+const showArrow = variant === "primary" || variant === "large";
+
+const baseStyles = [
+	"inline-flex items-center justify-center",
+	"font-sans text-[15px] font-medium",
+	"rounded-[var(--radius-btn)]",
+	"transition-all duration-300 ease-in-out",
+	"max-md:w-full",
+];
+
+const variantStyles: Record<typeof variant, string[]> = {
+	primary: [
+		"bg-primary text-white",
+		"px-9 py-3.5",
+		"hover:bg-[#8352D1] hover:-translate-y-0.5",
+		"hover:shadow-[var(--shadow-btn-hover)]",
+	],
+	large: [
+		"bg-primary text-white",
+		"px-12 py-[18px]",
+		"hover:bg-[#8352D1] hover:-translate-y-0.5",
+		"hover:shadow-[var(--shadow-btn-hover)]",
+	],
+	ghost: [
+		"bg-transparent text-text-muted border-ghost",
+		"px-9 py-3.5",
+		"hover:text-text-secondary hover:border-[rgba(165,165,165,0.3)]",
+	],
+};
+---
+
+<a
+	href={href}
+	class:list={[...baseStyles, ...variantStyles[variant], className]}
+>
+	<slot />{showArrow ? " \u2192" : ""}
+</a>

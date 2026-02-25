@@ -1,0 +1,40 @@
+---
+interface Props {
+	lines: string[];
+	withGlow?: boolean;
+	class?: string;
+}
+
+const { lines, withGlow = false, class: className } = Astro.props;
+---
+
+<div class:list={["relative", className]}>
+	{/* Ambient purple glow behind the block */}
+	{
+		withGlow && (
+			<div
+				class="glow-terminal pointer-events-none absolute -inset-16 -z-10 blur-[200px]"
+				aria-hidden="true"
+			/>
+		)
+	}
+
+	<div
+		class="overflow-x-auto rounded-[var(--radius-card)] border-card bg-surface-deep p-6"
+	>
+		{/* Traffic light dots */}
+		<div class="mb-5 flex items-center gap-2" aria-hidden="true">
+			<span class="block h-[10px] w-[10px] rounded-full bg-[#FF5F56]"
+			></span>
+			<span class="block h-[10px] w-[10px] rounded-full bg-[#FFBD2E]"
+			></span>
+			<span class="block h-[10px] w-[10px] rounded-full bg-[#27C93F]"
+			></span>
+		</div>
+
+		{/* Code lines */}
+		<pre
+			class="font-mono text-[14px] leading-[1.6] text-text-secondary"
+		><code>{lines.map((line) => `${line}\n`).join("")}</code></pre>
+	</div>
+</div>

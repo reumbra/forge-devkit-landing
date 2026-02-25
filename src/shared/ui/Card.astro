@@ -1,0 +1,48 @@
+---
+interface Props {
+	hover?: boolean;
+	padding?: "standard" | "compact" | "large";
+	class?: string;
+}
+
+const { hover = true, padding = "standard", class: className } = Astro.props;
+
+const paddingMap: Record<NonNullable<Props["padding"]>, string> = {
+	standard: "p-[28px] pt-[36px] pb-[36px]",
+	compact: "p-6",
+	large: "px-8 py-10",
+};
+
+/**
+ * We use a wrapper approach for the top accent line:
+ * the card has overflow-hidden + relative, and a ::before pseudo-element
+ * at the top that animates in on hover via the group hover.
+ */
+---
+
+<div
+	class:list={[
+		"group relative overflow-hidden",
+		"bg-surface border-card rounded-[var(--radius-card)]",
+		paddingMap[padding],
+		"transition-all duration-300 ease-in-out",
+		hover && [
+			"hover:-translate-y-[3px]",
+			"hover:border-card-hover",
+			"hover:shadow-[0_12px_40px_rgba(118,73,196,0.08)]",
+		],
+		className,
+	]}
+>
+	{/* Top accent gradient line — animates in on hover */}
+	{
+		hover && (
+			<div
+				class="pointer-events-none absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-gradient-to-r from-accent-soft via-secondary to-primary transition-transform duration-300 ease-in-out group-hover:scale-x-100"
+				aria-hidden="true"
+			/>
+		)
+	}
+
+	<slot />
+</div>
