@@ -1,20 +1,42 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import NavBar from "@widgets/NavBar/NavBar.astro";
+import HeroSection from "@widgets/Hero/HeroSection.astro";
+import ProblemSection from "@widgets/Problem/ProblemSection.astro";
+import GhostCtaSection from "@widgets/GhostCta/GhostCtaSection.astro";
+import SolutionOverviewSection from "@widgets/Solution/SolutionOverviewSection.astro";
+import DeepDiveArchitectureSection from "@widgets/DeepDives/DeepDiveArchitectureSection.astro";
+import DeepDiveQualitySection from "@widgets/DeepDives/DeepDiveQualitySection.astro";
+import DeepDivePipelineSection from "@widgets/DeepDives/DeepDivePipelineSection.astro";
+import DeepDiveTestsSection from "@widgets/DeepDives/DeepDiveTestsSection.astro";
+import HowItWorksSection from "@widgets/HowItWorks/HowItWorksSection.astro";
+import ModulesSection from "@widgets/Modules/ModulesSection.astro";
+import EntrepreneurSection from "@widgets/Entrepreneur/EntrepreneurSection.astro";
+import PricingSection from "@widgets/Pricing/PricingSection.astro";
+import AuthorSection from "@widgets/Author/AuthorSection.astro";
+import FaqSection from "@widgets/Faq/FaqSection.astro";
+import FinalCtaSection from "@widgets/FinalCta/FinalCtaSection.astro";
+import FooterSection from "@widgets/Footer/FooterSection.astro";
 ---
 
 <BaseLayout>
-	<main class="min-h-screen flex items-center justify-center">
-		<div class="text-center">
-			<p class="font-mono text-secondary text-xs uppercase tracking-[0.15em] mb-4">
-				FORGE DEVKIT
-			</p>
-			<h1 class="text-5xl font-black tracking-tight mb-4">
-				AI agents that respect<br />your codebase
-			</h1>
-			<p class="text-text-secondary text-lg max-w-xl mx-auto">
-				Architecture-aware pipeline. Project-specific guardrails,
-				quality patterns, and dev workflows — across any platform.
-			</p>
-		</div>
+	<NavBar />
+	<main>
+		<HeroSection />
+		<ProblemSection />
+		<GhostCtaSection />
+		<SolutionOverviewSection />
+		<DeepDiveArchitectureSection />
+		<DeepDiveQualitySection />
+		<DeepDivePipelineSection />
+		<DeepDiveTestsSection />
+		<HowItWorksSection />
+		<ModulesSection />
+		<EntrepreneurSection />
+		<PricingSection />
+		<AuthorSection />
+		<FaqSection />
+		<FinalCtaSection />
 	</main>
+	<FooterSection />
 </BaseLayout>

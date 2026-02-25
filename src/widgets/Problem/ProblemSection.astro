@@ -1,0 +1,51 @@
+---
+import Container from "@shared/ui/Container.astro";
+import Card from "@shared/ui/Card.astro";
+import SectionLabel from "@shared/ui/SectionLabel.astro";
+import Button from "@shared/ui/Button.astro";
+import { problems } from "@shared/config/problems";
+
+const { sectionLabel, headline, transitionLine, cards } = problems;
+
+// Split transitionLine to highlight "unstructured AI"
+const transitionParts = transitionLine.split("unstructured AI");
+---
+
+<section id="problems" class="py-24 md:py-32">
+	<Container>
+		{/* Section label */}
+		<div class="text-center mb-6">
+			<SectionLabel text={sectionLabel} />
+		</div>
+
+		{/* Headline */}
+		<h2
+			class="font-sans text-[30px] md:text-[36px] lg:text-[48px] font-bold leading-[1.15] text-text text-center mb-12 md:mb-16"
+		>
+			{headline}
+		</h2>
+
+		{/* 2x2 pain card grid */}
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+			{cards.map((card) => (
+				<Card hover={false} padding="standard">
+					<p class="font-sans text-[16px] font-normal italic leading-[1.6] text-text-muted">
+						&ldquo;{card.quote}&rdquo;
+					</p>
+				</Card>
+			))}
+		</div>
+
+		{/* Transition line */}
+		<p class="font-sans text-[18px] md:text-[20px] font-medium leading-[1.5] text-text text-center mb-8">
+			{transitionParts[0]}<span class="text-secondary">unstructured AI</span>{transitionParts[1]}
+		</p>
+
+		{/* Ghost CTA */}
+		<div class="flex justify-center">
+			<Button variant="ghost" href="#how-it-works">
+				See how it works
+			</Button>
+		</div>
+	</Container>
+</section>

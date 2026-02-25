@@ -1,0 +1,37 @@
+---
+import Container from "@shared/ui/Container.astro";
+import Button from "@shared/ui/Button.astro";
+import { footer } from "@shared/config/footer";
+
+const { finalCta } = footer;
+
+/** Large Button auto-appends " ->", strip trailing arrow from config to avoid duplication. */
+const buttonLabel = finalCta.buttonLabel.replace(/\s*\u2192\s*$/, "");
+---
+
+<section id="final-cta" class="relative py-24 md:py-32">
+	{/* Ambient glow behind CTA */}
+	<div
+		class="glow-cta pointer-events-none absolute inset-0 -z-10"
+		aria-hidden="true"
+	>
+	</div>
+
+	<Container>
+		<div class="text-center">
+			{/* Headline */}
+			<h2
+				class="mx-auto max-w-[640px] font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]"
+			>
+				{finalCta.headline}
+			</h2>
+
+			{/* CTA button — large variant */}
+			<div class="mt-10">
+				<Button variant="large" href={finalCta.buttonHref}>
+					{buttonLabel}
+				</Button>
+			</div>
+		</div>
+	</Container>
+</section>

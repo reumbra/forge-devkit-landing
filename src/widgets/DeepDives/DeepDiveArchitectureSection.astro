@@ -1,0 +1,43 @@
+---
+import Container from "@shared/ui/Container.astro";
+import SectionLabel from "@shared/ui/SectionLabel.astro";
+import CodeBlock from "@shared/ui/CodeBlock.astro";
+import Badge from "@shared/ui/Badge.astro";
+import { deepDives } from "@shared/config/deep-dives";
+
+const section = deepDives[0];
+const codeLines = section.visual.lines.map((line) => line.text);
+---
+
+<section id={section.id} class="py-24 md:py-32">
+	<Container>
+		<div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
+			{/* Text side — left on desktop (order-1), first on mobile */}
+			<div class="order-1 md:order-1">
+				<SectionLabel text={section.sectionLabel} />
+
+				<h2 class="mt-4 font-sans text-[32px] font-bold leading-[1.15] tracking-[-0.02em] text-text md:text-[40px]">
+					{section.headline}
+				</h2>
+
+				<p class="mt-4 max-w-[540px] font-sans text-[18px] leading-[1.6] text-text-secondary">
+					{section.description}
+				</p>
+
+				{/* Framework badges */}
+				{section.badges.length > 0 && (
+					<div class="mt-6 flex flex-wrap gap-2">
+						{section.badges.map((badge) => (
+							<Badge text={badge.label} size="sm" />
+						))}
+					</div>
+				)}
+			</div>
+
+			{/* Visual side — right on desktop (order-2), second on mobile */}
+			<div class="order-2 md:order-2">
+				<CodeBlock lines={codeLines} withGlow />
+			</div>
+		</div>
+	</Container>
+</section>

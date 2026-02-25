@@ -1,0 +1,112 @@
+---
+import Container from "@shared/ui/Container.astro";
+import Button from "@shared/ui/Button.astro";
+import { navigation } from "@shared/config/navigation";
+
+const { logo, links, cta } = navigation;
+---
+
+<nav
+	class="fixed inset-x-0 top-0 z-50 bg-nav border-b border-card"
+>
+	<Container class="flex items-center justify-between h-[64px] md:h-[72px]">
+		{/* Logo */}
+		<a href="#" class="flex items-center gap-2 text-text font-sans text-[15px] font-medium">
+			<span class="text-secondary text-lg leading-none">&#9671;</span>
+			<span>{logo}</span>
+		</a>
+
+		{/* Desktop nav links */}
+		<ul class="hidden md:flex items-center gap-8">
+			{links.map((link) => (
+				<li>
+					<a
+						href={link.href}
+						class="font-sans text-[15px] font-normal text-text-muted hover:text-white transition-colors duration-300 ease-in-out"
+					>
+						{link.label}
+					</a>
+				</li>
+			))}
+		</ul>
+
+		{/* Desktop CTA */}
+		<div class="hidden md:block">
+			<Button variant="primary" href={cta.href}>
+				{cta.label}
+			</Button>
+		</div>
+
+		{/* Mobile hamburger */}
+		<button
+			type="button"
+			id="nav-toggle"
+			class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px]"
+			aria-label="Toggle menu"
+			aria-expanded="false"
+		>
+			<span class="nav-bar block w-5 h-[2px] bg-text-muted transition-all duration-300 ease-in-out origin-center"></span>
+			<span class="nav-bar block w-5 h-[2px] bg-text-muted transition-all duration-300 ease-in-out"></span>
+			<span class="nav-bar block w-5 h-[2px] bg-text-muted transition-all duration-300 ease-in-out origin-center"></span>
+		</button>
+	</Container>
+
+	{/* Mobile menu */}
+	<div
+		id="nav-menu"
+		class="md:hidden hidden bg-nav border-t border-card"
+	>
+		<Container class="flex flex-col gap-4 py-6">
+			{links.map((link) => (
+				<a
+					href={link.href}
+					class="font-sans text-[15px] font-normal text-text-muted hover:text-white transition-colors duration-300 ease-in-out"
+				>
+					{link.label}
+				</a>
+			))}
+			<Button variant="primary" href={cta.href}>
+				{cta.label}
+			</Button>
+		</Container>
+	</div>
+</nav>
+
+<script>
+	const toggle = document.getElementById("nav-toggle");
+	const menu = document.getElementById("nav-menu");
+
+	if (toggle && menu) {
+		toggle.addEventListener("click", () => {
+			const isOpen = !menu.classList.contains("hidden");
+
+			menu.classList.toggle("hidden");
+			toggle.setAttribute("aria-expanded", String(!isOpen));
+
+			// Animate hamburger bars into X
+			const bars = toggle.querySelectorAll<HTMLSpanElement>(".nav-bar");
+			if (!isOpen) {
+				bars[0].style.transform = "translateY(7px) rotate(45deg)";
+				bars[1].style.opacity = "0";
+				bars[2].style.transform = "translateY(-7px) rotate(-45deg)";
+			} else {
+				bars[0].style.transform = "";
+				bars[1].style.opacity = "1";
+				bars[2].style.transform = "";
+			}
+		});
+
+		// Close menu when a link is clicked
+		menu.querySelectorAll("a").forEach((link) => {
+			link.addEventListener("click", () => {
+				menu.classList.add("hidden");
+				toggle.setAttribute("aria-expanded", "false");
+
+				const bars = toggle.querySelectorAll<HTMLSpanElement>(".nav-bar");
+				bars[0].style.transform = "";
+				bars[1].style.opacity = "1";
+				bars[2].style.transform = "";
+			});
+		});
+	}
+</script>

@@ -1,0 +1,29 @@
+---
+import Container from "@shared/ui/Container.astro";
+import SectionLabel from "@shared/ui/SectionLabel.astro";
+import AccordionItem from "@shared/ui/AccordionItem.astro";
+import { faq } from "@shared/config/faq";
+---
+
+<section id="faq" class="py-24 md:py-32">
+	<Container>
+		{/* Section label + headline */}
+		<div class="mb-16 text-center">
+			<SectionLabel text={faq.sectionLabel} />
+			<h2
+				class="mt-4 font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]"
+			>
+				{faq.headline}
+			</h2>
+		</div>
+
+		{/* FAQ accordion list */}
+		<div class="mx-auto max-w-[720px]">
+			{
+				faq.items.map((item) => (
+					<AccordionItem question={item.question} answer={item.answer} />
+				))
+			}
+		</div>
+	</Container>
+</section>

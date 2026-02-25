@@ -1,0 +1,123 @@
+---
+import Container from "@shared/ui/Container.astro";
+import SectionLabel from "@shared/ui/SectionLabel.astro";
+import Card from "@shared/ui/Card.astro";
+import Badge from "@shared/ui/Badge.astro";
+import { modules } from "@shared/config/modules";
+
+const heroModule = modules.modules.find((m) => m.isHero)!;
+const otherModules = modules.modules.filter((m) => !m.isHero);
+---
+
+<section id="modules" class="py-24 md:py-32">
+	<Container>
+		{/* Section label + headline */}
+		<div class="mb-16 text-center">
+			<SectionLabel text={modules.sectionLabel} />
+			<h2
+				class="mt-4 font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]"
+			>
+				{modules.headline}
+			</h2>
+		</div>
+
+		{/* forge-core hero card */}
+		<Card padding="large" class="mb-6">
+			<div class="flex items-start justify-between">
+				<div>
+					{/* Module name */}
+					<p class="font-mono text-[16px] font-medium text-text">
+						<span class="mr-2 text-secondary">&#9671;</span>{heroModule.name}
+					</p>
+					{/* Tagline */}
+					<p class="mt-2 font-sans text-[16px] leading-[1.6] text-text-secondary">
+						{heroModule.tagline}
+					</p>
+				</div>
+
+				{/* Badge */}
+				{heroModule.badge && (
+					<Badge text={`\u2605 ${heroModule.badge}`} size="md" />
+				)}
+			</div>
+
+			{/* Stats grid */}
+			<div class="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4">
+				{
+					heroModule.stats.map((stat) => {
+						const parts = stat.match(/^([\d+]+\S*)\s+(.+)$/);
+						const value = parts ? parts[1] : stat;
+						const label = parts ? parts[2] : "";
+						return (
+							<div>
+								<p class="font-sans text-[24px] font-bold leading-[1.2] text-secondary">
+									{value}
+								</p>
+								{label && (
+									<p class="mt-1 font-sans text-[14px] text-text-muted">
+										{label}
+									</p>
+								)}
+							</div>
+						);
+					})
+				}
+			</div>
+
+			{/* Features list */}
+			<div class="mt-8 flex flex-wrap gap-x-6 gap-y-2">
+				{
+					heroModule.features.map((feature) => (
+						<span class="flex items-center gap-2 font-sans text-[14px] text-text-secondary">
+							<span class="text-secondary">&#10003;</span>
+							{feature}
+						</span>
+					))
+				}
+			</div>
+		</Card>
+
+		{/* 3 other module cards */}
+		<div class="grid gap-6 md:grid-cols-3">
+			{
+				otherModules.map((mod) => (
+					<Card>
+						{/* Module name */}
+						<p class="font-mono text-[16px] font-medium text-text">
+							<span class="mr-2 text-secondary">&#9671;</span>{mod.name}
+						</p>
+
+						{/* Tagline */}
+						<p class="mt-2 font-sans text-[16px] leading-[1.6] text-text-secondary">
+							{mod.tagline}
+						</p>
+
+						{/* Features list */}
+						<ul class="mt-5 space-y-2">
+							{mod.features.map((feature) => (
+								<li class="flex items-start gap-2 font-sans text-[14px] leading-[1.5] text-text-secondary">
+									<span class="mt-0.5 shrink-0 text-secondary">&#10003;</span>
+									{feature}
+								</li>
+							))}
+						</ul>
+
+						{/* Key stats */}
+						<div class="mt-5 flex flex-wrap gap-2">
+							{mod.stats.map((stat) => (
+								<span class="font-mono text-[12px] text-secondary">
+									{stat}
+								</span>
+							))}
+						</div>
+					</Card>
+				))
+			}
+		</div>
+
+		{/* Closing line */}
+		<p class="mt-12 text-center font-sans text-[16px] leading-[1.6] text-text-muted">
+			{modules.closingLine}
+		</p>
+	</Container>
+</section>

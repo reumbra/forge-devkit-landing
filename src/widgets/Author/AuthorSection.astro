@@ -1,0 +1,80 @@
+---
+import Container from "@shared/ui/Container.astro";
+import SectionLabel from "@shared/ui/SectionLabel.astro";
+import Card from "@shared/ui/Card.astro";
+import { author } from "@shared/config/author";
+---
+
+<section id="author" class="py-24 md:py-32">
+	<Container>
+		{/* Section label + headline */}
+		<div class="mb-16 text-center">
+			<SectionLabel text={author.sectionLabel} />
+			<h2
+				class="mt-4 font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]"
+			>
+				{author.headline}
+			</h2>
+		</div>
+
+		{/* Author card — horizontal layout */}
+		<Card hover={false} padding="large" class="mx-auto max-w-[840px]">
+			<div class="flex flex-col items-center gap-8 md:flex-row md:items-start">
+				{/* Photo placeholder */}
+				<div
+					class="h-[120px] w-[120px] shrink-0 rounded-full bg-surface-deep"
+					aria-label="Photo of Martin Sikora"
+				>
+				</div>
+
+				{/* Text content */}
+				<div class="flex-1 text-center md:text-left">
+					{/* Name */}
+					<h3 class="font-sans text-[24px] font-bold leading-[1.2] text-text">
+						{author.name}
+					</h3>
+
+					{/* Role + company */}
+					<p class="mt-1 font-sans text-[16px] leading-[1.5] text-text-muted">
+						{author.role} &middot; Founder, {author.company}
+					</p>
+
+					{/* Personal quote */}
+					<blockquote
+						class="mt-6 border-l-2 border-secondary pl-6 font-sans text-[18px] italic leading-[1.6] text-text-secondary"
+					>
+						"{author.quote}"
+					</blockquote>
+
+					{/* Link */}
+					<div class="mt-6">
+						<a
+							href={author.link.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="font-sans text-[14px] font-medium text-secondary transition-colors duration-300 hover:text-accent-soft"
+						>
+							{author.link.label}
+						</a>
+					</div>
+				</div>
+			</div>
+		</Card>
+
+		{/* Trust signals row */}
+		<div class="mt-10 flex flex-wrap items-center justify-center gap-8">
+			{
+				author.trustSignals.map((signal) => (
+					<div class="text-center">
+						<p class="font-sans text-[14px] font-bold text-text">
+							{signal.value}
+						</p>
+						<p class="mt-0.5 font-sans text-[12px] text-text-muted">
+							{signal.label}
+						</p>
+					</div>
+				))
+			}
+		</div>
+	</Container>
+</section>

@@ -1,0 +1,80 @@
+---
+import Container from "@shared/ui/Container.astro";
+import SectionLabel from "@shared/ui/SectionLabel.astro";
+import Card from "@shared/ui/Card.astro";
+import Button from "@shared/ui/Button.astro";
+import DiamondDivider from "@shared/ui/DiamondDivider.astro";
+import { entrepreneurs } from "@shared/config/entrepreneurs";
+
+/** Primary Button auto-appends " ->", strip trailing arrow from config to avoid duplication. */
+const ctaLabel = entrepreneurs.cta.label.replace(/\s*\u2192\s*$/, "");
+---
+
+<section id="entrepreneurs" class="py-24 md:py-32">
+	<Container>
+		{/* Diamond divider — visual break from dev sections */}
+		<div class="mb-16">
+			<DiamondDivider />
+		</div>
+
+		{/* Section label + headline + description */}
+		<div class="mb-16 text-center">
+			<SectionLabel text={entrepreneurs.sectionLabel} />
+			<h2
+				class="mt-4 font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]"
+			>
+				{entrepreneurs.headline}
+			</h2>
+			<p
+				class="mx-auto mt-6 max-w-[640px] font-sans text-[18px] leading-[1.6] text-text-secondary"
+			>
+				{entrepreneurs.description}
+			</p>
+		</div>
+
+		{/* 3 entrepreneur cards */}
+		<div class="grid gap-6 md:grid-cols-3">
+			{
+				entrepreneurs.cards.map((card) => (
+					<Card>
+						{/* Label */}
+						<p class="font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-secondary">
+							{card.label}
+						</p>
+
+						{/* Pain quote */}
+						<p class="mt-4 font-sans text-[16px] italic leading-[1.6] text-text-muted">
+							"{card.painQuote}"
+						</p>
+
+						{/* Solution headline */}
+						<p class="mt-4 font-sans text-[16px] font-bold leading-[1.4] text-text">
+							{card.solutionHeadline}
+						</p>
+
+						{/* Solution description */}
+						<p class="mt-2 font-sans text-[14px] leading-[1.6] text-text-secondary">
+							{card.solutionDescription}
+						</p>
+
+						{/* Mini proof */}
+						{card.miniProof && (
+							<div class="mt-5 rounded-[var(--radius-card)] bg-surface-deep p-4">
+								<pre class="whitespace-pre-wrap font-mono text-[13px] leading-[1.6] text-text-secondary">
+									{card.miniProof}
+								</pre>
+							</div>
+						)}
+					</Card>
+				))
+			}
+		</div>
+
+		{/* CTA button */}
+		<div class="mt-12 text-center">
+			<Button variant="primary" href={entrepreneurs.cta.href}>
+				{ctaLabel}
+			</Button>
+		</div>
+	</Container>
+</section>
