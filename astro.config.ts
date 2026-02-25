@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
 	site: "https://reumbra.com",
-	base: "/forge",
+	base: "/",
 	i18n: {
 		locales: ["en", "ru"],
 		defaultLocale: "en",
