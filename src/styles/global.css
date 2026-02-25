@@ -64,7 +64,7 @@
 	--color-accent-light: #E0D7FF;
 
 	/* Backgrounds */
-	--color-bg: #000000;
+	--color-bg: #0D0B14;
 	--color-surface: #191919;
 	--color-surface-deep: #160B2D;
 
@@ -131,7 +131,7 @@ body {
 }
 
 .bg-nav {
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(13, 11, 20, 0.7);
 	backdrop-filter: blur(16px);
 }
 

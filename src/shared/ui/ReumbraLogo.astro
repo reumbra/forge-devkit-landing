@@ -1,0 +1,24 @@
+---
+interface Props {
+	size?: number;
+	class?: string;
+}
+
+const { size = 20, class: className } = Astro.props;
+
+// Original viewBox: 129.2 × 100.5 → aspect ratio ≈ 1.286
+const height = size;
+const width = Math.round(size * (129.2 / 100.5) * 10) / 10;
+---
+
+<svg
+	width={width}
+	height={height}
+	viewBox="0 0 129.2 100.5"
+	fill="currentColor"
+	aria-hidden="true"
+	class={className}
+>
+	<polygon points="79,0 64.6,0 64.6,50.3 79,64.6 129.2,64.6 129.2,50.3 79,50.3" />
+	<polygon points="0,35.9 0,50.3 50.2,50.3 50.2,100.5 64.6,100.5 64.6,50.3 50.2,35.9" />
+</svg>

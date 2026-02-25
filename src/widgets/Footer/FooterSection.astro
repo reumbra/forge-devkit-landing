@@ -1,5 +1,6 @@
 ---
 import Container from "@shared/ui/Container.astro";
+import ReumbraLogo from "@shared/ui/ReumbraLogo.astro";
 import { footer } from "@shared/config/footer";
 ---
 
@@ -9,7 +10,7 @@ import { footer } from "@shared/config/footer";
 			{/* Left — logo + company tagline */}
 			<div>
 				<div class="flex items-center gap-2">
-					<span class="text-secondary" aria-hidden="true">&#9671;</span>
+					<ReumbraLogo size={18} class="text-secondary" />
 					<span class="font-sans text-[16px] font-bold text-text">
 						{footer.logo}
 					</span>
