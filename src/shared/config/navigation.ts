@@ -1,0 +1,28 @@
+export interface NavLink {
+	label: string;
+	href: string;
+}
+
+export interface NavCta {
+	label: string;
+	href: string;
+}
+
+export interface NavigationConfig {
+	logo: string;
+	links: NavLink[];
+	cta: NavCta;
+}
+
+export const navigation = {
+	logo: "Forge DevKit",
+	links: [
+		{ label: "Features", href: "#features" },
+		{ label: "Pricing", href: "#pricing" },
+		{ label: "FAQ", href: "#faq" },
+	],
+	cta: {
+		label: "Get Forge",
+		href: "#pricing",
+	},
+} as const satisfies NavigationConfig;
