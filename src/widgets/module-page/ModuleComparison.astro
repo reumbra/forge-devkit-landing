@@ -15,9 +15,8 @@ const comparisonSlugMap: Record<string, string> = {
 	core: "cursor-rules",
 	product: "cursor-rules",
 	qa: "cursor-rules",
-	autopilot: "devin",
 };
-const vsSlug = comparisonSlugMap[moduleSlug] ?? "cursor-rules";
+const vsSlug = comparisonSlugMap[moduleSlug];
 const lp = (path: string) => localePath(path, Astro.currentLocale);
 ---
 
@@ -26,9 +25,11 @@ const lp = (path: string) => localePath(path, Astro.currentLocale);
 		<h2 class="font-sans text-[28px] font-bold text-text md:text-[36px] mb-2">
 			{moduleName} vs {target}
 		</h2>
-		<p class="font-sans text-[14px] text-text-muted mb-8">
-			See the <a href={lp(`/vs/${vsSlug}`)} class="text-secondary hover:underline">full comparison</a> for details.
-		</p>
+		{vsSlug && (
+			<p class="font-sans text-[14px] text-text-muted mb-8">
+				See the <a href={lp(`/vs/${vsSlug}`)} class="text-secondary hover:underline">full comparison</a> for details.
+			</p>
+		)}
 		<div class="overflow-x-auto">
 			<table class="w-full text-left">
 				<thead>
