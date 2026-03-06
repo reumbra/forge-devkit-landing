@@ -2,6 +2,15 @@
 
 Product website for Forge DevKit at `reumbra.com/forge`.
 
+## Product Context
+
+**Forge DevKit** — architecture-aware pipeline for AI coding agents. Commercial product by Reumbra.
+- **Audience:** Developers (senior devs, tech leads, AI agent users). Entrepreneurs = separate landing later.
+- **Narrative:** "From Vibe Code to Production" (Arc B)
+- **6 modules:** forge-core, forge-product, forge-qa, forge-tracker, forge-autopilot, forge-worktree
+- **Pricing (JetBrains model):** $29/$79/$149 one-time + 1yr updates, renewal optional. Artifacts stay forever.
+- **Architecture:** Moving from single-page (14 sections) to Module Hub (10 pages). See landing-refresh-design.md.
+
 ## Tech Stack
 
 - **Framework:** Astro 5.x (SSG mode)
@@ -67,13 +76,14 @@ All visual components live here. Widgets and pages build UI only through design 
 - Prefer `.astro` components over React for everything static
 - Use React islands only when vanilla JS `<script>` is insufficient (currently: never)
 - Content data (pricing, features, FAQ) lives in `src/shared/config/`, not hardcoded in widgets
+- **Content-driven widgets**: All UI text lives in `src/shared/config/*.ts`. Widgets read from configs, never hardcode copy. This enables parallel editing of content (config) and layout (widget) independently.
 
 ## Development
 
 - `pnpm dev` — start dev server (http://localhost:4321/forge/)
 - `pnpm build` — production build to `dist/`
 - `pnpm lint` / `pnpm lint:fix` — Biome check/fix
-- `site` is `https://reumbra.com`, `base` is `/forge`
+- `site` is `https://reumbra.com`, `base` is `/`
 
 ## Gotchas
 
@@ -82,11 +92,51 @@ All visual components live here. Widgets and pages build UI only through design 
 - **Satoshi font**: From fontshare.com (not npm). Downloaded via `api.fontshare.com/v2/css` API
 - **Biome + Astro**: `.astro` files need linter overrides (noUnusedVariables, noUnusedImports off) — already configured in `biome.json`
 
-## Design Reference
+## Document Matrix
 
-All design/copy decisions trace back to research docs in `docs/research/`:
-- `PRINCIPLES.md` — 44 guardrails for all decisions
-- `MESSAGING-FRAMEWORK.md` — copy direction, CTA strategy, voice rules
-- `page-architecture-design.md` in `docs/plans/` — 14-section specs with layouts, content, responsive
-- `design-tokens.md` in `docs/plans/` — colors, typography, spacing for @theme
-- `design/forge-landing.pen` — Pencil visual mockup (open in Pencil app)
+### Research (docs/research/)
+
+Hub: `INDEX.md` — navigation + chronological log + key decisions.
+
+| Doc | Purpose | Status |
+|-----|---------|--------|
+| MESSAGING-FRAMEWORK.md | Positioning, value props, copy per section, voice rules | v2 Active |
+| PAIN-SOLUTION-MAP.md | Developer pains P1-P9 mapped to Forge features | v2 Active |
+| FEATURE-MATRIX.md | Complete feature inventory, 7 categories (incl. autopilot + worktree) | v2 Active |
+| AUDIENCE-RESEARCH.md | Developer audience insights, 2026 market data, psychology | v2 Active |
+| COMPETITOR-LANDSCAPE.md | Competitive analysis: Devin, Factory, Agent Teams, Cursor Rules | v2 Active |
+| 005-product-hypotheses.md | Product hypotheses A1+A2 (devs), B1-B3 deferred | v2 Active |
+| PRINCIPLES.md | 44 guardrails for all decisions | Active |
+| METHODOLOGY.md | Landing strategy process documentation | Active |
+| 001-tech-stack-decisions.md | Tech stack: Astro 5.x + Tailwind v4 + Cloudflare Pages | Locked |
+| 002-brand-guidelines-summary.md | Brand rules: colors, fonts, tone | Locked |
+| *-v1.md files | Archived v1 versions (pre-2026-03-06) | Archive |
+
+### Plans (docs/plans/)
+
+| Doc | Purpose | Status |
+|-----|---------|--------|
+| **2026-03-06-landing-refresh-design.md** | **Landing refresh: dev-only, 10 pages, Module Hub, JetBrains pricing** | **Current** |
+| **2026-03-06-landing-refresh-impl.md** | **Implementation plan: 28 features, 6 waves, autopilot-ready** | **Current** |
+| design-tokens.md | Design tokens (colors, typography, spacing) for @theme | Active |
+| 2026-02-25-pencil-design.md | Pencil (.pen) visual mockup specs | Active |
+| 2026-02-25-page-architecture-design.md | Original 14-section single-page design | Superseded |
+| 2026-02-25-implementation-backlog.md | Original implementation backlog | Superseded |
+
+### Visual Design
+
+| File | Purpose |
+|------|---------|
+| design/forge-landing.pen | Pencil visual mockup (open via Pencil MCP tools) |
+
+### When to read what
+
+| Task | Read first |
+|------|-----------|
+| Updating copy/messaging | MESSAGING-FRAMEWORK.md |
+| Adding/modifying section | landing-refresh-design.md + landing-refresh-impl.md |
+| Understanding audience/pains | AUDIENCE-RESEARCH.md + PAIN-SOLUTION-MAP.md |
+| Feature details | FEATURE-MATRIX.md |
+| Design tokens/colors | design-tokens.md |
+| Competitor positioning | COMPETITOR-LANDSCAPE.md |
+| Visual mockup | design/forge-landing.pen (Pencil MCP) |
