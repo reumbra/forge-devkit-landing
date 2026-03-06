@@ -1,7 +1,5 @@
 # Feature Matrix — Forge DevKit (Marketing Categorization)
 
-> **Version:** v2 (2026-03-06). Added forge-autopilot, forge-worktree, updated stats. v1 archived as FEATURE-MATRIX-v1.md
-
 > **Context:** All Forge DevKit features reorganized from technical plugin boundaries into marketing-friendly categories. Each feature mapped to user-facing value. Source: [003-plugin-features-raw.md](./003-plugin-features-raw.md)
 
 ## Category 1: Project Setup & Architecture
@@ -16,7 +14,7 @@ _"Your AI understands your project before writing a single line."_
 | 3 template families | forge-core | Tailored for NestJS/Clean Arch, generic backend, frontend (React/Vue/Angular) |
 | Parallel development orchestration | forge-core (conductor) | Safe parallel work across architecture layers with contract negotiation |
 | Cross-repo scope detection | forge-core | Multi-repository projects handled as one ecosystem |
-| Product type detection (9 archetypes) | forge-product (product-auditor) | AI adapts to B2C, B2B SaaS, e-commerce, marketplace, dashboard, and more |
+| Product type detection (8 archetypes) | forge-product (product-auditor) | AI adapts to B2C, B2B SaaS, e-commerce, marketplace, dashboard, etc. |
 
 ## Category 2: Code Quality & Guardrails
 
@@ -72,50 +70,17 @@ _"Bridge product backlog and development."_
 | Bidirectional sync with conflict resolution | forge-tracker | Keep tracker and local state in sync automatically |
 | 10 task operations | forge-tracker | pick, sync, status, comment, close, create, blocker, unblock, review, escalate |
 | Status state machine | forge-tracker | Invalid transitions prevented (can't go from done to blocked) |
-| AC validation on task close | forge-tracker | Verify all acceptance criteria pass before marking task complete |
 | Team features | forge-tracker | Roles, review workflow, escalation, @mention conventions |
 | Custom field mapping | forge-tracker | Priority, effort, sprint, component synced with tracker |
 
-## Category 6: Autonomous Development
+## Category 6: Ecosystem & Integration
 
-_"Your AI builds features while you review the plan."_
-
-| Feature | Source | User Value |
-|---------|--------|------------|
-| Backlog ingestion from trackers | forge-autopilot | Pull tasks from Linear, Jira, ClickUp, GitHub Issues, Notion — no manual copy-paste |
-| Feature complexity analysis | forge-autopilot | Scans affected files, dependencies, architectural boundaries before execution |
-| File conflict detection before execution | forge-autopilot (conflict-detector) | Predicts which features modify the same files — prevents merge hell |
-| Wave grouping | forge-autopilot | Groups conflict-free features into parallel execution waves |
-| Agent Teams orchestration | forge-autopilot | Spawns Claude Code Agent Teams per wave — real parallel development |
-| 3 autonomy modes | forge-autopilot | Supervised, semi-auto, full-auto — choose your comfort level |
-| Tech lead + teammates model | forge-autopilot | Human gates at wave boundaries, autonomous teammates within waves |
-| Batch reporting and progress monitoring | forge-autopilot (batch-reporter) | Aggregated status across all active teammates and waves |
-
-## Category 7: Worktree Lifecycle
-
-_"Isolated workspaces, zero configuration."_
-
-| Feature | Source | User Value |
-|---------|--------|------------|
-| Git worktree creation with isolation | forge-worktree | Each feature gets its own isolated directory — no stash/switch juggling |
-| 3 templates: Docker backend, Frontend, Generic | forge-worktree | Pre-configured environments matching your stack |
-| Docker compose port allocation | forge-worktree | Automatic port mapping (base + worktree index x 10 + service offset) — no conflicts |
-| Environment variable generation | forge-worktree | .env files templated per worktree from project config |
-| Post-create hooks | forge-worktree | Dependency install, migrations, seed — run automatically on worktree creation |
-| AI agent skill generation | forge-worktree (worktree-generator) | Agents can invoke worktree skills for autonomous workspace management |
-| Cleanup and branch deletion | forge-worktree | One command tears down worktree, merges or deletes branch |
-| SessionStart hook for active worktree detection | forge-worktree | AI automatically knows which worktree you're in and adapts context |
-
-## Category 8: Ecosystem & Integration
-
-_"Six modules that work together — and work without each other."_
+_"Modules that work together — and work without each other."_
 
 | Feature | Source | User Value |
 |---------|--------|------------|
 | Smart Orchestrator | forge-core | One `/forge:setup` detects and configures everything |
-| Pipeline integration | core + product + qa + tracker + autopilot + worktree | Product context → dev-skill → quality gates → task updates → autonomous execution |
-| Orchestrator contract protocol | forge-core | Each adapter declares integration points — predictable, auditable module communication |
-| Adapter self-registration | All adapters | Adapters auto-discover installed modules and register into compatible hook points |
+| Pipeline integration | core + product + qa + tracker | Product context → dev-skill → quality gates → task updates |
 | Disposable meta-tools | All | Generated artifacts work after plugin removal |
 | Adapter protocol | forge-core | Ecosystem extensible without core changes |
 | Detection over configuration | All | Auto-detect everything, configure nothing manually |
@@ -125,15 +90,13 @@ _"Six modules that work together — and work without each other."_
 
 | Metric | Count |
 |--------|-------|
-| Total commands | 13 |
-| Total agents | 14 |
-| Total skills | 6 (orchestrator-level) |
+| Total commands | 17 |
+| Total agents | 8 |
+| Total skills | 4 (orchestrator-level) |
 | Supported frameworks | 8+ (backend + frontend) |
-| Product type archetypes | 9 |
+| Product type archetypes | 8 |
 | UX quality criteria | 50 |
 | Quality patterns | 50+ |
 | Test frameworks detected | 8+ |
 | Task tracker integrations | 5 |
-| Autonomy modes | 3 |
-| Worktree templates | 3 |
-| Generated artifact types | 30+ |
+| Generated artifact types | 24+ |

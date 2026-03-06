@@ -1,214 +1,216 @@
-# Product Hypotheses — Forge DevKit
+# Product Hypotheses -- Forge DevKit
 
-> **Context:** Продуктовые гипотезы для лендинга, оценённые по результатам исследования (AUDIENCE-RESEARCH, COMPETITOR-LANDSCAPE, PAIN-SOLUTION-MAP). Дата: 2026-02-25. Статус: финальные после ревью.
+> **Version:** v2 (2026-03-06). Added A2 hypothesis, deferred entrepreneur hypotheses. v1 archived as 005-product-hypotheses-v1.md
 
-## Принципы оценки
+## Evaluation Criteria
 
-Каждая гипотеза оценена по:
-1. **Соответствие подтверждённым болям** — адресует ли реальную боль из исследования?
-2. **Соответствие продукту** — делает ли Forge это сейчас или требует нового функционала?
-3. **Дифференциация** — отличает ли нас от конкурентов или ставит в прямую конкуренцию?
-4. **Messaging consistency** — совпадает ли с принятым позиционированием (quality layer, prevention not detection, disposable meta-tool)?
+Each hypothesis evaluated against:
+1. **Pain alignment** -- does it address a real, validated pain from research?
+2. **Product fit** -- does Forge do this today, or does it require new functionality?
+3. **Differentiation** -- does it set us apart, or put us in direct competition?
+4. **Messaging consistency** -- does it fit accepted positioning (quality layer, prevention not detection, disposable meta-tool)?
 
 ---
 
-## Сегмент A: Разработчики
+## Segment A: Developers
 
-### A1: Architecture-Aware AI Pipeline — STRONG (главная гипотеза)
+### A1: Architecture-Aware AI Pipeline -- STRONG (primary hypothesis)
 
 | | |
 |---|---|
-| **Исходная формулировка** | Devs заплатят за авто-генерацию .cursorrules/CLAUDE.md из репо |
-| **Скорректированная** | Devs заплатят за авто-генерацию полного dev-pipeline из архитектурного аудита проекта |
-| **Целевые боли** | P1 (context loss) + P3 (architecture violations) + P5 (best practices soup) + P6 (prompt fatigue) — 4 из 6 болей |
-| **Решение Forge** | `forge setup` → 7-gate wizard → architecture audit → dev-skills + quality patterns (50+) + naming conventions + 15 LLM rationalization detectors |
-| **Proof point** | Real CLI: `forge setup` → detected NestJS + Clean Architecture + 3 layers + PostgreSQL → generated 12 dev-skills |
-| **Метрика** | 30% conversion из trial/demo в paid |
-| **Pricing** | $29/mo (forge-core solo) |
+| **Original** | Devs will pay for auto-generation of .cursorrules/CLAUDE.md from repo |
+| **Refined** | Devs will pay for auto-generation of a full dev-pipeline from architectural audit of their project |
+| **Target pains** | P1 (context loss) + P3 (architecture violations) + P5 (code quality gap) + P6 (prompt fatigue) -- 4 of 9 pains |
+| **Forge solution** | `forge setup` -> 7-gate wizard -> architecture audit -> dev-skills + quality patterns (50+) + naming conventions + 15 LLM rationalization detectors |
+| **Proof point** | Real CLI: `forge setup` -> detected NestJS + Clean Architecture + 3 layers + PostgreSQL -> generated 12 dev-skills |
+| **Metric** | 30% conversion from trial/demo to paid |
+| **Pricing** | $29 (forge-core solo, Starter tier) |
 
-**Почему сработает:**
-- P3 (architecture violations) — #1 по severity в исследовании. Прямые цитаты: "AI ломает DDD-модули", "shortcuts validations", "changes one thing, breaks another"
-- P6 (prompt fatigue) — "I have to explain my architecture in every prompt" — universal frustration
-- Cursor Rules экосистема популярна, но rules пишут вручную. Auto-gen skills существуют, но дают one-shot generation без pipeline
-- **Forge GAP:** полный pipeline (не только rules), platform-agnostic, 7-gate wizard (не one-shot)
+**Why it works:**
+- P3 (architecture violations) -- #1 severity in research. Direct quotes: "AI breaks DDD modules", "shortcuts validations", "changes one thing, breaks another"
+- P6 (prompt fatigue) -- "I have to explain my architecture in every prompt" -- universal frustration
+- Cursor Rules ecosystem is popular, but rules are manually written. Auto-gen skills exist but produce one-shot generation without pipeline
+- **Forge GAP:** full pipeline (not just rules), platform-agnostic, 7-gate wizard (not one-shot)
 
-**Почему НЕ "rules generator":**
-- "Rules generator" = commodity. Бесплатные auto-gen skills уже существуют
-- Forge генерирует dev-skills + quality patterns + naming audit + red flags + pipeline phases — это architecture-aware pipeline, не файл с правилами
-- Позиционирование "pipeline" защищает от ценовой конкуренции с бесплатными генераторами
+**Why NOT "rules generator":**
+- "Rules generator" = commodity. Free auto-gen skills already exist
+- Forge generates dev-skills + quality patterns + naming audit + red flags + pipeline phases -- this is an architecture-aware pipeline, not a rules file
+- "Pipeline" positioning protects from price competition with free generators
 
-**Включает proof point из бывшей A2 (token economy):**
-- Structured pipeline phases prevent runaway sessions → predictable costs
-- Quality gates stop agent before it spirals → fewer wasted tokens
-- Это СЛЕДСТВИЕ pipeline, а не отдельный продукт
-
----
-
-### ~~A2: Token Guard~~ — MERGED в A1
-
-**Причина merge:** Runtime-перехват промптов — не текущий функционал Forge. Экономия токенов — следствие structured pipeline (A1), а не отдельная фича. Отдельная гипотеза создала бы ожидание runtime-интеграции, которой нет.
-
-**Как используем в messaging:** "Structured phases prevent runaway — predictable costs" как proof point в A1.
+**Includes token economy proof point (from former standalone A2):**
+- Structured pipeline phases prevent runaway sessions -> predictable costs
+- Quality gates stop agent before it spirals -> fewer wasted tokens
+- This is a CONSEQUENCE of pipeline, not a separate product
 
 ---
 
-### ~~A3: Code Review as Service~~ — DROPPED
-
-**Причина drop:**
-1. Forge не делает PR review — это другой продукт
-2. Конкуренты в этом пространстве: CodeRabbit, SonarQube, GitHub Copilot review
-3. Наша позиция: "prevention, not detection" (COMPETITOR-LANDSCAPE). Заходить в detection = терять дифференциацию
-4. Наш ответ на P4 (confidently wrong) — forge-product (acceptance criteria BEFORE code) + forge-qa (tests FROM requirements) + red flags (15 rationalization detectors). Это prevention, не post-hoc review.
-
----
-
-## Сегмент B: Предприниматели
-
-### B1: Structured MVP Path — STRONG (главная гипотеза)
+### A2: Agent Teams Orchestration -- STRONG (new, 2026)
 
 | | |
 |---|---|
-| **Исходная формулировка** | 1-click генерация full-stack MVP из Figma/промпта с auto-rules |
-| **Скорректированная** | Entrepreneurs используют Forge как quality layer поверх любого AI-builder для создания handoff-ready MVP |
-| **Целевые боли** | EP1 (idea-to-MVP gap) + EP3 (chaotic codebase) + EP5 (handoff fear) |
-| **Решение Forge** | forge-product: design features in business language → forge-core: AI builds with architecture guardrails → forge-qa: auto-tests give confidence |
-| **Proof point** | `/forge:design "subscription checkout"` → user flow + 5 stories + acceptance criteria → AI implements with quality gates → 12/12 tests pass |
-| **Метрика** | % пользователей, чей код прошёл review freelance-разработчиком без рекомендации "переписать с нуля" |
-| **Pricing** | $79/mo (forge-core + forge-product bundle) |
+| **Hypothesis** | Devs will pay for intelligent multi-agent orchestration: backlog -> conflict detection -> wave execution |
+| **Target pains** | P8 (merge conflicts in multi-agent) -- "I literally can't merge their branches" |
+| **Forge solution** | forge-autopilot analyzes backlog, detects file/module conflicts BEFORE spawning agents, groups tasks into conflict-free waves, spawns Agent Teams with isolated scopes |
+| **Proof point** | Wave visualization showing conflict-free task grouping: "Wave 1: 3 tasks (no overlap) -> Wave 2: 2 tasks (depends on Wave 1) -> all merged clean" |
+| **Metric** | % of Agent Teams users who complete multi-task sprints without manual conflict resolution |
+| **Pricing** | $149 (Bundle tier -- includes forge-autopilot) |
 
-**Почему сработает:**
-- EP1 — #1 по severity. "Want to test an idea but no money for developer"
-- EP5 — #2, strongest emotional hook. "Will devs say throw everything away?"
-- Killer line: "MVP your future dev team won't hate" (принцип #35)
-- Lovable/Bolt дают код, но без guardrails. Forge = quality layer ON TOP
+**Why it works:**
+- P8 is a CRITICAL 2026 pain that didn't exist before Claude Agent Teams (Feb 2026)
+- Zero competitors in this space -- no product offers backlog -> conflict detection -> wave execution
+- Developers who adopted Agent Teams early and hit merge walls are actively searching for solutions
+- High-intent buyers: they already invested in Agent Teams, they need orchestration on top
 
-**Почему НЕ "builder":**
-- Forge не генерирует код из Figma, не деплоит, не создаёт UI
-- Forge создаёт pipeline, который НАПРАВЛЯЕТ AI-builder (Bolt, Claude Cowork, Cursor) строить правильно
-- Позиционирование "builder" ставит нас в конкуренцию с Bolt/Lovable/Replit (массовые, бесплатные/дешёвые)
-- Позиционирование "quality layer" — уникальное, нет прямой конкуренции (принцип #36)
+**The analogy:**
+- Claude Agent Teams = Docker (infrastructure, spawn containers/agents)
+- forge-autopilot = Kubernetes (orchestration, scheduling, conflict avoidance, wave execution)
+- Docker without Kubernetes is chaos at scale. Agent Teams without forge-autopilot is merge conflict roulette.
 
----
+**Why a separate hypothesis (not merged into A1):**
+- Different target pain (P8 vs P1/P3)
+- Different pricing tier ($149 vs $29)
+- Different product (forge-autopilot vs forge-core)
+- Different buyer persona (teams using Agent Teams vs individual devs)
+- Standalone landing section with its own proof point and CTA
 
-### B2: Structured AI Development Path — REFRAMED
-
-| | |
-|---|---|
-| **Исходная формулировка** | Guided onboarding: "опиши идею → auto-rules → deploy" с security scan |
-| **Скорректированная** | Прозрачный, пошаговый AI-процесс разработки с видимым результатом на каждом шаге |
-| **Целевые боли** | EP2 (black box anxiety) + EP1 (idea-to-MVP gap) |
-| **Решение Forge** | Structured pipeline: Phase 0 (context) → Phase 1 (contracts) → Phase 2 (implement) → Phase 3 (verify). Каждая фаза видна, каждая gated. forge-qa даёт green/red без чтения кода |
-| **Proof point** | Pipeline output: "Phase 1: contracts OK → Phase 2: implement OK → Phase 3: verify (12/12 tests pass) OK" |
-| **Метрика** | % пользователей, завершающих полный цикл forge-product → forge-core → forge-qa |
-| **Pricing** | Входит в B1 bundle |
-
-**Почему reframe:**
-- Deploy — outside Forge scope (EP4, "partially outside our scope")
-- "Security scan" — Forge покрывает security patterns (auth guards, RLS, OWASP), но это не enterprise security scan. Не обещать то, чего нет
-- Реальная ценность: transparency beats magic (принцип #37). Entrepreneurs боятся black box — Forge делает процесс видимым
-
-**Связь с B1:** B2 — это "how it works" часть B1. Не отдельный продукт, а объяснение механизма.
+**Proof strategy:**
+- Demo video: backlog of 8 tasks -> forge-autopilot conflict analysis -> 3 waves -> Agent Teams execution -> all branches merge clean
+- Before/after: manual Agent Teams (4/8 tasks merge-conflicted) vs forge-autopilot (0 conflicts, 3 waves)
 
 ---
 
-### B3: Handoff-Ready Artifacts — STRONG (уникальная)
+### ~~A3: Code Review as Service~~ -- DROPPED
 
-| | |
-|---|---|
-| **Исходная формулировка** | Экспорт "DevKit bundle" (код + rules + docs + migration guide) |
-| **Скорректированная** | Forge artifacts survive removal — код, rules, тесты, документация остаются готовыми для передачи команде |
-| **Целевая боль** | EP5 (handoff fear) — strongest emotional hook |
-| **Решение Forge** | Disposable meta-tool: generated artifacts (dev-skills, tests, quality patterns, docs) work independently after plugin removal. Production-grade code from day one |
-| **Proof point** | "I showed the codebase to a senior dev. He said 'this is well-structured, I can work with this.'" (future testimonial direction) |
-| **Метрика** | 50% пользователей шэрят проект с freelancers/devs (tracked via survey/analytics) |
-| **Pricing** | Входит в B1 bundle ($79/mo) |
-
-**Почему сработает:**
-- EP5 — deep anxiety: "What happens when I actually need a developer?"
-- Disposable meta-tool — уже USP Forge, нужно громче заявить
-- "No team yet needed, not no team ever" (принцип #34) — honest messaging
-- Migration guide — отличная идея для roadmap, не для MVP
-
-**Messaging direction:** "Forge artifacts survive removal. Your code, your rules, your tests — ready for a real team."
+**Reason:**
+1. Forge doesn't do PR review -- that's a different product
+2. Competitors in this space: CodeRabbit, SonarQube, GitHub Copilot review
+3. Our position: "prevention, not detection" (COMPETITOR-LANDSCAPE). Entering detection = losing differentiation
+4. Our answer to P4 (confidently wrong) -- forge-product (acceptance criteria BEFORE code) + forge-qa (tests FROM requirements) + red flags (15 rationalization detectors). This is prevention, not post-hoc review.
 
 ---
 
-## Кросс-сегмент
+## Segment B: Entrepreneurs -- DEFERRED
 
-### Cross-1: Shared Landing, Targeted Sections — CONFIRMED
+> **Entrepreneur segment deferred to separate landing page.** Hypotheses B1, B2, B3 are not dropped -- they remain valid and will be activated when the entrepreneur-focused landing is built. The current developer landing page will not include entrepreneur-targeted sections.
+
+### B1: Structured MVP Path -- DEFERRED (was STRONG)
 
 | | |
 |---|---|
-| **Гипотеза** | Одна landing page с shared narrative + два targeted use case блока |
-| **Approach** | B (из 004-dual-audience-strategy.md): shared hero + problem/solution + targeted "For Developers" / "For Entrepreneurs" blocks |
-| **Метрика** | <20% bounce на обоих блоках; 15% lead→trial conversion |
-| **Статус** | Уже решено. Подтверждено исследованием |
-
-**Почему NOT "split landing":** Одна landing проще поддерживать, тестировать, итерировать. Dual messaging на одной странице показывает универсальность продукта. Оптимизируем split по analytics позже.
+| **Hypothesis** | Entrepreneurs use Forge as quality layer over any AI-builder for creating handoff-ready MVP |
+| **Target pains** | EP1 (idea-to-MVP gap) + EP3 (chaotic codebase) + EP5 (handoff fear) |
+| **Status** | DEFERRED -- separate entrepreneur landing page planned |
+| **Notes** | Hypothesis validated. Killer line "MVP your future dev team won't hate" confirmed. Activation blocked on separate landing page buildout |
 
 ---
 
-### Cross-2: Flat Pricing, No Freemium (MVP) — DEFERRED freemium
+### B2: Structured AI Development Path -- DEFERRED (was REFRAMED)
 
 | | |
 |---|---|
-| **Исходная гипотеза** | Free: 3 rules gen/mo → Paid: unlimited + integrations |
-| **Решение** | Flat pricing на MVP ($29/$79/$149). Freemium отложен |
-| **Причина** | Текущая архитектура API: LemonSqueezy → license key → activate → download. Free tier не предусмотрен. Реализация требует: API доработки, CLI изменения, rate-limiting infrastructure |
-| **Pricing на лендинге** | Показываем прямо и рано — transparent pricing is trust signal (принцип #31) |
+| **Hypothesis** | Transparent, step-by-step AI development process with visible results at each step |
+| **Target pains** | EP2 (black box anxiety) + EP1 (idea-to-MVP gap) |
+| **Status** | DEFERRED -- separate entrepreneur landing page planned |
+| **Notes** | Functions as "how it works" explanation for B1. Reusable in developer context as pipeline transparency proof point |
 
-**Почему flat pricing лучше на старте:**
+---
+
+### B3: Handoff-Ready Artifacts -- DEFERRED (was STRONG)
+
+| | |
+|---|---|
+| **Hypothesis** | Forge artifacts survive removal -- code, rules, tests, documentation remain ready for team handoff |
+| **Target pains** | EP5 (handoff fear) -- strongest emotional hook for entrepreneurs |
+| **Status** | DEFERRED -- separate entrepreneur landing page planned |
+| **Notes** | Disposable meta-tool USP is also relevant for developers (A1 proof point). Entrepreneur-specific messaging ("MVP your future team won't hate") deferred |
+
+---
+
+## Cross-Segment
+
+### Cross-1: Developer-Only Landing -- UPDATED (was "Shared Landing, Targeted Sections")
+
+| | |
+|---|---|
+| **Original hypothesis** | One landing page with shared narrative + two targeted use case blocks |
+| **Updated decision** | Developer-only landing page. Entrepreneurs get separate site later |
+| **Rationale** | Dual-audience landing dilutes developer messaging. Developer pain points (P1-P9) and entrepreneur pain points (EP1-EP6) require fundamentally different hooks, CTAs, and proof points. Shared page = compromised messaging for both |
+| **Metric** | 15% lead -> trial conversion (developer segment) |
+
+**Why split now:**
+- Developer segment has clearer product-market fit (forge-core shipping, CLI working, architecture audit proven)
+- Agent Teams (A2) creates time-sensitive opportunity that requires focused developer landing
+- Entrepreneur messaging ("no team needed", "MVP path") on same page undermines developer identity hook ("tool for serious engineers")
+- Single-audience landing is simpler to build, test, iterate
+
+**Entrepreneur landing -- later:**
+- Separate domain/subdomain or distinct page
+- Reuses B1, B2, B3 hypotheses
+- Own hero, CTAs, proof points, pricing presentation
+
+---
+
+### Cross-2: Flat Pricing, No Freemium (MVP) -- DEFERRED freemium
+
+| | |
+|---|---|
+| **Original hypothesis** | Free: 3 rules gen/mo -> Paid: unlimited + integrations |
+| **Decision** | Flat pricing on MVP ($29/$79/$149). Freemium deferred |
+| **Rationale** | Current API architecture: LemonSqueezy -> license key -> activate -> download. Free tier not provisioned. Implementation requires: API changes, CLI changes, rate-limiting infrastructure |
+| **Pricing on landing** | Show directly and early -- transparent pricing is trust signal |
+
+**Why flat pricing is better at launch:**
 - Hidden pricing / token-based billing = strong developer backlash (AUDIENCE-RESEARCH)
-- $29/$79/$149 — predictable, comparable with dev tool market
-- Freemium — отдельная продуктовая гипотеза для следующего цикла (когда есть usage data)
+- $29/$79/$149 -- predictable, comparable with dev tool market
+- Freemium -- separate product hypothesis for next cycle (when usage data exists)
 
 ---
 
-## Скорректированный Messaging Framework
+## Messaging Framework (Developer-Focused)
 
 ### Headlines
 
-| Аудитория | Исходный headline | Скорректированный | Обоснование |
-|---|---|---|---|
-| Devs | "AI agents that respect your codebase" | **"AI agents that respect your codebase"** (оставляем) | Точно попадает в hook "control & predictability". Конкретно, не generic |
-| Founders | "Build production MVPs, no dev team" | **"MVP your future team won't hate"** | Исходный звучит как builder (Bolt messaging). Скорректированный адресует EP5 (handoff fear) — #2 emotional hook |
+| Element | Content | Rationale |
+|---|---|---|
+| **Hero** | "AI agents that respect your codebase" | Hits "control & predictability" hook. Concrete, not generic. Proven in research |
+| **Agent Teams angle** | "Conflict-free parallel development for Agent Teams" | New 2026 hook for A2. High-intent buyers |
 
-### Fear → Solution
+### Fear -> Solution
 
-| Аудитория | Исходный fear | Скорректированный | Обоснование |
-|---|---|---|---|
-| Devs | Chaotic changes | **Architecture violations** | P3 (#1 severity) шире чем "chaotic changes". Включает: broken invariants, security shortcuts, cross-module breakage |
-| Founders | Unscalable toys | **"Code your team will rewrite from scratch"** | EP5 формулировка. "Unscalable" — техническое слово. "Rewrite from scratch" — эмоциональный удар |
+| Fear | Framing | Rationale |
+|---|---|---|
+| **Architecture violations** | "Your AI agent doesn't understand your architecture. It breaks it." | P3 (#1 severity). Includes: broken invariants, security shortcuts, cross-module breakage |
+| **Merge conflict chaos** | "Agent Teams without orchestration = merge conflict roulette" | P8 (#3 severity). New, visceral, unsolved |
 
 ### CTA
 
-| Аудитория | Исходный CTA | Скорректированный | Обоснование |
-|---|---|---|---|
-| Devs | "Generate rules now" | **"Audit your architecture"** | "Generate rules" = commodity. "Audit your architecture" отражает 7-gate wizard и full pipeline |
-| Founders | "Launch your idea" | **"Design your first feature"** | "Launch" = builder CTA (Bolt/Replit). "Design your first feature" указывает на forge-product — наш entry point для entrepreneurs |
+| Context | CTA | Rationale |
+|---|---|---|
+| **forge-core** | "Audit your architecture" | "Generate rules" = commodity. "Audit" reflects 7-gate wizard and full pipeline |
+| **forge-autopilot** | "See your first wave plan" | Shows conflict detection + wave execution. Concrete outcome |
 
 ---
 
-## Финальная карта гипотез
+## Hypothesis Map (Final)
 
 ```
-STRONG (лендинг строим вокруг них):
-├── A1: Architecture-Aware AI Pipeline (dev hero)
-├── B1: Structured MVP Path (entrepreneur hero)
-└── B3: Handoff-Ready Artifacts (entrepreneur USP)
+STRONG (landing built around these):
++-- A1: Architecture-Aware AI Pipeline (dev hero, forge-core)
++-- A2: Agent Teams Orchestration (dev hero #2, forge-autopilot)
 
-SUPPORTING (поддерживают hero гипотезы):
-├── B2: Structured AI Path (= "how it works" для B1)
-├── Token economy (= proof point в A1)
-└── Cross-1: Dual landing (= page architecture)
+SUPPORTING (reinforce hero hypotheses):
++-- Token economy (= proof point in A1, not standalone)
++-- B2: Structured AI Path (reusable in dev context as pipeline transparency)
 
-DEFERRED (следующий цикл):
-├── Cross-2: Freemium (требует API work)
-└── B3 migration guide feature (roadmap)
+DEFERRED (separate landing / next cycle):
++-- B1: Structured MVP Path (entrepreneur landing)
++-- B3: Handoff-Ready Artifacts (entrepreneur landing)
++-- Cross-2: Freemium (requires API work)
++-- Entrepreneur landing page (separate buildout)
 
 DROPPED:
-├── A2: Token Guard as standalone (merged → A1)
-└── A3: Code Review Service (другой продукт, конфликт с positioning)
++-- A3: Code Review Service (different product, conflicts with positioning)
++-- Old A2: Token Guard as standalone (merged -> A1)
 ```
 
 ---
@@ -217,13 +219,13 @@ DROPPED:
 
 ### Section priorities (based on hypothesis strength):
 
-1. **Hero:** Shared — "AI agents that respect your codebase" (devs) / "MVP your future team won't hate" (founders). Dynamic or A/B tested.
-2. **Problem:** Architecture violations (devs) + handoff fear (founders) — shared section, dual framing
-3. **Solution overview:** Full pipeline, not rules. Quality layer, not builder.
-4. **For Developers block:** A1 — architecture audit, dev-skills, quality patterns, pipeline phases
-5. **For Entrepreneurs block:** B1 + B3 — structured MVP path, handoff-ready artifacts, transparent process
-6. **How it Works:** B2 — pipeline phases visualization (works for both segments)
-7. **Modules:** forge-core (hero) → forge-product → forge-qa → forge-tracker
-8. **Pricing:** Flat, transparent, early on page
+1. **Hero:** "AI agents that respect your codebase" -- developer-focused, single audience
+2. **Problem:** Architecture violations (P3) + merge conflict chaos (P8) + CC spirals (P7) -- the three most visceral developer pains
+3. **Solution overview:** Full pipeline, not rules. Quality layer, not builder. Orchestration, not just infrastructure.
+4. **forge-core block (A1):** Architecture audit, dev-skills, quality patterns, pipeline phases, red-flag detectors
+5. **forge-autopilot block (A2):** Agent Teams orchestration, conflict detection, wave execution, merge-free parallel development
+6. **How it Works:** Pipeline phases visualization (detection -> audit -> generation -> validation)
+7. **Modules:** forge-core (hero) -> forge-product -> forge-qa -> forge-tracker -> forge-autopilot -> forge-worktree
+8. **Pricing:** Flat, transparent, early on page. $29 / $79 / $149
 9. **Author/Trust:** Real face, real experience, real technical opinions
-10. **FAQ:** Segment-specific questions
+10. **FAQ:** Developer-specific questions

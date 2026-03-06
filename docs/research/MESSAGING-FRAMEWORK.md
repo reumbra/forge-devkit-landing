@@ -1,5 +1,7 @@
 # Messaging Framework — Forge DevKit
 
+> **Version:** v2 (2026-03-06). Developer-only focus, 6 modules, one-time pricing fix, updated with 2026 research. v1 archived as MESSAGING-FRAMEWORK-v1.md
+
 > **Context:** Complete messaging strategy synthesized from all research documents. Defines positioning, value propositions, emotional hooks, copy direction per section, and voice rules. Source: AUDIENCE-RESEARCH, PAIN-SOLUTION-MAP, COMPETITOR-LANDSCAPE, 005-product-hypotheses, 002-brand-guidelines, FEATURE-MATRIX, PRINCIPLES.
 
 ---
@@ -11,12 +13,12 @@ Forge DevKit — architecture-aware AI pipeline that auto-generates project-spec
 
 ### Positioning Formula
 
-**For** developers and technical entrepreneurs
+**For** developers (senior devs, tech leads, AI agent users)
 **who** use AI coding agents (Claude Code, Cursor, Claude Cowork)
 **Forge DevKit is** an architecture-aware AI pipeline
 **that** auto-generates project-specific guardrails from codebase audit
-**unlike** manual rules (Cursor Rules, CLAUDE.md), generic AI assistants, and no-code builders
-**Forge** provides a full development pipeline (architecture → product design → quality gates → testing) that works across platforms and survives plugin removal.
+**unlike** manual rules (Cursor Rules, CLAUDE.md), generic AI assistants, and autonomous agents (Devin) that don't understand your project
+**Forge** provides a full development pipeline (architecture → product design → quality gates → testing → agent orchestration) that works across platforms and survives plugin removal.
 
 ### Positioning Anchors
 
@@ -26,23 +28,19 @@ Forge DevKit — architecture-aware AI pipeline that auto-generates project-spec
 | Approach | Prevention (guardrails before code) | Detection (review after code) |
 | Platform | Platform-agnostic (.claude/) | Locked to one IDE/tool |
 | Lifecycle | Disposable meta-tool (artifacts survive) | Runtime dependency |
-| Scope | Full pipeline (architecture → QA) | Just rules / just tests |
-| Audience | Developers + technical entrepreneurs | Enterprise / non-technical PMs |
+| Scope | Full pipeline (architecture → QA → agent teams) | Just rules / just tests |
+| Audience | Developers (senior devs, tech leads, AI agent users) | Enterprise / non-technical PMs |
 
 ---
 
 ## 2. Value Proposition Hierarchy
 
-### Level 1: Core Promise (shared)
+### Level 1: Core Promise
 **"AI that respects your architecture."**
 
-Works for both segments:
-- Developers hear: "My AI agent follows MY project rules, not generic best practices"
-- Entrepreneurs hear: "AI builds structured, maintainable code — not chaotic spaghetti"
+Developers hear: "My AI agent follows MY project rules, not generic best practices."
 
-### Level 2: Segment-Specific Value Props
-
-**Developers:**
+### Level 2: Value Props
 
 | Priority | Value Prop | Pain Addressed | Copy Direction |
 |----------|-----------|----------------|----------------|
@@ -50,27 +48,22 @@ Works for both segments:
 | 2 | Encode your expertise once, never repeat yourself | P6 (prompt fatigue) + P1 (context loss) | "One setup → architecture audit → project-aware AI forever" |
 | 3 | Structured workflows, predictable costs | P2 (token burn) | "Pipeline phases prevent runaway sessions" |
 | 4 | Tests that trace back to requirements | P4 (confidently wrong) | "Every test proves a requirement. Not AI guesswork" |
-
-**Entrepreneurs:**
-
-| Priority | Value Prop | Pain Addressed | Copy Direction |
-|----------|-----------|----------------|----------------|
-| 1 | MVP your future dev team won't hate | EP5 (handoff fear) + EP3 (chaotic code) | "Production-grade code from day one. No rewrite when you hire" |
-| 2 | Design features in your language, AI builds to spec | EP1 (idea-to-MVP) | "Describe in business terms → structured implementation" |
-| 3 | See exactly what was built and why | EP2 (black box) | "Transparent phases: design → build → verify. Green/red, no guessing" |
-| 4 | Your code, your rules, your tests — they stay | Disposable meta-tool | "Forge artifacts survive removal. Ready for a real team" |
+| 5 | Parallel agents without merge hell | P7 (agent team conflicts) | "Run Agent Teams safely. Conflicts detected before code is written." |
 
 ### Level 3: Technical Proof Points
 
 | Claim | Proof |
 |-------|-------|
-| "Architecture-aware" | 7-gate wizard, 3 template families, 8+ framework detection |
+| "Architecture-aware" | 7-gate wizard, 3 template families, 15+ framework detectors |
 | "50 guardrails" | Auth guards, RLS, decimal precision, N+1, type coverage — per stack |
 | "15 rationalization detectors" | AI cutting corners detected: scope creep, missing validation, silent failures |
 | "Tests from requirements" | AC → unit tests, UC → E2E, UX criteria → UI assertions. Traceability tags in code |
-| "Full pipeline" | architecture audit → dev-skills → quality patterns → product design → tests → task sync |
+| "Full pipeline" | architecture audit → dev-skills → quality patterns → product design → tests → task sync → agent orchestration |
 | "Platform-agnostic" | .claude/ directory works in Claude Code CLI, Desktop, Cursor, Claude Cowork |
 | "Disposable" | Generated artifacts (dev-skills, tests, docs) work independently after plugin removal |
+| "6 modules" | forge-core, forge-product, forge-qa, forge-tracker, forge-autopilot, forge-worktree |
+| "Agent Teams" | backlog → conflict detection → wave execution, 3 autonomy modes (supervised, semi-auto, full-auto) |
+| "3 execution modes" | Sequential, parallel, patch — per-task scope optimization |
 
 ---
 
@@ -83,6 +76,8 @@ Recognition ("that's MY problem")
   → "AI loses your architecture as your project grows"
   → "You re-explain your stack in every prompt"
   → "AI writes textbook code that doesn't fit YOUR project"
+  → "Your Agent Teams create merge conflicts you can't resolve"
+  → "AI generates tests that test nothing"
 
 Relief ("someone understands")
   → "We built this because we had the same problem"
@@ -91,11 +86,13 @@ Relief ("someone understands")
 Trust ("these people are real")
   → Real CLI output, real terminal, real file structures
   → Author with real engineering background
-  → Transparent flat pricing
+  → Transparent one-time pricing
+  → "Kubernetes for Agent Teams" — infrastructure you understand
 
 Desire ("I want this")
   → "One setup, project-aware AI forever"
   → "50 guardrails your AI doesn't know it needs"
+  → "Agent Teams that don't create merge hell" — peak moment
   → Side-by-side: generic AI vs Forge-guided AI
 
 Action ("let me try")
@@ -103,103 +100,105 @@ Action ("let me try")
   → Clear pricing, clear install path
 ```
 
-### Entrepreneur Emotional Journey
-
-```
-Recognition ("that's MY fear")
-  → "Will your future dev team rewrite everything from scratch?"
-  → "AI changes files but you don't know what it did"
-  → "Working prototype ≠ production-ready code"
-
-Hope ("there's a way")
-  → "Design features in business language"
-  → "AI builds with senior-level guardrails"
-  → "No team yet — but code that's ready for one"
-
-Confidence ("I can trust this")
-  → Pipeline phases: design → build → verify
-  → Green/red test results without reading code
-  → "Forge artifacts survive removal — your code stays yours"
-
-Action ("let me start")
-  → "Design your first feature" (CTA)
-  → Clear pricing, clear value per tier
-```
-
 ---
 
 ## 4. Messaging Per Landing Section
 
-### Hero Section
+### Section 1: Hero
 
 **Section label:** `FORGE DEVKIT` (JetBrains Mono, uppercase, #9A75EA)
 
-**Primary headline (developers):**
-> AI agents that respect your codebase
+**Headline:**
+> Your AI writes code. Forge makes it production-ready.
 
-**Primary headline (entrepreneurs):**
-> MVP your future team won't hate
-
-**Implementation:** Either A/B test both, or use developer headline as primary (larger audience, stronger product-market fit) with entrepreneur subtext.
+Single headline. No dual-audience split.
 
 **Subheadline:**
 > Architecture-aware AI pipeline. Auto-generates project-specific guardrails, quality patterns, and development workflows — across any platform.
 
 **CTA pair:**
-- Primary: "Audit your architecture →" (devs) / "Design your first feature →" (entrepreneurs)
+- Primary: "Audit your architecture →"
 - Ghost: "See how it works"
 
 **Hero proof element:** Real terminal output showing `forge setup` detecting architecture (animated typing effect or static screenshot).
 
 ---
 
-### Problem Section
+### Section 2: Problem
 
 **Section label:** `THE PROBLEM`
 
 **Headline:**
 > Your AI doesn't know your project
 
-**Two-column pain display:**
+**2x2 pain grid (developer-only):**
 
-| Developer pain | Entrepreneur pain |
-|---|---|
-| AI breaks DDD modules, shortcuts validations | Files everywhere, data behaves strangely |
-| Re-explain your architecture in every prompt | Can't interpret what AI changed or if it's safe |
-| Millions of tokens for 100 lines. Surprise bills | "When I hire devs, will they say rewrite everything?" |
-| Code looks clean but logic doesn't match requirements | Working prototype but no one can maintain it |
+| Pain | Description |
+|------|-------------|
+| **Context Loss** | AI forgets your architecture as the project grows. Every session starts from zero. |
+| **Architecture Violations** | AI breaks DDD modules, shortcuts validations, ignores your security patterns. |
+| **Copy-Change Spirals** | Millions of tokens for 100 lines. AI rewrites files in circles. Surprise bills. |
+| **Fake Tests** | Tests pass but test nothing. AI generates assertions that match its own output, not requirements. |
 
 **Transition line:**
 > The problem isn't AI. It's unstructured AI.
 
 ---
 
-### Solution Overview
+### Section 3: Solution Overview
 
 **Section label:** `THE SOLUTION`
 
 **Headline:**
 > Architecture-aware pipeline for AI agents
 
-**Key message (3 pillars):**
+**3 pillars:**
 
 | Pillar | Headline | Description | Icon direction |
 |--------|----------|-------------|----------------|
 | **Audit** | Understands your project | 7-gate wizard detects stack, layers, patterns, conventions. No manual config. | Architecture diagram / grid |
-| **Guard** | Enforces your standards | 50+ quality patterns, naming conventions, 15 rationalization detectors. Prevention, not detection. | Shield / guardrail |
-| **Pipeline** | Structures the workflow | Design → implement → verify. Scoped phases, quality gates, requirement traceability. | Pipeline / flow arrows |
+| **Structure** | Enforces your standards | 50+ quality patterns, naming conventions, 15 rationalization detectors. Prevention, not detection. | Shield / guardrail |
+| **Execute** | Structures the workflow | Design → implement → verify. Scoped phases, quality gates, agent orchestration. | Pipeline / flow arrows |
 
 **Proof line:**
 > One `forge setup` → your AI codes like a senior engineer who's read every file in the repo.
 
 ---
 
-### For Developers Block
+### Section 4: Pipeline Visualization (NEW)
 
-**Section label:** `FOR DEVELOPERS`
+**Section label:** `THE PIPELINE`
+
+**Headline:**
+> Six modules. One pipeline.
+
+**Visual:** Horizontal flow diagram showing the 6-module pipeline:
+
+```
+forge-core → forge-product → forge-qa → forge-tracker → forge-autopilot → forge-worktree
+  Audit        Design         Test        Track           Orchestrate      Isolate
+```
+
+**Key message:** Each module feeds the next. Use them together for a full pipeline, or pick individual modules — each works standalone.
+
+**Module flow description:**
+1. **forge-core** — Audit architecture, generate guardrails and dev-skills
+2. **forge-product** — Design features with acceptance criteria before code
+3. **forge-qa** — Generate tests traced to requirements (AC → unit, UC → E2E, UX → component)
+4. **forge-tracker** — Sync tasks with GitHub, ClickUp, Linear, Notion, Jira
+5. **forge-autopilot** — Orchestrate Agent Teams with conflict detection and wave execution
+6. **forge-worktree** — Isolate parallel work in git worktrees with environment templates
+
+---
+
+### Section 5: Deep Dive — forge-core
+
+**Section label:** `FORGE-CORE`
 
 **Headline:**
 > Your project's rules. Not textbook defaults.
+
+**Key numbers:** 50+ quality patterns. 15 rationalization detectors. 3 execution modes.
 
 **4 pain→solution cards:**
 
@@ -221,61 +220,79 @@ Action ("let me start")
 - Solution: "One `forge setup` → architecture audit → generated dev-skills with all conventions. Never repeat yourself."
 - Proof: Before (500-word prompt) vs After (`forge setup` once)
 
-**Card 4: Wrong Code**
-- Label: `REQUIREMENT TRACEABILITY`
-- Pain: "Code looks clean but logic is wrong. Hallucinated APIs."
-- Solution: "forge-product creates verifiable acceptance criteria BEFORE code. forge-qa generates tests FROM those criteria. Every test traces back to a requirement."
-- Proof: Test comment `// AC: US-3.AC-2 — User receives email within 5 minutes`
+**Card 4: Execution Modes**
+- Label: `3 MODES`
+- Pain: "Small fix gets the same heavy pipeline as a full feature"
+- Solution: "Sequential for features, parallel for independent tasks, patch for targeted fixes. Right-sized pipeline per task."
+- Proof: Mode selector output showing scope detection
 
 ---
 
-### For Entrepreneurs Block
+### Section 6: Deep Dive — forge-autopilot (NEW)
 
-**Section label:** `FOR ENTREPRENEURS`
+**Section label:** `FORGE-AUTOPILOT`
 
 **Headline:**
-> From idea to code your team can inherit
+> Agent Teams without merge hell.
 
-**3 pain→solution cards:**
+**Peak moment section.** This is the emotional climax of the page — the "I didn't know I needed this" reveal.
 
-**Card 1: Idea-to-MVP**
-- Label: `FEATURE DESIGN`
-- Pain: "Have an idea but no team. Don't want to become a developer."
-- Solution: "Describe features in business language. Forge creates user flows, stories, acceptance criteria. AI builds from that spec with architecture guardrails."
-- Proof: `/forge:design "subscription checkout"` → structured output
+**Key message:** Run multiple AI agents in parallel on the same codebase. forge-autopilot detects conflicts before code is written, orchestrates wave execution, and merges results cleanly.
 
-**Card 2: Black Box**
-- Label: `TRANSPARENT PIPELINE`
-- Pain: "AI changes files but I don't know what it did or if it's safe"
-- Solution: "Structured phases: design → build → verify. See green/red test results without reading code. Every piece traces back to a requirement."
-- Proof: Pipeline output: "Phase 1: contracts ✅ → Phase 2: implement ✅ → Phase 3: verify (12/12 tests pass) ✅"
+**3 capability cards:**
 
-**Card 3: Handoff**
-- Label: `HANDOFF-READY`
-- Pain: "When I hire devs, will they say 'throw it away and rewrite'?"
-- Solution: "Production-grade code from day one. Clean architecture, naming conventions, quality patterns. Forge artifacts survive removal — your code, rules, tests stay."
-- Proof: Clean project structure tree with consistent naming
+**Card 1: Conflict Detection**
+- Label: `BEFORE CODE`
+- "Backlog analysis detects file-level conflicts between tasks. Agents never work on the same files simultaneously."
 
-**Closing line:**
-> No team yet needed. But when you hire — the codebase is ready.
+**Card 2: Wave Execution**
+- Label: `ORCHESTRATED PARALLELISM`
+- "Tasks grouped into conflict-free waves. Each wave runs in isolated worktrees. Tech lead agent supervises."
+
+**Card 3: Autonomy Modes**
+- Label: `YOUR LEVEL OF CONTROL`
+- "Supervised: approve every merge. Semi-auto: approve waves. Full-auto: tech lead handles everything. You choose."
+
+**Analogy line:**
+> Agent Teams are Docker containers. forge-autopilot is Kubernetes.
 
 ---
 
-### How It Works
+### Section 7: Deep Dive — forge-qa
+
+**Section label:** `FORGE-QA`
+
+**Headline:**
+> Tests that prove requirements. Not AI guesswork.
+
+**Key message:** Every test traces back to a requirement. No more tests that pass but verify nothing.
+
+**3-level traceability:**
+
+| Source | Test type | Example |
+|--------|-----------|---------|
+| Acceptance Criteria | Unit tests | `// AC: US-3.AC-2 — User receives email within 5 minutes` |
+| Use Cases | E2E tests | Full user flow from login to checkout |
+| UX Criteria | Component tests | Visual regression, interaction patterns |
+
+**Proof:** Test comment showing traceability tag linking test to specific acceptance criterion.
+
+---
+
+### Section 8: How It Works
 
 **Section label:** `HOW IT WORKS`
 
 **Headline:**
 > One setup. Project-aware AI forever.
 
-**4-step flow:**
+**3-step flow:**
 
 | Step | Label | Action | Output |
 |------|-------|--------|--------|
-| 1 | **Install** | `npm i -g @reumbra/forge` | CLI ready |
-| 2 | **Activate** | `forge activate <license>` | Plugins downloaded |
-| 3 | **Setup** | `forge setup` | 7-gate wizard → dev-skills, quality patterns, pipeline |
-| 4 | **Code** | Use Claude Code / Cursor / Cowork normally | AI follows your project's rules |
+| 1 | **Install** | `npm i -g @reumbra/forge && forge activate <license>` | CLI ready, plugins downloaded |
+| 2 | **Setup** | `forge setup` | 7-gate wizard → dev-skills, quality patterns, pipeline |
+| 3 | **Develop** | Use Claude Code / Cursor / Cowork normally | AI follows your project's rules |
 
 **Key message:** "Forge installs to `.claude/` — your AI tools detect it automatically. Works everywhere: Claude Code CLI, Claude Desktop, Cursor, Claude Cowork."
 
@@ -283,52 +300,59 @@ Action ("let me start")
 
 ---
 
-### Modules Section
+### Section 9: Module Grid
 
 **Section label:** `MODULES`
 
 **Headline:**
-> Four modules. One pipeline.
+> Six modules. One pipeline.
 
-**Module cards (in priority order per principle #29):**
+**Module cards (6 cards, in priority order):**
 
 | Module | Tagline | Key number | Position |
 |--------|---------|------------|----------|
 | **forge-core** | Architecture audit & AI guardrails | 50+ quality patterns | Hero module — largest card |
-| **forge-product** | Feature design in business language | 8 product archetypes | Second |
-| **forge-qa** | Tests that trace back to requirements | 8+ test frameworks | Third |
+| **forge-product** | Feature design with acceptance criteria | 9 product archetypes | Second |
+| **forge-qa** | Tests that trace back to requirements | 10 test modes | Third |
 | **forge-tracker** | Bridge backlog and development | 5 tracker integrations | Fourth |
+| **forge-autopilot** | Agent Teams with conflict detection | 3 autonomy modes | Fifth |
+| **forge-worktree** | Git worktree lifecycle management | 3 environment templates | Sixth |
 
 **Module relationship line:**
 > Use them together for a full pipeline. Use them separately — each module works standalone.
 
 ---
 
-### Pricing Section
+### Section 10: Pricing Teaser
 
 **Section label:** `PRICING`
 
 **Headline:**
-> Transparent pricing. No token billing.
+> One-time purchase. No subscription. Your artifacts stay forever.
 
-**Pricing principle:** Show early, show clearly. Transparent pricing is a trust signal (principle #31). Developer backlash against hidden/token-based pricing is documented.
+**Pricing principle:** Show early, show clearly. Transparent pricing is a trust signal. Developer backlash against subscription/token-based pricing is documented. Door-in-the-Face: compare against Devin's $500/mo before showing one-time pricing.
 
 **Tiers:**
 
 | Tier | Price | Includes | Audience |
 |------|-------|----------|----------|
-| **Core** | $29/mo | forge-core | Developers — entry point |
-| **Pro** | $79/mo | forge-core + forge-product + forge-qa | Developers & entrepreneurs — full pipeline |
-| **Team** | $149/mo | All modules + team features | Teams |
+| **Starter** | $29 (one-time) | forge-core | Entry point — architecture audit & guardrails |
+| **Pro** | $79 (one-time) | forge-core + forge-product + forge-qa + forge-tracker | Full development pipeline |
+| **Bundle** | $149 (one-time) | All 6 modules + all future modules | Complete ecosystem |
+
+**Licensing model:** JetBrains model — one-time purchase, 1 year of updates included, 3 device activations.
 
 **Trust signals below pricing:**
-- "Flat monthly. No per-token charges."
-- "Cancel anytime. Your generated artifacts stay forever."
-- "14-day money-back guarantee." (if applicable)
+- "One-time purchase. Not $20/month. Not per-token."
+- "1 year of updates included. Renew only if you want new features."
+- "Remove Forge anytime — your generated artifacts stay forever."
+
+**Contrast line:**
+> Devin: $500/mo subscription to replace your developer. Forge: $29-149 once to enhance YOUR AI agent.
 
 ---
 
-### Author / Trust Section
+### Section 11: Author / Trust Section
 
 **Section label:** `BUILT BY`
 
@@ -343,32 +367,36 @@ Action ("let me start")
 - Technical philosophy quote (specific opinion, not generic)
 - Link to Reumbra
 
-**Principle #27:** "Authority must be real. 'By developers for developers' works only when backed by real face, real experience, real opinions."
+**Principle:** "Authority must be real. 'By developers for developers' works only when backed by real face, real experience, real opinions."
 
 ---
 
-### FAQ Section
+### Section 12: FAQ
 
 **Section label:** `FAQ`
 
-**Developer questions:**
+**7 developer-focused questions:**
 
 | Question | Answer direction |
 |----------|-----------------|
 | "How is this different from writing .cursorrules myself?" | Auto-generated from architecture audit, not manual. Full pipeline, not just rules. Platform-agnostic. |
-| "Does it work with my stack?" | 8+ frameworks. 3 template families. Stack-specific quality patterns. |
-| "What if I remove Forge?" | Disposable: generated artifacts (dev-skills, tests, docs) work independently. |
+| "Does it work with my stack?" | 15+ framework detectors. 3 template families. Stack-specific quality patterns. |
+| "What if I remove Forge?" | Disposable: generated artifacts (dev-skills, tests, docs) work independently. Your code, rules, tests stay. |
 | "Does it work outside Claude Code?" | .claude/ directory detected by Cursor, Claude Desktop, Claude Cowork automatically. |
 | "Will it conflict with my existing rules?" | Collision detection built into setup wizard. Merges, not overwrites. |
+| "How is this different from Devin?" | Devin replaces your developer. Forge enhances your AI agent with project-specific guardrails. You stay in control. |
+| "Is this a subscription?" | No. One-time purchase. JetBrains model: buy once, 1 year of updates, renew only for new features. Artifacts stay forever. |
 
-**Entrepreneur questions:**
+---
 
-| Question | Answer direction |
-|----------|-----------------|
-| "Do I need to know how to code?" | Feature design phase (forge-product) uses business language. For implementation, use Claude Cowork or Cursor with Forge installed. |
-| "Will a real developer be able to work with this code?" | That's the entire point. Production-grade architecture, naming conventions, quality patterns. |
-| "How is this different from Bolt/Lovable?" | They generate code. Forge ensures the generated code is maintainable. Quality layer on top, not a replacement. |
-| "What if I outgrow the MVP?" | Forge artifacts are real engineering artifacts. They scale with your project. |
+### Section 13: Final CTA
+
+**Headline:**
+> Your AI writes code. Make it production-ready.
+
+**CTA:** "Get Forge →" (links to /pricing)
+
+**Subtext:** "One-time purchase. Works in 60 seconds."
 
 ---
 
@@ -387,35 +415,32 @@ Concise         ·····█····                  Verbose
 
 ### Copy Rules
 
-| Rule | Example ✅ | Anti-example ❌ |
-|------|-----------|----------------|
+| Rule | Example | Anti-example |
+|------|---------|--------------|
 | Lead with pain, not features | "AI forgets your architecture" | "Forge has 50+ quality patterns" |
 | Specific > generic | "CQRS, DDD, Event Sourcing" | "Modern architecture" |
 | Outcomes > features | "Fewer production bugs" | "Quality pattern enforcement" |
 | Short headlines | "Your project's rules" (3 words) | "A comprehensive solution for project-specific AI configuration" |
 | Real content | `forge setup` terminal output | Abstract diagram |
-| Honest scope | "No team yet needed" | "Never hire a developer again" |
+| Honest scope | "Enhance your AI agent" | "Never write code again" |
 
 ### Word Lists (from brand guidelines)
 
 **Use:** Precision, engineering, architecture, scale, depth, reliable, thoughtful, production-grade, solid, clean, guardrails, pipeline, structured, project-aware, opinionated
 
-**Never:** Innovative, revolutionary, best-in-class, cutting-edge, passionate, world-class, leverage, synergy, disruptive, robust, magic, autonomous, 10x, AI-powered (as differentiator)
+**Never:** Innovative, revolutionary, best-in-class, cutting-edge, passionate, world-class, leverage, synergy, disruptive, robust, magic, autonomous (as positive), 10x, AI-powered (as differentiator)
 
 ### Headline Formula
 
-**Developer headlines:** `[Your/AI's problem] + [our specific solution]`
-- "Your AI forgets your architecture. Forge doesn't."
+`[Your/AI's problem] + [our specific solution]`
+- "Your AI writes code. Forge makes it production-ready."
 - "50 guardrails your AI doesn't know it needs."
 - "Your project's rules. Not textbook defaults."
-
-**Entrepreneur headlines:** `[Desired outcome] + [fear addressed]`
-- "MVP your future team won't hate."
-- "From idea to code your team can inherit."
-- "No team yet needed. But the codebase is ready."
+- "Agent Teams without merge hell."
+- "Tests that prove requirements. Not AI guesswork."
 
 ### Paragraph Limits
-- Headlines: 2-6 words
+- Headlines: 2-8 words
 - Subheadlines: 1 sentence, max 20 words
 - Card descriptions: 2-3 sentences, max 50 words
 - Body paragraphs: 2-3 sentences, max 60 words
@@ -430,34 +455,37 @@ Concise         ·····█····                  Verbose
 | Competitor | Our response | Tone |
 |-----------|-------------|------|
 | Cursor Rules | "Forge generates rules from architecture audit. Not manual writing. Full pipeline, not just rules. Works in Cursor AND everywhere else." | Factual, not dismissive |
-| CLAUDE.md | "CLAUDE.md is a single file. Forge generates a full development pipeline: architecture audit → quality patterns → dev-skills → tests → task management." | Additive, not competitive |
+| CLAUDE.md | "CLAUDE.md is a single file. Forge generates a full development pipeline: architecture audit → quality patterns → dev-skills → tests → task management → agent orchestration." | Additive, not competitive |
 | Copilot / Cursor (the tools) | "Forge makes your existing AI assistant project-aware. We enhance, not replace." | Complementary |
-| Bolt / Lovable | "They generate code. We ensure the generated code is maintainable. Quality layer on top, not a replacement." | Different category |
+| Devin | "They replace your developer. We enhance YOUR AI agent. $500/mo subscription vs $29-149 once. You stay in control of your codebase." | Direct value comparison |
+| Agent Teams (raw) | "Agent Teams = Docker containers. forge-autopilot = Kubernetes. Raw parallelism vs orchestrated infrastructure with conflict detection." | Analogy-driven |
 | Code review tools | "They check code after it's written. Forge guides code while it's written. Prevention, not detection." | Different approach |
-| Consulting | "Same expertise, product form. $29/mo vs thousands. Self-service, scalable, always up to date." | Value comparison |
+| Consulting | "Same expertise, product form. $29-149 once vs thousands. Self-service, scalable, always up to date." | Value comparison |
 
 ### The GAP Statement (for internal use)
-> No product that auto-generates a full dev pipeline (architecture → product → QA → tasks) for AI agents, platform-agnostically, serving both developers and entrepreneurs. Cursor rules are manual. CLAUDE.md is manual. Consulting is expensive. AI builders have no guardrails.
+> No product that auto-generates a full dev pipeline (architecture → product → QA → tasks → agent orchestration → worktree isolation) for AI agents, platform-agnostically. Cursor rules are manual. CLAUDE.md is manual. Consulting is expensive. AI builders have no guardrails. Devin replaces you instead of enhancing your tools.
 
 ---
 
 ## 7. CTA Strategy
 
-### Primary CTAs
+### Primary CTAs (single-audience)
 
-| Location | Dev CTA | Entrepreneur CTA | Type |
-|----------|---------|-------------------|------|
-| Hero | "Audit your architecture →" | "Design your first feature →" | Primary button |
-| After problem section | "See how it works" | "See how it works" | Ghost button (scroll) |
-| After use case blocks | "Start with forge-core →" | "Start with Pro →" | Primary button |
-| After pricing | "Get started →" | "Get started →" | Primary button |
-| Sticky/floating | "Get Forge →" | "Get Forge →" | Compact primary |
+| Location | CTA | Type | Target |
+|----------|-----|------|--------|
+| Hero | "Audit your architecture →" | Primary button | /pricing |
+| After problem section | "See how it works" | Ghost button (scroll) | #how-it-works |
+| Deep dives (core, autopilot, qa) | "Start with forge-core →" | Primary button | /pricing |
+| Module grid | "Get Starter →" / "Get Pro →" / "Get Bundle →" | Primary button | /pricing |
+| After pricing | "Get Forge →" | Primary button | /pricing |
+| Sticky/floating | "Get Forge →" | Compact primary | /pricing |
+| Final CTA | "Get Forge →" | Primary button | /pricing |
 
 ### CTA Rules
 - Max 1 primary button per viewport (brand guideline)
 - Arrow suffix: " →" on all CTAs
 - Sentence case: "Audit your architecture", not "AUDIT YOUR ARCHITECTURE"
-- Every CTA links to pricing section or checkout (LemonSqueezy overlay)
+- Every CTA links to /pricing
 - Ghost buttons for secondary actions (scroll, learn more)
 
 ---
@@ -465,7 +493,7 @@ Concise         ·····█····                  Verbose
 ## 8. Social Proof Strategy (Future)
 
 ### What we need (don't have yet):
-- Beta user testimonials (2-3 developers, 1-2 entrepreneurs)
+- Beta user testimonials (3-5 developers)
 - GitHub stars / npm downloads count
 - "Used by X developers" counter
 - Before/after comparison (real project)
@@ -474,12 +502,13 @@ Concise         ·····█····                  Verbose
 - Real CLI output (authentic, not mockup)
 - Real generated file structures
 - Author credibility (Martin Sikora bio)
-- Technical specifics (50+ patterns, 8+ frameworks, 15 detectors) — numbers that are precise, not inflated
+- Technical specifics (50+ patterns, 15+ framework detectors, 15 detectors, 6 modules) — numbers that are precise, not inflated
 
 ### Testimonial direction (for future collection):
-- Developer: "I stopped re-explaining my architecture in every prompt."
-- Developer: "Forge caught 3 security shortcuts my AI made in one session."
-- Entrepreneur: "I showed the codebase to a freelancer. He said he could work with it."
+- "I stopped re-explaining my architecture in every prompt."
+- "Forge caught 3 security shortcuts my AI made in one session."
+- "forge-autopilot ran 4 agents on my monorepo without a single merge conflict."
+- "One-time purchase. I own my workflow. No subscription anxiety."
 
 ---
 
@@ -494,7 +523,6 @@ Concise         ·····█····                  Verbose
 - Technical terms stay in English: AI, CLI, DDD, CQRS, etc.
 - "Гайдрейлы для ваших AI-агентов" — mix is natural for RU dev audience
 - Avoid over-translating: "Форк" not "ответвление", "деплой" not "развёртывание"
-- Entrepreneur copy may need more adaptation — RU entrepreneur audience may be smaller
 - Key translations to validate: hero headline, CTA labels, pain descriptions
 
 ---
@@ -503,46 +531,58 @@ Concise         ·····█····                  Verbose
 
 ```
 1. HERO
-   Hook: "AI agents that respect your codebase"
+   "Your AI writes code. Forge makes it production-ready."
    Emotion: Recognition + curiosity
 
 2. PROBLEM
-   "Your AI doesn't know your project"
+   2x2 pain grid: context loss, violations, spirals, fake tests
    Emotion: Pain recognition ("that's me")
 
 3. SOLUTION OVERVIEW
-   "Architecture-aware pipeline"
+   3 pillars: Audit → Structure → Execute
    Emotion: Relief ("someone understands")
 
-4. FOR DEVELOPERS / FOR ENTREPRENEURS
-   Segment-specific pain→solution
+4. PIPELINE VISUALIZATION
+   6-module flow diagram
+   Emotion: "This is a real system, not a toy"
+
+5. DEEP DIVE: forge-core
+   50+ patterns, 15 detectors, 3 modes
    Emotion: "This solves MY specific problem"
 
-5. HOW IT WORKS
-   4-step install flow
+6. DEEP DIVE: forge-autopilot
+   Agent Teams without merge hell — peak moment
+   Emotion: "I didn't know I needed this"
+
+7. DEEP DIVE: forge-qa
+   AC→unit, UC→E2E, UX→component
+   Emotion: "Finally, tests that mean something"
+
+8. HOW IT WORKS
+   3 steps: install → setup → develop
    Emotion: "That's simpler than I expected"
 
-6. MODULES
-   Four modules, one pipeline
-   Emotion: "This is comprehensive but modular"
+9. MODULE GRID
+   6 cards — comprehensive but modular
+   Emotion: "I can start small and grow"
 
-7. PRICING
-   Transparent flat pricing
-   Emotion: Trust ("no surprises")
+10. PRICING
+    One-time $29/$79/$149 vs Devin $500/mo
+    Emotion: Trust ("no surprises, no subscription")
 
-8. AUTHOR
-   Real face, real story
-   Emotion: Authority ("these people are real")
+11. AUTHOR
+    Real face, real story
+    Emotion: Authority ("this person is real")
 
-9. FAQ
-   Objection handling
-   Emotion: "My last concern is answered"
+12. FAQ
+    7 developer questions — objection handling
+    Emotion: "My last concern is answered"
 
-10. FINAL CTA
+13. FINAL CTA
     "Get Forge →"
     Emotion: Ready to act
 ```
 
-**Narrative arc:** Pain → Understanding → Solution → Proof → Trust → Action
+**Narrative arc:** Pain → Understanding → Solution → Proof → Peak Moment → Trust → Action
 
-This follows the classic problem-agitate-solve (PAS) structure adapted for dual audience with a trust-building middle section (How it Works + Modules + Pricing + Author) before the final conversion push.
+This follows the problem-agitate-solve (PAS) structure for a single developer audience, with a trust-building middle section (How it Works + Modules + Pricing + Author) and an emotional peak at forge-autopilot before the final conversion push.
