@@ -1,0 +1,40 @@
+---
+import Container from "@shared/ui/Container.astro";
+
+interface Props {
+	src: string;
+	alt: string;
+	caption: string;
+	sourceUrl?: string;
+	sourceLabel?: string;
+}
+
+const { src, alt, caption, sourceUrl, sourceLabel } = Astro.props;
+---
+
+<section class="py-10 md:py-16">
+	<Container>
+		<div class="max-w-[800px] mx-auto">
+			<div class="rounded-[var(--radius-card)] border-card bg-white p-6 md:p-8">
+				<img
+					src={src}
+					alt={alt}
+					class="w-full h-auto"
+					loading="lazy"
+					decoding="async"
+				/>
+			</div>
+			<p class="mt-4 text-center font-sans text-[14px] text-text-muted leading-[1.6]">
+				{caption}
+				{sourceUrl && sourceLabel && (
+					<>
+						{" "}
+						<a href={sourceUrl} target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">
+							Source: {sourceLabel}
+						</a>
+					</>
+				)}
+			</p>
+		</div>
+	</Container>
+</section>

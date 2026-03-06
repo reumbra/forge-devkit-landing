@@ -16,5 +16,6 @@ export interface ModulePageConfig {
 	comparison: { dimension: string; them: string; forge: string }[];
 	comparisonTarget: string;
 	integrations: { module: string; description: string; href: string }[];
+	diagram?: { src: string; alt: string; caption: string; sourceUrl?: string; sourceLabel?: string };
 	seo: { title: string; description: string };
 }

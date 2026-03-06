@@ -104,6 +104,14 @@ export const autopilotPageConfig: ModulePageConfig = {
 	],
 	comparisonTarget: "Raw Claude Agent Teams",
 
+	diagram: {
+		src: "/images/subagents-vs-agent-teams.avif",
+		alt: "Subagents vs Agent Teams architecture comparison",
+		caption: "forge-autopilot adds a strategy layer on top of Agent Teams: triage, conflict detection, and wave planning.",
+		sourceUrl: "https://code.claude.com/docs/en/agent-teams",
+		sourceLabel: "Claude Code docs",
+	},
+
 	integrations: [
 		{
 			module: "forge-core",
