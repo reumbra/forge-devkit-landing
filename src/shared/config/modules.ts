@@ -22,9 +22,9 @@ export interface ModulesConfig {
 
 export const modules = {
 	sectionLabel: "MODULES",
-	headline: "Four modules. One pipeline.",
+	headline: "Six modules. One pipeline.",
 	closingLine:
-		"Use together for a full pipeline. Use separately — each module works standalone.",
+		"Use all six for a full pipeline. Use separately — each module works standalone.",
 	modules: [
 		{
 			id: "forge-core",
@@ -33,8 +33,8 @@ export const modules = {
 			isHero: true,
 			badge: "Start here",
 			stats: [
-				"8-gate wizard",
-				"24 quality patterns",
+				"7-gate wizard",
+				"50+ quality patterns",
 				"15 rationalization detectors",
 				"3 template families",
 			],
@@ -95,6 +95,31 @@ export const modules = {
 				"Linear integration",
 				"Notion integration",
 				"Jira integration",
+			],
+		},
+		{
+			id: "forge-autopilot",
+			name: "forge-autopilot",
+			tagline: "Parallel agents without merge hell",
+			isHero: false,
+			stats: ["3 autonomy modes", "0 merge conflicts"],
+			features: [
+				"Backlog → conflict detection → wave execution",
+				"Autonomous teammates in isolated worktrees",
+				"Auto-merge with conflict prevention",
+				"3 autonomy modes: supervised, semi-auto, full-auto",
+			],
+		},
+		{
+			id: "forge-worktree",
+			name: "forge-worktree",
+			tagline: "Git worktree lifecycle manager",
+			isHero: false,
+			stats: ["3 templates", "0 port conflicts"],
+			features: [
+				"3 templates: Docker backend, Frontend, Generic",
+				"Docker port isolation per worktree",
+				"Auto-cleanup on branch merge",
 			],
 		},
 	],

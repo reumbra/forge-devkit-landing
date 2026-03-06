@@ -12,24 +12,29 @@ export interface ProblemsConfig {
 
 export const problems = {
 	sectionLabel: "THE PROBLEM",
-	headline: "Your AI doesn\u2019t know your project",
-	transitionLine: "The problem isn\u2019t AI. It\u2019s unstructured AI.",
+	headline: "AI writes code fast. You fix it faster.",
+	transitionLine:
+		"The real problem isn\u2019t AI coding speed \u2014 it\u2019s unstructured AI creating technical debt at scale.",
 	cards: [
 		{
-			quote: "AI breaks DDD modules and shortcuts validations",
-			painRef: "P3: architecture violations",
+			quote:
+				"Your AI forgets your architecture every session. You spend 20 minutes re-explaining what NestJS guards do.",
+			painRef: "P1: Context Rot",
 		},
 		{
-			quote: "Millions of tokens for 100 lines. $50/day in bills.",
-			painRef: "P2: token burn",
+			quote:
+				"Claude patches over bugs with quick fixes until the entire module is unmaintainable spaghetti.",
+			painRef: "P3: CC Spirals",
 		},
 		{
-			quote: "I re-explain my architecture in every single prompt",
-			painRef: "P6: prompt fatigue",
+			quote:
+				"I ran 3 agents in parallel. Spent 4 hours resolving merge conflicts. Net productivity: negative.",
+			painRef: "P4: Merge Conflicts in Multi-Agent",
 		},
 		{
-			quote: "Code looks clean but logic is completely wrong",
-			painRef: "P4: confidently wrong",
+			quote:
+				"Unit tests pass with 100% coverage. Every assertion uses mock data. Zero real behavior tested.",
+			painRef: "P5: Fake Tests",
 		},
 	],
 } as const satisfies ProblemsConfig;

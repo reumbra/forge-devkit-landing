@@ -6,14 +6,14 @@ export interface PricingTier {
 	id: string;
 	name: string;
 	price: number;
-	period: string;
-	monthlyEquivalent: string;
 	description: string;
 	features: string[];
 	cta: string;
 	checkoutUrl: string;
 	isPopular: boolean;
 	badge?: string;
+	renewalPrice?: string;
+	updatesNote?: string;
 }
 
 export interface PricingConfig {
@@ -21,6 +21,7 @@ export interface PricingConfig {
 	headline: string;
 	tiers: PricingTier[];
 	trustSignals: string[];
+	competitorAnchor?: string;
 }
 
 export const pricing = {
@@ -31,12 +32,10 @@ export const pricing = {
 			id: "core",
 			name: "CORE",
 			price: 29,
-			period: "/yr",
-			monthlyEquivalent: "~$2.42/mo",
 			description: "Foundation for architecture-aware AI development",
 			features: [
 				"Auto-detects your stack, layers, conventions",
-				"24 quality guardrails for AI-generated code",
+				"50+ quality patterns for AI-generated code",
 				"Project-aware dev-skills \u2014 one setup, forever",
 				"Scoped phases prevent runaway sessions",
 			],
@@ -44,13 +43,13 @@ export const pricing = {
 			// TODO: Replace with real LemonSqueezy product URL
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-core",
 			isPopular: false,
+			renewalPrice: "$19/yr",
+			updatesNote: "Includes 1 year of updates",
 		},
 		{
 			id: "pro",
 			name: "PRO",
 			price: 79,
-			period: "/yr",
-			monthlyEquivalent: "~$6.58/mo",
 			description: "Complete pipeline from design to tested code",
 			features: [
 				"Everything in Core",
@@ -62,31 +61,34 @@ export const pricing = {
 			// TODO: Replace with real LemonSqueezy product URL
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-pro",
 			isPopular: true,
-			badge: "Popular",
+			badge: "Recommended",
+			renewalPrice: "$49/yr",
+			updatesNote: "Includes 1 year of updates",
 		},
 		{
-			id: "full",
-			name: "FULL",
+			id: "bundle",
+			name: "BUNDLE",
 			price: 149,
-			period: "/yr",
-			monthlyEquivalent: "~$12.42/mo",
-			description: "All modules today. Every new module tomorrow. One subscription.",
+			description: "All 6 modules today. Every new module tomorrow. One purchase.",
 			features: [
 				"Everything in Pro",
 				"Task tracker sync \u2014 GitHub, Linear, ClickUp, Jira, Notion",
-				"Review workflow with team roles",
-				"Blocker detection and escalation",
-				"Every future module included at no extra cost",
+				"forge-autopilot \u2014 parallel agent orchestration",
+				"forge-worktree \u2014 git worktree lifecycle",
+				"Every future module included",
 			],
-			cta: "Get Full",
+			cta: "Get Bundle",
 			// TODO: Replace with real LemonSqueezy product URL
-			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-full",
+			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-bundle",
 			isPopular: false,
+			renewalPrice: "$89/yr",
+			updatesNote: "Includes 1 year of updates",
 		},
 	],
 	trustSignals: [
-		"14-day money-back guarantee. No questions asked.",
-		"Annual billing. No per-token charges.",
-		"Cancel anytime. Your generated artifacts stay forever.",
+		"One-time purchase. Your artifacts stay forever.",
+		"Includes 1 year of updates. Renewal optional at reduced price.",
+		"No per-token charges. No usage limits. No surprise bills.",
 	],
+	competitorAnchor: "Devin: $240/yr mandatory. Cursor Pro: $240/yr. Forge: from $29 once.",
 } as const satisfies PricingConfig;

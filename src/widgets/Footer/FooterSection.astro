@@ -1,55 +1,75 @@
 ---
 import Container from "@shared/ui/Container.astro";
-import ReumbraWordmark from "@shared/ui/ReumbraWordmark.astro";
+import ReumbraLogo from "@shared/ui/ReumbraLogo.astro";
 import { footer } from "@shared/config/footer";
 ---
 
-<footer class="border-t border-[rgba(118,73,196,0.06)] py-12">
+<footer class="border-t border-[rgba(118,73,196,0.06)] py-16 md:py-20">
 	<Container>
-		<div class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
-			{/* Left — Reumbra wordmark + product name */}
-			<div>
-				<ReumbraWordmark height={20} class="text-text-muted" />
-				<p class="mt-3 font-sans text-[14px] font-medium text-text-secondary">
-					{footer.logo}
-				</p>
-			</div>
-
-			{/* Right — nav links + legal links */}
-			<div class="flex gap-12">
-				{/* Nav links column */}
-				<div class="flex flex-col gap-1">
-					{
-						footer.navLinks.map((link) => (
-							<a
-								href={link.href}
-								class="inline-block py-3 font-sans text-[14px] text-text-muted transition-colors duration-300 hover:text-text"
-							>
-								{link.label}
-							</a>
-						))
-					}
-				</div>
-
-				{/* Legal links column */}
-				<div class="flex flex-col gap-1">
-					{
-						footer.legalLinks.map((link) => (
-							<a
-								href={link.href}
-								class="inline-block py-3 font-sans text-[14px] text-text-muted transition-colors duration-300 hover:text-text"
-							>
-								{link.label}
-							</a>
-						))
-					}
-				</div>
-			</div>
+		{/* 4-column grid */}
+		<div class="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
+			{
+				footer.columns.map((column) => (
+					<div>
+						<p class="font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-text-muted mb-4">
+							{column.title}
+						</p>
+						<div class="flex flex-col gap-1">
+							{column.links.map((link) =>
+								link.action === "zaraz-consent" ? (
+									<button
+										type="button"
+										data-action="zaraz-consent"
+										class="inline-block py-1.5 text-left font-sans text-[14px] text-text-muted transition-colors duration-300 hover:text-text cursor-pointer"
+									>
+										{link.label}
+									</button>
+								) : (
+									<a
+										href={link.disabled ? undefined : link.href}
+										target={link.external ? "_blank" : undefined}
+										rel={link.external ? "noopener noreferrer" : undefined}
+										class:list={[
+											"inline-block py-1.5 font-sans text-[14px] transition-colors duration-300",
+											link.disabled
+												? "text-text-muted/40 cursor-not-allowed"
+												: "text-text-muted hover:text-text",
+										]}
+									>
+										{link.label}
+										{link.external && (
+											<svg width="10" height="10" viewBox="0 0 12 12" fill="none" class="inline ml-1 opacity-40" aria-hidden="true">
+												<path d="M4 1H11V8M11 1L1 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+											</svg>
+										)}
+									</a>
+								),
+							)}
+						</div>
+					</div>
+				))
+			}
 		</div>
 
-		{/* Copyright */}
-		<p class="mt-10 text-center font-sans text-[12px] text-text-muted">
-			{footer.copyright}
-		</p>
+		{/* Bottom bar */}
+		<div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[rgba(118,73,196,0.06)] pt-8 md:flex-row">
+			<div class="flex items-center gap-2">
+				<ReumbraLogo size={16} class="text-text-muted" />
+				<span class="font-sans text-[13px] text-text-muted">{footer.logo} {footer.companyTagline}</span>
+			</div>
+			<p class="font-sans text-[12px] text-text-muted">
+				{footer.copyright}
+			</p>
+		</div>
 	</Container>
 </footer>
+
+<script>
+	declare const zaraz: { showConsentModal?: () => void } | undefined;
+
+	document.querySelector("[data-action='zaraz-consent']")?.addEventListener("click", () => {
+		if (typeof zaraz !== "undefined" && zaraz?.showConsentModal) {
+			zaraz.showConsentModal();
+		}
+	});
+</script>

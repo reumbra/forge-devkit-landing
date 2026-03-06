@@ -59,12 +59,14 @@ function ctaLabel(tier: (typeof pricing.tiers)[number]): string {
 								${tier.price}
 							</span>
 							<span class="font-sans text-[16px] text-text-muted">
-								{tier.period}
+								one-time
 							</span>
 						</div>
-						<p class="mt-1 font-sans text-[13px] text-secondary">
-							{tier.monthlyEquivalent}
-						</p>
+						{tier.updatesNote && (
+							<p class="mt-1 font-sans text-[13px] text-secondary">
+								{tier.updatesNote}
+							</p>
+						)}
 
 						{/* Description */}
 						<p class="mt-3 font-sans text-[14px] leading-[1.5] text-text-muted">

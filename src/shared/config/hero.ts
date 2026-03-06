@@ -21,12 +21,12 @@ export interface HeroConfig {
 
 export const hero = {
 	sectionLabel: "FORGE DEVKIT",
-	headline: "AI agents that respect your codebase",
+	headline: "Your AI writes code. Forge makes it production-ready.",
 	subheadline:
-		"Architecture-aware pipeline. Project-specific guardrails, quality patterns, and dev workflows — across any platform.",
+		"Architecture-aware pipeline that auto-generates project-specific guardrails, quality patterns, and development workflows — across any platform.",
 	ctas: [
 		{
-			label: "Audit your architecture",
+			label: "Get Forge",
 			href: "#pricing",
 			variant: "primary",
 		},
@@ -47,10 +47,8 @@ export const hero = {
 			{ text: "\u2713 Gate 5: Naming conventions \u2014 consistent", type: "success" },
 			{ text: "\u2713 Gate 6: CI/CD \u2014 GitHub Actions", type: "success" },
 			{ text: "\u2713 Gate 7: Task tracker \u2014 GitHub Issues", type: "success" },
-			{ text: "\u2713 Gate 8: 12 dev-skills generated", type: "success" },
 			{ text: "", type: "blank" },
-			{ text: "\u2728 Project ready. AI is now", type: "highlight" },
-			{ text: "   architecture-aware.", type: "highlight" },
+			{ text: "\u2728 Project ready. AI is now architecture-aware.", type: "highlight" },
 		],
 	},
 } as const satisfies HeroConfig;

@@ -31,9 +31,16 @@ const { logo, links, cta } = navigation;
 					<a
 						href={link.href}
 						data-nav-link={link.href}
+						target={link.external ? "_blank" : undefined}
+						rel={link.external ? "noopener noreferrer" : undefined}
 						class="nav-link font-sans text-[14px] font-medium text-text-muted hover:text-white transition-colors duration-300 ease-in-out"
 					>
 						{link.label}
+						{link.external && (
+							<svg width="10" height="10" viewBox="0 0 12 12" fill="none" class="inline ml-1 opacity-40" aria-hidden="true">
+								<path d="M4 1H11V8M11 1L1 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+							</svg>
+						)}
 					</a>
 				</li>
 			))}
@@ -69,9 +76,16 @@ const { logo, links, cta } = navigation;
 			{links.map((link) => (
 				<a
 					href={link.href}
+					target={link.external ? "_blank" : undefined}
+					rel={link.external ? "noopener noreferrer" : undefined}
 					class="font-sans text-[15px] font-normal text-text-muted hover:text-white transition-colors duration-300 ease-in-out py-3"
 				>
 					{link.label}
+					{link.external && (
+						<svg width="10" height="10" viewBox="0 0 12 12" fill="none" class="inline ml-1 opacity-40" aria-hidden="true">
+							<path d="M4 1H11V8M11 1L1 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+						</svg>
+					)}
 				</a>
 			))}
 			<Button variant="primary" href={cta.href}>
@@ -144,28 +158,16 @@ const { logo, links, cta } = navigation;
 		if (progressBar) progressBar.style.width = `${progress}%`;
 	}
 
-	// ── Active nav link highlighting ──
+	// ── Active nav link highlighting (route-based) ──
 	const navLinks = document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]");
-	const sections = document.querySelectorAll<HTMLElement>("section[id]");
+	const currentPath = window.location.pathname;
 
-	const observer = new IntersectionObserver(
-		(entries) => {
-			for (const entry of entries) {
-				if (entry.isIntersecting) {
-					const id = entry.target.id;
-					navLinks.forEach((link) => {
-						const linkHash = link.getAttribute("data-nav-link")?.replace(/^\/#/, "#");
-					const isActive = linkHash === `#${id}`;
-						link.classList.toggle("text-white", isActive);
-						link.classList.toggle("text-text-muted", !isActive);
-					});
-				}
-			}
-		},
-		{ rootMargin: "-20% 0px -60% 0px" },
-	);
-
-	sections.forEach((section) => observer.observe(section));
+	navLinks.forEach((link) => {
+		const linkPath = link.getAttribute("data-nav-link") || "";
+		const isActive = currentPath === linkPath || (linkPath !== "/" && currentPath.startsWith(linkPath));
+		link.classList.toggle("text-white", isActive);
+		link.classList.toggle("text-text-muted", !isActive);
+	});
 
 	// ── Back-to-top button + floating CTA ──
 	const backToTop = document.getElementById("back-to-top");
