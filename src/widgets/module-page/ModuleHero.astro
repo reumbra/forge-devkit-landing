@@ -1,0 +1,35 @@
+---
+import Container from "@shared/ui/Container.astro";
+import Button from "@shared/ui/Button.astro";
+
+interface Props {
+	name: string;
+	tagline: string;
+	tier: string;
+	tierPrice: string;
+}
+
+const { name, tagline, tier, tierPrice } = Astro.props;
+---
+
+<section class="py-16 md:py-24">
+	<Container>
+		<div class="max-w-[640px]">
+			<p class="font-mono text-[12px] font-medium uppercase tracking-[0.15em] text-text-muted mb-3">
+				Part of Forge DevKit ecosystem
+			</p>
+			<h1 class="font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]">
+				<span class="text-secondary">{"\u25C7"}</span> {name}
+			</h1>
+			<p class="mt-4 font-sans text-[18px] leading-[1.6] text-text-secondary md:text-[20px]">
+				{tagline}
+			</p>
+			<div class="mt-6 flex items-center gap-4">
+				<Button variant="primary" href="/pricing">
+					Get {tier} &mdash; {tierPrice} &rarr;
+				</Button>
+				<span class="font-mono text-[13px] text-text-muted">one-time</span>
+			</div>
+		</div>
+	</Container>
+</section>

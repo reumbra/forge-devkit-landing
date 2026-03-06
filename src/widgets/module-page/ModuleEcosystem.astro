@@ -1,0 +1,32 @@
+---
+import Container from "@shared/ui/Container.astro";
+
+interface Props {
+	integrations: { module: string; description: string; href: string }[];
+}
+
+const { integrations } = Astro.props;
+---
+
+<section class="py-12 md:py-20 border-t border-card">
+	<Container>
+		<h2 class="font-sans text-[28px] font-bold text-text md:text-[36px] mb-10">
+			Works with
+		</h2>
+		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			{integrations.map((int) => (
+				<a
+					href={int.href}
+					class="rounded-[14px] border border-card bg-surface p-5 transition-all duration-300 hover:border-card-hover hover:-translate-y-0.5"
+				>
+					<h3 class="font-mono text-[14px] font-medium text-text">
+						<span class="text-secondary mr-1">{"\u25C7"}</span>{int.module}
+					</h3>
+					<p class="mt-2 font-sans text-[13px] text-text-muted leading-[1.6]">
+						{int.description}
+					</p>
+				</a>
+			))}
+		</div>
+	</Container>
+</section>

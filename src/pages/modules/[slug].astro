@@ -1,8 +1,13 @@
 ---
 import type { GetStaticPaths } from "astro";
 import PageLayout from "../../layouts/PageLayout.astro";
-import Container from "@shared/ui/Container.astro";
-import Button from "@shared/ui/Button.astro";
+import ModuleHero from "@widgets/module-page/ModuleHero.astro";
+import ModuleProblem from "@widgets/module-page/ModuleProblem.astro";
+import ModuleHowItWorks from "@widgets/module-page/ModuleHowItWorks.astro";
+import ModuleCapabilities from "@widgets/module-page/ModuleCapabilities.astro";
+import ModuleComparison from "@widgets/module-page/ModuleComparison.astro";
+import ModuleEcosystem from "@widgets/module-page/ModuleEcosystem.astro";
+import ModuleCta from "@widgets/module-page/ModuleCta.astro";
 import { moduleSlugs } from "@shared/config/module-pages";
 import type { ModulePageConfig } from "@shared/config/module-pages";
 
@@ -11,8 +16,9 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths;
 
 const { slug } = Astro.params;
-const config: ModulePageConfig = (await import(`../../shared/config/module-pages/${slug}.ts`)).default
-	?? Object.values(await import(`../../shared/config/module-pages/${slug}.ts`))[0];
+const config: ModulePageConfig = Object.values(
+	await import(`../../shared/config/module-pages/${slug}.ts`)
+)[0] as ModulePageConfig;
 
 const breadcrumbs = [
 	{ label: "Modules", href: "/modules" },
@@ -25,180 +31,11 @@ const breadcrumbs = [
 	description={config.seo.description}
 	breadcrumbs={breadcrumbs}
 >
-	{/* Section 1: Hero */}
-	<section class="py-16 md:py-24">
-		<Container>
-			<div class="max-w-[640px]">
-				<p class="font-mono text-[12px] font-medium uppercase tracking-[0.15em] text-text-muted mb-3">
-					Part of Forge DevKit ecosystem
-				</p>
-				<h1 class="font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]">
-					<span class="text-secondary">{"\u25C7"}</span> {config.name}
-				</h1>
-				<p class="mt-4 font-sans text-[18px] leading-[1.6] text-text-secondary md:text-[20px]">
-					{config.tagline}
-				</p>
-				<div class="mt-6 flex items-center gap-4">
-					<Button variant="primary" href="/pricing">
-						Get {config.tier} — {config.tierPrice} →
-					</Button>
-					<span class="font-mono text-[13px] text-text-muted">one-time</span>
-				</div>
-			</div>
-		</Container>
-	</section>
-
-	{/* Section 2: The Problem */}
-	<section class="py-12 md:py-20 border-t border-card">
-		<Container>
-			<h2 class="font-sans text-[28px] font-bold text-text md:text-[36px] mb-10">
-				The problem
-			</h2>
-			<div class="grid gap-6 md:grid-cols-3">
-				{config.problems.map((p) => (
-					<div class="rounded-[14px] border border-card bg-surface p-6">
-						<p class="font-sans text-[16px] font-medium text-text">{p.pain}</p>
-						<p class="mt-3 font-sans text-[14px] text-text-muted leading-[1.6]">{p.evidence}</p>
-					</div>
-				))}
-			</div>
-		</Container>
-	</section>
-
-	{/* Section 3: How It Works */}
-	<section class="py-12 md:py-20 border-t border-card">
-		<Container>
-			<h2 class="font-sans text-[28px] font-bold text-text md:text-[36px] mb-10">
-				How it works
-			</h2>
-			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-				{config.steps.map((step, i) => (
-					<div class="relative">
-						<span class="font-mono text-[48px] font-bold text-[rgba(118,73,196,0.1)] absolute -top-4 -left-1">
-							{i + 1}
-						</span>
-						<div class="pt-8">
-							<h3 class="font-mono text-[14px] font-medium text-secondary">{step.title}</h3>
-							<p class="mt-2 font-sans text-[14px] text-text-muted leading-[1.6]">
-								{step.description}
-							</p>
-							{step.visual && (
-								<div class="mt-3 rounded-lg bg-[rgba(0,0,0,0.3)] p-3 font-mono text-[12px]">
-									{step.visual.map((line) => (
-										<div>
-											{line.prefix && <span class="text-text-muted">{line.prefix}</span>}
-											<span class:list={[
-												line.color === "secondary" && "text-secondary",
-												line.color === "muted" && "text-text-muted",
-												line.color === "text" && "text-text",
-												!line.color && "text-text",
-											]}>{line.text}</span>
-										</div>
-									))}
-								</div>
-							)}
-						</div>
-					</div>
-				))}
-			</div>
-		</Container>
-	</section>
-
-	{/* Section 4: Key Capabilities */}
-	<section class="py-12 md:py-20 border-t border-card">
-		<Container>
-			<h2 class="font-sans text-[28px] font-bold text-text md:text-[36px] mb-10">
-				Key capabilities
-			</h2>
-			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-				{config.capabilities.map((cap) => (
-					<div class="rounded-[14px] border border-card bg-surface p-5">
-						<h3 class="font-mono text-[14px] font-medium text-text">
-							<span class="text-secondary mr-1">{cap.icon}</span>{cap.title}
-						</h3>
-						<p class="mt-2 font-sans text-[13px] text-text-muted leading-[1.6]">
-							{cap.description}
-						</p>
-					</div>
-				))}
-			</div>
-		</Container>
-	</section>
-
-	{/* Section 5: What Makes It Different */}
-	<section class="py-12 md:py-20 border-t border-card">
-		<Container>
-			<h2 class="font-sans text-[28px] font-bold text-text md:text-[36px] mb-2">
-				{config.name} vs {config.comparisonTarget}
-			</h2>
-			<p class="font-sans text-[14px] text-text-muted mb-8">
-				See the <a href={`/vs/${config.slug === "core" ? "cursor-rules" : config.slug === "autopilot" ? "devin" : "cursor-rules"}`} class="text-secondary hover:underline">full comparison</a> for details.
-			</p>
-			<div class="overflow-x-auto">
-				<table class="w-full text-left">
-					<thead>
-						<tr class="border-b border-card">
-							<th class="py-3 pr-4 font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted w-[30%]">Dimension</th>
-							<th class="py-3 pr-4 font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted w-[35%]">{config.comparisonTarget}</th>
-							<th class="py-3 font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-secondary w-[35%]">Forge DevKit</th>
-						</tr>
-					</thead>
-					<tbody>
-						{config.comparison.map((row) => (
-							<tr class="border-b border-card/50">
-								<td class="py-3 pr-4 font-sans text-[14px] text-text">{row.dimension}</td>
-								<td class="py-3 pr-4 font-sans text-[14px] text-text-muted">{row.them}</td>
-								<td class="py-3 font-sans text-[14px] text-text">{row.forge}</td>
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</Container>
-	</section>
-
-	{/* Section 6: Works With */}
-	<section class="py-12 md:py-20 border-t border-card">
-		<Container>
-			<h2 class="font-sans text-[28px] font-bold text-text md:text-[36px] mb-10">
-				Works with
-			</h2>
-			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-				{config.integrations.map((int) => (
-					<a
-						href={int.href}
-						class="rounded-[14px] border border-card bg-surface p-5 transition-all duration-300 hover:border-card-hover hover:-translate-y-0.5"
-					>
-						<h3 class="font-mono text-[14px] font-medium text-text">
-							<span class="text-secondary mr-1">{"\u25C7"}</span>{int.module}
-						</h3>
-						<p class="mt-2 font-sans text-[13px] text-text-muted leading-[1.6]">
-							{int.description}
-						</p>
-					</a>
-				))}
-			</div>
-		</Container>
-	</section>
-
-	{/* Section 7: CTA */}
-	<section class="py-16 md:py-24 border-t border-card">
-		<Container>
-			<div class="text-center">
-				<h2 class="font-sans text-[28px] font-bold text-text md:text-[36px]">
-					Get started with {config.name}
-				</h2>
-				<div class="mt-6 flex items-center justify-center gap-4">
-					<Button variant="primary" href="/pricing">
-						Get {config.tier} — {config.tierPrice} →
-					</Button>
-				</div>
-				<p class="mt-4">
-					<a href="/modules" class="font-sans text-[14px] text-secondary hover:text-text transition-colors duration-200">
-						See all modules →
-					</a>
-				</p>
-			</div>
-		</Container>
-	</section>
+	<ModuleHero name={config.name} tagline={config.tagline} tier={config.tier} tierPrice={config.tierPrice} />
+	<ModuleProblem problems={config.problems} />
+	<ModuleHowItWorks steps={config.steps} />
+	<ModuleCapabilities capabilities={config.capabilities} />
+	<ModuleComparison rows={config.comparison} target={config.comparisonTarget} moduleName={config.name} moduleSlug={config.slug} />
+	<ModuleEcosystem integrations={config.integrations} />
+	<ModuleCta name={config.name} tier={config.tier} tierPrice={config.tierPrice} />
 </PageLayout>

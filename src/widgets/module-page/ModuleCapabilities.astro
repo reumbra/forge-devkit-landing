@@ -1,0 +1,29 @@
+---
+import Container from "@shared/ui/Container.astro";
+
+interface Props {
+	capabilities: { icon: string; title: string; description: string }[];
+}
+
+const { capabilities } = Astro.props;
+---
+
+<section class="py-12 md:py-20 border-t border-card">
+	<Container>
+		<h2 class="font-sans text-[28px] font-bold text-text md:text-[36px] mb-10">
+			Key capabilities
+		</h2>
+		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			{capabilities.map((cap) => (
+				<div class="rounded-[14px] border border-card bg-surface p-5">
+					<h3 class="font-mono text-[14px] font-medium text-text">
+						<span class="text-secondary mr-1">{cap.icon}</span>{cap.title}
+					</h3>
+					<p class="mt-2 font-sans text-[13px] text-text-muted leading-[1.6]">
+						{cap.description}
+					</p>
+				</div>
+			))}
+		</div>
+	</Container>
+</section>

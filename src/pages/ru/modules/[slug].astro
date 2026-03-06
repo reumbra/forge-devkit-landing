@@ -1,8 +1,13 @@
 ---
 import type { GetStaticPaths } from "astro";
 import PageLayout from "../../../layouts/PageLayout.astro";
-import Container from "@shared/ui/Container.astro";
-import Button from "@shared/ui/Button.astro";
+import ModuleHero from "@widgets/module-page/ModuleHero.astro";
+import ModuleProblem from "@widgets/module-page/ModuleProblem.astro";
+import ModuleHowItWorks from "@widgets/module-page/ModuleHowItWorks.astro";
+import ModuleCapabilities from "@widgets/module-page/ModuleCapabilities.astro";
+import ModuleComparison from "@widgets/module-page/ModuleComparison.astro";
+import ModuleEcosystem from "@widgets/module-page/ModuleEcosystem.astro";
+import ModuleCta from "@widgets/module-page/ModuleCta.astro";
 import { moduleSlugs } from "@shared/config/module-pages";
 import type { ModulePageConfig } from "@shared/config/module-pages";
 
@@ -26,25 +31,11 @@ const breadcrumbs = [
 	description={config.seo.description}
 	breadcrumbs={breadcrumbs}
 >
-	<section class="py-16 md:py-24">
-		<Container>
-			<div class="max-w-[640px]">
-				<p class="font-mono text-[12px] font-medium uppercase tracking-[0.15em] text-text-muted mb-3">
-					Часть экосистемы Forge DevKit
-				</p>
-				<h1 class="font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]">
-					<span class="text-secondary">{"\u25C7"}</span> {config.name}
-				</h1>
-				<p class="mt-4 font-sans text-[18px] leading-[1.6] text-text-secondary md:text-[20px]">
-					{config.tagline}
-				</p>
-				<div class="mt-6 flex items-center gap-4">
-					<Button variant="primary" href="/ru/pricing">
-						{config.tier} — {config.tierPrice} →
-					</Button>
-					<span class="font-mono text-[13px] text-text-muted">разовая покупка</span>
-				</div>
-			</div>
-		</Container>
-	</section>
+	<ModuleHero name={config.name} tagline={config.tagline} tier={config.tier} tierPrice={config.tierPrice} />
+	<ModuleProblem problems={config.problems} />
+	<ModuleHowItWorks steps={config.steps} />
+	<ModuleCapabilities capabilities={config.capabilities} />
+	<ModuleComparison rows={config.comparison} target={config.comparisonTarget} moduleName={config.name} moduleSlug={config.slug} />
+	<ModuleEcosystem integrations={config.integrations} />
+	<ModuleCta name={config.name} tier={config.tier} tierPrice={config.tierPrice} />
 </PageLayout>
