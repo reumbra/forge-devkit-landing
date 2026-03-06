@@ -2,16 +2,13 @@
 import Container from "@shared/ui/Container.astro";
 import Button from "@shared/ui/Button.astro";
 import SectionLabel from "@shared/ui/SectionLabel.astro";
-import CodeBlock from "@shared/ui/CodeBlock.astro";
+import ArchitectureAuditHero from "@shared/ui/snippets/ArchitectureAuditHero.astro";
 import { hero } from "@shared/config/hero";
 import { socialProof } from "@shared/config/social-proof";
 import { localePath } from "@shared/utils/locale";
 
 const lp = (path: string) => localePath(path, Astro.currentLocale);
-const { sectionLabel, headline, subheadline, ctas, terminal } = hero;
-
-// Convert TerminalLine[] to string[] for CodeBlock
-const terminalLines = terminal.lines.map((line) => line.text);
+const { sectionLabel, headline, subheadline, ctas } = hero;
 ---
 
 <section id="hero" class="flex min-h-screen items-center py-32 md:py-40">
@@ -59,9 +56,9 @@ const terminalLines = terminal.lines.map((line) => line.text);
 			))}
 		</div>
 
-		{/* Terminal code block */}
+		{/* Real terminal snippet — Architecture Audit result */}
 		<div class="w-full max-w-[680px]">
-			<CodeBlock lines={terminalLines} withGlow={true} />
+			<ArchitectureAuditHero />
 		</div>
 	</Container>
 </section>

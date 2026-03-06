@@ -1,0 +1,29 @@
+---
+import Container from "@shared/ui/Container.astro";
+import SectionLabel from "@shared/ui/SectionLabel.astro";
+import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
+---
+
+<section id="dashboard" class="py-10 md:py-20 lg:py-24">
+	<Container>
+		<div class="grid grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
+			{/* Text side */}
+			<div class="fade-up order-1 lg:order-1">
+				<SectionLabel text="ECOSYSTEM DASHBOARD" />
+
+				<h2 class="mt-4 font-sans text-[32px] font-bold leading-[1.15] tracking-[-0.02em] text-text md:text-[40px] lg:text-[48px]">
+					One command. Full ecosystem visibility.
+				</h2>
+
+				<p class="mt-4 max-w-[540px] font-sans text-[18px] leading-[1.6] text-text-secondary">
+					After setup, <code class="font-mono text-secondary">/forge:setup</code> becomes your dashboard — plugin versions, project profile, integrations, and available actions. Everything your AI needs to know, always up to date.
+				</p>
+			</div>
+
+			{/* Visual side — real dashboard snippet */}
+			<div class="order-2 lg:order-2">
+				<ForgeDashboard />
+			</div>
+		</div>
+	</Container>
+</section>
