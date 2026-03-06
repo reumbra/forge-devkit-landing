@@ -1,0 +1,50 @@
+---
+import type { GetStaticPaths } from "astro";
+import PageLayout from "../../../layouts/PageLayout.astro";
+import Container from "@shared/ui/Container.astro";
+import Button from "@shared/ui/Button.astro";
+import { moduleSlugs } from "@shared/config/module-pages";
+import type { ModulePageConfig } from "@shared/config/module-pages";
+
+export const getStaticPaths = (() => {
+	return moduleSlugs.map((slug) => ({ params: { slug } }));
+}) satisfies GetStaticPaths;
+
+const { slug } = Astro.params;
+const config: ModulePageConfig = Object.values(
+	await import(`../../../shared/config/module-pages/${slug}.ts`)
+)[0] as ModulePageConfig;
+
+const breadcrumbs = [
+	{ label: "Модули", href: "/ru/modules" },
+	{ label: config.name },
+];
+---
+
+<PageLayout
+	title={config.seo.title}
+	description={config.seo.description}
+	breadcrumbs={breadcrumbs}
+>
+	<section class="py-16 md:py-24">
+		<Container>
+			<div class="max-w-[640px]">
+				<p class="font-mono text-[12px] font-medium uppercase tracking-[0.15em] text-text-muted mb-3">
+					Часть экосистемы Forge DevKit
+				</p>
+				<h1 class="font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]">
+					<span class="text-secondary">{"\u25C7"}</span> {config.name}
+				</h1>
+				<p class="mt-4 font-sans text-[18px] leading-[1.6] text-text-secondary md:text-[20px]">
+					{config.tagline}
+				</p>
+				<div class="mt-6 flex items-center gap-4">
+					<Button variant="primary" href="/ru/pricing">
+						{config.tier} — {config.tierPrice} →
+					</Button>
+					<span class="font-mono text-[13px] text-text-muted">разовая покупка</span>
+				</div>
+			</div>
+		</Container>
+	</section>
+</PageLayout>

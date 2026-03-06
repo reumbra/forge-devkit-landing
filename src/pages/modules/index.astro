@@ -1,0 +1,51 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import Container from "@shared/ui/Container.astro";
+import { modules } from "@shared/config/modules";
+
+const breadcrumbs = [{ label: "Modules" }];
+---
+
+<PageLayout
+	title="Modules — Forge DevKit"
+	description="Six modules. One pipeline. Use all six or pick what you need — every module works standalone."
+	breadcrumbs={breadcrumbs}
+>
+	<section class="py-16 md:py-24">
+		<Container>
+			<div class="text-center mb-16">
+				<h1 class="font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]">
+					{modules.headline}
+				</h1>
+				<p class="mx-auto mt-4 max-w-[540px] font-sans text-[16px] leading-[1.6] text-text-secondary md:text-[18px]">
+					{modules.closingLine}
+				</p>
+			</div>
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				{modules.modules.map((mod) => (
+					<a
+						href={mod.id === "forge-tracker" || mod.id === "forge-worktree" ? undefined : `/modules/${mod.id.replace("forge-", "")}`}
+						class:list={[
+							"rounded-[14px] border border-card bg-surface p-6 transition-all duration-300",
+							mod.id !== "forge-tracker" && mod.id !== "forge-worktree"
+								? "hover:border-card-hover hover:-translate-y-0.5"
+								: "opacity-80",
+						]}
+					>
+						<h2 class="font-mono text-[15px] font-medium text-text">
+							<span class="text-secondary mr-1">{"\u25C7"}</span>{mod.name}
+						</h2>
+						<p class="mt-2 font-sans text-[14px] text-text-muted">{mod.tagline}</p>
+						<div class="mt-4 flex flex-wrap gap-2">
+							{mod.stats.map((stat) => (
+								<span class="rounded-full bg-[rgba(118,73,196,0.08)] px-3 py-1 font-mono text-[11px] text-secondary">
+									{stat}
+								</span>
+							))}
+						</div>
+					</a>
+				))}
+			</div>
+		</Container>
+	</section>
+</PageLayout>

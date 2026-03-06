@@ -1,0 +1,14 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import PricingSection from "@widgets/Pricing/PricingSection.astro";
+
+const breadcrumbs = [{ label: "Цены" }];
+---
+
+<PageLayout
+	title="Цены — Forge DevKit"
+	description="Разовая покупка. Артефакты остаются навсегда. От €29."
+	breadcrumbs={breadcrumbs}
+>
+	<PricingSection />
+</PageLayout>
