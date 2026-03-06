@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "@shared/ui/Container.astro";
+import ArchitectureAudit from "@shared/ui/snippets/ArchitectureAudit.astro";
+import EcosystemOverview from "@shared/ui/snippets/EcosystemOverview.astro";
+import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
+import PipelineMode from "@shared/ui/snippets/PipelineMode.astro";
+import UpgradeCheck from "@shared/ui/snippets/UpgradeCheck.astro";
+import ForgeCliMenu from "@shared/ui/snippets/ForgeCliMenu.astro";
+import ManagePlugins from "@shared/ui/snippets/ManagePlugins.astro";
+---
+
+<BaseLayout title="Terminal Snippets Preview">
+	<Container>
+		<div class="py-20 space-y-16">
+			<h1 class="font-sans text-[36px] font-bold text-text">Terminal Snippets Preview</h1>
+			<p class="font-sans text-[16px] text-text-muted mb-12">Marketing-ready terminal components for the landing page.</p>
+
+			<section>
+				<h2 class="font-sans text-[24px] font-bold text-text mb-6">1. Forge CLI Menu</h2>
+				<ForgeCliMenu />
+			</section>
+
+			<section>
+				<h2 class="font-sans text-[24px] font-bold text-text mb-6">2. Manage Plugins</h2>
+				<ManagePlugins />
+			</section>
+
+			<section>
+				<h2 class="font-sans text-[24px] font-bold text-text mb-6">3. Architecture Audit (Gate 1)</h2>
+				<ArchitectureAudit />
+			</section>
+
+			<section>
+				<h2 class="font-sans text-[24px] font-bold text-text mb-6">4. Ecosystem Overview (Gate 0)</h2>
+				<EcosystemOverview />
+			</section>
+
+			<section>
+				<h2 class="font-sans text-[24px] font-bold text-text mb-6">5. Pipeline Mode (Gate 2)</h2>
+				<PipelineMode />
+			</section>
+
+			<section>
+				<h2 class="font-sans text-[24px] font-bold text-text mb-6">6. Forge Dashboard</h2>
+				<ForgeDashboard />
+			</section>
+
+			<section>
+				<h2 class="font-sans text-[24px] font-bold text-text mb-6">7. Upgrade Check</h2>
+				<UpgradeCheck />
+			</section>
+		</div>
+	</Container>
+</BaseLayout>

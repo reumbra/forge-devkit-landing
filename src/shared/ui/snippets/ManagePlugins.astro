@@ -1,0 +1,61 @@
+---
+/**
+ * Marketing snippet: Forge CLI plugin management table.
+ * Shows all 6 modules with versions and green status.
+ * Source: screenshot 233359
+ */
+import TerminalSnippet from "../TerminalSnippet.astro";
+---
+
+<TerminalSnippet title="forge — Manage Plugins">
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>Plugin</th>
+					<th>Version</th>
+					<th>Status</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="t-white">forge-autopilot</td>
+					<td>v1.4.0</td>
+					<td><span class="badge-ok">✓ up to date</span></td>
+					<td class="t-muted">Batch autonomous development — parallel feature pipeline with Agent Teams</td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-core</td>
+					<td>v4.13.0</td>
+					<td><span class="badge-ok">✓ up to date</span></td>
+					<td class="t-muted">Core PM pipeline — setup, dev skills, parallel conductor</td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-product</td>
+					<td>v3.9.0</td>
+					<td><span class="badge-ok">✓ up to date</span></td>
+					<td class="t-muted">Product design module — user flows, stories, UX criteria</td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-qa</td>
+					<td>v3.7.0</td>
+					<td><span class="badge-ok">✓ up to date</span></td>
+					<td class="t-muted">QA meta-tool — test generation, coverage analysis, requirement traceability</td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-tracker</td>
+					<td>v3.3.0</td>
+					<td><span class="badge-ok">✓ up to date</span></td>
+					<td class="t-muted">Issue tracking integration — GitHub/Linear/Jira sync</td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-worktree</td>
+					<td>v1.2.0</td>
+					<td><span class="badge-ok">✓ up to date</span></td>
+					<td class="t-muted">Git worktree lifecycle — Docker isolation, port offsets, safe teardown</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</TerminalSnippet>

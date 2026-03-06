@@ -1,0 +1,70 @@
+---
+/**
+ * Marketing snippet: Forge Upgrade Check (dry run).
+ * Shows version drift detection and upgrade plan.
+ * Source: screenshot 234107
+ */
+import TerminalSnippet from "../TerminalSnippet.astro";
+---
+
+<TerminalSnippet title="forge:setup upgrade --check">
+	<div>
+		<p><span class="t-green">●</span> <span class="t-white t-bold">Forge Upgrade Check — Dry Run</span></p>
+		<br />
+		<table>
+			<thead>
+				<tr>
+					<th>Component</th>
+					<th>Installed</th>
+					<th>Available</th>
+					<th>Drift</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="t-white">forge-core</td>
+					<td>v4.6.0</td>
+					<td class="t-green">v4.13.0</td>
+					<td><span class="badge-warn">⚠ +7 minor versions</span></td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-product</td>
+					<td>v3.4.0</td>
+					<td class="t-green">v3.9.0</td>
+					<td><span class="badge-warn">⚠ +5 minor versions</span></td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-qa</td>
+					<td>v3.5.0</td>
+					<td class="t-green">v3.7.0</td>
+					<td><span class="badge-warn">⚠ +2 minor versions</span></td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-tracker</td>
+					<td>v3.1.0</td>
+					<td class="t-green">v3.3.0</td>
+					<td><span class="badge-warn">⚠ +2 minor versions</span></td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-autopilot</td>
+					<td class="t-muted">–</td>
+					<td class="t-green">v1.4.0</td>
+					<td><span class="badge-warn">⚠ New</span></td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-worktree</td>
+					<td class="t-muted">–</td>
+					<td class="t-green">v1.2.0</td>
+					<td><span class="badge-warn">⚠ New</span></td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<p class="t-white t-bold">To apply upgrades:</p>
+		<p class="t-muted">&nbsp;&nbsp;Run <span class="t-purple">/forge:setup upgrade</span> to execute the full upgrade flow — this will:</p>
+		<p class="t-muted">&nbsp;&nbsp;1. Detect drift and pending migrations</p>
+		<p class="t-muted">&nbsp;&nbsp;2. Apply migrations sequentially (v4.7.0 → v4.13.0)</p>
+		<p class="t-muted">&nbsp;&nbsp;3. Merge updated templates with your customizations</p>
+		<p class="t-muted">&nbsp;&nbsp;4. Bump adapter versions in config.yaml</p>
+	</div>
+</TerminalSnippet>

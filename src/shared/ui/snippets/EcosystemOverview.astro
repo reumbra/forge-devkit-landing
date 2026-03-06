@@ -1,0 +1,101 @@
+---
+/**
+ * Marketing snippet: Gate 0 Ecosystem Overview.
+ * Shows all 6 modules, what they do, and available commands.
+ * Source: screenshot 234425
+ */
+import TerminalSnippet from "../TerminalSnippet.astro";
+---
+
+<TerminalSnippet title="forge:setup — Forge Ecosystem">
+	<div>
+		<p><span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Forge Ecosystem</span></p>
+		<p class="t-muted">&nbsp;&nbsp;Your project management meta-tools. Each adapter generates artifacts</p>
+		<p class="t-muted">&nbsp;&nbsp;in your project's <span class="t-cyan">.claude/</span> directory and can be safely removed afterward.</p>
+		<br />
+		<table>
+			<thead>
+				<tr>
+					<th>Module</th>
+					<th>Version</th>
+					<th>What it does</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="t-white">forge-core</td>
+					<td class="t-cyan">v4.13.0</td>
+					<td>Dev-pipeline: architecture + contracts + code</td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-product</td>
+					<td class="t-cyan">v3.9.0</td>
+					<td>Product design: user flows, stories, UX</td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-qa</td>
+					<td class="t-cyan">v3.7.0</td>
+					<td>Test strategy: coverage, acceptance tests</td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-tracker</td>
+					<td class="t-cyan">v3.3.0</td>
+					<td>Task hub: GitHub/Linear/ClickUp sync</td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-autopilot</td>
+					<td class="t-cyan">v1.4.0</td>
+					<td>Batch autonomous dev: triage, waves, parallel</td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-worktree</td>
+					<td class="t-cyan">v1.2.0</td>
+					<td>Git worktree management for isolated dev</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<p class="t-muted">Legend: All 6 modules installed, none yet configured.</p>
+		<br />
+		<p class="t-white t-bold">Commands available after setup:</p>
+		<br />
+		<table>
+			<thead>
+				<tr>
+					<th>Category</th>
+					<th>Commands</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="t-muted">Setup &amp; Management</td>
+					<td><span class="t-purple">/forge:setup</span>, <span class="t-purple">/forge:upgrade</span>, <span class="t-purple">/forge:patch</span></td>
+				</tr>
+				<tr>
+					<td class="t-muted">Development</td>
+					<td><span class="t-purple">/dev</span>, <span class="t-purple">/forge:sync</span>, <span class="t-purple">/forge:close</span></td>
+				</tr>
+				<tr>
+					<td class="t-muted">Product</td>
+					<td><span class="t-purple">/forge:product-setup</span>, <span class="t-purple">/forge:product</span> <span class="t-muted">epic/roadmap</span></td>
+				</tr>
+				<tr>
+					<td class="t-muted">Testing</td>
+					<td><span class="t-purple">/qa</span>, <span class="t-purple">/qa-setup</span></td>
+				</tr>
+				<tr>
+					<td class="t-muted">Task Tracking</td>
+					<td><span class="t-purple">/forge:tracker</span> <span class="t-muted">pick/sync/close</span></td>
+				</tr>
+				<tr>
+					<td class="t-muted">Autopilot</td>
+					<td><span class="t-purple">/autopilot</span></td>
+				</tr>
+				<tr>
+					<td class="t-muted">Worktrees</td>
+					<td><span class="t-purple">/worktree-setup</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</TerminalSnippet>

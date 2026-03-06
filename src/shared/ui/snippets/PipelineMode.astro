@@ -1,0 +1,88 @@
+---
+/**
+ * Marketing snippet: Gate 2 Pipeline Mode configuration.
+ * Shows git workflow detection, commit convention, execution modes.
+ * Source: screenshot 235154
+ */
+import TerminalSnippet from "../TerminalSnippet.astro";
+---
+
+<TerminalSnippet title="forge:setup — Gate 2: Development Pipeline">
+	<div>
+		<p><span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Gate 2: Development Pipeline</span></p>
+		<br />
+		<p class="t-white t-bold">Step 2.1 — Pipeline Mode</p>
+		<p class="t-muted">&nbsp;&nbsp;Recommendation: <span class="t-green">sequential</span> (practical for day-to-day work).</p>
+		<p class="t-muted">&nbsp;&nbsp;Parallel shines for multi-feature waves via autopilot when needed.</p>
+		<br />
+		<p class="t-white t-bold">Step 2.2 — Git Workflow</p>
+		<p>&nbsp;&nbsp;<span class="t-muted">Detected git workflow:</span> <span class="t-cyan">trunk-based</span></p>
+		<p>&nbsp;&nbsp;<span class="t-muted">Evidence:</span> <span class="t-white">Only main branch, no develop/release/feature branches</span></p>
+		<br />
+		<p class="t-white t-bold">Step 2.3 — Commit Convention</p>
+		<p>&nbsp;&nbsp;<span class="t-muted">Convention:</span> <span class="t-white">emoji-prefix</span></p>
+		<p>&nbsp;&nbsp;<span class="t-muted">Confidence:</span> <span class="t-green">17/20 (85%) — strong pattern</span></p>
+		<br />
+		<p class="t-white t-bold">Step 2.4 — Execution Mode</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Mode</th>
+					<th>Savings</th>
+					<th>Risk</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="t-cyan">economy</td>
+					<td class="t-green">~35-65%</td>
+					<td class="t-yellow">moderate</td>
+					<td>Skip brainstorm, merge phases, minimal self-review</td>
+				</tr>
+				<tr>
+					<td class="t-cyan">balanced</td>
+					<td class="t-green">~20-30%</td>
+					<td class="t-green">low</td>
+					<td>Skip brainstorm for routine tasks, full self-review</td>
+				</tr>
+				<tr>
+					<td class="t-cyan">quality</td>
+					<td>0%</td>
+					<td class="t-green">minimal</td>
+					<td>Full pipeline, all gates</td>
+				</tr>
+				<tr>
+					<td class="t-cyan">manual</td>
+					<td>variable</td>
+					<td>full control</td>
+					<td>Agent asks before each task</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<p class="t-white t-bold">Step 2.5 — Execution Strategy</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Strategy</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="t-cyan">fixed</td>
+					<td>Always uses chosen mode</td>
+				</tr>
+				<tr>
+					<td class="t-cyan">adaptive</td>
+					<td>Agent auto-selects mode per task complexity</td>
+				</tr>
+				<tr>
+					<td class="t-cyan">ask</td>
+					<td>Agent asks at start of each task</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</TerminalSnippet>

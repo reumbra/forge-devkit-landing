@@ -1,0 +1,91 @@
+---
+interface Props {
+	title?: string;
+	class?: string;
+}
+
+const { title = "Terminal", class: className } = Astro.props;
+---
+
+<div class:list={["relative", className]}>
+	<div
+		class="overflow-x-auto rounded-[var(--radius-card)] border-card bg-surface-deep text-left"
+	>
+		{/* Title bar */}
+		<div class="flex items-center gap-2 px-4 py-3 border-b border-[rgba(118,73,196,0.06)]">
+			<span class="block h-[10px] w-[10px] rounded-full bg-[#FF5F56]"></span>
+			<span class="block h-[10px] w-[10px] rounded-full bg-[#FFBD2E]"></span>
+			<span class="block h-[10px] w-[10px] rounded-full bg-[#27C93F]"></span>
+			<span class="ml-2 font-mono text-[11px] text-text-muted">{title}</span>
+		</div>
+
+		{/* Content */}
+		<div class="p-5 font-mono text-[11px] sm:text-[12px] md:text-[13px] leading-[1.7] text-text-secondary terminal-rich">
+			<slot />
+		</div>
+	</div>
+</div>
+
+<style>
+	/* Terminal rich text styling */
+	.terminal-rich :global(.t-green) { color: #27C93F; }
+	.terminal-rich :global(.t-red) { color: #FF5F56; }
+	.terminal-rich :global(.t-yellow) { color: #FFBD2E; }
+	.terminal-rich :global(.t-blue) { color: #7AA2F7; }
+	.terminal-rich :global(.t-purple) { color: #9A75EA; }
+	.terminal-rich :global(.t-cyan) { color: #7DCFFF; }
+	.terminal-rich :global(.t-muted) { color: #666; }
+	.terminal-rich :global(.t-white) { color: #fff; }
+	.terminal-rich :global(.t-bold) { font-weight: 600; }
+	.terminal-rich :global(.t-dim) { opacity: 0.5; }
+
+	/* Prompt styling */
+	.terminal-rich :global(.prompt) {
+		color: #27C93F;
+	}
+	.terminal-rich :global(.prompt)::before {
+		content: "❯ ";
+		color: #9A75EA;
+	}
+
+	/* Table styling inside terminal */
+	.terminal-rich :global(table) {
+		border-collapse: collapse;
+		width: 100%;
+		margin: 6px 0;
+	}
+	.terminal-rich :global(th) {
+		color: #A5A5A5;
+		text-align: left;
+		padding: 3px 16px 3px 0;
+		border-bottom: 1px solid rgba(118, 73, 196, 0.12);
+		font-weight: 500;
+	}
+	.terminal-rich :global(td) {
+		padding: 3px 16px 3px 0;
+		border-bottom: 1px solid rgba(118, 73, 196, 0.04);
+	}
+
+	/* Status badges */
+	.terminal-rich :global(.badge-ok) {
+		background: rgba(39, 201, 63, 0.15);
+		color: #27C93F;
+		padding: 1px 8px;
+		border-radius: 3px;
+		font-size: 0.9em;
+	}
+	.terminal-rich :global(.badge-warn) {
+		background: rgba(255, 189, 46, 0.15);
+		color: #FFBD2E;
+		padding: 1px 8px;
+		border-radius: 3px;
+		font-size: 0.9em;
+	}
+	.terminal-rich :global(.badge-active) {
+		background: rgba(154, 117, 234, 0.15);
+		color: #9A75EA;
+		padding: 1px 8px;
+		border-radius: 3px;
+		font-size: 0.9em;
+	}
+</style>

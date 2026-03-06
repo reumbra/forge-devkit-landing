@@ -1,0 +1,98 @@
+---
+/**
+ * Marketing snippet: Forge Ecosystem Dashboard.
+ * Shows configured ecosystem, project profile, integrations.
+ * Source: screenshots 233939 + 233957
+ */
+import TerminalSnippet from "../TerminalSnippet.astro";
+---
+
+<TerminalSnippet title="forge:setup — Ecosystem Dashboard">
+	<div>
+		<p><span class="t-green">●</span> <span class="t-white t-bold">Forge Ecosystem Dashboard</span> — <span class="t-cyan">gm-platform</span></p>
+		<br />
+		<table>
+			<thead>
+				<tr>
+					<th>Component</th>
+					<th>Version</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="t-white">forge-core</td>
+					<td>v4.13.0</td>
+					<td><span class="badge-ok">Configured</span></td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-product</td>
+					<td>v3.9.0</td>
+					<td><span class="badge-ok">Configured</span></td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-qa</td>
+					<td>v3.7.0</td>
+					<td><span class="badge-ok">Configured</span></td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-tracker</td>
+					<td>v3.3.0</td>
+					<td><span class="badge-ok">Configured</span></td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-autopilot</td>
+					<td>v1.4.0</td>
+					<td><span class="badge-active">Active (6 batches)</span></td>
+				</tr>
+				<tr>
+					<td class="t-white">forge-worktree</td>
+					<td>v1.2.0</td>
+					<td><span class="badge-active">Active</span></td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<p class="t-white t-bold">Project Profile</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Property</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="t-muted">Stack</td>
+					<td class="t-white">React 19 + TanStack Start + Tailwind v4 + Vite + TypeScript strict</td>
+				</tr>
+				<tr>
+					<td class="t-muted">Architecture</td>
+					<td class="t-white">FSD (5 layers, 13 features)</td>
+				</tr>
+				<tr>
+					<td class="t-muted">Pipeline</td>
+					<td class="t-white">Parallel, trunk-based, conventional commits</td>
+				</tr>
+				<tr>
+					<td class="t-muted">Git workflow</td>
+					<td class="t-white">Trunk-based with worktrees</td>
+				</tr>
+				<tr>
+					<td class="t-muted">CI/CD</td>
+					<td class="t-white">Vercel (SSR Docker)</td>
+				</tr>
+				<tr>
+					<td class="t-muted">Backend</td>
+					<td><span class="t-cyan">gm-platform-api</span> <span class="t-muted">(bidirectional propagation)</span></td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<p class="t-muted">Ecosystem is fully configured and up to date. Available actions:</p>
+		<p>&nbsp;&nbsp;<span class="t-muted">–</span> <span class="t-purple">/forge:setup upgrade --check</span> <span class="t-muted">— check for updates</span></p>
+		<p>&nbsp;&nbsp;<span class="t-muted">–</span> <span class="t-purple">/forge:tracker</span> <span class="t-muted">— task management via Notion</span></p>
+		<p>&nbsp;&nbsp;<span class="t-muted">–</span> <span class="t-purple">/forge:autopilot</span> <span class="t-muted">— batch development pipeline</span></p>
+		<p>&nbsp;&nbsp;<span class="t-muted">–</span> <span class="t-purple">/forge:qa</span> <span class="t-muted">— testing and coverage</span></p>
+	</div>
+</TerminalSnippet>
