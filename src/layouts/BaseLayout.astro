@@ -14,6 +14,14 @@ const {
 } = Astro.props;
 
 const locale = Astro.currentLocale ?? "en";
+
+const currentPath = Astro.url.pathname;
+const siteOrigin = Astro.site?.origin ?? "https://reumbra.com";
+const canonicalUrl = `${siteOrigin}${currentPath}`;
+const enPath = currentPath.startsWith("/ru/") ? currentPath.replace(/^\/ru/, "") || "/" : currentPath;
+const ruPath = currentPath.startsWith("/ru/") ? currentPath : `/ru${currentPath === "/" ? "" : currentPath}`;
+const enUrl = `${siteOrigin}${enPath}`;
+const ruUrl = `${siteOrigin}${ruPath}`;
 ---
 
 <!doctype html>
@@ -24,6 +32,20 @@ const locale = Astro.currentLocale ?? "en";
 		<meta name="description" content={description} />
 		<title>{title}</title>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="alternate" hreflang="en" href={enUrl} />
+		<link rel="alternate" hreflang="ru" href={ruUrl} />
+		<link rel="alternate" hreflang="x-default" href={enUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={`${siteOrigin}/og-image.png`} />
+		<meta property="og:locale" content={locale === "ru" ? "ru_RU" : "en_US"} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={`${siteOrigin}/og-image.png`} />
 		<link rel="preload" href={satoshiRegular} as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href={satoshiBlack} as="font" type="font/woff2" crossorigin />
 	</head>
@@ -32,7 +54,7 @@ const locale = Astro.currentLocale ?? "en";
 		{/* Floating mobile CTA — visible only on small screens after scrolling past Hero */}
 		<a
 			id="floating-cta"
-			href="/#pricing"
+			href="/pricing"
 			class="fixed bottom-6 left-6 z-40 md:hidden inline-flex items-center justify-center rounded-[var(--radius-btn)] bg-primary px-5 py-3 font-sans text-[14px] font-medium text-white opacity-0 pointer-events-none translate-y-2 transition-all duration-300 hover:bg-[#8352D1] shadow-[var(--shadow-btn-hover)]"
 		>
 			Get Forge &rarr;
