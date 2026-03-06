@@ -30,7 +30,7 @@ Models applied (from marketing-psychology analysis):
 | Confirmation Bias | Devs already believe "vibe coding without structure = garbage" — we confirm, not educate |
 | Loss Aversion | "Your AI code becomes legacy debt in 3 months" — broad, painful framing |
 | Peak-End Rule | forge-autopilot as "wow" peak (section 6), not hero |
-| Door-in-the-Face | Show competitor subscription pricing ($20/mo = $240/yr), then our one-time $29-149 |
+| Door-in-the-Face | Show competitor subscription pricing ($20/mo = $240/yr), then our one-time $29-149 (JetBrains model: 1yr updates included, renewal optional) |
 | Critical Mass | Depth in "structured AI development" segment before expanding |
 
 ## Site Architecture
@@ -279,7 +279,7 @@ For developers using AI coding agents, Forge DevKit is an architecture-aware pip
 - 4-level traceability: AC→unit, UC→E2E, UX→component
 - 9 product archetypes, 9 methodology frameworks
 - Backlog→conflict detection→wave execution→merge
-- One-time pricing: $29/$79/$149 (not $20/mo forever)
+- JetBrains pricing: $29/$79/$149 one-time + 1yr updates, renewal optional (not $20/mo mandatory)
 
 ### Updated Pain Points (2026 research)
 
@@ -329,11 +329,20 @@ Examples:
 ### Structure
 
 1. Headline: "One-time purchase. Your artifacts stay forever."
-2. Competitor anchor: "Devin: $240/yr. Cursor Pro: $240/yr. Forge: from $29 once."
+2. Competitor anchor: "Devin: $240/yr mandatory. Cursor Pro: $240/yr. Forge: from $29 once."
 3. Three tier cards (Pro highlighted as recommended)
 4. Feature comparison table (all 6 modules × 3 tiers)
-5. Trust signals: "No subscription. No per-token charges. 1-year updates included."
-6. FAQ (pricing-specific: refunds, updates, team licensing)
+5. Trust signals: "No subscription. No per-token charges. 1-year updates included. Renewal optional at reduced price."
+6. FAQ (pricing-specific: refunds, updates after year 1, renewal pricing, team licensing)
+
+### Pricing Model (JetBrains-style)
+
+- One-time purchase: $29 / $79 / $149
+- Includes 1 year of updates (new patterns, new modules for Bundle)
+- Generated artifacts are yours forever, even without renewal
+- Optional renewal at reduced price (~60% of original) for continued updates
+- No renewal = keep everything you have, just no new patterns/modules
+- Positioning: "one-time" prominently, "1yr updates" as detail — NOT "/yr" subscription framing
 
 ### Tiers
 

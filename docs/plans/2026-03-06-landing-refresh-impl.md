@@ -27,6 +27,25 @@ Each wave contains independent features that can be executed in parallel by sepa
 
 ---
 
+## CRO Findings (Pre-Implementation)
+
+CRO audit identified these issues to address during implementation:
+
+| Issue | Severity | Fixed In |
+|-------|----------|----------|
+| Pricing shows "/yr" subscription framing (should be one-time, JetBrains model) | CRITICAL | F4 |
+| "Cancel anytime" / "Annual billing" trust signals contradict one-time model | CRITICAL | F4 |
+| Hero CTA "Audit your architecture" → pricing (promise-delivery mismatch) | HIGH | F1 |
+| 3/6 CTAs promise action but lead to paywall | HIGH | F1, F6 |
+| No competitor price anchor near pricing | HIGH | F4, F22 |
+| Social proof stats are features, not social proof | MEDIUM | F1 |
+| 4 deep dives = scroll fatigue | MEDIUM | F6, F11 |
+| Author section after Pricing (trust signal too late) | MEDIUM | F11 |
+| EntrepreneurSection irrelevant for dev audience | MEDIUM | F9 |
+| No price visibility above the fold | LOW | F1 (test idea) |
+
+---
+
 ## Wave 0: Config Foundation
 
 All features in this wave update independent config files. Zero cross-dependencies.
@@ -169,18 +188,21 @@ Read `src/shared/config/pricing.ts` to understand the subscription framing bug.
 **Step 2: Fix one-time pricing framing**
 
 ```typescript
-// CRITICAL FIXES:
-// 1. Remove `period: "/yr"` — replace with "one-time" or remove entirely
+// CRITICAL FIXES (JetBrains pricing model):
+// 1. Replace `period: "/yr"` with "one-time" — NOT subscription framing
 // 2. Remove `monthlyEquivalent` field — no monthly breakdown for one-time purchase
-// 3. Rename "Full" tier -> "Bundle"
-// 4. Add forge-autopilot + forge-worktree to Bundle tier features
-// 5. Add "Future modules" to Bundle tier
-// 6. Update trust signals:
+// 3. Add new field `updatesIncluded: "1 year of updates included"`
+// 4. Add new field `renewalPrice` (optional, ~60% of original: $19/$49/$89)
+// 5. Rename "Full" tier -> "Bundle"
+// 6. Add forge-autopilot + forge-worktree to Bundle tier features
+// 7. Add "Future modules included" to Bundle tier
+// 8. Update trust signals:
 //    - "One-time purchase. Your artifacts stay forever."
-//    - "No subscription. No per-token charges."
-//    - "1-year updates included."
-// 7. Add competitor anchor: "Devin: $240/yr. Cursor Pro: $240/yr. Forge: from $29 once."
-// 8. Highlight Pro as recommended tier (not Core)
+//    - "Includes 1 year of updates. Renewal optional."
+//    - "No renewal = keep everything, just no new patterns."
+// 9. Add competitor anchor: "Devin: $240/yr mandatory. Forge: from $29 once."
+// 10. Highlight Pro as recommended tier (not Core)
+// 11. Remove "Cancel anytime" and "Annual billing" — subscription language
 ```
 
 **Step 3: Verify build**
@@ -984,15 +1006,17 @@ Depends on Wave 2 (routing + layout). Independent of Wave 3.
 
 **Step 1: Create pricing page config**
 
-Content from design doc "Pricing Page Design" section:
+Content from design doc "Pricing Page Design" section (JetBrains model):
 
 ```typescript
 // 1. Headline: "One-time purchase. Your artifacts stay forever."
-// 2. Competitor anchor bar: "Devin: $240/yr. Cursor Pro: $240/yr. Forge: from $29 once."
-// 3. Three tier cards (Pro highlighted)
+// 2. Competitor anchor bar: "Devin: $240/yr mandatory. Forge: from $29 once."
+// 3. Three tier cards (Pro highlighted) — price shown as "$29" NOT "$29/yr"
+//    Each card: price + "Includes 1 year of updates" + "Renewal: $19/yr (optional)"
 // 4. Feature comparison table (all 6 modules x 3 tiers)
-// 5. Trust signals
-// 6. Pricing FAQ (refunds, updates, team licensing)
+// 5. Trust signals: "No subscription", "Artifacts yours forever", "Renewal optional"
+// 6. Pricing FAQ: "What happens after year 1?", "Do I have to renew?",
+//    "What if I don't renew?", refunds, team licensing
 ```
 
 **Step 2: Create pricing page widgets**
