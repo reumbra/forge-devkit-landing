@@ -53,7 +53,7 @@ export const navigation = {
 			],
 		},
 		{ label: "Pricing", href: "/pricing" },
-		{ label: "Docs", href: "https://docs.reumbra.com/forge", external: true },
+		{ label: "Getting Started", href: "/getting-started" },
 		{ label: "GitHub", href: "https://github.com/reumbra", external: true },
 	],
 	cta: {

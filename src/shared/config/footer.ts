@@ -35,8 +35,8 @@ export const footer = {
 			title: "Product",
 			links: [
 				{ label: "Pricing", href: "/pricing" },
+				{ label: "Getting Started", href: "/getting-started" },
 				{ label: "Changelog", href: "#", disabled: true },
-				{ label: "Documentation", href: "#", disabled: true },
 				{ label: "GitHub", href: "https://github.com/reumbra", external: true },
 			],
 		},
