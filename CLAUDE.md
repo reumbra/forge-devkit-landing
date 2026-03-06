@@ -8,8 +8,8 @@ Product website for Forge DevKit at `reumbra.com/forge`.
 - **Audience:** Developers (senior devs, tech leads, AI agent users). Entrepreneurs = separate landing later.
 - **Narrative:** "From Vibe Code to Production" (Arc B)
 - **6 modules:** forge-core, forge-product, forge-qa, forge-tracker, forge-autopilot, forge-worktree
-- **Pricing (JetBrains model):** $29/$79/$149 one-time + 1yr updates, renewal optional. Artifacts stay forever.
-- **Architecture:** Moving from single-page (14 sections) to Module Hub (10 pages). See landing-refresh-design.md.
+- **Pricing (JetBrains model):** €29/€79/€149 one-time + 1yr updates, renewal optional. Artifacts stay forever.
+- **Architecture:** Homepage refreshed (13 sections, Waves 0-1 done). Multi-page Module Hub in progress. See landing-refresh-design.md.
 
 ## Tech Stack
 
@@ -80,7 +80,7 @@ All visual components live here. Widgets and pages build UI only through design 
 
 ## Development
 
-- `pnpm dev` — start dev server (http://localhost:4321/forge/)
+- `pnpm dev` — start dev server (http://localhost:4321/)
 - `pnpm build` — production build to `dist/`
 - `pnpm lint` / `pnpm lint:fix` — Biome check/fix
 - `site` is `https://reumbra.com`, `base` is `/`
@@ -91,6 +91,7 @@ All visual components live here. Widgets and pages build UI only through design 
 - **Font preloading**: Use `import font from "path.woff2"` in Astro frontmatter. `new URL(..., import.meta.url)` resolves to `file://` in dev
 - **Satoshi font**: From fontshare.com (not npm). Downloaded via `api.fontshare.com/v2/css` API
 - **Biome + Astro**: `.astro` files need linter overrides (noUnusedVariables, noUnusedImports off) — already configured in `biome.json`
+- **Config→Widget contract**: Changing config shape (adding/removing fields, renaming) breaks consuming widgets. Always grep for widget imports of the config and verify field-level compatibility after config changes
 
 ## Document Matrix
 
@@ -118,6 +119,7 @@ Hub: `INDEX.md` — navigation + chronological log + key decisions.
 |-----|---------|--------|
 | **2026-03-06-landing-refresh-design.md** | **Landing refresh: dev-only, 10 pages, Module Hub, JetBrains pricing** | **Current** |
 | **2026-03-06-landing-refresh-impl.md** | **Implementation plan: 28 features, 6 waves, autopilot-ready** | **Current** |
+| 2026-03-06-component-design-spec.md | Component design specs (Pipeline, NavBar, Footer, Module pages) | Active |
 | design-tokens.md | Design tokens (colors, typography, spacing) for @theme | Active |
 | 2026-02-25-pencil-design.md | Pencil (.pen) visual mockup specs | Active |
 | 2026-02-25-page-architecture-design.md | Original 14-section single-page design | Superseded |
@@ -139,4 +141,5 @@ Hub: `INDEX.md` — navigation + chronological log + key decisions.
 | Feature details | FEATURE-MATRIX.md |
 | Design tokens/colors | design-tokens.md |
 | Competitor positioning | COMPETITOR-LANDSCAPE.md |
+| Building new widget/component | 2026-03-06-component-design-spec.md |
 | Visual mockup | design/forge-landing.pen (Pencil MCP) |
