@@ -1,5 +1,6 @@
 ---
 import Container from "@shared/ui/Container.astro";
+import { localePath } from "@shared/utils/locale";
 
 interface Props {
 	rows: { dimension: string; them: string; forge: string }[];
@@ -17,6 +18,7 @@ const comparisonSlugMap: Record<string, string> = {
 	autopilot: "devin",
 };
 const vsSlug = comparisonSlugMap[moduleSlug] ?? "cursor-rules";
+const lp = (path: string) => localePath(path, Astro.currentLocale);
 ---
 
 <section class="py-12 md:py-20 border-t border-card">
@@ -25,7 +27,7 @@ const vsSlug = comparisonSlugMap[moduleSlug] ?? "cursor-rules";
 			{moduleName} vs {target}
 		</h2>
 		<p class="font-sans text-[14px] text-text-muted mb-8">
-			See the <a href={`/vs/${vsSlug}`} class="text-secondary hover:underline">full comparison</a> for details.
+			See the <a href={lp(`/vs/${vsSlug}`)} class="text-secondary hover:underline">full comparison</a> for details.
 		</p>
 		<div class="overflow-x-auto">
 			<table class="w-full text-left">

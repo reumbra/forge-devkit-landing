@@ -1,4 +1,6 @@
 ---
+import { localePath } from "@shared/utils/locale";
+
 interface BreadcrumbItem {
 	label: string;
 	href?: string;
@@ -9,8 +11,15 @@ interface Props {
 }
 
 const { items } = Astro.props;
-const allItems = [{ label: "Home", href: "/" }, ...items];
+const locale = Astro.currentLocale;
+const lp = (path: string) => localePath(path, locale);
+const homeLabel = locale === "ru" ? "Главная" : "Home";
+const allItems = [{ label: homeLabel, href: lp("/") }, ...items.map(item => ({
+	...item,
+	href: item.href ? lp(item.href) : undefined,
+}))];
 
+const siteOrigin = Astro.site?.origin ?? "https://reumbra.com";
 const jsonLd = {
 	"@context": "https://schema.org",
 	"@type": "BreadcrumbList",
@@ -18,7 +27,7 @@ const jsonLd = {
 		"@type": "ListItem",
 		position: i + 1,
 		name: item.label,
-		...(item.href ? { item: `https://reumbra.com${item.href}` } : {}),
+		...(item.href ? { item: `${siteOrigin}${item.href}` } : {}),
 	})),
 };
 ---

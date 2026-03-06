@@ -14,6 +14,7 @@ const {
 } = Astro.props;
 
 const locale = Astro.currentLocale ?? "en";
+const pricingHref = locale === "ru" ? "/ru/pricing" : "/pricing";
 
 const currentPath = Astro.url.pathname;
 const siteOrigin = Astro.site?.origin ?? "https://reumbra.com";
@@ -54,7 +55,7 @@ const ruUrl = `${siteOrigin}${ruPath}`;
 		{/* Floating mobile CTA — visible only on small screens after scrolling past Hero */}
 		<a
 			id="floating-cta"
-			href="/pricing"
+			href={pricingHref}
 			class="fixed bottom-6 left-6 z-40 md:hidden inline-flex items-center justify-center rounded-[var(--radius-btn)] bg-primary px-5 py-3 font-sans text-[14px] font-medium text-white opacity-0 pointer-events-none translate-y-2 transition-all duration-300 hover:bg-[#8352D1] shadow-[var(--shadow-btn-hover)]"
 		>
 			Get Forge &rarr;

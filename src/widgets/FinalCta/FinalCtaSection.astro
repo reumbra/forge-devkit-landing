@@ -2,7 +2,9 @@
 import Container from "@shared/ui/Container.astro";
 import Button from "@shared/ui/Button.astro";
 import { footer } from "@shared/config/footer";
+import { localePath } from "@shared/utils/locale";
 
+const lp = (path: string) => localePath(path, Astro.currentLocale);
 const { finalCta } = footer;
 
 /** Large Button auto-appends " ->", strip trailing arrow from config to avoid duplication. */
@@ -33,7 +35,7 @@ const buttonLabel = finalCta.buttonLabel.replace(/\s*\u2192\s*$/, "");
 
 			{/* CTA button — large variant */}
 			<div class="mt-10">
-				<Button variant="large" href={finalCta.buttonHref}>
+				<Button variant="large" href={lp(finalCta.buttonHref)}>
 					{buttonLabel}
 				</Button>
 			</div>

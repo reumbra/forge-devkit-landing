@@ -2,7 +2,9 @@
 import Container from "@shared/ui/Container.astro";
 import SectionLabel from "@shared/ui/SectionLabel.astro";
 import { pipeline } from "@shared/config/pipeline";
+import { localePath } from "@shared/utils/locale";
 
+const lp = (path: string) => localePath(path, Astro.currentLocale);
 const { sectionLabel, headline, subheadline, nodes, connections } = pipeline;
 
 /**
@@ -96,7 +98,7 @@ const svgHeight = 280;
 					if (!pos) return null;
 					return (
 						<a
-							href={node.href}
+							href={lp(node.href)}
 							class="pipeline-node absolute flex flex-col justify-center rounded-[14px] border border-card bg-surface px-4 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-card-hover hover:shadow-[0_0_32px_rgba(118,73,196,0.12)]"
 							style={`left: ${pos.x}px; top: ${pos.y}px; width: ${nodeWidth}px; height: ${nodeHeight}px; animation-delay: ${i * 100}ms;`}
 							data-node={node.id}
@@ -118,7 +120,7 @@ const svgHeight = 280;
 			{/* Row 1: core → product → qa */}
 			{nodes.filter(n => ["core", "product", "qa"].includes(n.id)).map((node) => (
 				<a
-					href={node.href}
+					href={lp(node.href)}
 					class="flex flex-col justify-center rounded-[14px] border border-card bg-surface px-4 py-4 transition-all duration-300 hover:border-card-hover text-center"
 				>
 					<span class="font-mono text-[13px] font-medium text-text">
@@ -132,7 +134,7 @@ const svgHeight = 280;
 			{/* Row 2: tracker, autopilot, worktree */}
 			{nodes.filter(n => ["tracker", "autopilot", "worktree"].includes(n.id)).map((node) => (
 				<a
-					href={node.href}
+					href={lp(node.href)}
 					class="flex flex-col justify-center rounded-[14px] border border-card bg-surface px-4 py-4 transition-all duration-300 hover:border-card-hover text-center"
 				>
 					<span class="font-mono text-[13px] font-medium text-text">
@@ -151,7 +153,7 @@ const svgHeight = 280;
 						<div class="flex justify-center text-text-muted opacity-30 text-[18px]">{"\u2193"}</div>
 					)}
 					<a
-						href={node.href}
+						href={lp(node.href)}
 						class="flex items-center gap-3 rounded-[14px] border border-card bg-surface px-4 py-4 transition-all duration-300 hover:border-card-hover"
 					>
 						<span class="font-mono text-[13px] font-medium text-text">

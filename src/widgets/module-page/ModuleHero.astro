@@ -1,6 +1,7 @@
 ---
 import Container from "@shared/ui/Container.astro";
 import Button from "@shared/ui/Button.astro";
+import { localePath } from "@shared/utils/locale";
 
 interface Props {
 	name: string;
@@ -10,6 +11,7 @@ interface Props {
 }
 
 const { name, tagline, tier, tierPrice } = Astro.props;
+const lp = (path: string) => localePath(path, Astro.currentLocale);
 ---
 
 <section class="py-16 md:py-24">
@@ -25,7 +27,7 @@ const { name, tagline, tier, tierPrice } = Astro.props;
 				{tagline}
 			</p>
 			<div class="mt-6 flex items-center gap-4">
-				<Button variant="primary" href="/pricing">
+				<Button variant="primary" href={lp("/pricing")}>
 					Get {tier} &mdash; {tierPrice} &rarr;
 				</Button>
 				<span class="font-mono text-[13px] text-text-muted">one-time</span>

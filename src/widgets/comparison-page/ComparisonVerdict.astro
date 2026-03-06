@@ -1,6 +1,7 @@
 ---
 import Container from "@shared/ui/Container.astro";
 import Button from "@shared/ui/Button.astro";
+import { localePath } from "@shared/utils/locale";
 
 interface Props {
 	verdict: string;
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const { verdict, ctaText } = Astro.props;
+const lp = (path: string) => localePath(path, Astro.currentLocale);
 ---
 
 <section class="py-16 md:py-24 border-t border-card">
@@ -16,7 +18,7 @@ const { verdict, ctaText } = Astro.props;
 			<p class="font-sans text-[16px] leading-[1.6] text-text-secondary mb-8">
 				{verdict}
 			</p>
-			<Button variant="primary" href="/pricing">
+			<Button variant="primary" href={lp("/pricing")}>
 				{ctaText}
 			</Button>
 		</div>

@@ -2,6 +2,10 @@
 import Container from "@shared/ui/Container.astro";
 import ReumbraLogo from "@shared/ui/ReumbraLogo.astro";
 import { footer } from "@shared/config/footer";
+import { localePath } from "@shared/utils/locale";
+
+const locale = Astro.currentLocale;
+const lp = (path: string) => localePath(path, locale);
 ---
 
 <footer class="border-t border-[rgba(118,73,196,0.06)] py-16 md:py-20">
@@ -26,7 +30,7 @@ import { footer } from "@shared/config/footer";
 									</button>
 								) : (
 									<a
-										href={link.disabled ? undefined : link.href}
+										href={link.disabled ? undefined : lp(link.href)}
 										target={link.external ? "_blank" : undefined}
 										rel={link.external ? "noopener noreferrer" : undefined}
 										class:list={[
