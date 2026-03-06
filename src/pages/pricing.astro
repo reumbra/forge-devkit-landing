@@ -1,14 +1,22 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
+import PricingPageHero from "@widgets/pricing-page/PricingPageHero.astro";
 import PricingSection from "@widgets/Pricing/PricingSection.astro";
+import PricingFeatureTable from "@widgets/pricing-page/PricingFeatureTable.astro";
+import PricingTrustBadges from "@widgets/pricing-page/PricingTrustBadges.astro";
+import PricingPageFaq from "@widgets/pricing-page/PricingPageFaq.astro";
 
 const breadcrumbs = [{ label: "Pricing" }];
 ---
 
 <PageLayout
 	title="Pricing — Forge DevKit"
-	description="One-time purchase. Your artifacts stay forever. From €29."
+	description="One-time purchase. Your artifacts stay forever. Core €29, Pro €79, Bundle €149."
 	breadcrumbs={breadcrumbs}
 >
+	<PricingPageHero />
 	<PricingSection />
+	<PricingFeatureTable />
+	<PricingTrustBadges />
+	<PricingPageFaq />
 </PageLayout>

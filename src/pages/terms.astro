@@ -1,14 +1,12 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import NavBar from "@widgets/NavBar/NavBar.astro";
-import FooterSection from "@widgets/Footer/FooterSection.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 import LegalPage from "@widgets/Legal/LegalPage.astro";
+
+const breadcrumbs = [{ label: "Terms of Service" }];
 ---
 
-<BaseLayout title="Terms of Service — Forge DevKit" description="Terms of Service for Forge DevKit by Reumbra OÜ.">
-	<NavBar />
-	<main>
-		<LegalPage title="Terms of Service" effectiveDate="6 March 2026">
+<PageLayout title="Terms of Service — Forge DevKit" description="Terms of Service for Forge DevKit by Reumbra OÜ." breadcrumbs={breadcrumbs}>
+	<LegalPage title="Terms of Service" effectiveDate="6 March 2026">
 			<p>
 				<strong>Important:</strong> Payments for Forge DevKit are processed by Lemon Squeezy (Lemon Squeezy, Inc.), who acts as the Merchant of Record for all transactions. When you purchase a Forge DevKit license, you enter into two separate agreements: a payment agreement with Lemon Squeezy (governed by <a href="https://www.lemonsqueezy.com/buyer-terms" target="_blank" rel="noopener">Lemon Squeezy's Buyer Terms</a>), and a license agreement with Reumbra OÜ (governed by these Terms of Service). These Terms govern the license and the product — not the payment relationship.
 			</p>
@@ -128,7 +126,5 @@ import LegalPage from "@widgets/Legal/LegalPage.astro";
 
 			<h2>12. Governing Law</h2>
 			<p>These Terms of Service are governed by the laws of the Republic of Estonia, without prejudice to any mandatory consumer protection provisions of your country of residence as an EU consumer.</p>
-		</LegalPage>
-	</main>
-	<FooterSection />
-</BaseLayout>
+	</LegalPage>
+</PageLayout>

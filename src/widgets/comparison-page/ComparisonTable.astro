@@ -1,0 +1,42 @@
+---
+import Container from "@shared/ui/Container.astro";
+import type { ComparisonRow } from "@shared/config/comparisons";
+
+interface Props {
+	rows: ComparisonRow[];
+	competitor: string;
+}
+
+const { rows, competitor } = Astro.props;
+---
+
+<section class="py-12 md:py-20 border-t border-card">
+	<Container>
+		<div class="overflow-x-auto">
+			<table class="w-full text-left">
+				<thead>
+					<tr class="border-b border-card">
+						<th class="py-3 pr-4 font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted w-[25%]">
+							Dimension
+						</th>
+						<th class="py-3 pr-4 font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted w-[37.5%]">
+							{competitor}
+						</th>
+						<th class="py-3 font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-secondary w-[37.5%]">
+							Forge DevKit
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{rows.map((row) => (
+						<tr class="border-b border-card/50">
+							<td class="py-4 pr-4 font-sans text-[14px] font-medium text-text">{row.dimension}</td>
+							<td class="py-4 pr-4 font-sans text-[14px] text-text-muted">{row.them}</td>
+							<td class="py-4 font-sans text-[14px] text-text">{row.forge}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+	</Container>
+</section>

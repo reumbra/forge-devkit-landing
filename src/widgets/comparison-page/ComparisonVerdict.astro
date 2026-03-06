@@ -1,0 +1,24 @@
+---
+import Container from "@shared/ui/Container.astro";
+import Button from "@shared/ui/Button.astro";
+
+interface Props {
+	verdict: string;
+	ctaText: string;
+}
+
+const { verdict, ctaText } = Astro.props;
+---
+
+<section class="py-16 md:py-24 border-t border-card">
+	<Container>
+		<div class="max-w-[640px] mx-auto text-center">
+			<p class="font-sans text-[16px] leading-[1.6] text-text-secondary mb-8">
+				{verdict}
+			</p>
+			<Button variant="primary" href="/pricing">
+				{ctaText}
+			</Button>
+		</div>
+	</Container>
+</section>

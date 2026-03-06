@@ -1,0 +1,23 @@
+---
+import Container from "@shared/ui/Container.astro";
+import { pricingPage } from "@shared/config/pricing-page";
+---
+
+<section class="py-16 md:py-24">
+	<Container>
+		<div class="text-center max-w-[640px] mx-auto">
+			<h1 class="font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]">
+				{pricingPage.headline}
+			</h1>
+			<p class="mt-4 font-sans text-[16px] leading-[1.6] text-text-secondary md:text-[18px]">
+				{pricingPage.subheadline}
+			</p>
+		</div>
+		{/* Competitor anchor bar */}
+		<div class="mt-8 mx-auto max-w-[540px] rounded-[10px] border border-card bg-[rgba(118,73,196,0.04)] px-6 py-3 text-center">
+			<p class="font-mono text-[13px] text-text-muted">
+				{pricingPage.competitorAnchor}
+			</p>
+		</div>
+	</Container>
+</section>

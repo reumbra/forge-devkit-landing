@@ -1,6 +1,10 @@
 ---
 import PageLayout from "../../layouts/PageLayout.astro";
+import PricingPageHero from "@widgets/pricing-page/PricingPageHero.astro";
 import PricingSection from "@widgets/Pricing/PricingSection.astro";
+import PricingFeatureTable from "@widgets/pricing-page/PricingFeatureTable.astro";
+import PricingTrustBadges from "@widgets/pricing-page/PricingTrustBadges.astro";
+import PricingPageFaq from "@widgets/pricing-page/PricingPageFaq.astro";
 
 const breadcrumbs = [{ label: "Цены" }];
 ---
@@ -10,5 +14,9 @@ const breadcrumbs = [{ label: "Цены" }];
 	description="Разовая покупка. Артефакты остаются навсегда. От €29."
 	breadcrumbs={breadcrumbs}
 >
+	<PricingPageHero />
 	<PricingSection />
+	<PricingFeatureTable />
+	<PricingTrustBadges />
+	<PricingPageFaq />
 </PageLayout>

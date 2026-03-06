@@ -1,0 +1,23 @@
+---
+import Container from "@shared/ui/Container.astro";
+
+interface Props {
+	headline: string;
+	subheadline: string;
+}
+
+const { headline, subheadline } = Astro.props;
+---
+
+<section class="py-16 md:py-24">
+	<Container>
+		<div class="max-w-[640px]">
+			<h1 class="font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]">
+				{headline}
+			</h1>
+			<p class="mt-4 font-sans text-[18px] leading-[1.6] text-text-secondary md:text-[20px]">
+				{subheadline}
+			</p>
+		</div>
+	</Container>
+</section>

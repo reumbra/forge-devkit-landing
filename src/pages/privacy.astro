@@ -1,14 +1,12 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import NavBar from "@widgets/NavBar/NavBar.astro";
-import FooterSection from "@widgets/Footer/FooterSection.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 import LegalPage from "@widgets/Legal/LegalPage.astro";
+
+const breadcrumbs = [{ label: "Privacy Policy" }];
 ---
 
-<BaseLayout title="Privacy Policy — Forge DevKit" description="Privacy Policy for Forge DevKit by Reumbra OÜ.">
-	<NavBar />
-	<main>
-		<LegalPage title="Privacy Policy" effectiveDate="6 March 2026">
+<PageLayout title="Privacy Policy — Forge DevKit" description="Privacy Policy for Forge DevKit by Reumbra OÜ." breadcrumbs={breadcrumbs}>
+	<LegalPage title="Privacy Policy" effectiveDate="6 March 2026">
 			<p>
 				<strong>Reumbra OÜ</strong> · Registry code: 16937677 · VAT: EE102715497<br />
 				Kvartsi 4-22, Tartu, Tartu Vald, 50415, Estonia · <a href="mailto:info@reumbra.com">info@reumbra.com</a>
@@ -196,7 +194,5 @@ import LegalPage from "@widgets/Legal/LegalPage.astro";
 
 			<h2>10. Changes to This Privacy Policy</h2>
 			<p>Reumbra OÜ may update this Privacy Policy from time to time. If changes are material, you will be notified by e-mail at least 14 days before they take effect. The current version is always available at forge.reumbra.com/privacy.</p>
-		</LegalPage>
-	</main>
-	<FooterSection />
-</BaseLayout>
+	</LegalPage>
+</PageLayout>

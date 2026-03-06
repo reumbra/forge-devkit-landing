@@ -1,8 +1,9 @@
 ---
 import type { GetStaticPaths } from "astro";
 import PageLayout from "../../layouts/PageLayout.astro";
-import Container from "@shared/ui/Container.astro";
-import Button from "@shared/ui/Button.astro";
+import ComparisonHero from "@widgets/comparison-page/ComparisonHero.astro";
+import ComparisonTable from "@widgets/comparison-page/ComparisonTable.astro";
+import ComparisonVerdict from "@widgets/comparison-page/ComparisonVerdict.astro";
 import { comparisonSlugs } from "@shared/config/comparisons";
 import type { ComparisonPageConfig } from "@shared/config/comparisons";
 
@@ -25,63 +26,7 @@ const breadcrumbs = [
 	description={config.seo.description}
 	breadcrumbs={breadcrumbs}
 >
-	{/* Hero */}
-	<section class="py-16 md:py-24">
-		<Container>
-			<div class="max-w-[640px]">
-				<h1 class="font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]">
-					{config.headline}
-				</h1>
-				<p class="mt-4 font-sans text-[18px] leading-[1.6] text-text-secondary md:text-[20px]">
-					{config.subheadline}
-				</p>
-			</div>
-		</Container>
-	</section>
-
-	{/* Comparison Table */}
-	<section class="py-12 md:py-20 border-t border-card">
-		<Container>
-			<div class="overflow-x-auto">
-				<table class="w-full text-left">
-					<thead>
-						<tr class="border-b border-card">
-							<th class="py-3 pr-4 font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted w-[25%]">
-								Dimension
-							</th>
-							<th class="py-3 pr-4 font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted w-[37.5%]">
-								{config.competitor}
-							</th>
-							<th class="py-3 font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-secondary w-[37.5%]">
-								Forge DevKit
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						{config.rows.map((row) => (
-							<tr class="border-b border-card/50">
-								<td class="py-4 pr-4 font-sans text-[14px] font-medium text-text">{row.dimension}</td>
-								<td class="py-4 pr-4 font-sans text-[14px] text-text-muted">{row.them}</td>
-								<td class="py-4 font-sans text-[14px] text-text">{row.forge}</td>
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</Container>
-	</section>
-
-	{/* Verdict + CTA */}
-	<section class="py-16 md:py-24 border-t border-card">
-		<Container>
-			<div class="max-w-[640px] mx-auto text-center">
-				<p class="font-sans text-[16px] leading-[1.6] text-text-secondary mb-8">
-					{config.verdict}
-				</p>
-				<Button variant="primary" href="/pricing">
-					{config.ctaText}
-				</Button>
-			</div>
-		</Container>
-	</section>
+	<ComparisonHero headline={config.headline} subheadline={config.subheadline} />
+	<ComparisonTable rows={config.rows} competitor={config.competitor} />
+	<ComparisonVerdict verdict={config.verdict} ctaText={config.ctaText} />
 </PageLayout>
