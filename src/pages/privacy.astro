@@ -1,0 +1,202 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import NavBar from "@widgets/NavBar/NavBar.astro";
+import FooterSection from "@widgets/Footer/FooterSection.astro";
+import LegalPage from "@widgets/Legal/LegalPage.astro";
+---
+
+<BaseLayout title="Privacy Policy — Forge DevKit" description="Privacy Policy for Forge DevKit by Reumbra OÜ.">
+	<NavBar />
+	<main>
+		<LegalPage title="Privacy Policy" effectiveDate="6 March 2026">
+			<p>
+				<strong>Reumbra OÜ</strong> · Registry code: 16937677 · VAT: EE102715497<br />
+				Kvartsi 4-22, Tartu, Tartu Vald, 50415, Estonia · <a href="mailto:info@reumbra.com">info@reumbra.com</a>
+			</p>
+
+			<h2>1. Data Controller</h2>
+			<p>
+				The controller of personal data collected through forge.reumbra.com is Reumbra OÜ (details above). Reumbra OÜ has not designated a separate data protection officer. Data protection inquiries should be directed to <a href="mailto:info@reumbra.com">info@reumbra.com</a>.
+			</p>
+			<p>
+				<strong>Note:</strong> Payments for Forge DevKit are processed by Lemon Squeezy, Inc. (Merchant of Record). Lemon Squeezy independently processes payment card data and related financial information. That processing is governed by <a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener">Lemon Squeezy's Privacy Policy</a>. Reumbra OÜ does not receive or store your payment card details.
+			</p>
+
+			<h2>2. Personal Data Collected</h2>
+			<p>Reumbra OÜ collects and processes the following categories of personal data:</p>
+			<ul>
+				<li><strong>E-mail address</strong> — provided at checkout; used to deliver the license key and for customer support communications.</li>
+				<li><strong>IP address</strong> — collected automatically when you visit forge.reumbra.com or activate the CLI tool; used for security, abuse prevention, and anonymised website analytics.</li>
+				<li><strong>Machine ID</strong> (pseudonymised device identifier, stored as a SHA-256 hash) — collected by the Forge DevKit CLI tool upon setup, after explicit consent is given during the setup wizard. Used to associate a license with a specific device and to detect unauthorised license sharing.</li>
+				<li><strong>Device label</strong> — a human-readable name for the device where the CLI tool is installed (e.g. "MacBook Pro - Work"), collected after explicit consent during the setup wizard. Used together with the Machine ID to allow the user to manage their licensed devices.</li>
+				<li><strong>User-submitted content</strong> (feedback and bug reports) — free-text comments that users voluntarily submit through the CLI tool's feedback or bug-report functionality. May contain personal information at the user's own discretion. Collected only with explicit consent confirmed during CLI setup.</li>
+				<li><strong>Purchase history</strong> — order date, product name, license tier, and license key status; used to manage and verify the license and to resolve disputes.</li>
+			</ul>
+			<p>Reumbra OÜ does not collect delivery addresses, phone numbers, or payment card data. Payment data is processed exclusively by Lemon Squeezy, Inc.</p>
+
+			<h2>3. Purposes and Legal Basis of Processing</h2>
+
+			<h3>3.1 Fulfilling the License Agreement</h3>
+			<p>Legal basis: performance of a contract (GDPR Art. 6(1)(b)).</p>
+			<ul>
+				<li>Delivering the license key to the e-mail address provided at checkout</li>
+				<li>Verifying license validity and device association when the CLI tool is activated (using Machine ID and device label)</li>
+				<li>Managing license renewals, cancellations, and refund requests</li>
+			</ul>
+
+			<h3>3.2 Customer Support</h3>
+			<p>Legal basis: performance of a contract (GDPR Art. 6(1)(b)).</p>
+			<ul>
+				<li>Responding to support requests, questions, or complaints sent to <a href="mailto:info@reumbra.com">info@reumbra.com</a></li>
+				<li>Reviewing user-submitted feedback and bug reports to improve the Service</li>
+			</ul>
+
+			<h3>3.3 Legal Obligations</h3>
+			<p>Legal basis: compliance with a legal obligation (GDPR Art. 6(1)(c)).</p>
+			<ul>
+				<li>Retaining purchase and accounting records as required by Estonian accounting law</li>
+			</ul>
+
+			<h3>3.4 Legitimate Interest</h3>
+			<p>Legal basis: legitimate interest of the controller (GDPR Art. 6(1)(f)).</p>
+			<ul>
+				<li>Retaining purchase history data to resolve potential consumer disputes and to verify license entitlement</li>
+				<li>Processing IP addresses for website security and protection against abuse</li>
+			</ul>
+			<p>A legitimate interest assessment for the above purposes is available upon request by e-mail to <a href="mailto:info@reumbra.com">info@reumbra.com</a>.</p>
+
+			<h3>3.5 Consent (CLI Setup)</h3>
+			<p>Legal basis: consent (GDPR Art. 6(1)(a)).</p>
+			<p>Collection and processing of Machine ID, device label, and user-submitted feedback and bug reports. Consent is obtained explicitly during the Forge DevKit CLI setup wizard before any of this data is collected. You may withdraw consent at any time by contacting <a href="mailto:info@reumbra.com">info@reumbra.com</a>; withdrawal will result in deactivation of device-level license features.</p>
+
+			<h3>3.6 Direct Marketing (with Consent)</h3>
+			<p>Legal basis: consent (GDPR Art. 6(1)(a)).</p>
+			<p>Reumbra OÜ may send product update announcements or relevant communications to your e-mail address if you have explicitly consented to receiving such messages. You may withdraw consent at any time by clicking the unsubscribe link in any marketing e-mail or by contacting <a href="mailto:info@reumbra.com">info@reumbra.com</a>.</p>
+
+			<h2>4. Data Processors and Recipients</h2>
+			<p>Reumbra OÜ uses the following third-party service providers to operate the Service. Data processors act on documented instructions from Reumbra OÜ and are bound by contractual data protection obligations under GDPR Art. 28.</p>
+
+			<h3>4.1 Lemon Squeezy, Inc. — USA</h3>
+			<p><strong>Role:</strong> Independent data controller (Merchant of Record).<br />
+			<strong>Purpose:</strong> Payment processing, tax collection, billing, and refunds.<br />
+			<strong>Data shared:</strong> Name, e-mail address, product purchased, transaction metadata.<br />
+			<strong>Transfer basis:</strong> EU–US Data Privacy Framework (July 2023) and Standard Contractual Clauses.<br />
+			<strong>Privacy policy:</strong> <a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener">lemonsqueezy.com/privacy</a></p>
+
+			<h3>4.2 Resend, Inc. — USA</h3>
+			<p><strong>Role:</strong> Data processor.<br />
+			<strong>Purpose:</strong> Transactional e-mail delivery (license key delivery, order confirmation, customer support replies).<br />
+			<strong>Data processed:</strong> Recipient e-mail address, name, e-mail content.<br />
+			<strong>Transfer basis:</strong> Standard Contractual Clauses (EU 2021/914) incorporated in Resend's DPA.<br />
+			<strong>DPA reference:</strong> <a href="https://resend.com/legal/dpa" target="_blank" rel="noopener">resend.com/legal/dpa</a> — SOC 2 Type II certified.</p>
+
+			<h3>4.3 Supabase, Inc. — USA (servers: EU region)</h3>
+			<p><strong>Role:</strong> Data processor.<br />
+			<strong>Purpose:</strong> Cloud database hosting for the license activation server.<br />
+			<strong>Data processed:</strong> E-mail address, license key, license tier, activation status, timestamps.<br />
+			<strong>Data location:</strong> European Union hosting region (eu-west-1 / Frankfurt).<br />
+			<strong>Transfer basis:</strong> Standard Contractual Clauses (EU 2021/914) incorporated in Supabase's DPA.<br />
+			<strong>DPA reference:</strong> <a href="https://supabase.com/legal/dpa" target="_blank" rel="noopener">supabase.com/legal/dpa</a></p>
+
+			<h3>4.4 Amazon Web Services — USA / EU</h3>
+			<p><strong>Role:</strong> Data processor.<br />
+			<strong>Purpose:</strong> Cloud infrastructure for the license activation server.<br />
+			<strong>Data processed:</strong> Server-level logs and infrastructure metadata.<br />
+			<strong>Transfer basis:</strong> Standard Contractual Clauses in the AWS GDPR Data Processing Addendum.<br />
+			<strong>DPA reference:</strong> <a href="https://aws.amazon.com/service-terms/" target="_blank" rel="noopener">aws.amazon.com/service-terms</a> (section 1.14)</p>
+
+			<h3>4.5 Cloudflare, Inc. — USA</h3>
+			<p><strong>Role:</strong> Data processor.<br />
+			<strong>Purpose:</strong> Website hosting and delivery (Cloudflare Pages); privacy-preserving web traffic analytics (Cloudflare Web Analytics).<br />
+			<strong>Data processed:</strong> IP addresses and request metadata at the network edge.<br />
+			<strong>Transfer basis:</strong> Standard Contractual Clauses in the Cloudflare Customer DPA.<br />
+			<strong>DPA reference:</strong> <a href="https://www.cloudflare.com/cloudflare-customer-dpa/" target="_blank" rel="noopener">cloudflare.com/cloudflare-customer-dpa</a></p>
+
+			<h3>4.6 Google LLC / Google Ireland Limited — USA / Ireland</h3>
+			<p><strong>Role:</strong> Data processor (for analytics).<br />
+			<strong>Purpose:</strong> Website usage analytics (Google Analytics 4).<br />
+			<strong>Data processed:</strong> Pseudonymised identifiers, browser and device parameters, page interaction events, approximate location.<br />
+			<strong>Legal basis:</strong> Consent (GDPR Art. 6(1)(a)). Google Analytics is activated only after the visitor accepts the cookie consent banner.<br />
+			<strong>Transfer basis:</strong> EU–US Data Privacy Framework and Standard Contractual Clauses.<br />
+			<strong>Privacy policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+
+			<h3>4.7 Meta Platforms Ireland Limited / Meta Platforms, Inc. — Ireland / USA (planned)</h3>
+			<p><strong>Role:</strong> Independent data controller (joint controllership under GDPR Art. 26).<br />
+			<strong>Purpose:</strong> Conversion measurement and advertising effectiveness tracking for Instagram and Facebook campaigns. This tool will be activated only when Reumbra OÜ runs paid advertising on Meta platforms. This Privacy Policy will be updated to confirm activation at that time.<br />
+			<strong>Legal basis:</strong> Consent (GDPR Art. 6(1)(a)). The Meta Pixel will only be activated after the visitor accepts the cookie consent banner.<br />
+			<strong>Transfer basis:</strong> EU–US Data Privacy Framework and Standard Contractual Clauses.<br />
+			<strong>Data subjects may exercise their rights against Meta directly via:</strong> <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">facebook.com/privacy/policy</a></p>
+
+			<h3>4.8 Legal and Regulatory Authorities</h3>
+			<p>Personal data may be disclosed to courts, law enforcement agencies, or regulatory authorities where required by applicable law. Reumbra OÜ does not sell personal data to third parties and does not share personal data for advertising or profiling purposes outside of what is described above.</p>
+
+			<h2>5. International Data Transfers</h2>
+			<p>Several processors listed above are US-based. Personal data transfers to each are covered by the following safeguards:</p>
+			<ul>
+				<li><strong>Resend:</strong> Standard Contractual Clauses (EU 2021/914) under Resend's DPA.</li>
+				<li><strong>Supabase:</strong> Standard Contractual Clauses under Supabase's DPA. Database hosted in EU region.</li>
+				<li><strong>AWS:</strong> Standard Contractual Clauses in the AWS GDPR Data Processing Addendum.</li>
+				<li><strong>Cloudflare:</strong> Standard Contractual Clauses in the Cloudflare Customer DPA.</li>
+				<li><strong>Google Analytics:</strong> EU–US Data Privacy Framework and Standard Contractual Clauses.</li>
+				<li><strong>Meta Platforms:</strong> EU–US Data Privacy Framework and Standard Contractual Clauses (joint controllership).</li>
+				<li><strong>Lemon Squeezy:</strong> EU–US Data Privacy Framework and Standard Contractual Clauses.</li>
+			</ul>
+			<p>Details of specific safeguards for each processor are available upon request at <a href="mailto:info@reumbra.com">info@reumbra.com</a>.</p>
+
+			<h2>6. Security</h2>
+			<p>Reumbra OÜ applies appropriate technical and organisational security measures to protect personal data. These measures include:</p>
+			<ul>
+				<li>Encrypted data transmission (TLS/HTTPS) for all connections to forge.reumbra.com and the license activation server</li>
+				<li>License keys transmitted only to the verified e-mail address provided at checkout</li>
+				<li>Access to personal data restricted to Reumbra OÜ personnel on a need-to-know basis</li>
+				<li>Regular monitoring for security vulnerabilities</li>
+			</ul>
+
+			<h2>7. Data Retention</h2>
+			<ul>
+				<li><strong>License and purchase data:</strong> Retained for the duration of the active license and for three years after expiry.</li>
+				<li><strong>Accounting records:</strong> Retained for seven years in accordance with Estonian accounting law.</li>
+				<li><strong>Customer support correspondence:</strong> Retained for two years after the matter is resolved.</li>
+				<li><strong>IP addresses and server logs:</strong> Retained for up to 90 days.</li>
+				<li><strong>Marketing consent and communications:</strong> Retained until consent is withdrawn, then promptly deleted.</li>
+			</ul>
+
+			<h2>8. Your Rights</h2>
+			<p>As a data subject under the GDPR, you have the following rights:</p>
+
+			<h3>8.1 Right of Access</h3>
+			<p>You may request confirmation of whether Reumbra OÜ processes your personal data, and if so, receive a copy of the data. Requests should be sent to <a href="mailto:info@reumbra.com">info@reumbra.com</a>. We will respond within one month.</p>
+
+			<h3>8.2 Right to Rectification</h3>
+			<p>If your personal data is inaccurate or incomplete, you may request that it be corrected by contacting <a href="mailto:info@reumbra.com">info@reumbra.com</a>.</p>
+
+			<h3>8.3 Right to Erasure</h3>
+			<p>You may request the deletion of your personal data by e-mailing <a href="mailto:info@reumbra.com">info@reumbra.com</a>. We will respond within one month and specify the erasure timeline.</p>
+
+			<h3>8.4 Right to Restriction</h3>
+			<p>If your data is inaccurate, incomplete, or processed unlawfully, you may request that processing be restricted while the matter is resolved.</p>
+
+			<h3>8.5 Right to Data Portability</h3>
+			<p>You may request that personal data you have provided to us be transferred to you or to another controller in a structured, commonly used, machine-readable format. We will respond within one month.</p>
+
+			<h3>8.6 Right to Object</h3>
+			<p>You have the right to object to the processing of your personal data where processing is based on legitimate interest (GDPR Art. 6(1)(f)). If you object to marketing processing, we will cease immediately.</p>
+
+			<h3>8.7 Right to Withdraw Consent</h3>
+			<p>Where processing is based on your consent, you may withdraw that consent at any time. Withdrawal does not affect the lawfulness of processing carried out before the withdrawal. To withdraw consent, contact <a href="mailto:info@reumbra.com">info@reumbra.com</a> or use the unsubscribe link in any marketing e-mail.</p>
+
+			<h2>9. Right to Lodge a Complaint</h2>
+			<p>If you believe your personal data has been processed in violation of applicable data protection law, you have the right to lodge a complaint with:</p>
+			<p>
+				<strong>Estonian Data Protection Inspectorate</strong> (Andmekaitse Inspektsioon)<br />
+				E-mail: <a href="mailto:info@aki.ee">info@aki.ee</a><br />
+				Website: <a href="https://www.aki.ee" target="_blank" rel="noopener">aki.ee</a>
+			</p>
+			<p>You may also lodge a complaint with the supervisory authority in your country of residence within the EU.</p>
+
+			<h2>10. Changes to This Privacy Policy</h2>
+			<p>Reumbra OÜ may update this Privacy Policy from time to time. If changes are material, you will be notified by e-mail at least 14 days before they take effect. The current version is always available at forge.reumbra.com/privacy.</p>
+		</LegalPage>
+	</main>
+	<FooterSection />
+</BaseLayout>
