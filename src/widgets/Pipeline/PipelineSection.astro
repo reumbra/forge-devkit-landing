@@ -1,0 +1,218 @@
+---
+import Container from "@shared/ui/Container.astro";
+import SectionLabel from "@shared/ui/SectionLabel.astro";
+import { pipeline } from "@shared/config/pipeline";
+
+const { sectionLabel, headline, subheadline, nodes, connections } = pipeline;
+
+/**
+ * Node positions for the desktop SVG layout.
+ * Layout:
+ *   core ──► product ──► qa
+ *     ├──► tracker
+ *     └──► autopilot ──► worktree
+ */
+const nodePositions: Record<string, { x: number; y: number }> = {
+	core: { x: 0, y: 100 },
+	product: { x: 220, y: 0 },
+	qa: { x: 440, y: 0 },
+	tracker: { x: 220, y: 100 },
+	autopilot: { x: 220, y: 200 },
+	worktree: { x: 440, y: 200 },
+};
+
+const nodeWidth = 180;
+const nodeHeight = 80;
+const svgWidth = 620;
+const svgHeight = 280;
+---
+
+<section id="pipeline" class="py-12 md:py-24 lg:py-32">
+	<Container>
+		{/* Header */}
+		<div class="fade-up mb-16 text-center">
+			<SectionLabel text={sectionLabel} />
+			<h2
+				class="mt-4 font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]"
+			>
+				{headline}
+			</h2>
+			<p class="mx-auto mt-4 max-w-[540px] font-sans text-[16px] leading-[1.6] text-text-secondary md:text-[18px]">
+				{subheadline}
+			</p>
+		</div>
+
+		{/* Desktop: SVG pipeline diagram */}
+		<div class="hidden lg:flex justify-center">
+			<div class="pipeline-glow relative" style={`width: ${svgWidth}px; height: ${svgHeight}px;`}>
+				{/* SVG connections layer */}
+				<svg
+					class="absolute inset-0 pointer-events-none"
+					width={svgWidth}
+					height={svgHeight}
+					viewBox={`0 0 ${svgWidth} ${svgHeight}`}
+					fill="none"
+				>
+					<defs>
+						<marker
+							id="arrowhead"
+							markerWidth="8"
+							markerHeight="6"
+							refX="7"
+							refY="3"
+							orient="auto"
+						>
+							<path d="M0 0L8 3L0 6Z" fill="rgba(154,117,234,0.5)" />
+						</marker>
+					</defs>
+					{connections.map((conn) => {
+						const from = nodePositions[conn.from];
+						const to = nodePositions[conn.to];
+						if (!from || !to) return null;
+
+						const x1 = from.x + nodeWidth;
+						const y1 = from.y + nodeHeight / 2;
+						const x2 = to.x;
+						const y2 = to.y + nodeHeight / 2;
+
+						// Use a curved path for non-horizontal connections
+						const midX = (x1 + x2) / 2;
+
+						return (
+							<path
+								d={`M${x1} ${y1} C${midX} ${y1}, ${midX} ${y2}, ${x2} ${y2}`}
+								class="pipeline-connection"
+								marker-end="url(#arrowhead)"
+								data-from={conn.from}
+								data-to={conn.to}
+							/>
+						);
+					})}
+				</svg>
+
+				{/* Node cards */}
+				{nodes.map((node, i) => {
+					const pos = nodePositions[node.id];
+					if (!pos) return null;
+					return (
+						<a
+							href={node.href}
+							class="pipeline-node absolute flex flex-col justify-center rounded-[14px] border border-card bg-surface px-4 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-card-hover hover:shadow-[0_0_32px_rgba(118,73,196,0.12)]"
+							style={`left: ${pos.x}px; top: ${pos.y}px; width: ${nodeWidth}px; height: ${nodeHeight}px; animation-delay: ${i * 100}ms;`}
+							data-node={node.id}
+						>
+							<span class="font-mono text-[13px] font-medium text-text">
+								<span class="text-secondary mr-1">{"\u25C7"}</span>{node.name}
+							</span>
+							<span class="mt-1 font-sans text-[12px] leading-[1.4] text-text-muted">
+								{node.tagline}
+							</span>
+						</a>
+					);
+				})}
+			</div>
+		</div>
+
+		{/* Tablet: 2-row layout */}
+		<div class="hidden md:grid lg:hidden grid-cols-3 gap-4 max-w-[600px] mx-auto">
+			{/* Row 1: core → product → qa */}
+			{nodes.filter(n => ["core", "product", "qa"].includes(n.id)).map((node) => (
+				<a
+					href={node.href}
+					class="flex flex-col justify-center rounded-[14px] border border-card bg-surface px-4 py-4 transition-all duration-300 hover:border-card-hover text-center"
+				>
+					<span class="font-mono text-[13px] font-medium text-text">
+						<span class="text-secondary mr-1">{"\u25C7"}</span>{node.name}
+					</span>
+					<span class="mt-1 font-sans text-[12px] text-text-muted">{node.tagline}</span>
+				</a>
+			))}
+			{/* Arrow row */}
+			<div class="col-span-3 flex justify-center text-text-muted opacity-30 text-[20px]">{"\u2193"}</div>
+			{/* Row 2: tracker, autopilot, worktree */}
+			{nodes.filter(n => ["tracker", "autopilot", "worktree"].includes(n.id)).map((node) => (
+				<a
+					href={node.href}
+					class="flex flex-col justify-center rounded-[14px] border border-card bg-surface px-4 py-4 transition-all duration-300 hover:border-card-hover text-center"
+				>
+					<span class="font-mono text-[13px] font-medium text-text">
+						<span class="text-secondary mr-1">{"\u25C7"}</span>{node.name}
+					</span>
+					<span class="mt-1 font-sans text-[12px] text-text-muted">{node.tagline}</span>
+				</a>
+			))}
+		</div>
+
+		{/* Mobile: vertical stack */}
+		<div class="flex flex-col gap-3 md:hidden">
+			{nodes.map((node, i) => (
+				<>
+					{i > 0 && (
+						<div class="flex justify-center text-text-muted opacity-30 text-[18px]">{"\u2193"}</div>
+					)}
+					<a
+						href={node.href}
+						class="flex items-center gap-3 rounded-[14px] border border-card bg-surface px-4 py-4 transition-all duration-300 hover:border-card-hover"
+					>
+						<span class="font-mono text-[13px] font-medium text-text">
+							<span class="text-secondary mr-1">{"\u25C7"}</span>{node.name}
+						</span>
+						<span class="font-sans text-[12px] text-text-muted">{node.tagline}</span>
+					</a>
+				</>
+			))}
+		</div>
+	</Container>
+</section>
+
+<style>
+	/* Connection line animation — data flowing effect */
+	@keyframes flow {
+		0% { stroke-dashoffset: 0; }
+		100% { stroke-dashoffset: -20; }
+	}
+
+	.pipeline-connection {
+		stroke: rgba(118, 73, 196, 0.25);
+		stroke-width: 1;
+		stroke-dasharray: 6 4;
+		fill: none;
+		animation: flow 2s linear infinite;
+	}
+
+	/* Ambient glow behind the pipeline */
+	.pipeline-glow {
+		background: radial-gradient(ellipse 600px 300px at center, rgba(118,73,196,0.04) 0%, transparent 70%);
+	}
+
+	/* Node hover brightens outgoing connections */
+	.pipeline-node:hover ~ svg .pipeline-connection,
+	.pipeline-node[data-node]:hover {
+		/* JS handles connection highlighting */
+	}
+</style>
+
+<script>
+	const pipelineNodes = document.querySelectorAll<HTMLAnchorElement>(".pipeline-node");
+	const connections = document.querySelectorAll<SVGPathElement>(".pipeline-connection");
+
+	pipelineNodes.forEach((node) => {
+		const nodeId = node.getAttribute("data-node");
+
+		node.addEventListener("mouseenter", () => {
+			connections.forEach((conn) => {
+				if (conn.getAttribute("data-from") === nodeId) {
+					conn.style.stroke = "#9A75EA";
+					conn.style.strokeWidth = "1.5";
+				}
+			});
+		});
+
+		node.addEventListener("mouseleave", () => {
+			connections.forEach((conn) => {
+				conn.style.stroke = "";
+				conn.style.strokeWidth = "";
+			});
+		});
+	});
+</script>

@@ -27,21 +27,80 @@ const { logo, links, cta } = navigation;
 		{/* Desktop nav links */}
 		<ul class="hidden md:flex items-center gap-6">
 			{links.map((link) => (
-				<li>
-					<a
-						href={link.href}
-						data-nav-link={link.href}
-						target={link.external ? "_blank" : undefined}
-						rel={link.external ? "noopener noreferrer" : undefined}
-						class="nav-link font-sans text-[14px] font-medium text-text-muted hover:text-white transition-colors duration-300 ease-in-out"
-					>
-						{link.label}
-						{link.external && (
-							<svg width="10" height="10" viewBox="0 0 12 12" fill="none" class="inline ml-1 opacity-40" aria-hidden="true">
-								<path d="M4 1H11V8M11 1L1 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-							</svg>
-						)}
-					</a>
+				<li class={link.children ? "relative" : ""}>
+					{link.children ? (
+						<>
+							{/* Dropdown trigger */}
+							<button
+								type="button"
+								data-dropdown-trigger
+								data-nav-link={link.href}
+								class="nav-link flex items-center gap-1 font-sans text-[14px] font-medium text-text-muted hover:text-white transition-colors duration-300 ease-in-out cursor-pointer"
+							>
+								{link.label}
+								<svg class="dropdown-chevron w-2.5 h-2.5 transition-transform duration-200" viewBox="0 0 10 6" fill="none">
+									<path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+								</svg>
+							</button>
+
+							{/* Dropdown panel */}
+							<div
+								data-dropdown-panel
+								class="dropdown-panel absolute left-1/2 top-full -translate-x-1/2 mt-4 hidden opacity-0 -translate-y-2 transition-all duration-200 ease-out"
+							>
+								<div class="w-[480px] rounded-[14px] border border-card bg-surface shadow-[0_16px_48px_rgba(0,0,0,0.4)] backdrop-blur-[16px] p-6">
+									<div class="grid grid-cols-2 gap-6">
+										{link.children.map((column) => (
+											<div>
+												<p class="font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-text-muted mb-4">
+													{column.title}
+												</p>
+												<div class="flex flex-col gap-1">
+													{column.items.map((item) => (
+														<a
+															href={item.href}
+															class="group rounded-lg px-3 py-2 transition-colors duration-200 hover:bg-[rgba(118,73,196,0.06)]"
+														>
+															<span class="font-mono text-[14px] font-medium text-text">
+																<span class="text-secondary mr-1">{"\u25C7"}</span>{item.name}
+															</span>
+															<p class="mt-0.5 font-sans text-[13px] text-text-muted">
+																{item.description}
+															</p>
+														</a>
+													))}
+												</div>
+											</div>
+										))}
+									</div>
+									{/* Bottom row */}
+									<div class="mt-4 border-t border-card pt-3">
+										<a
+											href={link.href}
+											class="font-sans text-[14px] font-medium text-secondary hover:text-text transition-colors duration-200"
+										>
+											View all modules {"\u2192"}
+										</a>
+									</div>
+								</div>
+							</div>
+						</>
+					) : (
+						<a
+							href={link.href}
+							data-nav-link={link.href}
+							target={link.external ? "_blank" : undefined}
+							rel={link.external ? "noopener noreferrer" : undefined}
+							class="nav-link font-sans text-[14px] font-medium text-text-muted hover:text-white transition-colors duration-300 ease-in-out"
+						>
+							{link.label}
+							{link.external && (
+								<svg width="10" height="10" viewBox="0 0 12 12" fill="none" class="inline ml-1 opacity-40" aria-hidden="true">
+									<path d="M4 1H11V8M11 1L1 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+								</svg>
+							)}
+						</a>
+					)}
 				</li>
 			))}
 		</ul>
@@ -74,19 +133,57 @@ const { logo, links, cta } = navigation;
 	>
 		<Container class="flex flex-col gap-1 py-4">
 			{links.map((link) => (
-				<a
-					href={link.href}
-					target={link.external ? "_blank" : undefined}
-					rel={link.external ? "noopener noreferrer" : undefined}
-					class="font-sans text-[15px] font-normal text-text-muted hover:text-white transition-colors duration-300 ease-in-out py-3"
-				>
-					{link.label}
-					{link.external && (
-						<svg width="10" height="10" viewBox="0 0 12 12" fill="none" class="inline ml-1 opacity-40" aria-hidden="true">
-							<path d="M4 1H11V8M11 1L1 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-						</svg>
+				<>
+					{link.children ? (
+						<>
+							{/* Mobile: expandable Modules section */}
+							<button
+								type="button"
+								data-mobile-expand
+								class="flex items-center justify-between w-full font-sans text-[15px] font-normal text-text-muted hover:text-white transition-colors duration-300 ease-in-out py-3 cursor-pointer"
+							>
+								{link.label}
+								<svg class="mobile-chevron w-3 h-3 transition-transform duration-200" viewBox="0 0 10 6" fill="none">
+									<path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+								</svg>
+							</button>
+							<div data-mobile-panel class="hidden pl-4 pb-2">
+								{link.children.map((column) => (
+									<>
+										{column.items.map((item) => (
+											<a
+												href={item.href}
+												class="block font-sans text-[14px] text-text-muted hover:text-white transition-colors duration-200 py-2"
+											>
+												<span class="text-secondary mr-1">{"\u25C7"}</span>{item.name}
+											</a>
+										))}
+									</>
+								))}
+								<a
+									href={link.href}
+									class="block font-sans text-[13px] font-medium text-secondary mt-2 py-2"
+								>
+									View all modules {"\u2192"}
+								</a>
+							</div>
+						</>
+					) : (
+						<a
+							href={link.href}
+							target={link.external ? "_blank" : undefined}
+							rel={link.external ? "noopener noreferrer" : undefined}
+							class="font-sans text-[15px] font-normal text-text-muted hover:text-white transition-colors duration-300 ease-in-out py-3"
+						>
+							{link.label}
+							{link.external && (
+								<svg width="10" height="10" viewBox="0 0 12 12" fill="none" class="inline ml-1 opacity-40" aria-hidden="true">
+									<path d="M4 1H11V8M11 1L1 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+								</svg>
+							)}
+						</a>
 					)}
-				</a>
+				</>
 			))}
 			<Button variant="primary" href={cta.href}>
 				{cta.label}
@@ -103,6 +200,63 @@ const { logo, links, cta } = navigation;
 ></div>
 
 <script>
+	// ── Desktop dropdown ──
+	const trigger = document.querySelector<HTMLButtonElement>("[data-dropdown-trigger]");
+	const panel = document.querySelector<HTMLDivElement>("[data-dropdown-panel]");
+	const chevron = trigger?.querySelector<SVGElement>(".dropdown-chevron");
+	let dropdownOpen = false;
+	let closeTimeout: ReturnType<typeof setTimeout> | null = null;
+
+	function openDropdown() {
+		if (!panel) return;
+		if (closeTimeout) { clearTimeout(closeTimeout); closeTimeout = null; }
+		panel.classList.remove("hidden");
+		requestAnimationFrame(() => {
+			panel.classList.remove("opacity-0", "-translate-y-2");
+			panel.classList.add("opacity-100", "translate-y-0");
+		});
+		chevron?.style.setProperty("transform", "rotate(180deg)");
+		dropdownOpen = true;
+	}
+
+	function closeDropdown() {
+		if (!panel) return;
+		panel.classList.remove("opacity-100", "translate-y-0");
+		panel.classList.add("opacity-0", "-translate-y-2");
+		chevron?.style.setProperty("transform", "");
+		dropdownOpen = false;
+		setTimeout(() => {
+			if (!dropdownOpen) panel.classList.add("hidden");
+		}, 200);
+	}
+
+	function scheduleClose() {
+		closeTimeout = setTimeout(closeDropdown, 150);
+	}
+
+	// Hover-based open/close for the trigger + panel area
+	const dropdownContainer = trigger?.closest("li");
+	dropdownContainer?.addEventListener("mouseenter", openDropdown);
+	dropdownContainer?.addEventListener("mouseleave", scheduleClose);
+
+	// Click toggle for accessibility
+	trigger?.addEventListener("click", () => {
+		dropdownOpen ? closeDropdown() : openDropdown();
+	});
+
+	// Close on Escape
+	document.addEventListener("keydown", (e) => {
+		if (e.key === "Escape" && dropdownOpen) closeDropdown();
+	});
+
+	// Close when clicking outside
+	document.addEventListener("click", (e) => {
+		if (dropdownOpen && !dropdownContainer?.contains(e.target as Node)) {
+			closeDropdown();
+		}
+	});
+
+	// ── Mobile menu ──
 	const toggle = document.getElementById("nav-toggle");
 	const menu = document.getElementById("nav-menu");
 	const backdrop = document.getElementById("nav-backdrop");
@@ -138,15 +292,22 @@ const { logo, links, cta } = navigation;
 			const isOpen = !menu.classList.contains("hidden");
 			isOpen ? closeMenu() : openMenu();
 		});
-
-		// Close menu when a link is clicked
 		menu.querySelectorAll("a").forEach((link) => {
 			link.addEventListener("click", closeMenu);
 		});
-
-		// Close menu when backdrop is clicked
 		backdrop?.addEventListener("click", closeMenu);
 	}
+
+	// Mobile expandable sections
+	document.querySelectorAll<HTMLButtonElement>("[data-mobile-expand]").forEach((btn) => {
+		const mobilePanel = btn.nextElementSibling as HTMLDivElement | null;
+		const mobileChevron = btn.querySelector<SVGElement>(".mobile-chevron");
+		btn.addEventListener("click", () => {
+			const isOpen = !mobilePanel?.classList.contains("hidden");
+			mobilePanel?.classList.toggle("hidden");
+			mobileChevron?.style.setProperty("transform", isOpen ? "" : "rotate(180deg)");
+		});
+	});
 
 	// ── Scroll progress bar ──
 	const progressBar = document.getElementById("scroll-progress");
@@ -159,7 +320,7 @@ const { logo, links, cta } = navigation;
 	}
 
 	// ── Active nav link highlighting (route-based) ──
-	const navLinks = document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]");
+	const navLinks = document.querySelectorAll<HTMLAnchorElement | HTMLButtonElement>("[data-nav-link]");
 	const currentPath = window.location.pathname;
 
 	navLinks.forEach((link) => {

@@ -4,12 +4,12 @@ import NavBar from "@widgets/NavBar/NavBar.astro";
 import HeroSection from "@widgets/Hero/HeroSection.astro";
 import ProblemSection from "@widgets/Problem/ProblemSection.astro";
 import SolutionOverviewSection from "@widgets/Solution/SolutionOverviewSection.astro";
+import PipelineSection from "@widgets/Pipeline/PipelineSection.astro";
 import DeepDiveArchitectureSection from "@widgets/DeepDives/DeepDiveArchitectureSection.astro";
 import DeepDiveQualitySection from "@widgets/DeepDives/DeepDiveQualitySection.astro";
 import DeepDivePipelineSection from "@widgets/DeepDives/DeepDivePipelineSection.astro";
 import HowItWorksSection from "@widgets/HowItWorks/HowItWorksSection.astro";
 import ModulesSection from "@widgets/Modules/ModulesSection.astro";
-import EntrepreneurSection from "@widgets/Entrepreneur/EntrepreneurSection.astro";
 import PricingSection from "@widgets/Pricing/PricingSection.astro";
 import AuthorSection from "@widgets/Author/AuthorSection.astro";
 import FaqSection from "@widgets/Faq/FaqSection.astro";
@@ -21,21 +21,34 @@ import FooterSection from "@widgets/Footer/FooterSection.astro";
 <BaseLayout>
 	<NavBar />
 	<main>
+		{/* 1. Hero */}
 		<HeroSection />
+		{/* 2. Problem */}
 		<ProblemSection />
+		{/* 3. Solution Overview */}
 		<SolutionOverviewSection />
+		{/* 4. Pipeline Visualization (NEW) */}
+		<PipelineSection />
 		<GhostCtaSection label="Start with forge-core" href="#pricing" />
+		{/* 5. Deep: forge-core */}
 		<DeepDiveArchitectureSection />
+		{/* 6. Deep: forge-autopilot */}
 		<DeepDiveQualitySection />
+		{/* 7. Deep: forge-qa */}
 		<DeepDivePipelineSection />
 		<GhostCtaSection label="See pricing" href="#pricing" />
+		{/* 8. How It Works */}
 		<HowItWorksSection />
-		<GhostCtaSection label="Get started in 5 minutes" href="#pricing" />
+		{/* 9. Module Grid */}
 		<ModulesSection />
-		<EntrepreneurSection />
+		<GhostCtaSection label="Get started in 5 minutes" href="#pricing" />
+		{/* 10. Pricing */}
 		<PricingSection />
+		{/* 11. Author */}
 		<AuthorSection />
+		{/* 12. FAQ */}
 		<FaqSection />
+		{/* 13. Final CTA */}
 		<FinalCtaSection />
 	</main>
 	<FooterSection />
