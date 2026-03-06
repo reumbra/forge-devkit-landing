@@ -72,7 +72,7 @@ export const footer = {
 	finalCta: {
 		headline: "Your AI should respect your architecture.",
 		subheadline: "50+ guardrails. 7-gate audit. Tests from requirements. One setup.",
-		buttonLabel: "Get Forge \u2014 from $29 \u2192",
+		buttonLabel: "Get Forge \u2014 from \u20ac29 \u2192",
 		buttonHref: "/pricing",
 		trustLine: "One-time purchase. 14-day money-back guarantee.",
 	},

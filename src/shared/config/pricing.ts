@@ -43,7 +43,7 @@ export const pricing = {
 			// TODO: Replace with real LemonSqueezy product URL
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-core",
 			isPopular: false,
-			renewalPrice: "$19/yr",
+			renewalPrice: "€19/yr",
 			updatesNote: "Includes 1 year of updates",
 		},
 		{
@@ -62,7 +62,7 @@ export const pricing = {
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-pro",
 			isPopular: true,
 			badge: "Recommended",
-			renewalPrice: "$49/yr",
+			renewalPrice: "€49/yr",
 			updatesNote: "Includes 1 year of updates",
 		},
 		{
@@ -81,7 +81,7 @@ export const pricing = {
 			// TODO: Replace with real LemonSqueezy product URL
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-bundle",
 			isPopular: false,
-			renewalPrice: "$89/yr",
+			renewalPrice: "€89/yr",
 			updatesNote: "Includes 1 year of updates",
 		},
 	],
@@ -90,5 +90,5 @@ export const pricing = {
 		"Includes 1 year of updates. Renewal optional at reduced price.",
 		"No per-token charges. No usage limits. No surprise bills.",
 	],
-	competitorAnchor: "Devin: $240/yr mandatory. Cursor Pro: $240/yr. Forge: from $29 once.",
+	competitorAnchor: "Devin: €240/yr mandatory. Cursor Pro: €240/yr. Forge: from €29 once.",
 } as const satisfies PricingConfig;

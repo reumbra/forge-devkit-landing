@@ -49,13 +49,13 @@ export const faq = {
 			id: "roi",
 			question: "What's the ROI of using Forge?",
 			answer:
-				"One prevented production bug pays for the entire year. At $29\u201379, Forge costs less than a single hour of debugging AI-generated regressions.",
+				"One prevented production bug pays for the entire year. At €29\u201379, Forge costs less than a single hour of debugging AI-generated regressions.",
 		},
 		{
 			id: "vs-devin",
 			question: "How does Forge compare to Devin?",
 			answer:
-				"Devin is an autonomous AI developer \u2014 it writes code for you. Forge is infrastructure for YOUR AI agent \u2014 it makes your existing tools (Claude Code, Cursor, Windsurf) architecture-aware. Devin costs $240/yr mandatory. Forge starts at $29 one-time.",
+				"Devin is an autonomous AI developer \u2014 it writes code for you. Forge is infrastructure for YOUR AI agent \u2014 it makes your existing tools (Claude Code, Cursor, Windsurf) architecture-aware. Devin costs €240/yr mandatory. Forge starts at €29 one-time.",
 		},
 		{
 			id: "agent-teams",
