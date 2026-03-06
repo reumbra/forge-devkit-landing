@@ -19,7 +19,7 @@ const { logo, links, cta } = navigation;
 	></div>
 	<Container class="flex items-center justify-between h-[64px] md:h-[72px]">
 		{/* Logo */}
-		<a href="#" class="flex items-center gap-2 text-text font-sans text-[15px] font-medium">
+		<a href="/" class="flex items-center gap-2 text-text font-sans text-[15px] font-medium">
 			<ReumbraLogo size={18} class="text-secondary" />
 			<span>{logo}</span>
 		</a>
@@ -154,7 +154,8 @@ const { logo, links, cta } = navigation;
 				if (entry.isIntersecting) {
 					const id = entry.target.id;
 					navLinks.forEach((link) => {
-						const isActive = link.getAttribute("data-nav-link") === `#${id}`;
+						const linkHash = link.getAttribute("data-nav-link")?.replace(/^\/#/, "#");
+					const isActive = linkHash === `#${id}`;
 						link.classList.toggle("text-white", isActive);
 						link.classList.toggle("text-text-muted", !isActive);
 					});

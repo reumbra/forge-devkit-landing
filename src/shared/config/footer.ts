@@ -25,8 +25,8 @@ export const footer = {
 	companyTagline: "by Reumbra",
 	navLinks: [
 		{ label: "Docs", href: "/docs" },
-		{ label: "Pricing", href: "#pricing" },
-		{ label: "FAQ", href: "#faq" },
+		{ label: "Pricing", href: "/#pricing" },
+		{ label: "FAQ", href: "/#faq" },
 	],
 	legalLinks: [
 		{ label: "Privacy Policy", href: "/privacy" },
@@ -38,7 +38,7 @@ export const footer = {
 		headline: "Your AI should respect your architecture.",
 		subheadline: "24 guardrails. 8-gate audit. Tests from requirements. One setup.",
 		buttonLabel: "Start with Core \u2014 $29/yr \u2192",
-		buttonHref: "#pricing",
+		buttonHref: "/#pricing",
 		trustLine: "Cancel anytime. 14-day money-back guarantee.",
 	},
 } as const satisfies FooterConfig;
