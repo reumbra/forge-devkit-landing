@@ -23,15 +23,15 @@ export const hero = {
 	sectionLabel: "FORGE DEVKIT",
 	headline: "Your AI writes code. Forge makes it production-ready.",
 	subheadline:
-		"Architecture-aware pipeline that auto-generates project-specific guardrails, quality patterns, and development workflows — across any platform.",
+		"One command scans your repo — stack, layers, patterns — and generates guardrails your AI actually follows. 50+ quality rules. Works with Claude Code, Cursor, and any AI agent.",
 	ctas: [
 		{
-			label: "Get Forge",
-			href: "#pricing",
+			label: "Get Forge — from €29",
+			href: "/pricing",
 			variant: "primary",
 		},
 		{
-			label: "How it works",
+			label: "See how it works",
 			href: "#how-it-works",
 			variant: "ghost",
 		},
