@@ -26,6 +26,7 @@
 | BL-019 | P2 | backlog | robots.txt: verify correct for Cloudflare Pages | `[seo]` `[infra]` |
 | BL-020 | P3 | backlog | DPA verification: Cloudflare, LemonSqueezy | `[gdpr]` `[legal]` |
 | BL-021 | P1 | blocked | Landing copy audit: pipeline → TDD refactor | `[content]` `[copy]` `[blocked:refactor]` |
+| BL-022 | P1 | backlog | Pricing/plans sync: landing ↔ API ↔ marketplace ↔ LemonSqueezy | `[revenue]` `[sync]` `[cross-repo]` |
 
 ---
 
@@ -123,3 +124,37 @@ forge-core pipeline is being refactored to work TDD-first. Once the refactor lan
 - `src/shared/ui/snippets/EcosystemOverview.astro` — commands table
 
 **Action:** After refactor is merged in ai-marketplace, diff the changes and update all affected landing copy + snippets to match new pipeline reality. Do NOT update speculatively — wait for final refactor.
+
+### BL-022: Pricing/plans sync across 4 sources
+
+Pricing, plan names, included modules, and checkout URLs must be consistent across 4 systems. Currently configured independently — drift is likely.
+
+**Sources of truth to sync:**
+
+| # | System | Repo / Location | What lives there |
+|---|--------|----------------|------------------|
+| 1 | **LemonSqueezy** | Dashboard (lemonsqueezy.com) | Product names, prices (€29/€79/€149), variant IDs, checkout URLs |
+| 2 | **forge-devkit-api** | `forge-devkit-api/src/db/seed.ts` | `planPluginData`: which plugins are in each plan (core/pro/bundle), plan names, plan IDs |
+| 3 | **ai-marketplace** | `plugins/*/plugin.json` + `marketplace.json` | Plugin names, versions, published plugin catalog |
+| 4 | **forge-devkit-landing** | `src/shared/config/pricing.ts`, `pricing-page.ts`, `hero.ts` | Displayed prices, plan names, feature lists, CTA labels, checkout URLs |
+
+**What to verify (checklist):**
+- [ ] Plan names match everywhere (Core / Pro / Bundle)
+- [ ] Prices match: LemonSqueezy products = landing page = API seed
+- [ ] Included modules per plan match: API seed `planPluginData` = landing feature table = LemonSqueezy product descriptions
+- [ ] LemonSqueezy checkout URLs in landing are correct and live (not test/sandbox)
+- [ ] LemonSqueezy variant IDs in API match actual products
+- [ ] Plugin names in marketplace.json match what API seed references
+- [ ] "Includes 1 year of updates" / renewal pricing consistent across landing + terms + LemonSqueezy
+- [ ] Currency (€ vs $) consistent — landing shows €, verify LemonSqueezy is configured for EUR
+
+**Landing files to check:**
+- `src/shared/config/pricing.ts` — plan cards on homepage
+- `src/shared/config/pricing-page.ts` — dedicated pricing page (feature table, trust badges, FAQ)
+- `src/shared/config/hero.ts` — CTA "from €29"
+- `src/shared/config/module-pages/*.ts` — per-module tier + tierPrice
+- `src/pages/getting-started.astro` — CTA "from €29"
+- `src/pages/usage-guide.astro` — CTA "from €29"
+- `src/widgets/Dashboard/DashboardSection.astro` — CTA "from €29"
+
+**Action:** Create a single-pass cross-repo audit. Read LemonSqueezy state (manual or API), API seed, marketplace.json, and all landing configs. Produce diff table of mismatches. Fix in one batch.
