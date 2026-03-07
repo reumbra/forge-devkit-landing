@@ -7,7 +7,7 @@
 |----|----------|--------|-------|------|
 | BL-001 | P1 | backlog | Missing module pages: tracker, worktree | `[page]` `[content]` |
 | BL-002 | P1 | backlog | RU localization for all new pages | `[i18n]` `[content]` |
-| BL-003 | P1 | backlog | Pricing page CTA buttons → LemonSqueezy checkout URLs | `[cro]` `[revenue]` |
+| BL-003 | P1 | done | Pricing page CTA buttons → LemonSqueezy checkout URLs | `[cro]` `[revenue]` |
 | BL-004 | P2 | backlog | Trust signals: real testimonials / case studies | `[cro]` `[social-proof]` |
 | BL-005 | P2 | backlog | Privacy policy: add subprocessor list | `[gdpr]` `[legal]` |
 | BL-006 | P2 | backlog | Terms page: verify current | `[gdpr]` `[legal]` |
@@ -19,7 +19,7 @@
 | BL-012 | P3 | concept | Blog / content marketing section | `[page]` `[seo]` `[content]` |
 | BL-013 | P3 | concept | Comparison pages: vs Windsurf, vs Aider | `[page]` `[seo]` |
 | BL-014 | P2 | backlog | Hero "See how it works" → scroll to #how-it-works broken on /pricing | `[bug]` `[nav]` |
-| BL-015 | P1 | backlog | Verify all LemonSqueezy checkout URLs are live | `[revenue]` `[qa]` |
+| BL-015 | P1 | done | Verify all LemonSqueezy checkout URLs are live | `[revenue]` `[qa]` |
 | BL-016 | P2 | backlog | 404 page: custom design with nav back to home | `[page]` `[ux]` |
 | BL-017 | P3 | concept | Product Hunt launch assets (tagline, screenshots, maker comment) | `[launch]` `[marketing]` |
 | BL-018 | P2 | backlog | Sitemap.xml generation (Astro integration) | `[seo]` `[infra]` |
@@ -37,7 +37,7 @@
 | BL-030 | P1 | in-progress | SEO: add llms.txt for AI search visibility | `[seo]` `[ai-seo]` |
 | BL-031 | P1 | in-progress | CRO: surface 14-day guarantee near pricing CTAs | `[cro]` `[trust]` |
 | BL-032 | P1 | in-progress | CRO: add CTA after comparison page verdicts | `[cro]` `[conversion]` |
-| BL-033 | P2 | in-progress | Analytics: implement Zaraz + GA4 tracking plan | `[analytics]` `[zaraz]` |
+| BL-033 | P2 | done | Analytics: implement Zaraz + GA4 tracking plan | `[analytics]` `[zaraz]` |
 | BL-034 | P2 | backlog | CRO: render competitor anchor on homepage pricing | `[cro]` `[pricing]` |
 | BL-035 | P2 | backlog | CRO: add persona labels under pricing tiers | `[cro]` `[pricing]` |
 | BL-036 | P2 | backlog | SEO: improve pricing page title tag | `[seo]` `[meta]` |
