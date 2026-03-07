@@ -25,6 +25,7 @@
 | BL-018 | P2 | backlog | Sitemap.xml generation (Astro integration) | `[seo]` `[infra]` |
 | BL-019 | P2 | backlog | robots.txt: verify correct for Cloudflare Pages | `[seo]` `[infra]` |
 | BL-020 | P3 | backlog | DPA verification: Cloudflare, LemonSqueezy | `[gdpr]` `[legal]` |
+| BL-021 | P1 | blocked | Landing copy audit: pipeline → TDD refactor | `[content]` `[copy]` `[blocked:refactor]` |
 
 ---
 
@@ -89,3 +90,36 @@ Add `@astrojs/sitemap` integration. Configure in `astro.config.ts`. Verify all p
 ### BL-019: robots.txt
 
 Verify exists and allows all crawlers. Cloudflare Pages may need manual `public/robots.txt`. Reference sitemap.xml location.
+
+### BL-021: Landing copy audit — pipeline → TDD refactor
+
+**Blocked by:** forge-core pipeline refactor (TDD-first approach) in ai-marketplace repo.
+
+forge-core pipeline is being refactored to work TDD-first. Once the refactor lands, landing page copy needs a full audit because current text references the old pipeline model. Affected areas:
+
+**Pages to review:**
+- Homepage: Solution section ("Design → Build → Verify"), How It Works steps, Module cards
+- `/modules/core`: steps, capabilities, comparison table
+- `/modules/qa`: steps (test generation flow), capabilities
+- `/getting-started`: setup wizard description, command reference table
+- `/usage-guide`: forge-core commands and workflow description
+- `/modules/product`: workflow integration with pipeline
+
+**Copy likely to change:**
+- Pipeline phase names and descriptions (if phases renamed/restructured)
+- "8-gate wizard" → may become different gate count or structure
+- Execution modes ("sequential, parallel, patch") → may change
+- Quality pattern counts ("50+", "24 patterns") → verify after refactor
+- Dev-skills generation description
+- Any mention of specific gate names (Gate 1: Architecture, Gate 2: Quality, etc.)
+
+**Config files to update:**
+- `src/shared/config/hero.ts` — subheadline, terminal lines
+- `src/shared/config/module-pages/core.ts` — steps, capabilities, comparison
+- `src/shared/config/module-pages/qa.ts` — steps referencing pipeline
+- `src/shared/config/module-pages/product.ts` — workflow integration
+- `src/shared/ui/snippets/ArchitectureAuditHero.astro` — terminal output
+- `src/shared/ui/snippets/ArchitectureAudit.astro` — full audit output
+- `src/shared/ui/snippets/EcosystemOverview.astro` — commands table
+
+**Action:** After refactor is merged in ai-marketplace, diff the changes and update all affected landing copy + snippets to match new pipeline reality. Do NOT update speculatively — wait for final refactor.
