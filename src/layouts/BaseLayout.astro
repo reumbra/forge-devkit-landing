@@ -10,7 +10,7 @@ interface Props {
 }
 
 const {
-	title = "Forge DevKit — Architecture-aware AI pipeline",
+	title = "Forge DevKit - Architecture-aware AI pipeline",
 	description = "Auto-generates project-specific guardrails, quality patterns, and development workflows for AI coding agents across any platform.",
 } = Astro.props;
 
@@ -76,11 +76,11 @@ const ruUrl = `${siteOrigin}${ruPath}`;
 		{locale === "ru" && (
 			<link rel="preload" href={interCyrillic} as="font" type="font/woff2" crossorigin />
 		)}
-		{/* Auto-detect language on first visit — runs before paint to avoid flash */}
+		{/* Auto-detect language on first visit - runs before paint to avoid flash */}
 		<script is:inline define:vars={{ locale, enPath, ruPath }}>
 			(function() {
 				const stored = localStorage.getItem("forge-locale");
-				if (stored) return; // user already chose — respect their preference
+				if (stored) return; // user already chose - respect their preference
 
 				const browserLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
 				const wantsRu = browserLang.startsWith("ru");
@@ -101,7 +101,7 @@ const ruUrl = `${siteOrigin}${ruPath}`;
 	</head>
 	<body>
 		<slot />
-		{/* Floating mobile CTA — visible only on small screens after scrolling past Hero */}
+		{/* Floating mobile CTA - visible only on small screens after scrolling past Hero */}
 		<a
 			id="floating-cta"
 			href={pricingHref}
@@ -109,7 +109,7 @@ const ruUrl = `${siteOrigin}${ruPath}`;
 		>
 			Get Forge &rarr;
 		</a>
-		{/* Back-to-top button — controlled by NavBar scroll script */}
+		{/* Back-to-top button - controlled by NavBar scroll script */}
 		<button
 			id="back-to-top"
 			type="button"
@@ -138,7 +138,7 @@ const ruUrl = `${siteOrigin}${ruPath}`;
 				fadeEls.forEach((el) => fadeObserver.observe(el));
 			}
 		</script>
-		{/* LemonSqueezy checkout overlay SDK — intercepts links to *.lemonsqueezy.com/buy/* */}
+		{/* LemonSqueezy checkout overlay SDK - intercepts links to *.lemonsqueezy.com/buy/* */}
 		<script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
 	</body>
 </html>

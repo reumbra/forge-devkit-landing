@@ -31,7 +31,7 @@ const modules = [
 				command: "/forge:patch",
 				description: "Quick config patches without running the full wizard.",
 				subcommands: [
-					{ sub: "/forge:patch", detail: "Interactive patch mode — select what to adjust" },
+					{ sub: "/forge:patch", detail: "Interactive patch mode - select what to adjust" },
 				],
 			},
 			{
@@ -51,25 +51,25 @@ const modules = [
 		name: "forge-product",
 		tier: "Pro+",
 		tagline: "Describe features in business language. AI builds from spec, not guesswork.",
-		description: "forge-product bridges the gap between what you want and what AI builds. Describe a feature in plain language — it generates user flows, user stories with acceptance criteria, and UX specifications. These artifacts feed directly into the development pipeline, so your AI codes from verified requirements instead of hallucinated assumptions.",
+		description: "forge-product bridges the gap between what you want and what AI builds. Describe a feature in plain language - it generates user flows, user stories with acceptance criteria, and UX specifications. These artifacts feed directly into the development pipeline, so your AI codes from verified requirements instead of hallucinated assumptions.",
 		benefits: [
 			"9 product archetypes (SaaS, marketplace, API platform, etc.)",
 			"Generates user flows, stories, and acceptance criteria automatically",
 			"50+ UX criteria library for consistent quality",
-			"Stories feed directly into /dev pipeline — zero copy-paste",
+			"Stories feed directly into /dev pipeline - zero copy-paste",
 			"Supports multiple methodologies (Lean, Jobs-to-be-Done, etc.)",
 		],
 		commands: [
 			{
 				command: "/forge:product-setup",
-				description: "Configure product design module — select archetype, methodology, integrations.",
+				description: "Configure product design module - select archetype, methodology, integrations.",
 				subcommands: [
 					{ sub: "/forge:product-setup", detail: "Interactive setup wizard for product module" },
 				],
 			},
 			{
 				command: "/forge:product",
-				description: "Product design operations — features, epics, roadmap, strategy.",
+				description: "Product design operations - features, epics, roadmap, strategy.",
 				subcommands: [
 					{ sub: "/forge:product design", detail: "Design a feature with user flows, stories, and acceptance criteria" },
 					{ sub: "/forge:product epic", detail: "Create an epic with breakdown into stories" },
@@ -85,9 +85,9 @@ const modules = [
 		name: "forge-qa",
 		tier: "Pro+",
 		tagline: "Tests that trace back to requirements. Not AI guesswork.",
-		description: "forge-qa generates tests from acceptance criteria, not from AI assumptions. It supports 10 testing modes and maintains a 4-level traceability matrix: acceptance criteria → unit tests, use cases → E2E tests, UX criteria → visual tests, and LLM-as-Judge for AI output quality. Every test proves a requirement — no orphan tests, no missing coverage.",
+		description: "forge-qa generates tests from acceptance criteria, not from AI assumptions. It supports 10 testing modes and maintains a 4-level traceability matrix: acceptance criteria → unit tests, use cases → E2E tests, UX criteria → visual tests, and LLM-as-Judge for AI output quality. Every test proves a requirement - no orphan tests, no missing coverage.",
 		benefits: [
-			"Generates tests from acceptance criteria — not guesswork",
+			"Generates tests from acceptance criteria - not guesswork",
 			"4-level traceability: AC → unit, UC → E2E, UX → visual, Judge",
 			"10 testing modes for different scenarios",
 			"LLM-as-Judge evaluates AI-generated output quality",
@@ -96,14 +96,14 @@ const modules = [
 		commands: [
 			{
 				command: "/forge:qa-setup",
-				description: "Configure QA module — select test frameworks, coverage thresholds, traceability level.",
+				description: "Configure QA module - select test frameworks, coverage thresholds, traceability level.",
 				subcommands: [
 					{ sub: "/forge:qa-setup", detail: "Interactive QA configuration wizard" },
 				],
 			},
 			{
 				command: "/forge:qa",
-				description: "Test operations — generation, coverage analysis, quality gates.",
+				description: "Test operations - generation, coverage analysis, quality gates.",
 				subcommands: [
 					{ sub: "/forge:qa generate", detail: "Generate tests from acceptance criteria or user stories" },
 					{ sub: "/forge:qa coverage", detail: "Analyze test coverage and suggest missing tests" },
@@ -120,10 +120,10 @@ const modules = [
 		name: "forge-tracker",
 		tier: "Pro+",
 		tagline: "Your backlog lives in your tracker. Now your AI reads it too.",
-		description: "forge-tracker connects your existing task management tool to the AI development pipeline. Pick a task from GitHub Issues, Linear, ClickUp, Notion, or Jira — your AI gets the full context (description, acceptance criteria, labels, priority) and starts working. When done, it syncs status and links the PR back to the task. No more copy-pasting issue descriptions into prompts.",
+		description: "forge-tracker connects your existing task management tool to the AI development pipeline. Pick a task from GitHub Issues, Linear, ClickUp, Notion, or Jira - your AI gets the full context (description, acceptance criteria, labels, priority) and starts working. When done, it syncs status and links the PR back to the task. No more copy-pasting issue descriptions into prompts.",
 		benefits: [
 			"5 integrations: GitHub Issues, Linear, ClickUp, Notion, Jira",
-			"Pick tasks directly from your tracker — AI gets full context",
+			"Pick tasks directly from your tracker - AI gets full context",
 			"Auto-syncs task status and progress back to tracker",
 			"Links PRs and commits to tasks automatically",
 			"AC validation ensures task requirements are met before closing",
@@ -131,14 +131,14 @@ const modules = [
 		commands: [
 			{
 				command: "/forge:tracker-setup",
-				description: "Configure task tracker integration — select provider and connect.",
+				description: "Configure task tracker integration - select provider and connect.",
 				subcommands: [
 					{ sub: "/forge:tracker-setup", detail: "Interactive tracker setup (auto-detects available integrations)" },
 				],
 			},
 			{
 				command: "/forge:tracker",
-				description: "Task management operations — pick, sync, close tasks.",
+				description: "Task management operations - pick, sync, close tasks.",
 				subcommands: [
 					{ sub: "/forge:tracker pick", detail: "Pick a task from your tracker to work on" },
 					{ sub: "/forge:tracker sync", detail: "Sync task status and progress back to tracker" },
@@ -153,7 +153,7 @@ const modules = [
 		name: "forge-autopilot",
 		tier: "Bundle",
 		tagline: "Run 3 agents in parallel. Zero merge conflicts.",
-		description: "forge-autopilot orchestrates autonomous AI teammates like Kubernetes orchestrates containers. Give it a list of features — it triages them, detects potential conflicts (shared models, overlapping files), groups non-conflicting features into parallel waves, and deploys agents to isolated worktrees. Each agent follows your full pipeline (guardrails, tests, quality gates). When a wave completes, it auto-merges and starts the next wave.",
+		description: "forge-autopilot orchestrates autonomous AI teammates like Kubernetes orchestrates containers. Give it a list of features - it triages them, detects potential conflicts (shared models, overlapping files), groups non-conflicting features into parallel waves, and deploys agents to isolated worktrees. Each agent follows your full pipeline (guardrails, tests, quality gates). When a wave completes, it auto-merges and starts the next wave.",
 		benefits: [
 			"Backlog triage classifies features by complexity and risk",
 			"Conflict detection prevents agents from editing the same files",
@@ -181,7 +181,7 @@ const modules = [
 		name: "forge-worktree",
 		tier: "Bundle",
 		tagline: "Isolated branches with zero port conflicts. Automatic cleanup.",
-		description: "forge-worktree manages the git worktree lifecycle for parallel development. Each worktree gets its own directory, Docker port offsets, and environment configuration — no more port conflicts between branches. Three templates cover common setups: Docker backend (with port isolation), Frontend (with dev server offsets), and Generic. Worktrees are auto-provisioned by forge-autopilot or created manually.",
+		description: "forge-worktree manages the git worktree lifecycle for parallel development. Each worktree gets its own directory, Docker port offsets, and environment configuration - no more port conflicts between branches. Three templates cover common setups: Docker backend (with port isolation), Frontend (with dev server offsets), and Generic. Worktrees are auto-provisioned by forge-autopilot or created manually.",
 		benefits: [
 			"3 templates: Docker backend, Frontend, Generic",
 			"Automatic Docker port isolation per worktree",
@@ -194,7 +194,7 @@ const modules = [
 				command: "/forge:worktree-setup",
 				description: "Configure worktree templates and isolation settings.",
 				subcommands: [
-					{ sub: "/forge:worktree-setup", detail: "Interactive worktree configuration — select template (Docker backend, Frontend, Generic)" },
+					{ sub: "/forge:worktree-setup", detail: "Interactive worktree configuration - select template (Docker backend, Frontend, Generic)" },
 				],
 			},
 		],
@@ -204,7 +204,7 @@ const modules = [
 ---
 
 <DocsLayout
-	title="Usage Guide — Forge DevKit"
+	title="Usage Guide - Forge DevKit"
 	description="Complete command reference and module guide for all 6 Forge DevKit modules."
 >
 	<h1 class="font-sans text-[36px] md:text-[48px] font-black leading-[1.1] tracking-[-0.02em] text-text mb-4">
@@ -253,11 +253,11 @@ const modules = [
 				{m.description}
 			</p>
 
-			{/* Marketing highlights — pain/gain callouts per module */}
+			{/* Marketing highlights - pain/gain callouts per module */}
 			{m.id === "core" && (
 				<>
 					<DocHighlight variant="pain">
-						<strong>Without Forge:</strong> you spend 20 minutes every session re-explaining your architecture to AI. It forgets your NestJS guards, your layer conventions, your naming patterns — every single time.
+						<strong>Without Forge:</strong> you spend 20 minutes every session re-explaining your architecture to AI. It forgets your NestJS guards, your layer conventions, your naming patterns - every single time.
 					</DocHighlight>
 					<DocHighlight variant="gain">
 						<strong>With forge-core:</strong> one <code>/forge:setup</code> and your AI permanently knows your stack, layers, and conventions. No manual prompt engineering. No re-explaining. Ever.
@@ -270,14 +270,14 @@ const modules = [
 						<strong>Without Forge:</strong> you describe a feature vaguely, AI hallucinates requirements, builds the wrong thing, and you spend hours debugging assumptions that were never verified.
 					</DocHighlight>
 					<DocHighlight variant="gain">
-						<strong>With forge-product:</strong> describe features in business language — AI generates verified user flows, stories, and acceptance criteria <em>before</em> writing a single line of code.
+						<strong>With forge-product:</strong> describe features in business language - AI generates verified user flows, stories, and acceptance criteria <em>before</em> writing a single line of code.
 					</DocHighlight>
 				</>
 			)}
 			{m.id === "qa" && (
 				<>
 					<DocHighlight variant="pain">
-						<strong>Without Forge:</strong> AI generates tests with 100% coverage — all using mock data. Every assertion tests implementation details. Zero real behavior verified.
+						<strong>Without Forge:</strong> AI generates tests with 100% coverage - all using mock data. Every assertion tests implementation details. Zero real behavior verified.
 					</DocHighlight>
 					<DocHighlight variant="gain">
 						<strong>With forge-qa:</strong> every test traces back to an acceptance criterion. No orphan tests. No missing coverage. Tests prove requirements, not AI guesswork.
@@ -290,14 +290,14 @@ const modules = [
 						<strong>Without Forge:</strong> you copy-paste issue descriptions from your tracker into AI prompts. Context gets lost. Status updates are manual. PRs never link back to tasks.
 					</DocHighlight>
 					<DocHighlight variant="gain">
-						<strong>With forge-tracker:</strong> <code>/forge:tracker pick</code> pulls the task with full context. When you're done, <code>/forge:tracker close</code> syncs status and links the PR — zero manual updates.
+						<strong>With forge-tracker:</strong> <code>/forge:tracker pick</code> pulls the task with full context. When you're done, <code>/forge:tracker close</code> syncs status and links the PR - zero manual updates.
 					</DocHighlight>
 				</>
 			)}
 			{m.id === "autopilot" && (
 				<>
 					<DocHighlight variant="pain">
-						<strong>Without Forge:</strong> you run 3 agents in parallel — they all edit the same User model. You spend 4 hours resolving merge conflicts. Net productivity: <em>negative</em>.
+						<strong>Without Forge:</strong> you run 3 agents in parallel - they all edit the same User model. You spend 4 hours resolving merge conflicts. Net productivity: <em>negative</em>.
 					</DocHighlight>
 					<DocHighlight variant="gain">
 						<strong>With forge-autopilot:</strong> conflict detection groups features into safe waves. Each agent gets an isolated worktree with your full pipeline. Auto-merge after quality gates pass.
@@ -306,7 +306,7 @@ const modules = [
 			)}
 			{m.id === "worktree" && (
 				<DocHighlight variant="insight">
-					<strong>Why worktrees?</strong> Each parallel agent needs isolation — its own branch, ports, and environment. Manual setup is error-prone. forge-worktree automates the entire lifecycle, so you focus on features, not infrastructure.
+					<strong>Why worktrees?</strong> Each parallel agent needs isolation - its own branch, ports, and environment. Manual setup is error-prone. forge-worktree automates the entire lifecycle, so you focus on features, not infrastructure.
 				</DocHighlight>
 			)}
 

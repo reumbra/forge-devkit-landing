@@ -11,12 +11,12 @@ const codeLines = section.visual.lines.map((line) => line.text);
 <section id={section.id} class="py-10 md:py-20 lg:py-24">
 	<Container>
 		<div class="grid grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
-			{/* Visual side — left on desktop (order-1 on lg), second on mobile (order-2) */}
+			{/* Visual side - left on desktop (order-1 on lg), second on mobile (order-2) */}
 			<div class="order-2 lg:order-1">
 				<CodeBlock lines={codeLines} withGlow />
 			</div>
 
-			{/* Text side — right on desktop (order-2 on lg), first on mobile (order-1) */}
+			{/* Text side - right on desktop (order-2 on lg), first on mobile (order-1) */}
 			<div class="fade-up order-1 lg:order-2">
 				<SectionLabel text={section.sectionLabel} />
 

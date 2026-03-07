@@ -5,7 +5,7 @@ import LegalPage from "@widgets/Legal/LegalPage.astro";
 const breadcrumbs = [{ label: "Privacy Policy" }];
 ---
 
-<PageLayout title="Privacy Policy — Forge DevKit" description="Privacy Policy for Forge DevKit by Reumbra OÜ." breadcrumbs={breadcrumbs}>
+<PageLayout title="Privacy Policy - Forge DevKit" description="Privacy Policy for Forge DevKit by Reumbra OÜ." breadcrumbs={breadcrumbs}>
 	<LegalPage title="Privacy Policy" effectiveDate="6 March 2026">
 			<p>
 				<strong>Reumbra OÜ</strong> · Registry code: 16937677 · VAT: EE102715497<br />
@@ -23,12 +23,12 @@ const breadcrumbs = [{ label: "Privacy Policy" }];
 			<h2>2. Personal Data Collected</h2>
 			<p>Reumbra OÜ collects and processes the following categories of personal data:</p>
 			<ul>
-				<li><strong>E-mail address</strong> — provided at checkout; used to deliver the license key and for customer support communications.</li>
-				<li><strong>IP address</strong> — collected automatically when you visit forge.reumbra.com or activate the CLI tool; used for security, abuse prevention, and anonymised website analytics.</li>
-				<li><strong>Machine ID</strong> (pseudonymised device identifier, stored as a SHA-256 hash) — collected by the Forge DevKit CLI tool upon setup, after explicit consent is given during the setup wizard. Used to associate a license with a specific device and to detect unauthorised license sharing.</li>
-				<li><strong>Device label</strong> — a human-readable name for the device where the CLI tool is installed (e.g. "MacBook Pro - Work"), collected after explicit consent during the setup wizard. Used together with the Machine ID to allow the user to manage their licensed devices.</li>
-				<li><strong>User-submitted content</strong> (feedback and bug reports) — free-text comments that users voluntarily submit through the CLI tool's feedback or bug-report functionality. May contain personal information at the user's own discretion. Collected only with explicit consent confirmed during CLI setup.</li>
-				<li><strong>Purchase history</strong> — order date, product name, license tier, and license key status; used to manage and verify the license and to resolve disputes.</li>
+				<li><strong>E-mail address</strong> - provided at checkout; used to deliver the license key and for customer support communications.</li>
+				<li><strong>IP address</strong> - collected automatically when you visit forge.reumbra.com or activate the CLI tool; used for security, abuse prevention, and anonymised website analytics.</li>
+				<li><strong>Machine ID</strong> (pseudonymised device identifier, stored as a SHA-256 hash) - collected by the Forge DevKit CLI tool upon setup, after explicit consent is given during the setup wizard. Used to associate a license with a specific device and to detect unauthorised license sharing.</li>
+				<li><strong>Device label</strong> - a human-readable name for the device where the CLI tool is installed (e.g. "MacBook Pro - Work"), collected after explicit consent during the setup wizard. Used together with the Machine ID to allow the user to manage their licensed devices.</li>
+				<li><strong>User-submitted content</strong> (feedback and bug reports) - free-text comments that users voluntarily submit through the CLI tool's feedback or bug-report functionality. May contain personal information at the user's own discretion. Collected only with explicit consent confirmed during CLI setup.</li>
+				<li><strong>Purchase history</strong> - order date, product name, license tier, and license key status; used to manage and verify the license and to resolve disputes.</li>
 			</ul>
 			<p>Reumbra OÜ does not collect delivery addresses, phone numbers, or payment card data. Payment data is processed exclusively by Lemon Squeezy, Inc.</p>
 
@@ -74,21 +74,21 @@ const breadcrumbs = [{ label: "Privacy Policy" }];
 			<h2>4. Data Processors and Recipients</h2>
 			<p>Reumbra OÜ uses the following third-party service providers to operate the Service. Data processors act on documented instructions from Reumbra OÜ and are bound by contractual data protection obligations under GDPR Art. 28.</p>
 
-			<h3>4.1 Lemon Squeezy, Inc. — USA</h3>
+			<h3>4.1 Lemon Squeezy, Inc. - USA</h3>
 			<p><strong>Role:</strong> Independent data controller (Merchant of Record).<br />
 			<strong>Purpose:</strong> Payment processing, tax collection, billing, and refunds.<br />
 			<strong>Data shared:</strong> Name, e-mail address, product purchased, transaction metadata.<br />
 			<strong>Transfer basis:</strong> EU–US Data Privacy Framework (July 2023) and Standard Contractual Clauses.<br />
 			<strong>Privacy policy:</strong> <a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener">lemonsqueezy.com/privacy</a></p>
 
-			<h3>4.2 Resend, Inc. — USA</h3>
+			<h3>4.2 Resend, Inc. - USA</h3>
 			<p><strong>Role:</strong> Data processor.<br />
 			<strong>Purpose:</strong> Transactional e-mail delivery (license key delivery, order confirmation, customer support replies).<br />
 			<strong>Data processed:</strong> Recipient e-mail address, name, e-mail content.<br />
 			<strong>Transfer basis:</strong> Standard Contractual Clauses (EU 2021/914) incorporated in Resend's DPA.<br />
-			<strong>DPA reference:</strong> <a href="https://resend.com/legal/dpa" target="_blank" rel="noopener">resend.com/legal/dpa</a> — SOC 2 Type II certified.</p>
+			<strong>DPA reference:</strong> <a href="https://resend.com/legal/dpa" target="_blank" rel="noopener">resend.com/legal/dpa</a> - SOC 2 Type II certified.</p>
 
-			<h3>4.3 Supabase, Inc. — USA (servers: EU region)</h3>
+			<h3>4.3 Supabase, Inc. - USA (servers: EU region)</h3>
 			<p><strong>Role:</strong> Data processor.<br />
 			<strong>Purpose:</strong> Cloud database hosting for the license activation server.<br />
 			<strong>Data processed:</strong> E-mail address, license key, license tier, activation status, timestamps.<br />
@@ -96,21 +96,21 @@ const breadcrumbs = [{ label: "Privacy Policy" }];
 			<strong>Transfer basis:</strong> Standard Contractual Clauses (EU 2021/914) incorporated in Supabase's DPA.<br />
 			<strong>DPA reference:</strong> <a href="https://supabase.com/legal/dpa" target="_blank" rel="noopener">supabase.com/legal/dpa</a></p>
 
-			<h3>4.4 Amazon Web Services — USA / EU</h3>
+			<h3>4.4 Amazon Web Services - USA / EU</h3>
 			<p><strong>Role:</strong> Data processor.<br />
 			<strong>Purpose:</strong> Cloud infrastructure for the license activation server.<br />
 			<strong>Data processed:</strong> Server-level logs and infrastructure metadata.<br />
 			<strong>Transfer basis:</strong> Standard Contractual Clauses in the AWS GDPR Data Processing Addendum.<br />
 			<strong>DPA reference:</strong> <a href="https://aws.amazon.com/service-terms/" target="_blank" rel="noopener">aws.amazon.com/service-terms</a> (section 1.14)</p>
 
-			<h3>4.5 Cloudflare, Inc. — USA</h3>
+			<h3>4.5 Cloudflare, Inc. - USA</h3>
 			<p><strong>Role:</strong> Data processor.<br />
 			<strong>Purpose:</strong> Website hosting and delivery (Cloudflare Pages); privacy-preserving web traffic analytics (Cloudflare Web Analytics).<br />
 			<strong>Data processed:</strong> IP addresses and request metadata at the network edge.<br />
 			<strong>Transfer basis:</strong> Standard Contractual Clauses in the Cloudflare Customer DPA.<br />
 			<strong>DPA reference:</strong> <a href="https://www.cloudflare.com/cloudflare-customer-dpa/" target="_blank" rel="noopener">cloudflare.com/cloudflare-customer-dpa</a></p>
 
-			<h3>4.6 Google LLC / Google Ireland Limited — USA / Ireland</h3>
+			<h3>4.6 Google LLC / Google Ireland Limited - USA / Ireland</h3>
 			<p><strong>Role:</strong> Data processor (for analytics).<br />
 			<strong>Purpose:</strong> Website usage analytics (Google Analytics 4).<br />
 			<strong>Data processed:</strong> Pseudonymised identifiers, browser and device parameters, page interaction events, approximate location.<br />
@@ -118,7 +118,7 @@ const breadcrumbs = [{ label: "Privacy Policy" }];
 			<strong>Transfer basis:</strong> EU–US Data Privacy Framework and Standard Contractual Clauses.<br />
 			<strong>Privacy policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
 
-			<h3>4.7 Meta Platforms Ireland Limited / Meta Platforms, Inc. — Ireland / USA (planned)</h3>
+			<h3>4.7 Meta Platforms Ireland Limited / Meta Platforms, Inc. - Ireland / USA (planned)</h3>
 			<p><strong>Role:</strong> Independent data controller (joint controllership under GDPR Art. 26).<br />
 			<strong>Purpose:</strong> Conversion measurement and advertising effectiveness tracking for Instagram and Facebook campaigns. This tool will be activated only when Reumbra OÜ runs paid advertising on Meta platforms. This Privacy Policy will be updated to confirm activation at that time.<br />
 			<strong>Legal basis:</strong> Consent (GDPR Art. 6(1)(a)). The Meta Pixel will only be activated after the visitor accepts the cookie consent banner.<br />
