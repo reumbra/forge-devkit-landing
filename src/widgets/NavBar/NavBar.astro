@@ -203,60 +203,59 @@ const { logo, links, cta } = navigation;
 ></div>
 
 <script>
-	// ── Desktop dropdown ──
-	const trigger = document.querySelector<HTMLButtonElement>("[data-dropdown-trigger]");
-	const panel = document.querySelector<HTMLDivElement>("[data-dropdown-panel]");
-	const chevron = trigger?.querySelector<SVGElement>(".dropdown-chevron");
-	let dropdownOpen = false;
-	let closeTimeout: ReturnType<typeof setTimeout> | null = null;
+	// ── Desktop dropdowns ──
+	const triggers = document.querySelectorAll<HTMLButtonElement>("[data-dropdown-trigger]");
 
-	function openDropdown() {
-		if (!panel) return;
-		if (closeTimeout) { clearTimeout(closeTimeout); closeTimeout = null; }
-		panel.classList.remove("hidden");
-		requestAnimationFrame(() => {
-			panel.classList.remove("opacity-0", "-translate-y-2");
-			panel.classList.add("opacity-100", "translate-y-0");
-		});
-		chevron?.style.setProperty("transform", "rotate(180deg)");
-		dropdownOpen = true;
-	}
+	triggers.forEach((trigger) => {
+		const container = trigger.closest("li");
+		const panel = container?.querySelector<HTMLDivElement>("[data-dropdown-panel]");
+		const chevron = trigger.querySelector<SVGElement>(".dropdown-chevron");
+		let isOpen = false;
+		let closeTimeout: ReturnType<typeof setTimeout> | null = null;
 
-	function closeDropdown() {
-		if (!panel) return;
-		panel.classList.remove("opacity-100", "translate-y-0");
-		panel.classList.add("opacity-0", "-translate-y-2");
-		chevron?.style.setProperty("transform", "");
-		dropdownOpen = false;
-		setTimeout(() => {
-			if (!dropdownOpen) panel.classList.add("hidden");
-		}, 200);
-	}
-
-	function scheduleClose() {
-		closeTimeout = setTimeout(closeDropdown, 150);
-	}
-
-	// Hover-based open/close for the trigger + panel area
-	const dropdownContainer = trigger?.closest("li");
-	dropdownContainer?.addEventListener("mouseenter", openDropdown);
-	dropdownContainer?.addEventListener("mouseleave", scheduleClose);
-
-	// Click toggle for accessibility
-	trigger?.addEventListener("click", () => {
-		dropdownOpen ? closeDropdown() : openDropdown();
-	});
-
-	// Close on Escape
-	document.addEventListener("keydown", (e) => {
-		if (e.key === "Escape" && dropdownOpen) closeDropdown();
-	});
-
-	// Close when clicking outside
-	document.addEventListener("click", (e) => {
-		if (dropdownOpen && !dropdownContainer?.contains(e.target as Node)) {
-			closeDropdown();
+		function open() {
+			if (!panel) return;
+			if (closeTimeout) { clearTimeout(closeTimeout); closeTimeout = null; }
+			panel.classList.remove("hidden");
+			requestAnimationFrame(() => {
+				panel.classList.remove("opacity-0", "-translate-y-2");
+				panel.classList.add("opacity-100", "translate-y-0");
+			});
+			chevron?.style.setProperty("transform", "rotate(180deg)");
+			isOpen = true;
 		}
+
+		function close() {
+			if (!panel) return;
+			panel.classList.remove("opacity-100", "translate-y-0");
+			panel.classList.add("opacity-0", "-translate-y-2");
+			chevron?.style.setProperty("transform", "");
+			isOpen = false;
+			setTimeout(() => {
+				if (!isOpen) panel.classList.add("hidden");
+			}, 200);
+		}
+
+		function scheduleClose() {
+			closeTimeout = setTimeout(close, 150);
+		}
+
+		container?.addEventListener("mouseenter", open);
+		container?.addEventListener("mouseleave", scheduleClose);
+
+		trigger.addEventListener("click", () => {
+			isOpen ? close() : open();
+		});
+
+		document.addEventListener("keydown", (e) => {
+			if (e.key === "Escape" && isOpen) close();
+		});
+
+		document.addEventListener("click", (e) => {
+			if (isOpen && !container?.contains(e.target as Node)) {
+				close();
+			}
+		});
 	});
 
 	// ── Mobile menu ──
