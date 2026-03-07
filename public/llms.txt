@@ -21,7 +21,7 @@ Forge DevKit is a commercial plugin ecosystem for AI coding agents (Claude Code,
 - forge-worktree: Git worktree lifecycle management
 
 ## Links
-- Website: https://reumbra.com
-- Pricing: https://reumbra.com/pricing
-- Getting Started: https://reumbra.com/docs/getting-started
-- Usage Guide: https://reumbra.com/docs/usage-guide
+- Website: https://forge.reumbra.com
+- Pricing: https://forge.reumbra.com/pricing
+- Getting Started: https://forge.reumbra.com/docs/getting-started
+- Usage Guide: https://forge.reumbra.com/docs/usage-guide

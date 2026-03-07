@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-	site: "https://reumbra.com",
+	site: "https://forge.reumbra.com",
 	base: "/",
 	i18n: {
 		locales: ["en", "ru"],
@@ -16,7 +16,7 @@ export default defineConfig({
 		sitemap({
 			filter: (page) =>
 				// Exclude redirect-only pages (they 301 to /docs/ variants)
-				!/reumbra\.com\/(ru\/)?(getting-started|usage-guide)\/$/.test(page),
+				!/forge\.reumbra\.com\/(ru\/)?(getting-started|usage-guide)\/$/.test(page),
 			i18n: {
 				defaultLocale: "en",
 				locales: { en: "en", ru: "ru" },
