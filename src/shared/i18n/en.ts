@@ -1,5 +1,5 @@
 export const en = {
-	"site.title": "Forge DevKit — Architecture-aware AI pipeline",
+	"site.title": "Forge DevKit  - Architecture-aware AI pipeline",
 	"site.description":
 		"Auto-generates project-specific guardrails, quality patterns, and development workflows for AI coding agents across any platform.",
 	"nav.modules": "Modules",
@@ -13,11 +13,11 @@ export const en = {
 	"breadcrumb.terms": "Terms of Service",
 	"cta.floatingMobile": "Get Forge",
 	"pricing.hero.headline": "One price. Your artifacts forever.",
-	"pricing.hero.subheadline": "No subscription. No usage limits. Pay once — keep everything.",
+	"pricing.hero.subheadline": "No subscription. No usage limits. Pay once  - keep everything.",
 	"comparison.dimension": "Dimension",
 	"comparison.forgeDevkit": "Forge DevKit",
 	"modules.headline": "Six Modules. One Pipeline.",
-	"modules.subheadline": "Use all or pick what you need — each works independently.",
+	"modules.subheadline": "Use all or pick what you need  - each works independently.",
 } as const;
 
 export type TranslationKey = keyof typeof en;

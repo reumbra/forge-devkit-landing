@@ -1,11 +1,12 @@
 ---
 import Container from "@shared/ui/Container.astro";
 import ReumbraLogo from "@shared/ui/ReumbraLogo.astro";
-import { footer } from "@shared/config/footer";
-import { localePath } from "@shared/utils/locale";
+import { footerI18n } from "@shared/config/footer";
+import { localePath, i18n } from "@shared/utils/locale";
 
 const locale = Astro.currentLocale;
 const lp = (path: string) => localePath(path, locale);
+const footer = i18n(footerI18n, locale);
 ---
 
 <footer class="border-t border-[rgba(118,73,196,0.06)] py-16 md:py-20">

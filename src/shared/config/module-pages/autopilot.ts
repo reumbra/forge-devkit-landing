@@ -93,7 +93,7 @@ export const autopilotPageConfig: ModulePageConfig = {
 		},
 		{
 			dimension: "Conflict handling",
-			them: "None \u2014 discover conflicts after",
+			them: "None - discover conflicts after",
 			forge: "Pre-execution conflict detection and wave grouping",
 		},
 		{
@@ -131,8 +131,144 @@ export const autopilotPageConfig: ModulePageConfig = {
 	],
 
 	seo: {
-		title: "forge-autopilot \u2014 Parallel Agents Without Merge Hell | Forge DevKit",
+		title: "forge-autopilot - Parallel Agents Without Merge Hell | Forge DevKit",
 		description:
 			"Orchestrate Claude Agent Teams with conflict-free wave planning. Backlog triage, file conflict detection, isolated worktrees, 3 autonomy modes.",
 	},
+};
+
+const autopilotPageConfigRu: ModulePageConfig = {
+	slug: "autopilot",
+	name: "forge-autopilot",
+	tagline: "Параллельные агенты без merge-хаоса",
+	tier: "Bundle",
+	tierPrice: "€149",
+
+	problems: [
+		{
+			pain: "Agent Teams = хаос merge-конфликтов",
+			evidence:
+				"\"Я буквально не могу смержить их ветки.\" Несколько агентов редактируют одни файлы без координации.",
+		},
+		{
+			pain: "Нет детекции конфликтов до выполнения",
+			evidence:
+				"Файловые конфликты обнаруживаются ПОСЛЕ завершения работы агентов. Часы работы потеряны на несовместимых изменениях.",
+		},
+		{
+			pain: "Автономные агенты без стратегии",
+			evidence:
+				"Agent Teams - это инфраструктура. Без стратегического слоя агенты работают быстро, но ломают ещё быстрее.",
+		},
+	],
+
+	steps: [
+		{
+			title: "Триаж",
+			description:
+				"Аналитик бэклога классифицирует фичи по сложности, рискам и потребностям в дизайне. Маппинг файловых зависимостей.",
+		},
+		{
+			title: "Детекция конфликтов",
+			description:
+				"Детектор конфликтов находит общие файлы между фичами. Классифицирует как SAFE, RISKY или BLOCKING.",
+		},
+		{
+			title: "Планирование волн",
+			description:
+				"Группирует бесконфликтные фичи в параллельные волны. BLOCKING-конфликты требуют последовательного выполнения.",
+			visual: autopilotPageConfig.steps[2].visual,
+		},
+		{
+			title: "Выполнение",
+			description:
+				"Участники работают в изолированных worktree. Tech lead ревьюит. Авто-мерж с предотвращением конфликтов.",
+		},
+	],
+
+	capabilities: [
+		{
+			icon: "\u25C7",
+			title: "Бесконфликтное планирование волн",
+			description:
+				"Бэклог\u2192детекция конфликтов\u2192группировка волн\u2192параллельное выполнение. Без merge-конфликтов by design.",
+		},
+		{
+			icon: "\u25C7",
+			title: "3 режима автономности",
+			description:
+				"Supervised (ревью каждого), semi-auto (ревью на чекпоинтах), full-auto (ревью в конце).",
+		},
+		{
+			icon: "\u25C7",
+			title: "Изолированные worktree",
+			description:
+				"Каждый участник работает в отдельном git worktree. Без файловых пересечений. Чистые мержи.",
+		},
+		{
+			icon: "\u25C7",
+			title: "Cross-repo триаж",
+			description:
+				"Фичи, затрагивающие несколько репозиториев, детектятся и обрабатываются на этапе триажа.",
+		},
+		{
+			icon: "\u25C7",
+			title: "Batch-отчёты",
+			description:
+				"Сводный отчёт после каждой волны: решения, разрешённые конфликты, затронутые файлы, результаты тестов.",
+		},
+	],
+
+	comparison: [
+		{
+			dimension: "Что это",
+			them: "Инфраструктура для запуска агентов",
+			forge: "Стратегический слой: триаж \u2192 детекция конфликтов \u2192 планирование волн",
+		},
+		{
+			dimension: "Обработка конфликтов",
+			them: "Нет - конфликты обнаруживаются после",
+			forge: "Детекция конфликтов и группировка волн до выполнения",
+		},
+		{
+			dimension: "Контроль автономности",
+			them: "Всё или ничего",
+			forge: "3 режима: supervised, semi-auto, full-auto",
+		},
+	],
+	comparisonTarget: "Raw Claude Agent Teams",
+
+	diagram: {
+		...autopilotPageConfig.diagram!,
+		caption: "forge-autopilot добавляет стратегический слой поверх Agent Teams: триаж, детекция конфликтов и планирование волн.",
+	},
+
+	integrations: [
+		{
+			module: "forge-core",
+			description: "Карта архитектуры обеспечивает детекцию конфликтов",
+			href: "/modules/core",
+		},
+		{
+			module: "forge-worktree",
+			description: "Создаёт изолированные worktree для каждого участника",
+			href: "/modules",
+		},
+		{
+			module: "forge-tracker",
+			description: "Синхронизирует статусы задач во время batch-выполнения",
+			href: "/modules",
+		},
+	],
+
+	seo: {
+		title: "forge-autopilot - Параллельные агенты без merge-хаоса | Forge DevKit",
+		description:
+			"Оркестрация Claude Agent Teams с бесконфликтным планированием волн. Триаж бэклога, детекция файловых конфликтов, изолированные worktree, 3 режима автономности.",
+	},
+};
+
+export const autopilotPageConfigI18n: Record<string, ModulePageConfig> = {
+	en: autopilotPageConfig,
+	ru: autopilotPageConfigRu,
 };

@@ -37,7 +37,7 @@ export const howItWorks = {
 			number: 3,
 			label: "SETUP",
 			command: "forge setup",
-			description: "8-gate wizard analyzes project, generates dev-skills",
+			description: "7-gate wizard analyzes project, generates dev-skills",
 		},
 		{
 			number: 4,
@@ -53,5 +53,46 @@ export const howItWorks = {
 		{ label: "Claude Cowork" },
 	],
 	disposableCallout:
-		"Generated artifacts work independently. Remove the plugin \u2014 your rules stay.",
+		"Generated artifacts work independently. Remove the plugin - your rules stay.",
 } as const satisfies HowItWorksConfig;
+
+const howItWorksRu: HowItWorksConfig = {
+	sectionLabel: "HOW IT WORKS",
+	headline: "Один setup. AI знает ваш проект навсегда.",
+	steps: [
+		{
+			number: 1,
+			label: "INSTALL",
+			command: "npm i -g @reumbra/forge",
+			description: "Глобальная установка CLI",
+		},
+		{
+			number: 2,
+			label: "ACTIVATE",
+			command: "forge activate <license>",
+			description: "Лицензионный ключ из покупки",
+		},
+		{
+			number: 3,
+			label: "SETUP",
+			command: "forge setup",
+			description: "7-этапный визард анализирует проект, генерирует dev-skills",
+		},
+		{
+			number: 4,
+			label: "CODE",
+			command: "Use your AI normally",
+			description: "Claude Code / Cursor / Cowork обнаруживают .claude/ автоматически",
+		},
+	],
+	platformBadges: [
+		{ label: "Claude Code CLI" },
+		{ label: "Claude Desktop" },
+		{ label: "Cursor" },
+		{ label: "Claude Cowork" },
+	],
+	disposableCallout:
+		"Сгенерированные артефакты работают автономно. Удалите плагин - ваши правила останутся.",
+};
+
+export const howItWorksI18n: Record<string, HowItWorksConfig> = { en: howItWorks, ru: howItWorksRu };

@@ -2,13 +2,14 @@
 import Container from "@shared/ui/Container.astro";
 import Button from "@shared/ui/Button.astro";
 import ReumbraLogo from "@shared/ui/ReumbraLogo.astro";
-import { navigation } from "@shared/config/navigation";
-import { localePath } from "@shared/utils/locale";
+import { navigationI18n } from "@shared/config/navigation";
+import { localePath, i18n } from "@shared/utils/locale";
 import LanguageSwitcher from "@shared/ui/LanguageSwitcher.astro";
 
 const locale = Astro.currentLocale;
 const lp = (path: string) => localePath(path, locale);
-const { logo, links, cta } = navigation;
+const { logo, links, cta } = i18n(navigationI18n, locale);
+const viewAllLabel = locale === "ru" ? "Смотреть все модули" : "View all modules";
 ---
 
 <nav
@@ -83,7 +84,7 @@ const { logo, links, cta } = navigation;
 											href={lp(link.href)}
 											class="font-sans text-[14px] font-medium text-secondary hover:text-text transition-colors duration-200"
 										>
-											View all modules {"\u2192"}
+											{viewAllLabel} {"\u2192"}
 										</a>
 									</div>
 								</div>
@@ -169,7 +170,7 @@ const { logo, links, cta } = navigation;
 									href={lp(link.href)}
 									class="block font-sans text-[13px] font-medium text-secondary mt-2 py-2"
 								>
-									View all modules {"\u2192"}
+									{viewAllLabel} {"\u2192"}
 								</a>
 							</div>
 						</>

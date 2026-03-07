@@ -1,6 +1,8 @@
 ---
 import Container from "@shared/ui/Container.astro";
-import { pricingPage } from "@shared/config/pricing-page";
+import { pricingPageI18n } from "@shared/config/pricing-page";
+import { i18n } from "@shared/utils/locale";
+const pricingPage = i18n(pricingPageI18n, Astro.currentLocale);
 
 const rows = pricingPage.featureTable;
 ---

@@ -37,3 +37,25 @@ export const author = {
 		{ label: "Company", value: "Founder, Reumbra" },
 	],
 } as const satisfies AuthorConfig;
+
+const authorRu: AuthorConfig = {
+	sectionLabel: "BUILT BY",
+	headline: "Разработчик для разработчиков",
+	name: "Martin Sikora",
+	role: "Senior Engineer",
+	company: "Reumbra",
+	photoPath: "/images/author.jpg",
+	quote:
+		"Я создал Forge, потому что устал заново объяснять свою архитектуру AI-агентам. Каждый проект, каждый промпт - один и тот же контекст с нуля. Поэтому я закодировал 10 лет инженерных решений в систему, которая делает это автоматически.",
+	link: {
+		label: "reumbra.com \u2192",
+		href: "https://reumbra.com",
+	},
+	trustSignals: [
+		{ label: "Опыт", value: "10+ лет" },
+		{ label: "Роль", value: "Senior Engineer" },
+		{ label: "Компания", value: "Основатель, Reumbra" },
+	],
+};
+
+export const authorI18n: Record<string, AuthorConfig> = { en: author, ru: authorRu };

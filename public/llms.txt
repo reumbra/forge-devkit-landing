@@ -1,0 +1,27 @@
+# Forge DevKit
+
+> Architecture-aware AI development pipeline by Reumbra
+
+Forge DevKit is a commercial plugin ecosystem for AI coding agents (Claude Code, Cursor, Windsurf). One command scans your repository - stack, layers, patterns - and generates guardrails your AI actually follows.
+
+## Key Facts
+- One-time purchase: EUR 29 (Core), EUR 79 (Pro), EUR 149 (Bundle)
+- 7-gate architecture audit with 50+ quality patterns
+- 6 modules: forge-core, forge-product, forge-qa, forge-tracker, forge-autopilot, forge-worktree
+- Works with Claude Code, Cursor, Windsurf, and any AI agent that reads .claude/ or .cursorrules
+- Disposable meta-tool: generated artifacts work independently after setup
+- 14-day money-back guarantee
+
+## Modules
+- forge-core: Architecture audit, quality patterns, dev-skills generation
+- forge-product: Feature design in business language, user stories with acceptance criteria
+- forge-qa: Test generation from requirements, requirement traceability matrix
+- forge-tracker: Task tracker sync (GitHub, ClickUp, Linear, Notion, Jira)
+- forge-autopilot: Parallel agent orchestration, conflict detection, wave execution
+- forge-worktree: Git worktree lifecycle management
+
+## Links
+- Website: https://reumbra.com
+- Pricing: https://reumbra.com/pricing
+- Getting Started: https://reumbra.com/docs/getting-started
+- Usage Guide: https://reumbra.com/docs/usage-guide

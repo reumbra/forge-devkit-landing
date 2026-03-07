@@ -10,6 +10,7 @@ interface Props {
 }
 
 const { src, alt, caption, sourceUrl, sourceLabel } = Astro.props;
+const isRu = Astro.currentLocale === "ru";
 ---
 
 <section class="py-10 md:py-16">
@@ -30,7 +31,7 @@ const { src, alt, caption, sourceUrl, sourceLabel } = Astro.props;
 					<>
 						{" "}
 						<a href={sourceUrl} target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">
-							Source: {sourceLabel}
+							{isRu ? "Источник" : "Source"}: {sourceLabel}
 						</a>
 					</>
 				)}

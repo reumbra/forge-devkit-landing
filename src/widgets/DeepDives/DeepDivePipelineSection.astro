@@ -2,8 +2,10 @@
 import Container from "@shared/ui/Container.astro";
 import SectionLabel from "@shared/ui/SectionLabel.astro";
 import CodeBlock from "@shared/ui/CodeBlock.astro";
-import { deepDives } from "@shared/config/deep-dives";
+import { deepDivesI18n } from "@shared/config/deep-dives";
+import { i18n } from "@shared/utils/locale";
 
+const deepDives = i18n(deepDivesI18n, Astro.currentLocale);
 const section = deepDives[2];
 const codeLines = section.visual.lines.map((line) => line.text);
 ---

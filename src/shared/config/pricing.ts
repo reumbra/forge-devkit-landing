@@ -36,7 +36,7 @@ export const pricing = {
 			features: [
 				"Auto-detects your stack, layers, conventions",
 				"50+ quality patterns for AI-generated code",
-				"Project-aware dev-skills \u2014 one setup, forever",
+				"Project-aware dev-skills - one setup, forever",
 				"Scoped phases prevent runaway sessions",
 			],
 			cta: "Get Core",
@@ -53,7 +53,7 @@ export const pricing = {
 			description: "Complete pipeline from design to tested code",
 			features: [
 				"Everything in Core",
-				"Describe features in business language \u2014 AI builds from spec",
+				"Describe features in business language - AI builds from spec",
 				"Tests that trace back to requirements, not AI guesswork",
 				"Full pipeline: design \u2192 code \u2192 test",
 			],
@@ -72,9 +72,9 @@ export const pricing = {
 			description: "All 6 modules today. Every new module tomorrow. One purchase.",
 			features: [
 				"Everything in Pro",
-				"Task tracker sync \u2014 GitHub, Linear, ClickUp, Jira, Notion",
-				"forge-autopilot \u2014 parallel agent orchestration",
-				"forge-worktree \u2014 git worktree lifecycle",
+				"Task tracker sync - GitHub, Linear, ClickUp, Jira, Notion",
+				"forge-autopilot - parallel agent orchestration",
+				"forge-worktree - git worktree lifecycle",
 				"Every future module included",
 			],
 			cta: "Get Bundle",
@@ -92,3 +92,71 @@ export const pricing = {
 	],
 	competitorAnchor: "Devin: €240/yr mandatory. Cursor Pro: €240/yr. Forge: from €29 once.",
 } as const satisfies PricingConfig;
+
+const pricingRu: PricingConfig = {
+	sectionLabel: "PRICING",
+	headline: "Прозрачные цены. Без оплаты за токены.",
+	tiers: [
+		{
+			id: "core",
+			name: "CORE",
+			price: 29,
+			description: "Основа для AI-разработки с пониманием архитектуры",
+			features: [
+				"Автоматически определяет стек, слои, конвенции",
+				"50+ паттернов качества для AI-генерированного кода",
+				"Dev-скиллы с пониманием проекта - один раз настроил, работают всегда",
+				"Контролируемые фазы предотвращают бесконтрольные сессии",
+			],
+			cta: "Получить Core",
+			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-core",
+			isPopular: false,
+			renewalPrice: "\u20AC19/yr",
+			updatesNote: "Включает 1 год обновлений",
+		},
+		{
+			id: "pro",
+			name: "PRO",
+			price: 79,
+			description: "Полный pipeline от дизайна до протестированного кода",
+			features: [
+				"Все из Core",
+				"Описывайте фичи бизнес-языком - AI строит по спецификации",
+				"Тесты, привязанные к требованиям, а не угадывание AI",
+				"Полный pipeline: дизайн \u2192 код \u2192 тесты",
+			],
+			cta: "Получить Pro \u2192",
+			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-pro",
+			isPopular: true,
+			badge: "Рекомендуем",
+			renewalPrice: "\u20AC49/yr",
+			updatesNote: "Включает 1 год обновлений",
+		},
+		{
+			id: "bundle",
+			name: "BUNDLE",
+			price: 149,
+			description: "Все 6 модулей сейчас. Каждый новый модуль потом. Одна покупка.",
+			features: [
+				"Все из Pro",
+				"Синхронизация с трекерами - GitHub, Linear, ClickUp, Jira, Notion",
+				"forge-autopilot - параллельная оркестрация агентов",
+				"forge-worktree - lifecycle git worktree",
+				"Каждый будущий модуль включен",
+			],
+			cta: "Получить Bundle",
+			checkoutUrl: "https://reumbra.lemonsqueezy.com/buy/forge-bundle",
+			isPopular: false,
+			renewalPrice: "\u20AC89/yr",
+			updatesNote: "Включает 1 год обновлений",
+		},
+	],
+	trustSignals: [
+		"Однократная покупка. Ваши артефакты остаются навсегда.",
+		"Включает 1 год обновлений. Продление по желанию, по сниженной цене.",
+		"Без оплаты за токены. Без лимитов. Без неожиданных счетов.",
+	],
+	competitorAnchor: "Devin: \u20AC240/год обязательно. Cursor Pro: \u20AC240/год. Forge: от \u20AC29 однократно.",
+};
+
+export const pricingI18n: Record<string, PricingConfig> = { en: pricing, ru: pricingRu };

@@ -11,14 +11,16 @@ interface Props {
 }
 
 const { name, tagline, tier, tierPrice } = Astro.props;
-const lp = (path: string) => localePath(path, Astro.currentLocale);
+const locale = Astro.currentLocale;
+const lp = (path: string) => localePath(path, locale);
+const isRu = locale === "ru";
 ---
 
 <section class="py-16 md:py-24">
 	<Container>
 		<div class="max-w-[640px]">
 			<p class="font-mono text-[12px] font-medium uppercase tracking-[0.15em] text-text-muted mb-3">
-				Part of Forge DevKit ecosystem
+				{isRu ? "Часть экосистемы Forge DevKit" : "Part of Forge DevKit ecosystem"}
 			</p>
 			<h1 class="font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]">
 				<span class="text-secondary">{"\u25C7"}</span> {name}
@@ -28,9 +30,9 @@ const lp = (path: string) => localePath(path, Astro.currentLocale);
 			</p>
 			<div class="mt-6 flex items-center gap-4">
 				<Button variant="primary" href={lp("/pricing")}>
-					Get {tier} &mdash; {tierPrice} &rarr;
+					{isRu ? `${tier} - ${tierPrice} \u2192` : `Get ${tier} \u2014 ${tierPrice} \u2192`}
 				</Button>
-				<span class="font-mono text-[13px] text-text-muted">one-time</span>
+				<span class="font-mono text-[13px] text-text-muted">{isRu ? "разовый платёж" : "one-time"}</span>
 			</div>
 		</div>
 	</Container>

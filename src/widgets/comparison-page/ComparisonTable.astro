@@ -8,6 +8,8 @@ interface Props {
 }
 
 const { rows, competitor } = Astro.props;
+const locale = Astro.currentLocale;
+const dimensionLabel = locale === "ru" ? "Критерий" : "Dimension";
 ---
 
 <section class="py-12 md:py-20 border-t border-card">
@@ -17,7 +19,7 @@ const { rows, competitor } = Astro.props;
 				<thead>
 					<tr class="border-b border-card">
 						<th class="py-3 pr-4 font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted w-[25%]">
-							Dimension
+							{dimensionLabel}
 						</th>
 						<th class="py-3 pr-4 font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted w-[37.5%]">
 							{competitor}

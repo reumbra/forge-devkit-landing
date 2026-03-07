@@ -9,3 +9,5 @@ dist/
 .env.*
 .playwright-mcp/
 *.png
+.claude/forge-setup-state.yaml
+.claude/forge/

@@ -6,6 +6,7 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 import { localePath } from "@shared/utils/locale";
 
 const lp = (path: string) => localePath(path, Astro.currentLocale);
+const isRu = Astro.currentLocale === "ru";
 ---
 
 <section id="dashboard" class="py-10 md:py-20 lg:py-24">
@@ -16,16 +17,19 @@ const lp = (path: string) => localePath(path, Astro.currentLocale);
 				<SectionLabel text="ECOSYSTEM DASHBOARD" />
 
 				<h2 class="mt-4 font-sans text-[32px] font-bold leading-[1.15] tracking-[-0.02em] text-text md:text-[40px] lg:text-[48px]">
-					One command. Full ecosystem visibility.
+					{isRu ? "Одна команда. Полная видимость экосистемы." : "One command. Full ecosystem visibility."}
 				</h2>
 
 				<p class="mt-4 max-w-[540px] font-sans text-[18px] leading-[1.6] text-text-secondary">
-					After setup, <code class="font-mono text-secondary">/forge:setup</code> becomes your dashboard — plugin versions, project profile, integrations, and available actions. Everything your AI needs to know, always up to date.
+					{isRu
+						? <Fragment>После setup, <code class="font-mono text-secondary">/forge:setup</code> становится вашей панелью управления - версии плагинов, профиль проекта, интеграции и доступные действия. Все, что нужно вашему AI, всегда актуально.</Fragment>
+						: <Fragment>After setup, <code class="font-mono text-secondary">/forge:setup</code> becomes your dashboard — plugin versions, project profile, integrations, and available actions. Everything your AI needs to know, always up to date.</Fragment>
+					}
 				</p>
 
 				<div class="mt-8">
 					<Button variant="primary" href={lp("/pricing")}>
-						Get full ecosystem visibility — from €29 →
+						{isRu ? "Полная видимость экосистемы - от \u20ac29 \u2192" : "Get full ecosystem visibility \u2014 from \u20ac29 \u2192"}
 					</Button>
 				</div>
 			</div>

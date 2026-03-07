@@ -27,6 +27,29 @@
 | BL-020 | P3 | backlog | DPA verification: Cloudflare, LemonSqueezy | `[gdpr]` `[legal]` |
 | BL-021 | P1 | blocked | Landing copy audit: pipeline → TDD refactor | `[content]` `[copy]` `[blocked:refactor]` |
 | BL-022 | P1 | backlog | Pricing/plans sync: landing ↔ API ↔ marketplace ↔ LemonSqueezy | `[revenue]` `[sync]` `[cross-repo]` |
+| BL-023 | P0 | in-progress | Copy audit: fix number inconsistencies (7 vs 8 gates, 24 vs 50+ patterns) | `[copy]` `[credibility]` |
+| BL-024 | P0 | in-progress | SEO: create robots.txt + sitemap.xml + og-image placeholder | `[seo]` `[infra]` |
+| BL-025 | P0 | in-progress | SEO: fix RU homepage missing meta description | `[seo]` `[i18n]` `[bug]` |
+| BL-026 | P1 | in-progress | Copy: fix "Claude" brand risk in Problem section | `[copy]` `[brand]` |
+| BL-027 | P1 | in-progress | RU copy: unify guardrails terminology + kill dead anglicisms | `[i18n]` `[copy]` |
+| BL-028 | P1 | in-progress | RU copy: remove em-dashes from ru.ts | `[i18n]` `[copy]` |
+| BL-029 | P1 | in-progress | SEO: add JSON-LD schemas (FAQPage, Organization, SoftwareApplication) | `[seo]` `[schema]` |
+| BL-030 | P1 | in-progress | SEO: add llms.txt for AI search visibility | `[seo]` `[ai-seo]` |
+| BL-031 | P1 | in-progress | CRO: surface 14-day guarantee near pricing CTAs | `[cro]` `[trust]` |
+| BL-032 | P1 | in-progress | CRO: add CTA after comparison page verdicts | `[cro]` `[conversion]` |
+| BL-033 | P2 | in-progress | Analytics: implement Zaraz + GA4 tracking plan | `[analytics]` `[zaraz]` |
+| BL-034 | P2 | backlog | CRO: render competitor anchor on homepage pricing | `[cro]` `[pricing]` |
+| BL-035 | P2 | backlog | CRO: add persona labels under pricing tiers | `[cro]` `[pricing]` |
+| BL-036 | P2 | backlog | SEO: improve pricing page title tag | `[seo]` `[meta]` |
+| BL-037 | P2 | backlog | CRO: add "Why not DIY?" block on pricing page | `[cro]` `[objection]` |
+| BL-038 | P2 | backlog | AI SEO: add definition block "What is Forge DevKit?" | `[seo]` `[ai-seo]` `[content]` |
+| BL-039 | P2 | backlog | CRO: add "no free trial" FAQ item | `[cro]` `[objection]` |
+| BL-040 | P2 | backlog | SEO: cross-link comparison pages + module pages | `[seo]` `[internal-linking]` |
+| BL-041 | P3 | backlog | CRO: Pipeline + Modules section consolidation | `[cro]` `[ux]` |
+| BL-042 | P3 | backlog | SEO: replace JS language redirect with server-side | `[seo]` `[i18n]` `[infra]` |
+| BL-043 | P3 | backlog | AI SEO: unified comparison page (/compare) | `[seo]` `[ai-seo]` `[content]` |
+| BL-044 | P3 | backlog | EN copy: rewrite flat Final CTA subheadline | `[copy]` `[cro]` |
+| BL-045 | P3 | backlog | EN copy: add rationalization detector example | `[copy]` `[specificity]` |
 
 ---
 

@@ -40,7 +40,7 @@ export const pricingPage: PricingPageConfig = {
 		{ feature: "3 autonomy modes", module: "forge-autopilot", core: false, pro: false, bundle: true },
 		{ feature: "Git worktree lifecycle", module: "forge-worktree", core: false, pro: false, bundle: true },
 		{ feature: "Docker port isolation", module: "forge-worktree", core: false, pro: false, bundle: true },
-		{ feature: "Every future module", module: "\u2014", core: false, pro: false, bundle: true },
+		{ feature: "Every future module", module: " -", core: false, pro: false, bundle: true },
 	],
 
 	trustBadges: [
@@ -70,7 +70,7 @@ export const pricingPage: PricingPageConfig = {
 		{
 			question: "What happens after the first year?",
 			answer:
-				"Your generated artifacts continue working indefinitely. The 1-year update period gives you access to new patterns, templates, and module improvements. After it expires, everything you have keeps working \u2014 you just don't get new updates.",
+				"Your generated artifacts continue working indefinitely. The 1-year update period gives you access to new patterns, templates, and module improvements. After it expires, everything you have keeps working - you just don't get new updates.",
 		},
 		{
 			question: "Do I have to renew?",
@@ -99,3 +99,90 @@ export const pricingPage: PricingPageConfig = {
 		},
 	],
 };
+
+const pricingPageRu: PricingPageConfig = {
+	headline: "Однократная покупка. Ваши артефакты остаются навсегда.",
+	subheadline:
+		"Без подписки. Без оплаты за токены. Заплатите один раз, используйте сгенерированные артефакты бессрочно.",
+	competitorAnchor:
+		"Devin: \u20AC240/год обязательно. Cursor Pro: \u20AC240/год. Forge: от \u20AC29 однократно.",
+
+	featureTable: [
+		{ feature: "Архитектурный аудит (7-gate wizard)", module: "forge-core", core: true, pro: true, bundle: true },
+		{ feature: "50+ паттернов качества", module: "forge-core", core: true, pro: true, bundle: true },
+		{ feature: "15 детекторов рационализации", module: "forge-core", core: true, pro: true, bundle: true },
+		{ feature: "3 режима исполнения", module: "forge-core", core: true, pro: true, bundle: true },
+		{ feature: "Cross-repo поддержка", module: "forge-core", core: true, pro: true, bundle: true },
+		{ feature: "Продуктовый дизайн (9 архетипов)", module: "forge-product", core: false, pro: true, bundle: true },
+		{ feature: "User stories с AC", module: "forge-product", core: false, pro: true, bundle: true },
+		{ feature: "Библиотека UX-критериев", module: "forge-product", core: false, pro: true, bundle: true },
+		{ feature: "Генерация тестов (8+ фреймворков)", module: "forge-qa", core: false, pro: true, bundle: true },
+		{ feature: "4-уровневая трассировка", module: "forge-qa", core: false, pro: true, bundle: true },
+		{ feature: "LLM-as-Judge", module: "forge-qa", core: false, pro: true, bundle: true },
+		{ feature: "Синхронизация с трекерами (5 интеграций)", module: "forge-tracker", core: false, pro: true, bundle: true },
+		{ feature: "Параллельная оркестрация агентов", module: "forge-autopilot", core: false, pro: false, bundle: true },
+		{ feature: "Wave-планирование без конфликтов", module: "forge-autopilot", core: false, pro: false, bundle: true },
+		{ feature: "3 режима автономности", module: "forge-autopilot", core: false, pro: false, bundle: true },
+		{ feature: "Lifecycle git worktree", module: "forge-worktree", core: false, pro: false, bundle: true },
+		{ feature: "Изоляция Docker-портов", module: "forge-worktree", core: false, pro: false, bundle: true },
+		{ feature: "Каждый будущий модуль", module: "-", core: false, pro: false, bundle: true },
+	],
+
+	trustBadges: [
+		{
+			icon: "\u2714",
+			title: "Без подписки",
+			description: "Однократная покупка. Не \u20AC20/месяц. Не \u20AC240/год.",
+		},
+		{
+			icon: "\u221E",
+			title: "Артефакты ваши навсегда",
+			description: "Сгенерированные файлы остаются в проекте даже без продления.",
+		},
+		{
+			icon: "\u21BB",
+			title: "Продление по желанию",
+			description: "1 год обновлений включен. Продление ~60% от цены для продолжения обновлений.",
+		},
+		{
+			icon: "\u2694",
+			title: "Без лимитов использования",
+			description: "Без оплаты за токены. Без лимитов на рабочие места. Без неожиданных счетов.",
+		},
+	],
+
+	faq: [
+		{
+			question: "Что происходит после первого года?",
+			answer:
+				"Ваши сгенерированные артефакты продолжают работать бессрочно. Год обновлений дает доступ к новым паттернам, шаблонам и улучшениям модулей. После истечения все, что у вас есть, продолжает работать - просто не получаете новых обновлений.",
+		},
+		{
+			question: "Обязательно ли продлевать?",
+			answer:
+				"Нет. Продление полностью по желанию. При продлении вы получаете еще год обновлений по сниженной цене (~60% от первоначальной). Без продления ваши артефакты продолжают работать навсегда.",
+		},
+		{
+			question: "Что если я не продлю, а потом захочу?",
+			answer:
+				"Можете продлить в любое время. Вы получите доступ ко всем обновлениям, вышедшим с момента окончания предыдущего периода.",
+		},
+		{
+			question: "Есть ли возврат средств?",
+			answer:
+				"Да. 14-дневная гарантия возврата без вопросов. Если Forge не подходит для вашего проекта, напишите нам - вернем полную сумму.",
+		},
+		{
+			question: "Можно ли использовать на нескольких проектах?",
+			answer:
+				"Да. Лицензия работает на 3 устройствах. Вы можете использовать Forge на любом количестве проектов на этих устройствах.",
+		},
+		{
+			question: "Есть ли командное лицензирование?",
+			answer:
+				"Пока нет. Каждому разработчику нужна своя лицензия. Командные тарифы запланированы на этот год.",
+		},
+	],
+};
+
+export const pricingPageI18n: Record<string, PricingPageConfig> = { en: pricingPage, ru: pricingPageRu };

@@ -34,7 +34,7 @@ export const qaPageConfig: ModulePageConfig = {
 		{
 			title: "Generate",
 			description:
-				"From product artifacts or code analysis — unit, integration, component, E2E, and acceptance tests.",
+				"From product artifacts or code analysis - unit, integration, component, E2E, and acceptance tests.",
 			visual: [
 				{ text: "/forge:qa test authentication", color: "secondary" },
 			],
@@ -92,7 +92,7 @@ export const qaPageConfig: ModulePageConfig = {
 		},
 		{
 			dimension: "Quality check",
-			them: "None \u2014 tests just need to pass",
+			them: "None - tests just need to pass",
 			forge: "LLM-as-Judge evaluates against rubrics",
 		},
 		{
@@ -117,8 +117,134 @@ export const qaPageConfig: ModulePageConfig = {
 	],
 
 	seo: {
-		title: "forge-qa \u2014 Tests That Trace to Requirements | Forge DevKit",
+		title: "forge-qa - Tests That Trace to Requirements | Forge DevKit",
 		description:
 			"Generate requirement-traced tests with 4-level traceability. LLM-as-Judge catches fake tests. 8+ frameworks, 10 execution modes.",
 	},
+};
+
+const qaPageConfigRu: ModulePageConfig = {
+	slug: "qa",
+	name: "forge-qa",
+	tagline: "Тесты с прослеживаемостью к требованиям",
+	tier: "Pro",
+	tierPrice: "€79",
+
+	problems: [
+		{
+			pain: "AI пишет тесты, которые ничего не тестируют",
+			evidence:
+				"Unit-тесты фейковые. Используют моковые данные. Тесты проходят, но не проверяют реальное поведение.",
+		},
+		{
+			pain: "Нет связи с требованиями",
+			evidence:
+				"Невозможно определить, какой тест покрывает какой критерий приемки. Пробелы невидимы.",
+		},
+		{
+			pain: "Тестовая стратегия - последняя мысль",
+			evidence:
+				"AI генерирует случайные тесты. Нет плана покрытия, нет приоритизации, нет консистентности фреймворка.",
+		},
+	],
+
+	steps: [
+		{
+			title: "Настройка",
+			description:
+				"Тестовый аудитор сканирует проект: фреймворк, паттерны, инструменты покрытия, уровень зрелости.",
+		},
+		{
+			title: "Генерация",
+			description:
+				"Из продуктовых артефактов или анализа кода - unit, integration, component, E2E и acceptance тесты.",
+			visual: qaPageConfig.steps[1].visual,
+		},
+		{
+			title: "Прослеживаемость",
+			description:
+				"4 уровня: AC\u2192unit, UC\u2192E2E, UX\u2192component. Каждый тест привязан к требованию.",
+		},
+		{
+			title: "Оценка",
+			description:
+				"LLM-as-Judge оценивает качество тестов по рубрикам. Ловит фейковые моки и бессмысленные ассерты.",
+		},
+	],
+
+	capabilities: [
+		{
+			icon: "\u25C7",
+			title: "4 уровня прослеживаемости",
+			description:
+				"AC\u2192unit-тесты, UC\u2192E2E-тесты, UX\u2192компонентные тесты, LLM-as-Judge для качества.",
+		},
+		{
+			icon: "\u25C7",
+			title: "8+ тестовых фреймворков",
+			description:
+				"Vitest, Jest, Playwright, Cypress, Testing Library, Supertest и другие. Автодетекция.",
+		},
+		{
+			icon: "\u25C7",
+			title: "LLM-as-Judge",
+			description:
+				"Оценка по рубрикам ловит фейковые тесты, бессмысленные моки и пропущенные крайние случаи.",
+		},
+		{
+			icon: "\u25C7",
+			title: "Интеграция с продуктовыми артефактами",
+			description:
+				"Если артефакты forge-product есть - тесты генерируются из требований. Без них - из анализа кода.",
+		},
+		{
+			icon: "\u25C7",
+			title: "10 режимов выполнения",
+			description:
+				"Unit, integration, component, E2E, acceptance, coverage, plan, generate, quality, upgrade.",
+		},
+	],
+
+	comparison: [
+		{
+			dimension: "Источник тестов",
+			them: "AI угадывает по коду",
+			forge: "Прослеживаемость к критериям приемки и use cases",
+		},
+		{
+			dimension: "Проверка качества",
+			them: "Нет - тесты просто должны пройти",
+			forge: "LLM-as-Judge оценивает по рубрикам",
+		},
+		{
+			dimension: "Карта покрытия",
+			them: "Только покрытие строк",
+			forge: "Матрица прослеживаемости требований",
+		},
+	],
+	comparisonTarget: "Virtuoso / TestSprite",
+
+	integrations: [
+		{
+			module: "forge-core",
+			description: "Данные архитектуры для умных решений по тестовому покрытию",
+			href: "/modules/core",
+		},
+		{
+			module: "forge-product",
+			description: "Продуктовые артефакты дают требования для генерации тестов",
+			href: "/modules/product",
+		},
+	],
+
+	seo: {
+		title: "forge-qa - Тесты с прослеживаемостью к требованиям | Forge DevKit",
+		description:
+			"Генерация тестов с 4-уровневой прослеживаемостью. LLM-as-Judge ловит фейковые тесты. 8+ фреймворков, 10 режимов выполнения.",
+	},
+};
+
+export const qaPageConfigI18n: Record<string, ModulePageConfig> = {
+	en: qaPageConfig,
+	ru: qaPageConfigRu,
 };

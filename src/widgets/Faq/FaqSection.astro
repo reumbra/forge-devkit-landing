@@ -2,7 +2,9 @@
 import Container from "@shared/ui/Container.astro";
 import SectionLabel from "@shared/ui/SectionLabel.astro";
 import AccordionItem from "@shared/ui/AccordionItem.astro";
-import { faq } from "@shared/config/faq";
+import { faqI18n } from "@shared/config/faq";
+import { i18n } from "@shared/utils/locale";
+const faq = i18n(faqI18n, Astro.currentLocale);
 ---
 
 <section id="faq" class="py-12 md:py-24 lg:py-32">

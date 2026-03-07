@@ -3,11 +3,13 @@ import Container from "@shared/ui/Container.astro";
 import Button from "@shared/ui/Button.astro";
 import SectionLabel from "@shared/ui/SectionLabel.astro";
 import ArchitectureAuditHero from "@shared/ui/snippets/ArchitectureAuditHero.astro";
-import { hero } from "@shared/config/hero";
-import { socialProof } from "@shared/config/social-proof";
-import { localePath } from "@shared/utils/locale";
+import { heroI18n } from "@shared/config/hero";
+import { socialProofI18n } from "@shared/config/social-proof";
+import { localePath, i18n } from "@shared/utils/locale";
 
 const lp = (path: string) => localePath(path, Astro.currentLocale);
+const hero = i18n(heroI18n, Astro.currentLocale);
+const socialProof = i18n(socialProofI18n, Astro.currentLocale);
 const { sectionLabel, headline, subheadline, ctas } = hero;
 ---
 

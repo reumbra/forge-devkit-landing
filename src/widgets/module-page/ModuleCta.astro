@@ -12,22 +12,23 @@ interface Props {
 const { name, tier, tierPrice } = Astro.props;
 const locale = Astro.currentLocale;
 const lp = (path: string) => localePath(path, locale);
+const isRu = locale === "ru";
 ---
 
 <section class="py-16 md:py-24 border-t border-card">
 	<Container>
 		<div class="text-center">
 			<h2 class="font-sans text-[28px] font-bold text-text md:text-[36px]">
-				Get started with {name}
+				{isRu ? `Начните с ${name}` : `Get started with ${name}`}
 			</h2>
 			<div class="mt-6 flex items-center justify-center gap-4">
 				<Button variant="primary" href={lp("/pricing")}>
-					Get {tier} &mdash; {tierPrice} &rarr;
+					{isRu ? `${tier} - ${tierPrice} \u2192` : `Get ${tier} \u2014 ${tierPrice} \u2192`}
 				</Button>
 			</div>
 			<p class="mt-4">
 				<a href={lp("/modules")} class="font-sans text-[14px] text-secondary hover:text-text transition-colors duration-200">
-					See all modules &rarr;
+					{isRu ? "Все модули \u2192" : "See all modules \u2192"}
 				</a>
 			</p>
 		</div>

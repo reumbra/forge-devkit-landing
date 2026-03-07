@@ -2,8 +2,10 @@
 import Container from "@shared/ui/Container.astro";
 import SectionLabel from "@shared/ui/SectionLabel.astro";
 import Card from "@shared/ui/Card.astro";
-import { solution } from "@shared/config/solution";
+import { solutionI18n } from "@shared/config/solution";
+import { i18n } from "@shared/utils/locale";
 
+const solution = i18n(solutionI18n, Astro.currentLocale);
 const { sectionLabel, headline, closingLine, pillars } = solution;
 ---
 

@@ -24,7 +24,7 @@ export const modules = {
 	sectionLabel: "MODULES",
 	headline: "Six modules. One pipeline.",
 	closingLine:
-		"Use all six for a full pipeline. Use separately — each module works standalone.",
+		"Use all six for a full pipeline. Use separately - each module works standalone.",
 	modules: [
 		{
 			id: "forge-core",
@@ -124,3 +124,110 @@ export const modules = {
 		},
 	],
 } as const satisfies ModulesConfig;
+
+const modulesRu: ModulesConfig = {
+	sectionLabel: "MODULES",
+	headline: "Шесть модулей. Один pipeline.",
+	closingLine:
+		"Используйте все шесть для полного pipeline. Или по отдельности - каждый модуль работает автономно.",
+	modules: [
+		{
+			id: "forge-core",
+			name: "forge-core",
+			tagline: "Архитектурный аудит и AI-гайдрейлы",
+			isHero: true,
+			badge: "Начните здесь",
+			stats: [
+				"7-gate wizard",
+				"50+ паттернов качества",
+				"15 детекторов рационализации",
+				"3 семейства шаблонов",
+			],
+			features: [
+				"Архитектурный аудит",
+				"Паттерны качества",
+				"Генерация dev-скиллов",
+				"Pipeline-фазы",
+			],
+		},
+		{
+			id: "forge-product",
+			name: "forge-product",
+			tagline: "Дизайн фич на бизнес-языке",
+			isHero: false,
+			stats: [
+				"8 продуктовых архетипов",
+				"User flows",
+				"Stories с AC",
+				"50 UX-критериев",
+			],
+			features: [
+				"Продуктовые архетипы",
+				"Генерация user flow",
+				"User stories с acceptance criteria",
+				"Библиотека UX-критериев",
+			],
+		},
+		{
+			id: "forge-qa",
+			name: "forge-qa",
+			tagline: "Тесты из требований",
+			isHero: false,
+			stats: [
+				"8+ тест-фреймворков",
+				"AC в unit-тесты",
+				"UC в E2E",
+				"Матрица трассировки",
+			],
+			features: [
+				"Мульти-фреймворковая генерация тестов",
+				"Acceptance criteria в unit-тесты",
+				"Use cases в E2E-тесты",
+				"Матрица трассировки требований",
+			],
+		},
+		{
+			id: "forge-tracker",
+			name: "forge-tracker",
+			tagline: "Мост между бэклогом и разработкой",
+			isHero: false,
+			stats: [
+				"5 интеграций",
+			],
+			features: [
+				"Интеграция с GitHub",
+				"Интеграция с ClickUp",
+				"Интеграция с Linear",
+				"Интеграция с Notion",
+				"Интеграция с Jira",
+			],
+		},
+		{
+			id: "forge-autopilot",
+			name: "forge-autopilot",
+			tagline: "Параллельные агенты без merge-хаоса",
+			isHero: false,
+			stats: ["3 режима автономности", "0 merge-конфликтов"],
+			features: [
+				"Бэклог \u2192 детекция конфликтов \u2192 wave-исполнение",
+				"Автономные участники в изолированных worktree",
+				"Auto-merge с предотвращением конфликтов",
+				"3 режима: supervised, semi-auto, full-auto",
+			],
+		},
+		{
+			id: "forge-worktree",
+			name: "forge-worktree",
+			tagline: "Lifecycle-менеджер git worktree",
+			isHero: false,
+			stats: ["3 шаблона", "0 конфликтов портов"],
+			features: [
+				"3 шаблона: Docker backend, Frontend, Generic",
+				"Изоляция Docker-портов по worktree",
+				"Авто-очистка при merge ветки",
+			],
+		},
+	],
+};
+
+export const modulesI18n: Record<string, ModulesConfig> = { en: modules, ru: modulesRu };

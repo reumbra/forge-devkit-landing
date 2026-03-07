@@ -21,11 +21,11 @@ export const devinComparison: ComparisonPageConfig = {
 		{
 			dimension: "Pricing",
 			them: "$20/mo + ACU charges (\u2265$240/yr)",
-			forge: "\u20AC29\u2013\u20AC149 one-time, renewal optional",
+			forge: "\u20AC29-\u20AC149 one-time, renewal optional",
 		},
 		{
 			dimension: "Architecture awareness",
-			them: "General purpose \u2014 learns from docs",
+			them: "General purpose - learns from docs",
 			forge: "Project-specific from 7-gate audit (50+ patterns)",
 		},
 		{
@@ -43,8 +43,62 @@ export const devinComparison: ComparisonPageConfig = {
 		"Devin replaces your developer. Forge augments your development workflow. If you want to keep control of your codebase and use your preferred AI agent, Forge is the right choice.",
 	ctaText: "Try Forge DevKit \u2192",
 	seo: {
-		title: "Forge DevKit vs Devin \u2014 AI Infrastructure vs Autonomous Agent",
+		title: "Forge DevKit vs Devin - AI Infrastructure vs Autonomous Agent",
 		description:
 			"Compare Forge DevKit to Devin. One-time \u20AC29-149 vs $20/mo subscription. Your repo and tools vs sandboxed environment.",
 	},
+};
+
+const devinComparisonRu: ComparisonPageConfig = {
+	slug: "devin",
+	competitor: "Devin",
+	searchIntent: [
+		"devin vs forge",
+		"devin alternative",
+		"devin ai pricing",
+		"devin autonomous agent",
+	],
+	headline: "Forge DevKit vs Devin",
+	subheadline:
+		"Devin - автономный AI-разработчик. Forge - инфраструктура для ВАШЕГО AI-агента.",
+	rows: [
+		{
+			dimension: "Что это",
+			them: "Автономный AI-разработчик в собственной среде",
+			forge: "Пайплайн с пониманием архитектуры для вашего AI-агента",
+		},
+		{
+			dimension: "Стоимость",
+			them: "$20/мес + ACU (\u2265$240/год)",
+			forge: "\u20AC29-\u20AC149 разово, продление по желанию",
+		},
+		{
+			dimension: "Знание архитектуры",
+			them: "Общего назначения - учится из документации",
+			forge: "Специфичное для проекта из 7-этапного аудита (50+ паттернов)",
+		},
+		{
+			dimension: "Мультиагентность",
+			them: "Один агент",
+			forge: "Параллельные волны без конфликтов через forge-autopilot",
+		},
+		{
+			dimension: "Владение кодом",
+			them: "Изолированная среда Devin",
+			forge: "Ваш репозиторий, ваши инструменты, ваш CI/CD",
+		},
+	],
+	verdict:
+		"Devin заменяет разработчика. Forge усиливает процесс разработки. Если вы хотите сохранить контроль над кодовой базой и использовать предпочитаемый AI-агент, Forge - правильный выбор.",
+	ctaText: "Попробовать Forge DevKit \u2192",
+	seo: {
+		title: "Forge DevKit vs Devin - AI-инфраструктура vs автономный агент",
+		description:
+			"Сравнение Forge DevKit и Devin. Разовая покупка \u20AC29-149 vs подписка $20/мес. Ваш репозиторий и инструменты vs изолированная среда.",
+	},
+};
+
+export const devinComparisonI18n: Record<string, ComparisonPageConfig> = {
+	en: devinComparison,
+	ru: devinComparisonRu,
 };

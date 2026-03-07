@@ -12,9 +12,10 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths;
 
 const { slug } = Astro.params;
-const config: ComparisonPageConfig = Object.values(
-	await import(`../../shared/config/comparisons/${slug}.ts`)
-)[0] as ComparisonPageConfig;
+const mod = await import(`../../shared/config/comparisons/${slug}.ts`);
+const i18nKey = Object.keys(mod).find((k) => k.endsWith("I18n"));
+const i18nRecord = i18nKey ? mod[i18nKey] : null;
+const config: ComparisonPageConfig = i18nRecord?.en ?? (Object.values(mod)[0] as ComparisonPageConfig);
 
 const breadcrumbs = [
 	{ label: `Forge vs ${config.competitor}` },

@@ -9,17 +9,17 @@ import ModuleComparison from "@widgets/module-page/ModuleComparison.astro";
 import ModuleEcosystem from "@widgets/module-page/ModuleEcosystem.astro";
 import ModuleCta from "@widgets/module-page/ModuleCta.astro";
 import ModuleDiagram from "@widgets/module-page/ModuleDiagram.astro";
-import { moduleSlugs } from "@shared/config/module-pages";
+import { modulePagesI18n, moduleSlugs } from "@shared/config/module-pages";
 import type { ModulePageConfig } from "@shared/config/module-pages";
+import { i18n } from "@shared/utils/locale";
 
 export const getStaticPaths = (() => {
 	return moduleSlugs.map((slug) => ({ params: { slug } }));
 }) satisfies GetStaticPaths;
 
 const { slug } = Astro.params;
-const config: ModulePageConfig = Object.values(
-	await import(`../../../shared/config/module-pages/${slug}.ts`)
-)[0] as ModulePageConfig;
+const pages = i18n(modulePagesI18n, Astro.currentLocale);
+const config = pages[slug] as ModulePageConfig;
 
 const breadcrumbs = [
 	{ label: "Модули", href: "/modules" },

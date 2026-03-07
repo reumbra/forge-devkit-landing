@@ -30,7 +30,7 @@ export const deepDives = [
 		sectionLabel: "ARCHITECTURE AUDIT",
 		headline: "Your AI forgets your architecture. Forge doesn\u2019t.",
 		description:
-			"8-gate wizard auto-detects your stack, layers, architecture patterns, and conventions. Generates project-specific dev-skills. No manual config. No prompt engineering.",
+			"7-gate wizard auto-detects your stack, layers, architecture patterns, and conventions. Generates project-specific dev-skills. No manual config. No prompt engineering.",
 		layout: "text-left",
 		visual: {
 			lines: [
@@ -49,7 +49,7 @@ export const deepDives = [
 				{ text: "Testing:    Jest + Supertest", type: "info" },
 				{ text: "", type: "blank" },
 				{ text: "\u2192 12 dev-skills generated", type: "success" },
-				{ text: "\u2192 24 quality patterns applied", type: "success" },
+				{ text: "\u2192 50+ quality patterns applied", type: "success" },
 				{ text: "\u2192 Naming conventions: camelCase (code),", type: "success" },
 				{ text: "  kebab-case (files), PascalCase (classes)", type: "success" },
 				{ text: "", type: "blank" },
@@ -72,7 +72,7 @@ export const deepDives = [
 		sectionLabel: "FORGE-AUTOPILOT",
 		headline: "Parallel agents without merge hell",
 		description:
-			"Agent Teams are powerful \u2014 until 3 agents edit the same file. forge-autopilot orchestrates autonomous teammates like Kubernetes orchestrates containers: backlog triage, conflict detection, wave execution, auto-merge.",
+			"Agent Teams are powerful - until 3 agents edit the same file. forge-autopilot orchestrates autonomous teammates like Kubernetes orchestrates containers: backlog triage, conflict detection, wave execution, auto-merge.",
 		layout: "text-right",
 		visual: {
 			lines: [
@@ -80,8 +80,8 @@ export const deepDives = [
 				{ text: "", type: "blank" },
 				{ text: "\u2713 Triage: 3 features classified", type: "success" },
 				{ text: "\u2713 Conflicts: auth \u2194 payments (shared User model)", type: "success" },
-				{ text: "\u2713 Wave 1: [auth] [notifications] \u2014 parallel", type: "success" },
-				{ text: "\u2713 Wave 2: [payments] \u2014 after auth merges", type: "success" },
+				{ text: "\u2713 Wave 1: [auth] [notifications] - parallel", type: "success" },
+				{ text: "\u2713 Wave 2: [payments] - after auth merges", type: "success" },
 				{ text: "", type: "blank" },
 				{ text: "\u26A1 Deploying 2 teammates to worktrees...", type: "highlight" },
 			],
@@ -135,3 +135,38 @@ export const deepDives = [
 		badges: [],
 	},
 ] as const satisfies DeepDivesConfig;
+
+const deepDivesRu: DeepDivesConfig = [
+	{
+		id: "architecture-audit",
+		sectionLabel: "ARCHITECTURE AUDIT",
+		headline: "Ваш AI забывает архитектуру. Forge - нет.",
+		description:
+			"7-этапный визард автоматически определяет стек, слои, архитектурные паттерны и конвенции. Генерирует проектно-специфичные dev-skills. Без ручной настройки. Без prompt engineering.",
+		layout: "text-left",
+		visual: deepDives[0].visual,
+		badges: deepDives[0].badges,
+	},
+	{
+		id: "autopilot-orchestration",
+		sectionLabel: "FORGE-AUTOPILOT",
+		headline: "Параллельные агенты без merge-ада",
+		description:
+			"Agent Teams мощны - пока 3 агента не начнут редактировать один файл. forge-autopilot управляет автономными участниками команды как Kubernetes управляет контейнерами: триаж бэклога, детекция конфликтов, волновое выполнение, auto-merge.",
+		layout: "text-right",
+		visual: deepDives[1].visual,
+		badges: deepDives[1].badges,
+	},
+	{
+		id: "requirement-traceability",
+		sectionLabel: "REQUIREMENT TRACEABILITY",
+		headline: "Тесты, привязанные к требованиям. Не AI-угадывание.",
+		description:
+			"forge-product создает верифицируемые acceptance criteria ДО кода. forge-qa генерирует тесты ИЗ этих критериев. Каждый тест доказывает требование.",
+		layout: "text-left",
+		visual: deepDives[2].visual,
+		badges: deepDives[2].badges,
+	},
+];
+
+export const deepDivesI18n: Record<string, DeepDivesConfig> = { en: [...deepDives], ru: deepDivesRu };

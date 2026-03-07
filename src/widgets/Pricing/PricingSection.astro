@@ -4,13 +4,15 @@ import SectionLabel from "@shared/ui/SectionLabel.astro";
 import Card from "@shared/ui/Card.astro";
 import Button from "@shared/ui/Button.astro";
 import Badge from "@shared/ui/Badge.astro";
-import { pricing } from "@shared/config/pricing";
+import { pricingI18n, type PricingTier } from "@shared/config/pricing";
+import { i18n } from "@shared/utils/locale";
+const pricing = i18n(pricingI18n, Astro.currentLocale);
 
 /**
  * Primary/large Button variants auto-append " ->".
  * Strip trailing arrow from CTA text for primary buttons to avoid duplication.
  */
-function ctaLabel(tier: (typeof pricing.tiers)[number]): string {
+function ctaLabel(tier: PricingTier): string {
 	if (tier.isPopular) {
 		return tier.cta.replace(/\s*\u2192\s*$/, "");
 	}
@@ -110,6 +112,11 @@ function ctaLabel(tier: (typeof pricing.tiers)[number]): string {
 					</p>
 				))
 			}
+			{pricing.competitorAnchor && (
+				<p class="mt-4 font-sans text-[13px] text-text-muted/60">
+					{pricing.competitorAnchor}
+				</p>
+			)}
 		</div>
 	</Container>
 </section>

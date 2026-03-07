@@ -68,7 +68,7 @@ export const productPageConfig: ModulePageConfig = {
 			icon: "\u25C7",
 			title: "User flows with edge cases",
 			description:
-				"Happy paths, error states, and boundary conditions — all generated from feature description.",
+				"Happy paths, error states, and boundary conditions - all generated from feature description.",
 		},
 		{
 			icon: "\u25C7",
@@ -111,8 +111,128 @@ export const productPageConfig: ModulePageConfig = {
 	],
 
 	seo: {
-		title: "forge-product \u2014 Business Specs AI Can Actually Consume | Forge DevKit",
+		title: "forge-product - Business Specs AI Can Actually Consume | Forge DevKit",
 		description:
 			"Turn feature descriptions into AI-consumable artifacts: user stories with AC, use cases, UX criteria. 9 product archetypes, 9 methodology frameworks.",
 	},
+};
+
+const productPageConfigRu: ModulePageConfig = {
+	slug: "product",
+	name: "forge-product",
+	tagline: "Бизнес-язык \u2192 спеки, понятные AI",
+	tier: "Pro",
+	tierPrice: "€79",
+
+	problems: [
+		{
+			pain: "PRD, которые AI не может распарсить",
+			evidence:
+				"Продуктовые доки в Notion/Figma/Miro рассчитаны на людей. AI-агенты не могут извлечь из них требования.",
+		},
+		{
+			pain: "Фичи без критериев приемки",
+			evidence:
+				"AI сразу пишет код. Без пользовательских флоу, без крайних случаев, без definition of done.",
+		},
+		{
+			pain: "Спеки не соответствуют архитектуре",
+			evidence:
+				"Продуктовые спеки ссылаются на компоненты, которых нет, или игнорируют архитектурные границы.",
+		},
+	],
+
+	steps: [
+		{
+			title: "Настройка",
+			description:
+				"Продуктовый аудитор определяет тип продукта: B2C, B2B, маркетплейс, внутренний инструмент.",
+		},
+		{
+			title: "Дизайн",
+			description:
+				"Опишите фичу на бизнес-языке. forge-product генерирует user flows, stories и UX-критерии.",
+			visual: productPageConfig.steps[1].visual,
+		},
+		{
+			title: "Генерация",
+			description:
+				"Создаёт артефакты для AI: user stories с AC, use cases, матрицу UX-критериев.",
+		},
+		{
+			title: "Интеграция",
+			description:
+				"forge-qa использует артефакты для генерации тестов с прослеживаемостью. forge-core ссылается на них в гайдрейлах.",
+		},
+	],
+
+	capabilities: [
+		{
+			icon: "\u25C7",
+			title: "9 продуктовых архетипов",
+			description:
+				"B2C-приложение, B2B SaaS, маркетплейс, внутренний инструмент, API-сервис и другие. Автодетекция.",
+		},
+		{
+			icon: "\u25C7",
+			title: "9 фреймворков методологий",
+			description:
+				"Jobs to Be Done, Impact Mapping, Story Mapping, Event Storming и другие.",
+		},
+		{
+			icon: "\u25C7",
+			title: "User flows с крайними случаями",
+			description:
+				"Happy path, ошибки, граничные условия - всё генерируется из описания фичи.",
+		},
+		{
+			icon: "\u25C7",
+			title: "AI Enhancement Mixin",
+			description:
+				"Дополняет любой архетип AI-специфичными аспектами: промпт-дизайн, выбор модели, fallback-стратегии.",
+		},
+	],
+
+	comparison: [
+		{
+			dimension: "Вход",
+			them: "Визуальные доски, ручные PRD",
+			forge: "Текстовое описание фичи",
+		},
+		{
+			dimension: "Выход",
+			them: "Документы для людей",
+			forge: "Артефакты для AI с критериями приемки",
+		},
+		{
+			dimension: "Связь с тестами",
+			them: "Ручная передача",
+			forge: "Прямой пайплайн в forge-qa",
+		},
+	],
+	comparisonTarget: "Figma/Miro PRD tools",
+
+	integrations: [
+		{
+			module: "forge-core",
+			description: "Данные архитектуры определяют продуктовые ограничения",
+			href: "/modules/core",
+		},
+		{
+			module: "forge-qa",
+			description: "Генерация тестов напрямую связана с продуктовыми артефактами",
+			href: "/modules/qa",
+		},
+	],
+
+	seo: {
+		title: "forge-product - Бизнес-спеки, которые AI действительно понимает | Forge DevKit",
+		description:
+			"Превращайте описания фич в артефакты для AI: user stories с AC, use cases, UX-критерии. 9 продуктовых архетипов, 9 фреймворков методологий.",
+	},
+};
+
+export const productPageConfigI18n: Record<string, ModulePageConfig> = {
+	en: productPageConfig,
+	ru: productPageConfigRu,
 };

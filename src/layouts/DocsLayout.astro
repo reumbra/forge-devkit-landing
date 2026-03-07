@@ -2,8 +2,8 @@
 import BaseLayout from "./BaseLayout.astro";
 import NavBar from "@widgets/NavBar/NavBar.astro";
 import FooterSection from "@widgets/Footer/FooterSection.astro";
-import { docsNav } from "@shared/config/docs-nav";
-import { localePath } from "@shared/utils/locale";
+import { docsNavI18n } from "@shared/config/docs-nav";
+import { localePath, i18n } from "@shared/utils/locale";
 
 interface Props {
 	title?: string;
@@ -14,6 +14,7 @@ const { title, description } = Astro.props;
 const locale = Astro.currentLocale ?? "en";
 const lp = (p: string) => localePath(p, locale);
 
+const docsNav = i18n(docsNavI18n, locale);
 const currentPath = Astro.url.pathname.replace(/\/$/, "");
 const currentPathBase = currentPath.replace(/^\/ru/, "") || "/";
 ---
@@ -69,7 +70,7 @@ const currentPathBase = currentPath.replace(/^\/ru/, "") || "/";
 						<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
 							<path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
 						</svg>
-						<span>Navigation</span>
+						<span>{locale === "ru" ? "Навигация" : "Navigation"}</span>
 						<svg class="dropdown-chevron transition-transform duration-200" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
 							<path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>

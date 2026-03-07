@@ -11,3 +11,11 @@ export function localePath(path: string, locale: string | undefined): string {
 	}
 	return path;
 }
+
+/**
+ * Pick locale-specific config from a { en, ru } record.
+ * Falls back to English if locale not found.
+ */
+export function i18n<T>(configs: Record<string, T>, locale?: string): T {
+	return configs[locale ?? "en"] ?? configs["en"]!;
+}

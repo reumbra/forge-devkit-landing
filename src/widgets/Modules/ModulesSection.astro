@@ -3,7 +3,9 @@ import Container from "@shared/ui/Container.astro";
 import SectionLabel from "@shared/ui/SectionLabel.astro";
 import Card from "@shared/ui/Card.astro";
 import Badge from "@shared/ui/Badge.astro";
-import { modules } from "@shared/config/modules";
+import { modulesI18n } from "@shared/config/modules";
+import { i18n } from "@shared/utils/locale";
+const modules = i18n(modulesI18n, Astro.currentLocale);
 
 const heroModule = modules.modules.find((m) => m.isHero)!;
 const otherModules = modules.modules.filter((m) => !m.isHero);

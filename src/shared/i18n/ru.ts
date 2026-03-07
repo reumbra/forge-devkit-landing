@@ -1,7 +1,7 @@
 import type { TranslationKey } from "./en";
 
 export const ru: Record<TranslationKey, string> = {
-	"site.title": "Forge DevKit — AI-пайплайн с пониманием архитектуры",
+	"site.title": "Forge DevKit - AI-пайплайн с пониманием архитектуры",
 	"site.description":
 		"Автоматически генерирует гайдрейлы, паттерны качества и dev-скиллы для AI-агентов на любой платформе.",
 	"nav.modules": "Модули",
@@ -15,9 +15,9 @@ export const ru: Record<TranslationKey, string> = {
 	"breadcrumb.terms": "Условия использования",
 	"cta.floatingMobile": "Получить Forge",
 	"pricing.hero.headline": "Одна покупка. Ваши артефакты навсегда.",
-	"pricing.hero.subheadline": "Без подписки. Без лимитов. Заплатите один раз — оставьте всё.",
+	"pricing.hero.subheadline": "Без подписки. Без лимитов. Заплатите один раз - оставьте всё.",
 	"comparison.dimension": "Критерий",
 	"comparison.forgeDevkit": "Forge DevKit",
 	"modules.headline": "Шесть модулей. Один пайплайн.",
-	"modules.subheadline": "Используйте все или выберите нужные — каждый работает отдельно.",
+	"modules.subheadline": "Используйте все или выберите нужные - каждый работает отдельно.",
 };

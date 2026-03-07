@@ -44,10 +44,33 @@ const ruUrl = `${siteOrigin}${ruPath}`;
 		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:image" content={`${siteOrigin}/og-image.png`} />
 		<meta property="og:locale" content={locale === "ru" ? "ru_RU" : "en_US"} />
+		<meta property="og:site_name" content="Forge DevKit" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={`${siteOrigin}/og-image.png`} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "Reumbra",
+			"url": "https://reumbra.com",
+			"logo": "https://reumbra.com/favicon.svg"
+		})} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "SoftwareApplication",
+			"name": "Forge DevKit",
+			"applicationCategory": "DeveloperApplication",
+			"operatingSystem": "Cross-platform",
+			"offers": {
+				"@type": "AggregateOffer",
+				"lowPrice": "29",
+				"highPrice": "149",
+				"priceCurrency": "EUR",
+				"offerCount": "3"
+			},
+			"description": description
+		})} />
 		<link rel="preload" href={satoshiRegular} as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href={satoshiBlack} as="font" type="font/woff2" crossorigin />
 		{locale === "ru" && (

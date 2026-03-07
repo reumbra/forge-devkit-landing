@@ -1,10 +1,11 @@
 ---
 import Container from "@shared/ui/Container.astro";
 import SectionLabel from "@shared/ui/SectionLabel.astro";
-import { pipeline } from "@shared/config/pipeline";
-import { localePath } from "@shared/utils/locale";
+import { pipelineI18n } from "@shared/config/pipeline";
+import { localePath, i18n } from "@shared/utils/locale";
 
 const lp = (path: string) => localePath(path, Astro.currentLocale);
+const pipeline = i18n(pipelineI18n, Astro.currentLocale);
 const { sectionLabel, headline, subheadline, nodes, connections } = pipeline;
 
 /**

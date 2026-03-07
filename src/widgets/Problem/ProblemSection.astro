@@ -3,12 +3,16 @@ import Container from "@shared/ui/Container.astro";
 import Card from "@shared/ui/Card.astro";
 import SectionLabel from "@shared/ui/SectionLabel.astro";
 import Button from "@shared/ui/Button.astro";
-import { problems } from "@shared/config/problems";
+import { problemsI18n } from "@shared/config/problems";
+import { i18n } from "@shared/utils/locale";
 
+const problems = i18n(problemsI18n, Astro.currentLocale);
 const { sectionLabel, headline, transitionLine, cards } = problems;
 
-// Split transitionLine to highlight "unstructured AI"
-const transitionParts = transitionLine.split("unstructured AI");
+// Split transitionLine to highlight key phrase per locale
+const isRu = Astro.currentLocale === "ru";
+const highlightPhrase = isRu ? "неструктурированный AI" : "unstructured AI";
+const transitionParts = transitionLine.split(highlightPhrase);
 ---
 
 <section id="problems" class="py-12 md:py-24 lg:py-32">
@@ -38,13 +42,13 @@ const transitionParts = transitionLine.split("unstructured AI");
 
 		{/* Transition line */}
 		<p class="font-sans text-[18px] md:text-[20px] font-medium leading-[1.5] text-text text-center mb-8">
-			{transitionParts[0]}<span class="text-secondary">unstructured AI</span>{transitionParts[1]}
+			{transitionParts[0]}<span class="text-secondary">{highlightPhrase}</span>{transitionParts[1]}
 		</p>
 
 		{/* Ghost CTA */}
 		<div class="flex justify-center">
 			<Button variant="ghost" href="#how-it-works">
-				See how it works
+				{isRu ? "Как это работает" : "See how it works"}
 			</Button>
 		</div>
 	</Container>

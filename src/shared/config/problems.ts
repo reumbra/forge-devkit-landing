@@ -14,7 +14,7 @@ export const problems = {
 	sectionLabel: "THE PROBLEM",
 	headline: "AI writes code fast. You fix it faster.",
 	transitionLine:
-		"The real problem isn\u2019t AI coding speed \u2014 it\u2019s unstructured AI creating technical debt at scale.",
+		"The real problem isn\u2019t AI coding speed - it\u2019s unstructured AI creating technical debt at scale.",
 	cards: [
 		{
 			quote:
@@ -23,7 +23,7 @@ export const problems = {
 		},
 		{
 			quote:
-				"Claude patches over bugs with quick fixes until the entire module is unmaintainable spaghetti.",
+				"Your AI patches over bugs with quick fixes until the entire module is unmaintainable spaghetti.",
 			painRef: "P3: CC Spirals",
 		},
 		{
@@ -38,3 +38,34 @@ export const problems = {
 		},
 	],
 } as const satisfies ProblemsConfig;
+
+const problemsRu: ProblemsConfig = {
+	sectionLabel: "THE PROBLEM",
+	headline: "AI пишет код быстро. Вы чините его еще быстрее.",
+	transitionLine:
+		"Настоящая проблема не в скорости AI-кодинга - неструктурированный AI создает технический долг в промышленных масштабах.",
+	cards: [
+		{
+			quote:
+				"Ваш AI забывает архитектуру каждую сессию. Вы тратите 20 минут, заново объясняя, что делают NestJS guards.",
+			painRef: "P1: Context Rot",
+		},
+		{
+			quote:
+				"Ваш AI накладывает патчи поверх багов, пока весь модуль не превращается в неподдерживаемое спагетти.",
+			painRef: "P3: CC Spirals",
+		},
+		{
+			quote:
+				"Я запустил 3 агента параллельно. Потратил 4 часа на разрешение merge-конфликтов. Итоговая продуктивность: отрицательная.",
+			painRef: "P4: Merge Conflicts in Multi-Agent",
+		},
+		{
+			quote:
+				"Unit-тесты проходят со 100% покрытием. Все ассерты используют моки. Ноль реального поведения протестировано.",
+			painRef: "P5: Fake Tests",
+		},
+	],
+};
+
+export const problemsI18n: Record<string, ProblemsConfig> = { en: problems, ru: problemsRu };

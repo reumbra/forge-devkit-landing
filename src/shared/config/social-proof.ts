@@ -14,3 +14,13 @@ export const socialProof = {
 		{ value: "8+", label: "frameworks supported" },
 	],
 } as const satisfies SocialProofConfig;
+
+const socialProofRu: SocialProofConfig = {
+	stats: [
+		{ value: "50+", label: "паттернов качества" },
+		{ value: "7-gate", label: "архитектурный аудит" },
+		{ value: "8+", label: "поддерживаемых фреймворков" },
+	],
+};
+
+export const socialProofI18n: Record<string, SocialProofConfig> = { en: socialProof, ru: socialProofRu };

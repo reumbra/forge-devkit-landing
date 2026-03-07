@@ -2,7 +2,10 @@
 import Container from "@shared/ui/Container.astro";
 import SectionLabel from "@shared/ui/SectionLabel.astro";
 import Card from "@shared/ui/Card.astro";
-import { author } from "@shared/config/author";
+import { authorI18n } from "@shared/config/author";
+import { i18n } from "@shared/utils/locale";
+
+const author = i18n(authorI18n, Astro.currentLocale);
 import authorPhoto from "../../assets/images/author-martin.jpg";
 ---
 

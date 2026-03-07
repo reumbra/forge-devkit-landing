@@ -1,8 +1,7 @@
 ---
 /**
  * Russian version — same widget composition as English.
- * i18n will be handled in Phase 5 (content translation).
- * For now, widgets render English content.
+ * Widgets pick locale via Astro.currentLocale + i18n() helper.
  */
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import NavBar from "@widgets/NavBar/NavBar.astro";
@@ -24,21 +23,21 @@ import DashboardSection from "@widgets/Dashboard/DashboardSection.astro";
 import FooterSection from "@widgets/Footer/FooterSection.astro";
 ---
 
-<BaseLayout title="Forge DevKit — AI-агенты, которые уважают вашу архитектуру">
+<BaseLayout title="Forge DevKit - AI-агенты, которые уважают вашу архитектуру" description="Автоматически генерирует гайдрейлы, паттерны качества и dev-скиллы для AI-агентов на любой платформе.">
 	<NavBar />
 	<main>
 		<HeroSection />
 		<ProblemSection />
 		<SolutionOverviewSection />
 		<PipelineSection />
-		<GhostCtaSection label="Start with forge-core" href="#pricing" />
+		<GhostCtaSection label="Начните с forge-core" href="#pricing" />
 		<DeepDiveArchitectureSection />
 		<DeepDiveQualitySection />
 		<DeepDivePipelineSection />
-		<GhostCtaSection label="See pricing" href="#pricing" />
+		<GhostCtaSection label="Смотреть цены" href="#pricing" />
 		<HowItWorksSection />
 		<ModulesSection />
-		<GhostCtaSection label="Get started in 5 minutes" href="#pricing" />
+		<GhostCtaSection label="Начните за 5 минут" href="#pricing" />
 		<DashboardSection />
 		<PricingSection />
 		<AuthorSection />
