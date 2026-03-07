@@ -129,6 +129,10 @@ export const autopilotPageConfig: ModulePageConfig = {
 			href: "/modules",
 		},
 	],
+	relatedComparisons: [
+		{ label: "Forge vs Devin", href: "/vs/devin" },
+	],
+	relatedComparisonsHeading: "See how Forge compares",
 
 	seo: {
 		title: "forge-autopilot - Parallel Agents Without Merge Hell | Forge DevKit",
@@ -260,6 +264,10 @@ const autopilotPageConfigRu: ModulePageConfig = {
 			href: "/modules",
 		},
 	],
+	relatedComparisons: [
+		{ label: "Forge vs Devin", href: "/vs/devin" },
+	],
+	relatedComparisonsHeading: "Сравнения",
 
 	seo: {
 		title: "forge-autopilot - Параллельные агенты без merge-хаоса | Forge DevKit",

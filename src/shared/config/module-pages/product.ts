@@ -109,6 +109,10 @@ export const productPageConfig: ModulePageConfig = {
 			href: "/modules/qa",
 		},
 	],
+	relatedComparisons: [
+		{ label: "Forge vs Manual CLAUDE.md", href: "/vs/claude-md" },
+	],
+	relatedComparisonsHeading: "See how Forge compares",
 
 	seo: {
 		title: "forge-product - Business Specs AI Can Actually Consume | Forge DevKit",
@@ -207,7 +211,7 @@ const productPageConfigRu: ModulePageConfig = {
 		{
 			dimension: "Связь с тестами",
 			them: "Ручная передача",
-			forge: "Прямой пайплайн в forge-qa",
+			forge: "Прямой pipeline в forge-qa",
 		},
 	],
 	comparisonTarget: "Figma/Miro PRD tools",
@@ -224,6 +228,10 @@ const productPageConfigRu: ModulePageConfig = {
 			href: "/modules/qa",
 		},
 	],
+	relatedComparisons: [
+		{ label: "Forge vs ручной CLAUDE.md", href: "/vs/claude-md" },
+	],
+	relatedComparisonsHeading: "Сравнения",
 
 	seo: {
 		title: "forge-product - Бизнес-спеки, которые AI действительно понимает | Forge DevKit",

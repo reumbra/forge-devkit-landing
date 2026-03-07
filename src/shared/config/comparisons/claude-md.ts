@@ -42,6 +42,24 @@ export const claudeMdComparison: ComparisonPageConfig = {
 	verdict:
 		"A hand-written CLAUDE.md is better than nothing. Forge DevKit generates a comprehensive one from your architecture - and connects it to product specs, tests, and task management.",
 	ctaText: "Try Forge DevKit \u2192",
+	relatedModules: [
+		{
+			module: "forge-core",
+			description: "Generates CLAUDE.md from a 7-gate architecture audit",
+			href: "/modules/core",
+		},
+		{
+			module: "forge-product",
+			description: "Product specs that connect to the same guardrails",
+			href: "/modules/product",
+		},
+		{
+			module: "forge-qa",
+			description: "Test generation from the same requirements",
+			href: "/modules/qa",
+		},
+	],
+	relatedModulesHeading: "Modules behind this comparison",
 	seo: {
 		title: "Forge DevKit vs Manual CLAUDE.md - Auto-Generated AI Guardrails",
 		description:
@@ -91,6 +109,24 @@ const claudeMdComparisonRu: ComparisonPageConfig = {
 	verdict:
 		"Ручной CLAUDE.md лучше, чем ничего. Forge DevKit генерирует комплексный CLAUDE.md из вашей архитектуры и связывает его со спецификациями, тестами и управлением задачами.",
 	ctaText: "Попробовать Forge DevKit \u2192",
+	relatedModules: [
+		{
+			module: "forge-core",
+			description: "Генерирует CLAUDE.md из 7-этапного аудита архитектуры",
+			href: "/modules/core",
+		},
+		{
+			module: "forge-product",
+			description: "Продуктовые спеки, связанные с теми же гайдрейлами",
+			href: "/modules/product",
+		},
+		{
+			module: "forge-qa",
+			description: "Генерация тестов из тех же требований",
+			href: "/modules/qa",
+		},
+	],
+	relatedModulesHeading: "Модули в этом сравнении",
 	seo: {
 		title: "Forge DevKit vs ручной CLAUDE.md - автоматические AI-гайдрейлы",
 		description:

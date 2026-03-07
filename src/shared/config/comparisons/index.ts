@@ -1,4 +1,4 @@
-export type { ComparisonPageConfig, ComparisonRow } from "./types";
+export type { ComparisonPageConfig, ComparisonRow, RelatedModule } from "./types";
 export { cursorRulesComparison, cursorRulesComparisonI18n } from "./cursor-rules";
 export { devinComparison, devinComparisonI18n } from "./devin";
 export { claudeMdComparison, claudeMdComparisonI18n } from "./claude-md";

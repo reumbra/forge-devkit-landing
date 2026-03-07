@@ -1,0 +1,19 @@
+---
+import Container from "@shared/ui/Container.astro";
+import { definitionI18n } from "@shared/config/definition";
+import { i18n } from "@shared/utils/locale";
+const def = i18n(definitionI18n, Astro.currentLocale);
+---
+
+<section class="py-12 md:py-16 border-t border-card">
+	<Container>
+		<div class="mx-auto max-w-[720px]">
+			<h2 class="font-sans text-[24px] font-bold leading-[1.2] tracking-[-0.01em] text-text md:text-[28px]">
+				{def.headline}
+			</h2>
+			<p class="mt-4 font-sans text-[16px] leading-[1.7] text-text-secondary">
+				{def.definition}
+			</p>
+		</div>
+	</Container>
+</section>

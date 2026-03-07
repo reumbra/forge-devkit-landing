@@ -81,7 +81,7 @@ const navigationRu: NavigationConfig = {
 			href: "/modules",
 			children: [
 				{
-					title: "Основной пайплайн",
+					title: "Основной pipeline",
 					items: [
 						{ name: "forge-core", description: "Аудит архитектуры", href: "/modules/core" },
 						{ name: "forge-product", description: "Бизнес-спецификации", href: "/modules/product" },

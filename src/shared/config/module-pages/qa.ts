@@ -115,6 +115,11 @@ export const qaPageConfig: ModulePageConfig = {
 			href: "/modules/product",
 		},
 	],
+	relatedComparisons: [
+		{ label: "Forge vs Cursor Rules", href: "/vs/cursor-rules" },
+		{ label: "Forge vs Manual CLAUDE.md", href: "/vs/claude-md" },
+	],
+	relatedComparisonsHeading: "See how Forge compares",
 
 	seo: {
 		title: "forge-qa - Tests That Trace to Requirements | Forge DevKit",
@@ -236,6 +241,11 @@ const qaPageConfigRu: ModulePageConfig = {
 			href: "/modules/product",
 		},
 	],
+	relatedComparisons: [
+		{ label: "Forge vs Cursor Rules", href: "/vs/cursor-rules" },
+		{ label: "Forge vs ручной CLAUDE.md", href: "/vs/claude-md" },
+	],
+	relatedComparisonsHeading: "Сравнения",
 
 	seo: {
 		title: "forge-qa - Тесты с прослеживаемостью к требованиям | Forge DevKit",

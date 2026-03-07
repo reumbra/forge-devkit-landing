@@ -14,11 +14,13 @@ export interface PricingTier {
 	badge?: string;
 	renewalPrice?: string;
 	updatesNote?: string;
+	persona?: string;
 }
 
 export interface PricingConfig {
 	sectionLabel: string;
 	headline: string;
+	guaranteeBadge: string;
 	tiers: PricingTier[];
 	trustSignals: string[];
 	competitorAnchor?: string;
@@ -27,11 +29,13 @@ export interface PricingConfig {
 export const pricing = {
 	sectionLabel: "PRICING",
 	headline: "Transparent pricing. No token billing.",
+	guaranteeBadge: "14-day money-back guarantee",
 	tiers: [
 		{
 			id: "core",
 			name: "CORE",
 			price: 29,
+			persona: "For solo developers",
 			description: "Foundation for architecture-aware AI development",
 			features: [
 				"Auto-detects your stack, layers, conventions",
@@ -49,6 +53,7 @@ export const pricing = {
 			id: "pro",
 			name: "PRO",
 			price: 79,
+			persona: "For professional developers",
 			description: "Complete pipeline from design to tested code",
 			features: [
 				"Everything in Core",
@@ -67,6 +72,7 @@ export const pricing = {
 			id: "bundle",
 			name: "BUNDLE",
 			price: 149,
+			persona: "For tech leads and teams",
 			description: "All 6 modules today. Every new module tomorrow. One purchase.",
 			features: [
 				"Everything in Pro",
@@ -93,11 +99,13 @@ export const pricing = {
 const pricingRu: PricingConfig = {
 	sectionLabel: "PRICING",
 	headline: "Прозрачные цены. Без оплаты за токены.",
+	guaranteeBadge: "14-дневная гарантия возврата",
 	tiers: [
 		{
 			id: "core",
 			name: "CORE",
 			price: 29,
+			persona: "Для инди-разработчиков",
 			description: "Основа для AI-разработки с пониманием архитектуры",
 			features: [
 				"Автоматически определяет стек, слои, конвенции",
@@ -115,6 +123,7 @@ const pricingRu: PricingConfig = {
 			id: "pro",
 			name: "PRO",
 			price: 79,
+			persona: "Для профессиональных разработчиков",
 			description: "Полный pipeline от дизайна до протестированного кода",
 			features: [
 				"Все из Core",
@@ -133,6 +142,7 @@ const pricingRu: PricingConfig = {
 			id: "bundle",
 			name: "BUNDLE",
 			price: 149,
+			persona: "Для техлидов и команд",
 			description: "Все 6 модулей сейчас. Каждый новый модуль потом. Одна покупка.",
 			features: [
 				"Все из Pro",
@@ -149,7 +159,7 @@ const pricingRu: PricingConfig = {
 		},
 	],
 	trustSignals: [
-		"Однократная покупка. Ваши артефакты остаются навсегда.",
+		"Разовая покупка. Ваши артефакты остаются навсегда.",
 		"Включает 1 год обновлений. Продление по желанию, по сниженной цене.",
 		"Без оплаты за токены. Без лимитов. Без неожиданных счетов.",
 	],

@@ -28,4 +28,20 @@ const faq = i18n(faqI18n, Astro.currentLocale);
 			}
 		</div>
 	</Container>
+
+	<script
+		type="application/ld+json"
+		set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "FAQPage",
+			mainEntity: faq.items.map((item) => ({
+				"@type": "Question",
+				name: item.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: item.answer,
+				},
+			})),
+		})}
+	/>
 </section>

@@ -9,6 +9,7 @@ import ModuleComparison from "@widgets/module-page/ModuleComparison.astro";
 import ModuleEcosystem from "@widgets/module-page/ModuleEcosystem.astro";
 import ModuleCta from "@widgets/module-page/ModuleCta.astro";
 import ModuleDiagram from "@widgets/module-page/ModuleDiagram.astro";
+import ModuleRelatedComparisons from "@widgets/module-page/ModuleRelatedComparisons.astro";
 import { modulePagesI18n, moduleSlugs } from "@shared/config/module-pages";
 import type { ModulePageConfig } from "@shared/config/module-pages";
 import { i18n } from "@shared/utils/locale";
@@ -47,5 +48,11 @@ const breadcrumbs = [
 	<ModuleCapabilities capabilities={config.capabilities} />
 	<ModuleComparison rows={config.comparison} target={config.comparisonTarget} moduleName={config.name} moduleSlug={config.slug} />
 	<ModuleEcosystem integrations={config.integrations} />
+	{config.relatedComparisons && config.relatedComparisons.length > 0 && (
+		<ModuleRelatedComparisons
+			comparisons={config.relatedComparisons}
+			heading={config.relatedComparisonsHeading ?? "Сравнения"}
+		/>
+	)}
 	<ModuleCta name={config.name} tier={config.tier} tierPrice={config.tierPrice} />
 </PageLayout>

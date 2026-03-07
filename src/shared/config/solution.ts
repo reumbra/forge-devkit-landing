@@ -49,7 +49,7 @@ export const solution = {
 
 const solutionRu: SolutionConfig = {
 	sectionLabel: "THE SOLUTION",
-	headline: "Architecture-aware пайплайн для AI-агентов",
+	headline: "Architecture-aware pipeline для AI-агентов",
 	closingLine: {
 		prefix: "Одна ",
 		highlight: "forge setup",

@@ -139,6 +139,12 @@ export const corePageConfig: ModulePageConfig = {
 			href: "/modules/autopilot",
 		},
 	],
+	relatedComparisons: [
+		{ label: "Forge vs Cursor Rules", href: "/vs/cursor-rules" },
+		{ label: "Forge vs Manual CLAUDE.md", href: "/vs/claude-md" },
+		{ label: "Forge vs Devin", href: "/vs/devin" },
+	],
+	relatedComparisonsHeading: "See how Forge compares",
 
 	seo: {
 		title: "forge-core - Architecture-Aware AI Guardrails | Forge DevKit",
@@ -187,7 +193,7 @@ const corePageConfigRu: ModulePageConfig = {
 		{
 			title: "Генерация",
 			description:
-				"Создаёт проектный CLAUDE.md, dev-скиллы, паттерны качества и фазы пайплайна.",
+				"Создаёт проектный CLAUDE.md, dev-скиллы, паттерны качества и фазы pipeline.",
 		},
 		{
 			title: "Разработка",
@@ -249,7 +255,7 @@ const corePageConfigRu: ModulePageConfig = {
 		{
 			dimension: "Охват",
 			them: "Один файл правил",
-			forge: "Полный пайплайн: правила + продукт + тесты + задачи",
+			forge: "Полный pipeline: правила + продукт + тесты + задачи",
 		},
 		{
 			dimension: "Обновления",
@@ -281,6 +287,12 @@ const corePageConfigRu: ModulePageConfig = {
 			href: "/modules/autopilot",
 		},
 	],
+	relatedComparisons: [
+		{ label: "Forge vs Cursor Rules", href: "/vs/cursor-rules" },
+		{ label: "Forge vs ручной CLAUDE.md", href: "/vs/claude-md" },
+		{ label: "Forge vs Devin", href: "/vs/devin" },
+	],
+	relatedComparisonsHeading: "Сравнения",
 
 	seo: {
 		title: "forge-core - Гайдрейлы AI с пониманием архитектуры | Forge DevKit",

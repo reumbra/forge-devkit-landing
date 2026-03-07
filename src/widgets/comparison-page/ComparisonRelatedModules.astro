@@ -1,0 +1,35 @@
+---
+import Container from "@shared/ui/Container.astro";
+import { localePath } from "@shared/utils/locale";
+
+interface Props {
+	modules: { module: string; description: string; href: string }[];
+	heading: string;
+}
+
+const { modules, heading } = Astro.props;
+const lp = (path: string) => localePath(path, Astro.currentLocale);
+---
+
+<section class="py-12 md:py-16 border-t border-card">
+	<Container>
+		<h2 class="font-sans text-[22px] font-bold text-text md:text-[28px] mb-8">
+			{heading}
+		</h2>
+		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			{modules.map((m) => (
+				<a
+					href={lp(m.href)}
+					class="rounded-[14px] border border-card bg-surface p-5 transition-all duration-300 hover:border-card-hover hover:-translate-y-0.5"
+				>
+					<h3 class="font-mono text-[14px] font-medium text-text">
+						<span class="text-secondary mr-1">{"\u25C7"}</span>{m.module}
+					</h3>
+					<p class="mt-2 font-sans text-[13px] text-text-muted leading-[1.6]">
+						{m.description}
+					</p>
+				</a>
+			))}
+		</div>
+	</Container>
+</section>

@@ -12,6 +12,10 @@ export interface PricingPageConfig {
 	competitorAnchor: string;
 	featureTable: PricingFeatureRow[];
 	trustBadges: { icon: string; title: string; description: string }[];
+	diyBlock: {
+		headline: string;
+		points: { title: string; description: string }[];
+	};
 	faq: { question: string; answer: string }[];
 }
 
@@ -66,6 +70,24 @@ export const pricingPage: PricingPageConfig = {
 		},
 	],
 
+	diyBlock: {
+		headline: "Why not just write your own CLAUDE.md?",
+		points: [
+			{
+				title: "Scope",
+				description: "A good CLAUDE.md takes 2-3 hours to write. Forge generates it from a 7-gate audit with 50+ patterns you would never think of.",
+			},
+			{
+				title: "Maintenance",
+				description: "Hand-written rules drift as your codebase evolves. Forge re-audits on every setup - patterns stay current automatically.",
+			},
+			{
+				title: "Pipeline",
+				description: "CLAUDE.md is just rules. Forge is a full pipeline: architecture audit, quality patterns, test generation, requirement traceability. You cannot DIY that in a weekend.",
+			},
+		],
+	},
+
 	faq: [
 		{
 			question: "What happens after the first year?",
@@ -101,7 +123,7 @@ export const pricingPage: PricingPageConfig = {
 };
 
 const pricingPageRu: PricingPageConfig = {
-	headline: "Однократная покупка. Ваши артефакты остаются навсегда.",
+	headline: "Разовая покупка. Ваши артефакты остаются навсегда.",
 	subheadline:
 		"Без подписки. Без оплаты за токены. Заплатите один раз, используйте сгенерированные артефакты бессрочно.",
 	competitorAnchor:
@@ -132,7 +154,7 @@ const pricingPageRu: PricingPageConfig = {
 		{
 			icon: "\u2714",
 			title: "Без подписки",
-			description: "Однократная покупка. Не \u20AC20/месяц. Не \u20AC240/год.",
+			description: "Разовая покупка. Не \u20AC20/месяц. Не \u20AC240/год.",
 		},
 		{
 			icon: "\u221E",
@@ -150,6 +172,24 @@ const pricingPageRu: PricingPageConfig = {
 			description: "Без оплаты за токены. Без лимитов на рабочие места. Без неожиданных счетов.",
 		},
 	],
+
+	diyBlock: {
+		headline: "Почему бы просто не написать свой CLAUDE.md?",
+		points: [
+			{
+				title: "Объем",
+				description: "Хороший CLAUDE.md занимает 2-3 часа написания. Forge генерирует его из 7-этапного аудита с 50+ паттернами, о которых вы бы не подумали.",
+			},
+			{
+				title: "Поддержка",
+				description: "Написанные вручную правила устаревают по мере развития кодовой базы. Forge пере-аудирует при каждом запуске - паттерны остаются актуальными автоматически.",
+			},
+			{
+				title: "Pipeline",
+				description: "CLAUDE.md - это просто правила. Forge - полный pipeline: аудит архитектуры, паттерны качества, генерация тестов, трассировка требований. Это не сделать за выходные.",
+			},
+		],
+	},
 
 	faq: [
 		{

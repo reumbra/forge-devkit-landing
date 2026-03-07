@@ -42,6 +42,19 @@ export const cursorRulesComparison: ComparisonPageConfig = {
 	verdict:
 		"Cursor Rules are a good start for simple projects. Forge DevKit is for teams that need architecture awareness, test traceability, and a full development pipeline - across any AI platform.",
 	ctaText: "Try Forge DevKit \u2192",
+	relatedModules: [
+		{
+			module: "forge-core",
+			description: "The architecture audit that replaces static rules",
+			href: "/modules/core",
+		},
+		{
+			module: "forge-qa",
+			description: "Test generation connected to the same guardrails",
+			href: "/modules/qa",
+		},
+	],
+	relatedModulesHeading: "Modules behind this comparison",
 	seo: {
 		title: "Forge DevKit vs Cursor Rules - Architecture-Aware AI Pipeline",
 		description:
@@ -75,7 +88,7 @@ const cursorRulesComparisonRu: ComparisonPageConfig = {
 		{
 			dimension: "Охват",
 			them: "Один файл с правилами",
-			forge: "Полный пайплайн: правила + спецификации + тесты + управление задачами",
+			forge: "Полный pipeline: правила + спецификации + тесты + управление задачами",
 		},
 		{
 			dimension: "Обновление",
@@ -89,12 +102,25 @@ const cursorRulesComparisonRu: ComparisonPageConfig = {
 		},
 	],
 	verdict:
-		"Cursor Rules - хорошее начало для простых проектов. Forge DevKit - для команд, которым нужно понимание архитектуры, трассировка тестов и полный пайплайн разработки на любой AI-платформе.",
+		"Cursor Rules - хорошее начало для простых проектов. Forge DevKit - для команд, которым нужно понимание архитектуры, трассировка тестов и полный pipeline разработки на любой AI-платформе.",
 	ctaText: "Попробовать Forge DevKit \u2192",
+	relatedModules: [
+		{
+			module: "forge-core",
+			description: "Аудит архитектуры, который заменяет статичные правила",
+			href: "/modules/core",
+		},
+		{
+			module: "forge-qa",
+			description: "Генерация тестов, связанная с теми же гайдрейлами",
+			href: "/modules/qa",
+		},
+	],
+	relatedModulesHeading: "Модули в этом сравнении",
 	seo: {
-		title: "Forge DevKit vs Cursor Rules - AI-пайплайн с пониманием архитектуры",
+		title: "Forge DevKit vs Cursor Rules - AI-pipeline с пониманием архитектуры",
 		description:
-			"Сравнение Forge DevKit и Cursor Rules. Автогенерация из аудита архитектуры vs ручные шаблоны. Полный пайплайн vs один файл правил.",
+			"Сравнение Forge DevKit и Cursor Rules. Автогенерация из аудита архитектуры vs ручные шаблоны. Полный pipeline vs один файл правил.",
 	},
 };
 

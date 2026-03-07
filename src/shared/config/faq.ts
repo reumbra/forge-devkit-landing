@@ -46,6 +46,12 @@ export const faq = {
 				"Yes. 14-day money-back guarantee, no questions asked. If Forge doesn't improve your workflow, email us and we'll refund immediately.",
 		},
 		{
+			id: "no-trial",
+			question: "Why is there no free trial?",
+			answer:
+				"Forge is a one-time purchase, not a subscription. A free trial doesn't make sense for a tool you buy once. Instead, you get a 14-day money-back guarantee - buy it, try it on your project, and if it doesn't work for you, get a full refund. Zero risk.",
+		},
+		{
 			id: "roi",
 			question: "What's the ROI of using Forge?",
 			answer:
@@ -118,6 +124,12 @@ const faqRu: FaqConfig = {
 			question: "Есть ли гарантия возврата?",
 			answer:
 				"Да. 14-дневная гарантия возврата без вопросов. Если Forge не улучшает ваш workflow, напишите нам - вернем деньги сразу.",
+		},
+		{
+			id: "no-trial",
+			question: "Почему нет бесплатной пробной версии?",
+			answer:
+				"Forge - разовая покупка, а не подписка. Бесплатная пробная версия не имеет смысла для инструмента, который покупается один раз. Вместо этого вы получаете 14-дневную гарантию возврата - купите, попробуйте на своем проекте, и если не подходит, получите полный возврат. Нулевой риск.",
 		},
 		{
 			id: "roi",

@@ -42,6 +42,19 @@ export const devinComparison: ComparisonPageConfig = {
 	verdict:
 		"Devin replaces your developer. Forge augments your development workflow. If you want to keep control of your codebase and use your preferred AI agent, Forge is the right choice.",
 	ctaText: "Try Forge DevKit \u2192",
+	relatedModules: [
+		{
+			module: "forge-core",
+			description: "Architecture-aware pipeline for your existing AI agent",
+			href: "/modules/core",
+		},
+		{
+			module: "forge-autopilot",
+			description: "Multi-agent parallel execution - Forge's answer to Devin",
+			href: "/modules/autopilot",
+		},
+	],
+	relatedModulesHeading: "Modules behind this comparison",
 	seo: {
 		title: "Forge DevKit vs Devin - AI Infrastructure vs Autonomous Agent",
 		description:
@@ -91,6 +104,19 @@ const devinComparisonRu: ComparisonPageConfig = {
 	verdict:
 		"Devin заменяет разработчика. Forge усиливает процесс разработки. Если вы хотите сохранить контроль над кодовой базой и использовать предпочитаемый AI-агент, Forge - правильный выбор.",
 	ctaText: "Попробовать Forge DevKit \u2192",
+	relatedModules: [
+		{
+			module: "forge-core",
+			description: "Пайплайн с пониманием архитектуры для вашего AI-агента",
+			href: "/modules/core",
+		},
+		{
+			module: "forge-autopilot",
+			description: "Мультиагентное параллельное выполнение - ответ Forge на Devin",
+			href: "/modules/autopilot",
+		},
+	],
+	relatedModulesHeading: "Модули в этом сравнении",
 	seo: {
 		title: "Forge DevKit vs Devin - AI-инфраструктура vs автономный агент",
 		description:

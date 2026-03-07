@@ -4,6 +4,7 @@ import PageLayout from "../../../layouts/PageLayout.astro";
 import ComparisonHero from "@widgets/comparison-page/ComparisonHero.astro";
 import ComparisonTable from "@widgets/comparison-page/ComparisonTable.astro";
 import ComparisonVerdict from "@widgets/comparison-page/ComparisonVerdict.astro";
+import ComparisonRelatedModules from "@widgets/comparison-page/ComparisonRelatedModules.astro";
 import { comparisonSlugs } from "@shared/config/comparisons";
 import type { ComparisonPageConfig } from "@shared/config/comparisons";
 
@@ -30,4 +31,10 @@ const breadcrumbs = [
 	<ComparisonHero headline={config.headline} subheadline={config.subheadline} />
 	<ComparisonTable rows={config.rows} competitor={config.competitor} />
 	<ComparisonVerdict verdict={config.verdict} ctaText={config.ctaText} />
+	{config.relatedModules && config.relatedModules.length > 0 && (
+		<ComparisonRelatedModules
+			modules={config.relatedModules}
+			heading={config.relatedModulesHeading ?? "Related modules"}
+		/>
+	)}
 </PageLayout>

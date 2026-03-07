@@ -4,6 +4,12 @@ export interface ComparisonRow {
 	forge: string;
 }
 
+export interface RelatedModule {
+	module: string;
+	description: string;
+	href: string;
+}
+
 export interface ComparisonPageConfig {
 	slug: string;
 	competitor: string;
@@ -13,5 +19,7 @@ export interface ComparisonPageConfig {
 	rows: ComparisonRow[];
 	verdict: string;
 	ctaText: string;
+	relatedModules?: RelatedModule[];
+	relatedModulesHeading?: string;
 	seo: { title: string; description: string };
 }
