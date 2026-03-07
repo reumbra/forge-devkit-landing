@@ -236,6 +236,50 @@ const modules = [
 				</section>
 			))}
 
+			{/* Feedback & Bug Reports */}
+			<section id="feedback" class="mb-16 scroll-mt-24">
+				<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-3">
+					Feedback & Bug Reports
+				</h2>
+				<p class="text-[16px] text-text-secondary leading-[1.7] mb-6">
+					Found a bug? Have a suggestion? Use the built-in feedback command — it sends structured reports directly to the Forge team.
+				</p>
+
+				<div class="rounded-[var(--radius-card)] border border-card bg-surface-card overflow-hidden mb-6">
+					<div class="border-b border-card px-5 py-3 flex items-baseline gap-3">
+						<code class="font-mono text-[15px] font-medium text-secondary">/forge:feedback</code>
+						<span class="text-[13px] text-text-muted">Send feedback, bug reports, or feature requests.</span>
+					</div>
+					<div class="px-5 py-3">
+						<table class="w-full">
+							<tbody>
+								<tr class="border-b border-card/30">
+									<td class="py-2 pr-4 font-mono text-[13px] text-text whitespace-nowrap align-top">/forge:feedback</td>
+									<td class="py-2 text-[13px] text-text-muted">Interactive feedback wizard — select type (bug, friction, suggestion), describe the issue, auto-attaches session context</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="space-y-4 text-[15px] text-text-secondary leading-[1.7]">
+					<p>
+						The feedback command collects:
+					</p>
+					<ul class="list-disc pl-6 space-y-1">
+						<li><strong class="text-text">Your description</strong> — what happened, what you expected</li>
+						<li><strong class="text-text">Session context</strong> — plugin versions, detected stack, execution mode (auto-attached, no manual work)</li>
+						<li><strong class="text-text">Feedback type</strong> — friction (something was hard), bug (something broke), suggestion (feature request)</li>
+					</ul>
+					<p>
+						Reports are sent securely using your license key. No source code or file contents are included — only metadata and your description.
+					</p>
+					<p>
+						Alternatively, email <a href="mailto:support@reumbra.com" class="text-secondary hover:underline">support@reumbra.com</a> for direct support.
+					</p>
+				</div>
+			</section>
+
 			{/* CTA */}
 			<section class="mb-16">
 				<div class="rounded-[var(--radius-card)] border border-secondary/20 bg-secondary/5 p-8 text-center">
