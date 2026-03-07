@@ -1,0 +1,40 @@
+---
+interface Props {
+	/** "pain" = what you escape, "gain" = what you get, "insight" = neutral tip */
+	variant?: "pain" | "gain" | "insight";
+}
+
+const { variant = "insight" } = Astro.props;
+
+const styles = {
+	pain: {
+		border: "border-l-red-400/60",
+		bg: "bg-red-400/[0.04]",
+		icon: "✕",
+		iconColor: "text-red-400",
+	},
+	gain: {
+		border: "border-l-green-400/60",
+		bg: "bg-green-400/[0.04]",
+		icon: "✓",
+		iconColor: "text-green-400",
+	},
+	insight: {
+		border: "border-l-secondary/60",
+		bg: "bg-secondary/[0.04]",
+		icon: "◆",
+		iconColor: "text-secondary",
+	},
+};
+
+const s = styles[variant];
+---
+
+<div class:list={["rounded-r-[var(--radius-card)] border-l-[3px] px-5 py-4 my-6", s.border, s.bg]}>
+	<div class="flex items-start gap-3">
+		<span class:list={["text-[14px] mt-0.5 shrink-0 font-bold", s.iconColor]}>{s.icon}</span>
+		<div class="text-[14px] leading-[1.7] text-text-secondary [&_strong]:text-text [&_code]:font-mono [&_code]:text-[13px] [&_code]:bg-surface-deep [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded">
+			<slot />
+		</div>
+	</div>
+</div>

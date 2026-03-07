@@ -1,5 +1,6 @@
 ---
 import DocsLayout from "../../layouts/DocsLayout.astro";
+import DocHighlight from "@shared/ui/DocHighlight.astro";
 
 const modules = [
 	{
@@ -248,9 +249,66 @@ const modules = [
 			</p>
 
 			{/* Description */}
-			<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
+			<p class="text-[15px] text-text-secondary leading-[1.7] mb-2">
 				{m.description}
 			</p>
+
+			{/* Marketing highlights — pain/gain callouts per module */}
+			{m.id === "core" && (
+				<>
+					<DocHighlight variant="pain">
+						<strong>Without Forge:</strong> you spend 20 minutes every session re-explaining your architecture to AI. It forgets your NestJS guards, your layer conventions, your naming patterns — every single time.
+					</DocHighlight>
+					<DocHighlight variant="gain">
+						<strong>With forge-core:</strong> one <code>/forge:setup</code> and your AI permanently knows your stack, layers, and conventions. No manual prompt engineering. No re-explaining. Ever.
+					</DocHighlight>
+				</>
+			)}
+			{m.id === "product" && (
+				<>
+					<DocHighlight variant="pain">
+						<strong>Without Forge:</strong> you describe a feature vaguely, AI hallucinates requirements, builds the wrong thing, and you spend hours debugging assumptions that were never verified.
+					</DocHighlight>
+					<DocHighlight variant="gain">
+						<strong>With forge-product:</strong> describe features in business language — AI generates verified user flows, stories, and acceptance criteria <em>before</em> writing a single line of code.
+					</DocHighlight>
+				</>
+			)}
+			{m.id === "qa" && (
+				<>
+					<DocHighlight variant="pain">
+						<strong>Without Forge:</strong> AI generates tests with 100% coverage — all using mock data. Every assertion tests implementation details. Zero real behavior verified.
+					</DocHighlight>
+					<DocHighlight variant="gain">
+						<strong>With forge-qa:</strong> every test traces back to an acceptance criterion. No orphan tests. No missing coverage. Tests prove requirements, not AI guesswork.
+					</DocHighlight>
+				</>
+			)}
+			{m.id === "tracker" && (
+				<>
+					<DocHighlight variant="pain">
+						<strong>Without Forge:</strong> you copy-paste issue descriptions from your tracker into AI prompts. Context gets lost. Status updates are manual. PRs never link back to tasks.
+					</DocHighlight>
+					<DocHighlight variant="gain">
+						<strong>With forge-tracker:</strong> <code>/forge:tracker pick</code> pulls the task with full context. When you're done, <code>/forge:tracker close</code> syncs status and links the PR — zero manual updates.
+					</DocHighlight>
+				</>
+			)}
+			{m.id === "autopilot" && (
+				<>
+					<DocHighlight variant="pain">
+						<strong>Without Forge:</strong> you run 3 agents in parallel — they all edit the same User model. You spend 4 hours resolving merge conflicts. Net productivity: <em>negative</em>.
+					</DocHighlight>
+					<DocHighlight variant="gain">
+						<strong>With forge-autopilot:</strong> conflict detection groups features into safe waves. Each agent gets an isolated worktree with your full pipeline. Auto-merge after quality gates pass.
+					</DocHighlight>
+				</>
+			)}
+			{m.id === "worktree" && (
+				<DocHighlight variant="insight">
+					<strong>Why worktrees?</strong> Each parallel agent needs isolation — its own branch, ports, and environment. Manual setup is error-prone. forge-worktree automates the entire lifecycle, so you focus on features, not infrastructure.
+				</DocHighlight>
+			)}
 
 			{/* Benefits */}
 			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5 mb-8">
