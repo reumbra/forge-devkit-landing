@@ -2,12 +2,18 @@
 interface Props {
 	question: string;
 	answer: string;
+	faqId?: string;
+	faqIndex?: number;
 }
 
-const { question, answer } = Astro.props;
+const { question, answer, faqId, faqIndex } = Astro.props;
 ---
 
-<details class="accordion-item group border-b border-[rgba(118,73,196,0.06)]">
+<details
+	class="accordion-item group border-b border-[rgba(118,73,196,0.06)]"
+	data-faq-id={faqId}
+	data-faq-index={faqIndex}
+>
 	<summary
 		class="flex w-full cursor-pointer list-none items-center justify-between py-5 text-left font-sans text-[16px] font-medium leading-[1.5] text-text transition-colors duration-300 hover:text-secondary md:text-[18px] [&::-webkit-details-marker]:hidden"
 	>

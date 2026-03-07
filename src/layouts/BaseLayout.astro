@@ -138,6 +138,10 @@ const ruUrl = `${siteOrigin}${ruPath}`;
 				fadeEls.forEach((el) => fadeObserver.observe(el));
 			}
 		</script>
+		{/* Analytics: Zaraz + GA4 custom events */}
+		<script>
+			import "@shared/tracking/analytics";
+		</script>
 		{/* LemonSqueezy checkout overlay SDK - intercepts links to *.lemonsqueezy.com/buy/* */}
 		<script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
 	</body>

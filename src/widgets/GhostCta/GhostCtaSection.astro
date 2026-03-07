@@ -5,12 +5,13 @@ import Button from "@shared/ui/Button.astro";
 interface Props {
 	label?: string;
 	href?: string;
+	ctaLocation?: string;
 }
 
-const { label = "See how it works", href = "#how-it-works" } = Astro.props;
+const { label = "See how it works", href = "#how-it-works", ctaLocation } = Astro.props;
 ---
 
-<div class="py-6 md:py-8">
+<div class="py-6 md:py-8" data-cta-location={ctaLocation}>
 	<Container>
 		<div class="text-center">
 			<Button variant="ghost" href={href}>

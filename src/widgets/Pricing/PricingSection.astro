@@ -36,6 +36,7 @@ function ctaLabel(tier: PricingTier): string {
 		<div class="grid gap-6 md:grid-cols-3">
 			{
 				pricing.tiers.map((tier) => (
+					<div data-tier-id={tier.id} data-tier-name={tier.name} data-tier-price={tier.price}>
 					<Card
 						hover={true}
 						class:list={[
@@ -96,6 +97,7 @@ function ctaLabel(tier: PricingTier): string {
 							</Button>
 						</div>
 					</Card>
+				</div>
 				))
 			}
 		</div>

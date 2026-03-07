@@ -22,8 +22,8 @@ const faq = i18n(faqI18n, Astro.currentLocale);
 		{/* FAQ accordion list */}
 		<div class="mx-auto max-w-[720px]">
 			{
-				faq.items.map((item) => (
-					<AccordionItem question={item.question} answer={item.answer} />
+				faq.items.map((item, index) => (
+					<AccordionItem question={item.question} answer={item.answer} faqId={item.id} faqIndex={index} />
 				))
 			}
 		</div>
