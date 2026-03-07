@@ -8,6 +8,7 @@ interface Props {
 const { variant, href, class: className } = Astro.props;
 
 const showArrow = variant === "primary" || variant === "large";
+const isCheckout = href.includes("lemonsqueezy");
 
 const baseStyles = [
 	"inline-flex items-center justify-center",
@@ -40,7 +41,7 @@ const variantStyles: Record<typeof variant, string[]> = {
 
 <a
 	href={href}
-	class:list={[...baseStyles, ...variantStyles[variant], className]}
+	class:list={[...baseStyles, ...variantStyles[variant], className, isCheckout && "lemonsqueezy-button"]}
 >
 	<slot />{showArrow ? " \u2192" : ""}
 </a>
