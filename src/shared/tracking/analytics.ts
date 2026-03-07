@@ -212,9 +212,14 @@ function initPricingTracking() {
 	});
 }
 
-// --- LemonSqueezy Checkout Detection ---
+// --- LemonSqueezy Checkout Events ---
+
+declare const LemonSqueezy: {
+	Setup: (config: { eventHandler: (event: { event: string; data?: any }) => void }) => void;
+} | undefined;
 
 function initCheckoutTracking() {
+	// begin_checkout via overlay detection
 	let overlayOpen = false;
 	const observer = new MutationObserver(() => {
 		const hasOverlay = document.querySelector(".lemonsqueezy-overlay") !== null;
@@ -234,6 +239,26 @@ function initCheckoutTracking() {
 		}
 	});
 	observer.observe(document.body, { childList: true, subtree: true });
+
+	// purchase via LemonSqueezy native events
+	if (typeof LemonSqueezy !== "undefined") {
+		LemonSqueezy.Setup({
+			eventHandler: (event) => {
+				if (event.event === "Checkout.Success") {
+					const tier = (window as any).__forgeLastTier || {};
+					track("purchase", {
+						item_id: tier.item_id || "unknown",
+						item_name: tier.item_name || "unknown",
+						price: tier.price || 0,
+						currency: "EUR",
+						source_page: getPageType(),
+						page_language: getLang(),
+						transaction_id: event.data?.order?.first_order_item?.id || "",
+					});
+				}
+			},
+		});
+	}
 }
 
 // --- Language Switch ---
