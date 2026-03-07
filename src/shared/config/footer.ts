@@ -64,6 +64,7 @@ export const footer = {
 			links: [
 				{ label: "Privacy", href: "/privacy" },
 				{ label: "Terms", href: "/terms" },
+				{ label: "Refund", href: "/refund" },
 				{ label: "Cookie Settings", href: "#", action: "zaraz-consent" },
 			],
 		},
@@ -116,6 +117,7 @@ const footerRu: FooterConfig = {
 			links: [
 				{ label: "Конфиденциальность", href: "/privacy" },
 				{ label: "Условия", href: "/terms" },
+				{ label: "Возврат", href: "/refund" },
 				{ label: "Настройки cookie", href: "#", action: "zaraz-consent" },
 			],
 		},
