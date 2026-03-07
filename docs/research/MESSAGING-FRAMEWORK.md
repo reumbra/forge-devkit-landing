@@ -46,7 +46,7 @@ Developers hear: "My AI agent follows MY project rules, not generic best practic
 |----------|-----------|----------------|----------------|
 | 1 | Your project's rules, not textbook defaults | P3 (architecture violations) + P5 (best practices soup) | "50 guardrails your AI doesn't know it needs" |
 | 2 | Encode your expertise once, never repeat yourself | P6 (prompt fatigue) + P1 (context loss) | "One setup → architecture audit → project-aware AI forever" |
-| 3 | Structured workflows, predictable costs | P2 (token burn) | "Pipeline phases prevent runaway sessions" |
+| 3 | Surgical precision, predictable costs | P2 (token burn) | "Your AI reads what it needs, not everything you have. Economy mode for bug fixes, quality mode for features — you control the budget." |
 | 4 | Tests that trace back to requirements | P4 (confidently wrong) | "Every test proves a requirement. Not AI guesswork" |
 | 5 | Parallel agents without merge hell | P7 (agent team conflicts) | "Run Agent Teams safely. Conflicts detected before code is written." |
 
@@ -63,7 +63,7 @@ Developers hear: "My AI agent follows MY project rules, not generic best practic
 | "Disposable" | Generated artifacts (dev-skills, tests, docs) work independently after plugin removal |
 | "6 modules" | forge-core, forge-product, forge-qa, forge-tracker, forge-autopilot, forge-worktree |
 | "Agent Teams" | backlog → conflict detection → wave execution, 3 autonomy modes (supervised, semi-auto, full-auto) |
-| "3 execution modes" | Sequential, parallel, patch — per-task scope optimization |
+| "Pipeline economy" | 4 execution modes (economy→quality), adaptive auto-detection, tag-based step filtering, context isolation per phase, artifact protocol (~500 tok resume vs ~49K reload) |
 
 ---
 

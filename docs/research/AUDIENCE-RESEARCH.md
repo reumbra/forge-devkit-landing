@@ -18,7 +18,8 @@
 - Huge prompts, tens of millions of tokens for 100-200 lines of code
 - Bills of tens of dollars in couple days
 - Agent mode generates garbage: wrong tags, code duplication, chaotic changes hard to review
-- **Forge solution:** forge-core pipeline phases -> structured, scoped work. Quality gates prevent runaway
+- No control over how much context AI loads — reads everything, focuses on nothing
+- **Forge solution:** Pipeline economy — execution modes (economy/balanced/quality) match budget to task; adaptive auto-detection; surgical step filtering; context isolation per subagent; artifact protocol (~500 tok inter-phase vs ~49K accumulation)
 
 #### P3: Architecture Violations
 - **Severity: CRITICAL**

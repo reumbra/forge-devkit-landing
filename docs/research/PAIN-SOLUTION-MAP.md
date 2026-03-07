@@ -15,14 +15,14 @@
 | **Proof Point** | Real CLI output: `forge setup` → detected NestJS + Clean Architecture + 3 layers + PostgreSQL |
 | **Copy Direction** | "Your AI forgets your architecture. Forge doesn't." |
 
-### P2: Token Burn & Runaway Sessions → forge-core Pipeline Phases
+### P2: Token Burn & Runaway Sessions → forge-core Pipeline Economy
 | | |
 |---|---|
 | **Pain** | "Millions of tokens for 100 lines. Agent generates garbage. Chaotic changes. Huge bills." |
 | **Emotion** | Financial anxiety, wasted time, loss of control |
-| **Forge Solution** | Structured pipeline phases scope AI work. Quality gates stop runaway. Scope decomposition splits large tasks. Agent self-review before presenting results. |
-| **Proof Point** | Pipeline: Phase 0 (context) → Phase 1 (contracts) → Phase 2 (implement) → Phase 3 (verify). Each scoped, each gated. |
-| **Copy Direction** | "Structured AI workflows. No runaway sessions, no surprise bills." |
+| **Forge Solution** | Multi-layered token economy: (1) **Execution modes** — economy/balanced/quality let user match budget to task complexity; adaptive mode auto-detects. (2) **Surgical step filtering** — economy mode skips memory, brainstorm, red flags, detailed tests via tag system. (3) **Context isolation** — each pipeline phase and subagent gets only its scope, not the full project. (4) **Artifact protocol** — phases communicate via document summaries (~500 tokens), not by accumulating full context (~49K). (5) **Scope decomposition** — large tasks split into layer-waves, each with isolated context. |
+| **Proof Point** | "Simple bug fix? Economy mode: 5 steps, focused context. Complex feature? Quality mode: full pipeline with tests and quality gates. You choose." |
+| **Copy Direction** | "Your AI reads what it needs, not everything you have. Predictable costs — no surprise $50 sessions." |
 
 ### P3: Architecture Violations → forge-core Quality Patterns + Naming Audit
 | | |
@@ -106,7 +106,7 @@
 | Pain | forge-core | forge-product | forge-qa | forge-tracker | forge-autopilot | forge-worktree |
 |------|-----------|---------------|----------|---------------|-----------------|----------------|
 | P1: Context loss | ●●● | ● | | | | |
-| P2: Token burn | ●●● | | | | | |
+| P2: Token burn | ●●● | | ● | | ● | |
 | P3: Architecture violations | ●●● | | ● | | | |
 | P4: Confidently wrong | ●● | ●●● | ●●● | | | |
 | P5: Best practices soup | ●●● | ●● | | | | |
@@ -124,7 +124,7 @@
 | **Hero** | All (overview) | "AI-powered dev tools that actually understand your project" | Top |
 | **Problem Statement** | P1 + P3 + P7 | AI without context breaks things. Quick fixes spiral. | After hero |
 | **Core Value Prop** | P1 + P5 + P6 | One setup, permanent context. Never re-explain your stack. | After problem |
-| **Pipeline Demo** | P2 + P7 | Structured phases, quality gates, spiral prevention | Mid-page |
+| **Pipeline Demo** | P2 + P7 | Surgical precision: execution modes, context isolation, no runaway sessions | Mid-page |
 | **Quality Story** | P3 + P4 + P9 | Architecture guardrails + traceable tests = real confidence | Mid-page |
 | **Multi-Agent Story** | P8 | forge-autopilot + forge-worktree: parallel work that merges | Mid-page |
 | **Module Breakdown** | All | 6 modules, what each solves | After stories |
