@@ -53,7 +53,19 @@ export const navigation = {
 			],
 		},
 		{ label: "Pricing", href: "/pricing" },
-		{ label: "Getting Started", href: "/getting-started" },
+		{
+			label: "Docs",
+			href: "/getting-started",
+			children: [
+				{
+					title: "Guides",
+					items: [
+						{ name: "Getting Started", description: "Install in 5 minutes", href: "/getting-started" },
+						{ name: "Usage Guide", description: "Commands & workflows", href: "/usage-guide" },
+					],
+				},
+			],
+		},
 	],
 	cta: {
 		label: "Get Forge",
