@@ -55,13 +55,13 @@ export const navigation = {
 		{ label: "Pricing", href: "/pricing" },
 		{
 			label: "Docs",
-			href: "/getting-started",
+			href: "/docs/getting-started",
 			children: [
 				{
 					title: "Guides",
 					items: [
-						{ name: "Getting Started", description: "Install in 5 minutes", href: "/getting-started" },
-						{ name: "Usage Guide", description: "Commands & workflows", href: "/usage-guide" },
+						{ name: "Getting Started", description: "Install in 5 minutes", href: "/docs/getting-started" },
+						{ name: "Usage Guide", description: "Commands & workflows", href: "/docs/usage-guide" },
 					],
 				},
 			],
