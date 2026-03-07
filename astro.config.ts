@@ -12,7 +12,13 @@ export default defineConfig({
 			prefixDefaultLocale: false,
 		},
 	},
-	integrations: [sitemap()],
+	integrations: [
+		sitemap({
+			filter: (page) =>
+				// Exclude redirect-only pages (they 301 to /docs/ variants)
+				!/reumbra\.com\/(ru\/)?(getting-started|usage-guide)\/$/.test(page),
+		}),
+	],
 	vite: {
 		plugins: [tailwindcss()],
 	},
