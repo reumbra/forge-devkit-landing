@@ -17,6 +17,10 @@ export default defineConfig({
 			filter: (page) =>
 				// Exclude redirect-only pages (they 301 to /docs/ variants)
 				!/reumbra\.com\/(ru\/)?(getting-started|usage-guide)\/$/.test(page),
+			i18n: {
+				defaultLocale: "en",
+				locales: { en: "en", ru: "ru" },
+			},
 		}),
 	],
 	vite: {
