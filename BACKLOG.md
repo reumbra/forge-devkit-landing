@@ -50,6 +50,8 @@
 | BL-043 | P3 | backlog | AI SEO: unified comparison page (/compare) | `[seo]` `[ai-seo]` `[content]` |
 | BL-044 | P3 | backlog | EN copy: rewrite flat Final CTA subheadline | `[copy]` `[cro]` |
 | BL-045 | P3 | backlog | EN copy: add rationalization detector example | `[copy]` `[specificity]` |
+| BL-046 | P2 | backlog | Marketing: Token Economy as value prop (execution modes, context isolation, P25 artifacts) | `[copy]` `[cro]` `[content]` |
+| BL-047 | P2 | backlog | Terms page: add /refund link + create /refund page (EN+RU) | `[legal]` `[gdpr]` |
 
 ---
 
@@ -181,3 +183,40 @@ Pricing, plan names, included modules, and checkout URLs must be consistent acro
 - `src/widgets/Dashboard/DashboardSection.astro` — CTA "from €29"
 
 **Action:** Create a single-pass cross-repo audit. Read LemonSqueezy state (manual or API), API seed, marketplace.json, and all landing configs. Produce diff table of mismatches. Fix in one batch.
+
+### BL-046: Marketing — Token Economy as Value Prop
+
+> Forge's architectural approach to context/token economy as a marketing differentiator. Migrated from ai-marketplace BL-014.
+
+**Уникальные механизмы экономии (раскрыть на лендинге):**
+1. **Execution modes** (economy/balanced/quality/manual) - пользователь контролирует бюджет на задачу
+2. **Tag-based step filtering** `[all:!economy]` - шаги пропускаются хирургически
+3. **P25 Pipeline Artifact Protocol** - фазы общаются через summary (~500 токенов вместо ~49K)
+4. **Context isolation** - субагенты получают только свой scope
+5. **Scope decomposition** - большие задачи бьются на layer-waves
+
+**Маркетинговый анализ:**
+- P2 "Token Burn" валидирована как реальная боль в audience research
+- Конкуренты не говорят об этом (Devin $500/мес, Cursor Rules - нет контроля)
+- Усиливает one-time pricing message
+- P2 на 7-м месте - supporting evidence для VP #3, НЕ hero message
+
+**Outcome-oriented копирайт:**
+- "Simple bug fix? 5-step economy mode. Complex feature? Full quality pipeline. You decide."
+- "Your AI reads what it needs, not everything you have."
+- "Predictable costs. No surprise $50 sessions."
+
+**Точки применения:**
+- Deep Dive секция на homepage (pipeline flow с token counts)
+- Comparison page: "Forge vs raw Claude Code" с реальными числами
+- Module page forge-core: секция "Pipeline Economy"
+
+### BL-047: Terms page — Refund Link + /refund Page
+
+> Terms page refund paragraph needs a link to the full refund policy document at /refund. Migrated from ai-marketplace BL-017.
+
+**Scope:**
+- Add link in refund paragraph in `src/pages/terms.astro` + `src/pages/ru/terms.astro`
+- Create `/refund` page with full refund policy (14-day money-back guarantee, process, conditions)
+- Create `/ru/refund` page (Russian translation)
+- Add /refund to footer Legal section in `src/shared/config/footer.ts`
