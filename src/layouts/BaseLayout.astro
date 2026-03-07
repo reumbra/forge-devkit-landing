@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import satoshiRegular from "../assets/fonts/Satoshi-Regular.woff2";
 import satoshiBlack from "../assets/fonts/Satoshi-Black.woff2";
+import interCyrillic from "../assets/fonts/Inter-Cyrillic.woff2";
 
 interface Props {
 	title?: string;
@@ -49,6 +50,31 @@ const ruUrl = `${siteOrigin}${ruPath}`;
 		<meta name="twitter:image" content={`${siteOrigin}/og-image.png`} />
 		<link rel="preload" href={satoshiRegular} as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href={satoshiBlack} as="font" type="font/woff2" crossorigin />
+		{locale === "ru" && (
+			<link rel="preload" href={interCyrillic} as="font" type="font/woff2" crossorigin />
+		)}
+		{/* Auto-detect language on first visit — runs before paint to avoid flash */}
+		<script is:inline define:vars={{ locale, enPath, ruPath }}>
+			(function() {
+				const stored = localStorage.getItem("forge-locale");
+				if (stored) return; // user already chose — respect their preference
+
+				const browserLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+				const wantsRu = browserLang.startsWith("ru");
+				const onEn = locale === "en";
+				const onRu = locale === "ru";
+
+				if (wantsRu && onEn) {
+					localStorage.setItem("forge-locale", "ru");
+					window.location.replace(ruPath);
+				} else if (!wantsRu && onRu) {
+					localStorage.setItem("forge-locale", "en");
+					window.location.replace(enPath);
+				} else {
+					localStorage.setItem("forge-locale", locale);
+				}
+			})();
+		</script>
 	</head>
 	<body>
 		<slot />

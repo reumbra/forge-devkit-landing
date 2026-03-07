@@ -7,142 +7,142 @@ const modules = [
 		id: "core",
 		name: "forge-core",
 		tier: "Core+",
-		tagline: "The foundation. One command makes your AI understand your entire project.",
-		description: "forge-core runs a 7-gate architecture audit that auto-detects your stack, layers, conventions, and patterns. It generates project-specific dev-skills and 50+ quality guardrails that your AI follows in every session. No manual prompt engineering. No re-explaining your architecture.",
+		tagline: "Фундамент. Одна команда — и AI понимает весь ваш проект.",
+		description: "forge-core проводит 7-этапный архитектурный аудит: автоматически определяет стек, слои, соглашения и паттерны. Генерирует dev-скиллы и 50+ гайдрейлов качества, которые AI использует в каждой сессии. Без ручного промпт-инжиниринга. Без повторных объяснений архитектуры.",
 		benefits: [
-			"Auto-detects stack, architecture patterns, and conventions",
-			"Generates 50+ quality patterns tailored to your project",
-			"Creates project-specific dev-skills your AI loads automatically",
-			"Scoped pipeline phases prevent AI from going off-track",
-			"15 LLM rationalization detectors catch AI shortcuts",
+			"Автоматически определяет стек, архитектурные паттерны и соглашения",
+			"Генерирует 50+ паттернов качества под ваш проект",
+			"Создаёт dev-скиллы, которые AI загружает автоматически",
+			"Скоупированные фазы пайплайна не дают AI отклоняться от задачи",
+			"15 детекторов рационализации ловят попытки AI срезать углы",
 		],
 		commands: [
 			{
 				command: "/forge:setup",
-				description: "Setup wizard, ecosystem dashboard, upgrade, and reconfigure.",
+				description: "Визард настройки, дашборд экосистемы, обновление и реконфигурация.",
 				subcommands: [
-					{ sub: "/forge:setup", detail: "Run the 7-gate wizard (first time) or show the ecosystem dashboard (after setup)" },
-					{ sub: "/forge:setup upgrade --check", detail: "Check for plugin updates" },
-					{ sub: "/forge:setup upgrade", detail: "Apply available updates" },
-					{ sub: "/forge:setup reconfigure", detail: "Re-run specific gates without full setup" },
+					{ sub: "/forge:setup", detail: "Запустить 7-этапный визард (первый раз) или показать дашборд экосистемы (после настройки)" },
+					{ sub: "/forge:setup upgrade --check", detail: "Проверить наличие обновлений плагинов" },
+					{ sub: "/forge:setup upgrade", detail: "Применить доступные обновления" },
+					{ sub: "/forge:setup reconfigure", detail: "Перезапустить отдельные этапы без полной настройки" },
 				],
 			},
 			{
 				command: "/forge:patch",
-				description: "Quick config patches without running the full wizard.",
+				description: "Быстрые патчи конфигурации без полного визарда.",
 				subcommands: [
-					{ sub: "/forge:patch", detail: "Interactive patch mode — select what to adjust" },
+					{ sub: "/forge:patch", detail: "Интерактивный режим патча — выберите, что настроить" },
 				],
 			},
 			{
 				command: "/dev",
-				description: "Start a development task using the generated pipeline.",
+				description: "Начать задачу разработки через сгенерированный пайплайн.",
 				subcommands: [
-					{ sub: "/dev", detail: "Begin a feature/fix using your project's dev-skills and quality patterns" },
-					{ sub: "/forge:sync", detail: "Sync generated artifacts after architecture changes" },
-					{ sub: "/forge:close", detail: "Finalize and close the current development task" },
+					{ sub: "/dev", detail: "Начать фичу/фикс с использованием dev-скиллов и паттернов качества" },
+					{ sub: "/forge:sync", detail: "Синхронизировать артефакты после изменений архитектуры" },
+					{ sub: "/forge:close", detail: "Завершить текущую задачу разработки" },
 				],
 			},
 		],
-		workflow: "Install → /forge:setup (7-gate audit) → /dev to start building. Run /forge:setup anytime for dashboard.",
+		workflow: "Установка → /forge:setup (7-этапный аудит) → /dev для начала работы. /forge:setup в любой момент для дашборда.",
 	},
 	{
 		id: "product",
 		name: "forge-product",
 		tier: "Pro+",
-		tagline: "Describe features in business language. AI builds from spec, not guesswork.",
-		description: "forge-product bridges the gap between what you want and what AI builds. Describe a feature in plain language — it generates user flows, user stories with acceptance criteria, and UX specifications. These artifacts feed directly into the development pipeline, so your AI codes from verified requirements instead of hallucinated assumptions.",
+		tagline: "Описывайте фичи на человеческом языке. AI строит по спецификации, а не по догадкам.",
+		description: "forge-product убирает разрыв между тем, что вы хотите, и тем, что строит AI. Опишите фичу простым языком — модуль сгенерирует user flows, user stories с критериями приёмки и UX-спецификации. Эти артефакты попадают прямо в пайплайн разработки: AI пишет код по проверенным требованиям, а не по своим галлюцинациям.",
 		benefits: [
-			"9 product archetypes (SaaS, marketplace, API platform, etc.)",
-			"Generates user flows, stories, and acceptance criteria automatically",
-			"50+ UX criteria library for consistent quality",
-			"Stories feed directly into /dev pipeline — zero copy-paste",
-			"Supports multiple methodologies (Lean, Jobs-to-be-Done, etc.)",
+			"9 продуктовых архетипов (SaaS, маркетплейс, API-платформа и др.)",
+			"Генерирует user flows, stories и критерии приёмки автоматически",
+			"50+ UX-критериев для стабильного качества",
+			"Stories попадают напрямую в /dev пайплайн — без копипасты",
+			"Поддержка нескольких методологий (Lean, Jobs-to-be-Done и др.)",
 		],
 		commands: [
 			{
 				command: "/forge:product-setup",
-				description: "Configure product design module — select archetype, methodology, integrations.",
+				description: "Настройка продуктового модуля — архетип, методология, интеграции.",
 				subcommands: [
-					{ sub: "/forge:product-setup", detail: "Interactive setup wizard for product module" },
+					{ sub: "/forge:product-setup", detail: "Интерактивный визард настройки продуктового модуля" },
 				],
 			},
 			{
 				command: "/forge:product",
-				description: "Product design operations — features, epics, roadmap, strategy.",
+				description: "Продуктовые операции — фичи, эпики, роадмап, стратегия.",
 				subcommands: [
-					{ sub: "/forge:product design", detail: "Design a feature with user flows, stories, and acceptance criteria" },
-					{ sub: "/forge:product epic", detail: "Create an epic with breakdown into stories" },
-					{ sub: "/forge:product roadmap", detail: "Generate or update a product roadmap" },
-					{ sub: "/forge:product strategy", detail: "Define or refine product strategy (positioning, ICP, GTM)" },
+					{ sub: "/forge:product design", detail: "Спроектировать фичу с user flows, stories и критериями приёмки" },
+					{ sub: "/forge:product epic", detail: "Создать эпик с разбивкой на stories" },
+					{ sub: "/forge:product roadmap", detail: "Сгенерировать или обновить продуктовый роадмап" },
+					{ sub: "/forge:product strategy", detail: "Определить или уточнить стратегию (позиционирование, ICP, GTM)" },
 				],
 			},
 		],
-		workflow: "/forge:product-setup → /forge:product design for each feature → stories feed into /dev pipeline.",
+		workflow: "/forge:product-setup → /forge:product design для каждой фичи → stories попадают в /dev пайплайн.",
 	},
 	{
 		id: "qa",
 		name: "forge-qa",
 		tier: "Pro+",
-		tagline: "Tests that trace back to requirements. Not AI guesswork.",
-		description: "forge-qa generates tests from acceptance criteria, not from AI assumptions. It supports 10 testing modes and maintains a 4-level traceability matrix: acceptance criteria → unit tests, use cases → E2E tests, UX criteria → visual tests, and LLM-as-Judge for AI output quality. Every test proves a requirement — no orphan tests, no missing coverage.",
+		tagline: "Тесты, которые привязаны к требованиям. Не к догадкам AI.",
+		description: "forge-qa генерирует тесты из критериев приёмки, а не из предположений AI. 10 режимов тестирования и 4-уровневая матрица трассируемости: критерии приёмки → юнит-тесты, use cases → E2E-тесты, UX-критерии → визуальные тесты и LLM-as-Judge для оценки качества AI-output. Каждый тест доказывает требование — никаких orphan-тестов, никаких пробелов в покрытии.",
 		benefits: [
-			"Generates tests from acceptance criteria — not guesswork",
-			"4-level traceability: AC → unit, UC → E2E, UX → visual, Judge",
-			"10 testing modes for different scenarios",
-			"LLM-as-Judge evaluates AI-generated output quality",
-			"Quality gates block merges until requirements are covered",
+			"Генерирует тесты из критериев приёмки — не из догадок",
+			"4-уровневая трассируемость: AC → юнит, UC → E2E, UX → визуальные, Judge",
+			"10 режимов тестирования для разных сценариев",
+			"LLM-as-Judge оценивает качество AI-сгенерированного вывода",
+			"Quality gates блокируют мердж, пока требования не покрыты",
 		],
 		commands: [
 			{
 				command: "/forge:qa-setup",
-				description: "Configure QA module — select test frameworks, coverage thresholds, traceability level.",
+				description: "Настройка QA-модуля — фреймворки, пороги покрытия, уровень трассируемости.",
 				subcommands: [
-					{ sub: "/forge:qa-setup", detail: "Interactive QA configuration wizard" },
+					{ sub: "/forge:qa-setup", detail: "Интерактивный визард настройки QA" },
 				],
 			},
 			{
 				command: "/forge:qa",
-				description: "Test operations — generation, coverage analysis, quality gates.",
+				description: "Операции тестирования — генерация, анализ покрытия, quality gates.",
 				subcommands: [
-					{ sub: "/forge:qa generate", detail: "Generate tests from acceptance criteria or user stories" },
-					{ sub: "/forge:qa coverage", detail: "Analyze test coverage and suggest missing tests" },
-					{ sub: "/forge:qa trace", detail: "Show traceability matrix (AC → test → code)" },
-					{ sub: "/forge:qa judge", detail: "Run LLM-as-Judge to evaluate test quality" },
-					{ sub: "/forge:qa gate", detail: "Run quality gate checks before merge" },
+					{ sub: "/forge:qa generate", detail: "Сгенерировать тесты из критериев приёмки или user stories" },
+					{ sub: "/forge:qa coverage", detail: "Проанализировать покрытие и предложить недостающие тесты" },
+					{ sub: "/forge:qa trace", detail: "Показать матрицу трассируемости (AC → тест → код)" },
+					{ sub: "/forge:qa judge", detail: "Запустить LLM-as-Judge для оценки качества тестов" },
+					{ sub: "/forge:qa gate", detail: "Запустить quality gate проверки перед мерджем" },
 				],
 			},
 		],
-		workflow: "/forge:qa-setup → /forge:product design (generates AC) → /forge:qa generate → /forge:qa gate before merge.",
+		workflow: "/forge:qa-setup → /forge:product design (генерирует AC) → /forge:qa generate → /forge:qa gate перед мерджем.",
 	},
 	{
 		id: "tracker",
 		name: "forge-tracker",
 		tier: "Pro+",
-		tagline: "Your backlog lives in your tracker. Now your AI reads it too.",
-		description: "forge-tracker connects your existing task management tool to the AI development pipeline. Pick a task from GitHub Issues, Linear, ClickUp, Notion, or Jira — your AI gets the full context (description, acceptance criteria, labels, priority) and starts working. When done, it syncs status and links the PR back to the task. No more copy-pasting issue descriptions into prompts.",
+		tagline: "Бэклог живёт в трекере. Теперь ваш AI тоже его читает.",
+		description: "forge-tracker подключает ваш трекер задач к AI-пайплайну разработки. Выберите задачу из GitHub Issues, Linear, ClickUp, Notion или Jira — AI получает полный контекст (описание, критерии приёмки, метки, приоритет) и начинает работу. По завершении синхронизирует статус и привязывает PR к задаче. Больше никакого копирования описаний задач в промпты.",
 		benefits: [
-			"5 integrations: GitHub Issues, Linear, ClickUp, Notion, Jira",
-			"Pick tasks directly from your tracker — AI gets full context",
-			"Auto-syncs task status and progress back to tracker",
-			"Links PRs and commits to tasks automatically",
-			"AC validation ensures task requirements are met before closing",
+			"5 интеграций: GitHub Issues, Linear, ClickUp, Notion, Jira",
+			"Выбирайте задачи прямо из трекера — AI получает полный контекст",
+			"Автосинхронизация статуса задачи обратно в трекер",
+			"Автоматическая привязка PR и коммитов к задачам",
+			"Валидация AC гарантирует выполнение требований перед закрытием",
 		],
 		commands: [
 			{
 				command: "/forge:tracker-setup",
-				description: "Configure task tracker integration — select provider and connect.",
+				description: "Настройка интеграции с трекером — выбор провайдера и подключение.",
 				subcommands: [
-					{ sub: "/forge:tracker-setup", detail: "Interactive tracker setup (auto-detects available integrations)" },
+					{ sub: "/forge:tracker-setup", detail: "Интерактивная настройка трекера (автоопределение доступных интеграций)" },
 				],
 			},
 			{
 				command: "/forge:tracker",
-				description: "Task management operations — pick, sync, close tasks.",
+				description: "Операции с задачами — выбор, синхронизация, закрытие.",
 				subcommands: [
-					{ sub: "/forge:tracker pick", detail: "Pick a task from your tracker to work on" },
-					{ sub: "/forge:tracker sync", detail: "Sync task status and progress back to tracker" },
-					{ sub: "/forge:tracker close", detail: "Close task with summary and link to PR/commit" },
+					{ sub: "/forge:tracker pick", detail: "Выбрать задачу из трекера для работы" },
+					{ sub: "/forge:tracker sync", detail: "Синхронизировать статус задачи обратно в трекер" },
+					{ sub: "/forge:tracker close", detail: "Закрыть задачу с резюме и ссылкой на PR/коммит" },
 				],
 			},
 		],
@@ -152,74 +152,74 @@ const modules = [
 		id: "autopilot",
 		name: "forge-autopilot",
 		tier: "Bundle",
-		tagline: "Run 3 agents in parallel. Zero merge conflicts.",
-		description: "forge-autopilot orchestrates autonomous AI teammates like Kubernetes orchestrates containers. Give it a list of features — it triages them, detects potential conflicts (shared models, overlapping files), groups non-conflicting features into parallel waves, and deploys agents to isolated worktrees. Each agent follows your full pipeline (guardrails, tests, quality gates). When a wave completes, it auto-merges and starts the next wave.",
+		tagline: "3 агента параллельно. Ноль конфликтов при мердже.",
+		description: "forge-autopilot оркестрирует автономных AI-тиммейтов как Kubernetes оркестрирует контейнеры. Дайте список фич — модуль проведёт триаж, определит потенциальные конфликты (общие модели, пересекающиеся файлы), сгруппирует неконфликтующие фичи в параллельные волны и развернёт агентов в изолированных worktree. Каждый агент следует полному пайплайну (гайдрейлы, тесты, quality gates). По завершении волны — автомердж и запуск следующей.",
 		benefits: [
-			"Backlog triage classifies features by complexity and risk",
-			"Conflict detection prevents agents from editing the same files",
-			"Wave execution runs non-conflicting features in parallel",
-			"3 autonomy modes: supervised, semi-auto, full-auto",
-			"Auto-merge with quality gate verification before merge",
+			"Триаж бэклога классифицирует фичи по сложности и риску",
+			"Детекция конфликтов предотвращает редактирование одних файлов разными агентами",
+			"Wave-execution запускает неконфликтующие фичи параллельно",
+			"3 режима автономности: supervised, semi-auto, full-auto",
+			"Автомердж с проверкой quality gates перед слиянием",
 		],
 		commands: [
 			{
 				command: "/forge:autopilot",
-				description: "Launch batch autonomous development pipeline.",
+				description: "Запуск пакетного автономного пайплайна разработки.",
 				subcommands: [
-					{ sub: "/forge:autopilot --setup", detail: "Configure autonomy mode and feature sources" },
-					{ sub: "/forge:autopilot", detail: "Start batch with configured sources (triage → waves → execute)" },
-					{ sub: '/forge:autopilot "auth, payments"', detail: "Start batch with specific features" },
-					{ sub: "/forge:autopilot --resume", detail: "Resume interrupted batch from last checkpoint" },
-					{ sub: "/forge:autopilot --abort", detail: "Abort current batch and clean up worktrees" },
+					{ sub: "/forge:autopilot --setup", detail: "Настроить режим автономности и источники фич" },
+					{ sub: "/forge:autopilot", detail: "Запустить пакет с настроенными источниками (триаж → волны → выполнение)" },
+					{ sub: '/forge:autopilot "auth, payments"', detail: "Запустить пакет с конкретными фичами" },
+					{ sub: "/forge:autopilot --resume", detail: "Возобновить прерванный пакет с последнего чекпоинта" },
+					{ sub: "/forge:autopilot --abort", detail: "Прервать текущий пакет и очистить worktree" },
 				],
 			},
 		],
-		workflow: "/forge:autopilot --setup → /forge:autopilot → agents triage, detect conflicts, execute in waves → review results.",
+		workflow: "/forge:autopilot --setup → /forge:autopilot → агенты: триаж, детекция конфликтов, выполнение волнами → ревью результатов.",
 	},
 	{
 		id: "worktree",
 		name: "forge-worktree",
 		tier: "Bundle",
-		tagline: "Isolated branches with zero port conflicts. Automatic cleanup.",
-		description: "forge-worktree manages the git worktree lifecycle for parallel development. Each worktree gets its own directory, Docker port offsets, and environment configuration — no more port conflicts between branches. Three templates cover common setups: Docker backend (with port isolation), Frontend (with dev server offsets), and Generic. Worktrees are auto-provisioned by forge-autopilot or created manually.",
+		tagline: "Изолированные ветки без конфликтов портов. Автоматическая очистка.",
+		description: "forge-worktree управляет жизненным циклом git worktree для параллельной разработки. Каждый worktree получает свою директорию, смещения Docker-портов и конфигурацию окружения — никаких конфликтов портов между ветками. Три шаблона: Docker backend (с изоляцией портов), Frontend (со смещениями dev-сервера) и Generic. Worktree создаются автоматически forge-autopilot или вручную.",
 		benefits: [
-			"3 templates: Docker backend, Frontend, Generic",
-			"Automatic Docker port isolation per worktree",
-			"Auto-cleanup when branches are merged",
-			"Integrates with forge-autopilot for autonomous provisioning",
-			"Zero manual configuration for environment isolation",
+			"3 шаблона: Docker backend, Frontend, Generic",
+			"Автоматическая изоляция Docker-портов для каждого worktree",
+			"Автоочистка при мердже веток",
+			"Интеграция с forge-autopilot для автономного провижининга",
+			"Нулевая ручная настройка изоляции окружения",
 		],
 		commands: [
 			{
 				command: "/forge:worktree-setup",
-				description: "Configure worktree templates and isolation settings.",
+				description: "Настройка шаблонов worktree и параметров изоляции.",
 				subcommands: [
-					{ sub: "/forge:worktree-setup", detail: "Interactive worktree configuration — select template (Docker backend, Frontend, Generic)" },
+					{ sub: "/forge:worktree-setup", detail: "Интерактивная настройка worktree — выбор шаблона (Docker backend, Frontend, Generic)" },
 				],
 			},
 		],
-		workflow: "/forge:worktree-setup → worktrees are auto-provisioned by forge-autopilot or created manually via git worktree.",
+		workflow: "/forge:worktree-setup → worktree создаются автоматически forge-autopilot или вручную через git worktree.",
 	},
 ];
 ---
 
 <DocsLayout
-	title="Usage Guide — Forge DevKit"
-	description="Complete command reference and module guide for all 6 Forge DevKit modules."
+	title="Руководство — Forge DevKit"
+	description="Полный справочник команд и модулей Forge DevKit — все 6 модулей."
 >
 	<h1 class="font-sans text-[36px] md:text-[48px] font-black leading-[1.1] tracking-[-0.02em] text-text mb-4">
-		Usage Guide
+		Руководство
 	</h1>
 	<p class="font-sans text-[18px] md:text-[20px] text-text-secondary leading-[1.6] mb-6">
-		Complete guide to all 6 Forge DevKit modules &mdash; what they do, how to use them, and why they matter.
+		Полный гайд по всем 6 модулям Forge DevKit &mdash; что делают, как использовать и зачем нужны.
 	</p>
 	<p class="text-[15px] text-text-muted leading-[1.7] mb-16">
-		All commands run inside your AI session (Claude Code, Cursor, or Claude Desktop). Forge DevKit is a plugin system &mdash; commands become available after <a href="/ru/docs/getting-started" class="text-secondary hover:underline">installation</a>.
+		Все команды выполняются внутри AI-сессии (Claude Code, Cursor или Claude Desktop). Forge DevKit &mdash; система плагинов, команды становятся доступны после <a href="/ru/docs/getting-started" class="text-secondary hover:underline">установки</a>.
 	</p>
 
 	{/* Quick nav */}
 	<nav class="mb-16 rounded-[var(--radius-card)] border border-card bg-surface-card p-6">
-		<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-4">Jump to module</p>
+		<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-4">Перейти к модулю</p>
 		<div class="flex flex-wrap gap-3">
 			{modules.map((m) => (
 				<a href={`#${m.id}`} class="inline-flex items-center gap-2 rounded-full border border-card px-4 py-1.5 font-mono text-[13px] text-text hover:border-secondary/40 hover:text-secondary transition-colors">
@@ -257,62 +257,62 @@ const modules = [
 			{m.id === "core" && (
 				<>
 					<DocHighlight variant="pain">
-						<strong>Without Forge:</strong> you spend 20 minutes every session re-explaining your architecture to AI. It forgets your NestJS guards, your layer conventions, your naming patterns — every single time.
+						<strong>Без Forge:</strong> вы тратите 20 минут каждую сессию, объясняя AI свою архитектуру заново. Он забывает ваши NestJS guards, соглашения по слоям, паттерны именования — каждый раз.
 					</DocHighlight>
 					<DocHighlight variant="gain">
-						<strong>With forge-core:</strong> one <code>/forge:setup</code> and your AI permanently knows your stack, layers, and conventions. No manual prompt engineering. No re-explaining. Ever.
+						<strong>С forge-core:</strong> одна команда <code>/forge:setup</code> — и AI навсегда знает ваш стек, слои и соглашения. Без ручного промпт-инжиниринга. Без повторных объяснений. Навсегда.
 					</DocHighlight>
 				</>
 			)}
 			{m.id === "product" && (
 				<>
 					<DocHighlight variant="pain">
-						<strong>Without Forge:</strong> you describe a feature vaguely, AI hallucinates requirements, builds the wrong thing, and you spend hours debugging assumptions that were never verified.
+						<strong>Без Forge:</strong> вы описываете фичу расплывчато, AI галлюцинирует требования, строит не то, и вы часами отлаживаете предположения, которые никто не проверял.
 					</DocHighlight>
 					<DocHighlight variant="gain">
-						<strong>With forge-product:</strong> describe features in business language — AI generates verified user flows, stories, and acceptance criteria <em>before</em> writing a single line of code.
+						<strong>С forge-product:</strong> описывайте фичи на человеческом языке — AI генерирует проверенные user flows, stories и критерии приёмки <em>до</em> написания первой строки кода.
 					</DocHighlight>
 				</>
 			)}
 			{m.id === "qa" && (
 				<>
 					<DocHighlight variant="pain">
-						<strong>Without Forge:</strong> AI generates tests with 100% coverage — all using mock data. Every assertion tests implementation details. Zero real behavior verified.
+						<strong>Без Forge:</strong> AI генерирует тесты с 100% покрытием — всё на моках. Каждый assert проверяет детали реализации. Ноль реального поведения проверено.
 					</DocHighlight>
 					<DocHighlight variant="gain">
-						<strong>With forge-qa:</strong> every test traces back to an acceptance criterion. No orphan tests. No missing coverage. Tests prove requirements, not AI guesswork.
+						<strong>С forge-qa:</strong> каждый тест привязан к критерию приёмки. Никаких orphan-тестов. Никаких пробелов в покрытии. Тесты доказывают требования, а не догадки AI.
 					</DocHighlight>
 				</>
 			)}
 			{m.id === "tracker" && (
 				<>
 					<DocHighlight variant="pain">
-						<strong>Without Forge:</strong> you copy-paste issue descriptions from your tracker into AI prompts. Context gets lost. Status updates are manual. PRs never link back to tasks.
+						<strong>Без Forge:</strong> вы копируете описания задач из трекера в AI-промпты. Контекст теряется. Обновления статуса — вручную. PR никогда не привязываются к задачам.
 					</DocHighlight>
 					<DocHighlight variant="gain">
-						<strong>With forge-tracker:</strong> <code>/forge:tracker pick</code> pulls the task with full context. When you're done, <code>/forge:tracker close</code> syncs status and links the PR — zero manual updates.
+						<strong>С forge-tracker:</strong> <code>/forge:tracker pick</code> загружает задачу с полным контекстом. По завершении <code>/forge:tracker close</code> синхронизирует статус и привязывает PR — ноль ручных обновлений.
 					</DocHighlight>
 				</>
 			)}
 			{m.id === "autopilot" && (
 				<>
 					<DocHighlight variant="pain">
-						<strong>Without Forge:</strong> you run 3 agents in parallel — they all edit the same User model. You spend 4 hours resolving merge conflicts. Net productivity: <em>negative</em>.
+						<strong>Без Forge:</strong> вы запускаете 3 агента параллельно — все редактируют одну модель User. Вы тратите 4 часа на разрешение merge-конфликтов. Итоговая продуктивность: <em>отрицательная</em>.
 					</DocHighlight>
 					<DocHighlight variant="gain">
-						<strong>With forge-autopilot:</strong> conflict detection groups features into safe waves. Each agent gets an isolated worktree with your full pipeline. Auto-merge after quality gates pass.
+						<strong>С forge-autopilot:</strong> детекция конфликтов группирует фичи в безопасные волны. Каждый агент получает изолированный worktree с полным пайплайном. Автомердж после прохождения quality gates.
 					</DocHighlight>
 				</>
 			)}
 			{m.id === "worktree" && (
 				<DocHighlight variant="insight">
-					<strong>Why worktrees?</strong> Each parallel agent needs isolation — its own branch, ports, and environment. Manual setup is error-prone. forge-worktree automates the entire lifecycle, so you focus on features, not infrastructure.
+					<strong>Зачем worktree?</strong> Каждому параллельному агенту нужна изоляция — своя ветка, порты и окружение. Ручная настройка ненадёжна. forge-worktree автоматизирует весь жизненный цикл, чтобы вы фокусировались на фичах, а не на инфраструктуре.
 				</DocHighlight>
 			)}
 
 			{/* Benefits */}
 			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5 mb-8">
-				<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-3">What you get</p>
+				<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-3">Что вы получаете</p>
 				<ul class="space-y-2">
 					{m.benefits.map((b) => (
 						<li class="flex items-start gap-2 text-[14px] text-text-secondary leading-[1.6]">
@@ -350,7 +350,7 @@ const modules = [
 			{/* Workflow */}
 			<div class="rounded-[var(--radius-card)] border border-secondary/15 bg-secondary/5 px-5 py-3">
 				<p class="text-[13px]">
-					<span class="font-mono text-[12px] font-medium text-secondary mr-2">Typical workflow:</span>
+					<span class="font-mono text-[12px] font-medium text-secondary mr-2">Типичный workflow:</span>
 					<span class="text-text-muted">{m.workflow}</span>
 				</p>
 			</div>
@@ -360,23 +360,23 @@ const modules = [
 	{/* Feedback & Bug Reports */}
 	<section id="feedback" class="mb-16 scroll-mt-24">
 		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-3">
-			Feedback & Bug Reports
+			Обратная связь и баг-репорты
 		</h2>
 		<p class="text-[16px] text-text-secondary leading-[1.7] mb-6">
-			Found a bug? Have a suggestion? Use the built-in feedback command &mdash; it sends structured reports directly to the Forge team.
+			Нашли баг? Есть предложение? Используйте встроенную команду обратной связи &mdash; она отправляет структурированные отчёты напрямую команде Forge.
 		</p>
 
 		<div class="rounded-[var(--radius-card)] border border-card bg-surface-card overflow-hidden mb-6">
 			<div class="border-b border-card px-5 py-3 flex items-baseline gap-3">
 				<code class="font-mono text-[15px] font-medium text-secondary">/forge:feedback</code>
-				<span class="text-[13px] text-text-muted">Send feedback, bug reports, or feature requests.</span>
+				<span class="text-[13px] text-text-muted">Отправить обратную связь, баг-репорт или запрос фичи.</span>
 			</div>
 			<div class="px-5 py-3">
 				<table class="w-full">
 					<tbody>
 						<tr class="border-b border-card/30">
 							<td class="py-2 pr-4 font-mono text-[13px] text-text whitespace-nowrap align-top">/forge:feedback</td>
-							<td class="py-2 text-[13px] text-text-muted">Interactive feedback wizard &mdash; select type (bug, friction, suggestion), describe the issue, auto-attaches session context</td>
+							<td class="py-2 text-[13px] text-text-muted">Интерактивный визард &mdash; выберите тип (баг, фрикшн, предложение), опишите проблему, контекст сессии прикрепляется автоматически</td>
 						</tr>
 					</tbody>
 				</table>
@@ -385,18 +385,18 @@ const modules = [
 
 		<div class="space-y-4 text-[15px] text-text-secondary leading-[1.7]">
 			<p>
-				The feedback command collects:
+				Команда обратной связи собирает:
 			</p>
 			<ul class="list-disc pl-6 space-y-1">
-				<li><strong class="text-text">Your description</strong> &mdash; what happened, what you expected</li>
-				<li><strong class="text-text">Session context</strong> &mdash; plugin versions, detected stack, execution mode (auto-attached, no manual work)</li>
-				<li><strong class="text-text">Feedback type</strong> &mdash; friction (something was hard), bug (something broke), suggestion (feature request)</li>
+				<li><strong class="text-text">Ваше описание</strong> &mdash; что произошло, что ожидали</li>
+				<li><strong class="text-text">Контекст сессии</strong> &mdash; версии плагинов, определённый стек, режим выполнения (прикрепляется автоматически)</li>
+				<li><strong class="text-text">Тип обратной связи</strong> &mdash; фрикшн (что-то было сложно), баг (что-то сломалось), предложение (запрос фичи)</li>
 			</ul>
 			<p>
-				Reports are sent securely using your license key. No source code or file contents are included &mdash; only metadata and your description.
+				Отчёты отправляются безопасно с использованием вашего лицензионного ключа. Исходный код и содержимое файлов не включаются &mdash; только метаданные и ваше описание.
 			</p>
 			<p>
-				Alternatively, email <a href="mailto:support@reumbra.com" class="text-secondary hover:underline">support@reumbra.com</a> for direct support.
+				Также можно написать на <a href="mailto:support@reumbra.com" class="text-secondary hover:underline">support@reumbra.com</a> для прямой поддержки.
 			</p>
 		</div>
 	</section>
@@ -405,23 +405,23 @@ const modules = [
 	<section class="mb-16">
 		<div class="rounded-[var(--radius-card)] border border-secondary/20 bg-secondary/5 p-8 text-center">
 			<p class="font-sans text-[20px] md:text-[24px] font-bold text-text mb-3">
-				Ready to get started?
+				Готовы начать?
 			</p>
 			<p class="text-[16px] text-text-secondary mb-6">
-				One-time purchase. 14-day money-back guarantee.
+				Разовая покупка. 14 дней гарантия возврата.
 			</p>
 			<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
 				<a
-					href="/pricing"
+					href="/ru/pricing"
 					class="inline-flex items-center justify-center rounded-[var(--radius-button)] bg-primary px-8 py-3 font-sans text-[15px] font-medium text-white transition-all duration-200 hover:bg-primary-hover"
 				>
-					Get Forge &mdash; from &euro;29 &rarr;
+					Получить Forge &mdash; от &euro;29 &rarr;
 				</a>
 				<a
 					href="/ru/docs/getting-started"
 					class="inline-flex items-center justify-center rounded-[var(--radius-button)] border border-card px-8 py-3 font-sans text-[15px] font-medium text-text transition-all duration-200 hover:border-secondary/40"
 				>
-					Installation guide
+					Руководство по установке
 				</a>
 			</div>
 		</div>

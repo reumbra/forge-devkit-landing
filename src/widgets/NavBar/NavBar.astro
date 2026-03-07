@@ -4,6 +4,7 @@ import Button from "@shared/ui/Button.astro";
 import ReumbraLogo from "@shared/ui/ReumbraLogo.astro";
 import { navigation } from "@shared/config/navigation";
 import { localePath } from "@shared/utils/locale";
+import LanguageSwitcher from "@shared/ui/LanguageSwitcher.astro";
 
 const locale = Astro.currentLocale;
 const lp = (path: string) => localePath(path, locale);
@@ -108,8 +109,9 @@ const { logo, links, cta } = navigation;
 			))}
 		</ul>
 
-		{/* Desktop CTA */}
-		<div class="hidden md:block">
+		{/* Desktop: language switcher + CTA */}
+		<div class="hidden md:flex items-center gap-4">
+			<LanguageSwitcher />
 			<Button variant="primary" href={lp(cta.href)}>
 				{cta.label}
 			</Button>
@@ -188,6 +190,9 @@ const { logo, links, cta } = navigation;
 					)}
 				</>
 			))}
+			<div class="flex items-center gap-3 py-3">
+				<LanguageSwitcher />
+			</div>
 			<Button variant="primary" href={lp(cta.href)}>
 				{cta.label}
 			</Button>

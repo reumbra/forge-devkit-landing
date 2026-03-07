@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ── Font Faces ── */
+/* ── Font Faces: Satoshi (Latin) ── */
 
 @font-face {
 	font-family: "Satoshi";
@@ -33,6 +33,28 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+/* ── Font Faces: Inter (Cyrillic fallback for Satoshi) ── */
+
+@font-face {
+	font-family: "Satoshi";
+	src: url("../assets/fonts/Inter-Cyrillic.woff2") format("woff2");
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+	font-family: "Satoshi";
+	src: url("../assets/fonts/Inter-CyrillicExt.woff2") format("woff2");
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* ── Font Faces: JetBrains Mono ── */
 
 @font-face {
 	font-family: "JetBrains Mono";
@@ -114,6 +136,14 @@ body {
 	background-color: var(--color-bg);
 	color: var(--color-text);
 	line-height: 1.5;
+}
+
+/* ── Cyrillic typography tweaks ── */
+
+html[lang="ru"] body {
+	line-height: 1.6;
+	-webkit-hyphens: auto;
+	hyphens: auto;
 }
 
 /* ── Utility classes for non-tokenizable values ── */
