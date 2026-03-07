@@ -38,7 +38,6 @@ export const footer = {
 				{ label: "Getting Started", href: "/getting-started" },
 				{ label: "Usage Guide", href: "/usage-guide" },
 				{ label: "Changelog", href: "#", disabled: true },
-				{ label: "GitHub", href: "https://github.com/reumbra", external: true },
 			],
 		},
 		{

@@ -54,7 +54,6 @@ export const navigation = {
 		},
 		{ label: "Pricing", href: "/pricing" },
 		{ label: "Getting Started", href: "/getting-started" },
-		{ label: "GitHub", href: "https://github.com/reumbra", external: true },
 	],
 	cta: {
 		label: "Get Forge",
