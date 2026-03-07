@@ -36,6 +36,11 @@ export const problems = {
 				"Unit tests pass with 100% coverage. Every assertion uses mock data. Zero real behavior tested.",
 			painRef: "P5: Fake Tests",
 		},
+		{
+			quote:
+				"A simple rename task burned 50K tokens because the AI re-read the entire codebase. Every. Single. Time.",
+			painRef: "P2: Token Burn",
+		},
 	],
 } as const satisfies ProblemsConfig;
 
@@ -64,6 +69,11 @@ const problemsRu: ProblemsConfig = {
 			quote:
 				"Unit-тесты проходят со 100% покрытием. Все ассерты используют моки. Ноль реального поведения протестировано.",
 			painRef: "P5: Fake Tests",
+		},
+		{
+			quote:
+				"Простой rename сжег 50K токенов - AI перечитывал всю кодовую базу. Каждый. Раз.",
+			painRef: "P2: Token Burn",
 		},
 	],
 };

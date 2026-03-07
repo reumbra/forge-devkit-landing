@@ -75,6 +75,12 @@ export const faq = {
 			answer:
 				"Your generated artifacts continue working forever - they're files in your project, not a service. You just won't get new quality patterns or module updates. Optionally renew at a reduced price to stay current.",
 		},
+		{
+			id: "token-costs",
+			question: "How does Forge reduce AI token costs?",
+			answer:
+				"Three ways. First: execution modes - economy mode skips optional quality steps, cutting ~60% of tokens on routine tasks. Second: pipeline phases communicate through 500-token summaries instead of passing full context (~49K) between phases. Third: subagents receive only their scope, not the entire codebase. Simple bug fix? 5-step economy mode. Complex feature? Full quality pipeline. You choose per task.",
+		},
 	],
 } as const satisfies FaqConfig;
 
@@ -142,6 +148,12 @@ const faqRu: FaqConfig = {
 			question: "Что происходит после года обновлений?",
 			answer:
 				"Ваши сгенерированные артефакты продолжают работать навсегда - это файлы в вашем проекте, а не сервис. Вы просто не получаете новые паттерны качества и обновления модулей. По желанию можно продлить по сниженной цене.",
+		},
+		{
+			id: "token-costs",
+			question: "Как Forge снижает расход токенов AI?",
+			answer:
+				"Тремя способами. Первый: режимы выполнения - economy mode пропускает необязательные шаги качества, экономя ~60% токенов на рутинных задачах. Второй: фазы pipeline общаются через 500-токенные summary вместо передачи полного контекста (~49K) между фазами. Третий: субагенты получают только свой scope, а не всю кодовую базу. Простой баг-фикс? 5-шаговый economy mode. Сложная фича? Полный quality pipeline. Вы выбираете под задачу.",
 		},
 	],
 };

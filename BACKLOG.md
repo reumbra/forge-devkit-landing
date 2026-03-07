@@ -50,7 +50,7 @@
 | BL-043 | P3 | backlog | AI SEO: unified comparison page (/compare) | `[seo]` `[ai-seo]` `[content]` |
 | BL-044 | P3 | backlog | EN copy: rewrite flat Final CTA subheadline | `[copy]` `[cro]` |
 | BL-045 | P3 | backlog | EN copy: add rationalization detector example | `[copy]` `[specificity]` |
-| BL-046 | P2 | backlog | Marketing: Token Economy as value prop (execution modes, context isolation, P25 artifacts) | `[copy]` `[cro]` `[content]` |
+| BL-046 | P2 | done | Marketing: Token Economy as value prop (execution modes, context isolation, P25 artifacts) | `[copy]` `[cro]` `[content]` |
 | BL-047 | P2 | done | Terms page: add /refund link + create /refund page (EN+RU) | `[legal]` `[gdpr]` |
 
 ---

@@ -69,9 +69,9 @@ export const corePageConfig: ModulePageConfig = {
 		},
 		{
 			icon: "\u25C7",
-			title: "3 execution modes",
+			title: "4 execution modes",
 			description:
-				"Sequential (safe), parallel (fast), patch (surgical). Choose per task.",
+				"Economy (~60% fewer tokens), balanced, quality (full pipeline), manual. Plus 3 strategies: sequential, parallel, patch. You decide how thorough each task needs to be.",
 		},
 		{
 			icon: "\u25C7",
@@ -211,9 +211,9 @@ const corePageConfigRu: ModulePageConfig = {
 		},
 		{
 			icon: "\u25C7",
-			title: "3 режима выполнения",
+			title: "4 режима выполнения",
 			description:
-				"Sequential (безопасный), parallel (быстрый), patch (хирургический). Выбирайте под задачу.",
+				"Economy (~60% меньше токенов), balanced, quality (полный pipeline), manual. Плюс 3 стратегии: sequential, parallel, patch. Вы решаете, насколько тщательно обрабатывать каждую задачу.",
 		},
 		{
 			icon: "\u25C7",
