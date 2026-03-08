@@ -10,7 +10,7 @@ const breadcrumbs = [{ label: "Модули" }];
 
 <PageLayout
 	title="Модули - Forge DevKit"
-	description="6 модулей разработки. 8 advisory. Одна экосистема. Каждый модуль работает автономно."
+	description="6 модулей разработки. 9 advisory. Одна экосистема. Каждый модуль работает автономно."
 	breadcrumbs={breadcrumbs}
 >
 	<section class="py-16 md:py-24">
@@ -26,13 +26,8 @@ const breadcrumbs = [{ label: "Модули" }];
 			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 				{modules.modules.map((mod) => (
 					<a
-						href={mod.id === "forge-tracker" || mod.id === "forge-worktree" ? undefined : `/ru/modules/${mod.id.replace("forge-", "")}`}
-						class:list={[
-							"rounded-[14px] border border-card bg-surface p-6 transition-all duration-300",
-							mod.id !== "forge-tracker" && mod.id !== "forge-worktree"
-								? "hover:border-card-hover hover:-translate-y-0.5"
-								: "opacity-80",
-						]}
+						href={`/ru/modules/${mod.id.replace("forge-", "")}`}
+						class="rounded-[14px] border border-card bg-surface p-6 transition-all duration-300 hover:border-card-hover hover:-translate-y-0.5"
 					>
 						<h2 class="font-mono text-[15px] font-medium text-text">
 							<span class="text-secondary mr-1">{"\u25C7"}</span>{mod.name}
