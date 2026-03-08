@@ -9,7 +9,7 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 
 <DocsLayout
 	title="Начало работы - Forge DevKit"
-	description="Установите Forge DevKit за 5 минут. Работает с Claude Code, Cursor и Claude Desktop."
+	description="Установите Forge DevKit за 5 минут. Работает с Claude Code, Claude Cowork и Cursor."
 >
 	<h1 class="font-sans text-[36px] md:text-[48px] font-black leading-[1.1] tracking-[-0.02em] text-text mb-4">
 		Начало работы
@@ -29,16 +29,16 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
 			<a href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank" rel="noopener" class="block rounded-[var(--radius-card)] border-card bg-surface-card p-5 hover:border-secondary/30 transition-colors">
 				<p class="font-mono text-[14px] font-medium text-text mb-1">Claude Code</p>
-				<p class="text-[13px] text-text-muted">Официальный CLI от Anthropic</p>
+				<p class="text-[13px] text-text-muted">CLI для разработчиков от Anthropic</p>
 				<p class="text-[12px] text-secondary mt-2">Рекомендуется</p>
+			</a>
+			<a href="https://claude.ai/download" target="_blank" rel="noopener" class="block rounded-[var(--radius-card)] border-card bg-surface-card p-5 hover:border-secondary/30 transition-colors">
+				<p class="font-mono text-[14px] font-medium text-text mb-1">Claude Cowork</p>
+				<p class="text-[13px] text-text-muted">Десктоп-приложение с поддержкой плагинов</p>
 			</a>
 			<a href="https://www.cursor.com/" target="_blank" rel="noopener" class="block rounded-[var(--radius-card)] border-card bg-surface-card p-5 hover:border-secondary/30 transition-colors">
 				<p class="font-mono text-[14px] font-medium text-text mb-1">Cursor</p>
 				<p class="text-[13px] text-text-muted">AI-редактор кода</p>
-			</a>
-			<a href="https://claude.ai/download" target="_blank" rel="noopener" class="block rounded-[var(--radius-card)] border-card bg-surface-card p-5 hover:border-secondary/30 transition-colors">
-				<p class="font-mono text-[14px] font-medium text-text mb-1">Claude Desktop</p>
-				<p class="text-[13px] text-text-muted">Десктоп-приложение с MCP</p>
 			</a>
 		</div>
 		<div class="rounded-[var(--radius-card)] border border-secondary/20 bg-secondary/5 p-4">
@@ -53,14 +53,62 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 	<section class="mb-16">
 		<div class="flex items-center gap-3 mb-6">
 			<span class="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/20 font-mono text-[14px] font-bold text-secondary">1</span>
-			<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text">Установите Forge CLI</h2>
+			<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text">Установите Forge</h2>
 		</div>
-		<div class="rounded-[var(--radius-card)] border-card bg-surface-deep p-5 font-mono text-[14px] text-text-secondary mb-4">
-			<p><span class="text-text-muted">$</span> <span class="text-text">npm install -g @reumbra/forge</span></p>
-		</div>
-		<p class="text-[15px] text-text-muted">
-			Эта команда устанавливает <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">forge</code> глобально.
+
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
+			Выберите удобный способ установки:
 		</p>
+
+		{/* CLI */}
+		<div class="mb-6">
+			<p class="font-mono text-[14px] text-text font-medium mb-3">Вариант A: CLI (рекомендуется)</p>
+			<div class="rounded-[var(--radius-card)] border-card bg-surface-deep p-5 font-mono text-[14px] text-text-secondary mb-2">
+				<p><span class="text-text-muted">$</span> <span class="text-text">npm install -g @reumbra/forge</span></p>
+			</div>
+			<p class="text-[14px] text-text-muted">
+				Устанавливает команду <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">forge</code> глобально. Работает на всех платформах.
+			</p>
+		</div>
+
+		{/* Desktop Apps */}
+		<div class="mb-6">
+			<p class="font-mono text-[14px] text-text font-medium mb-3">Вариант B: Десктоп-приложение</p>
+			<p class="text-[14px] text-text-secondary leading-[1.7] mb-4">
+				Скачайте установщик для вашей платформы из письма с подтверждением покупки.
+			</p>
+
+			{/* Windows */}
+			<div class="rounded-[var(--radius-card)] border-card bg-surface-card p-5 mb-3">
+				<p class="font-mono text-[13px] text-text font-medium mb-2">Windows (.exe)</p>
+				<p class="text-[14px] text-text-secondary leading-[1.7] mb-3">
+					Приложение пока не имеет цифровой подписи. Windows SmartScreen может заблокировать установку:
+				</p>
+				<ol class="text-[14px] text-text-secondary leading-[1.7] space-y-1 list-decimal list-inside">
+					<li>Когда увидите <strong class="text-text">"Система Windows защитила ваш компьютер"</strong>, нажмите <strong class="text-text">"Подробнее"</strong></li>
+					<li>Нажмите <strong class="text-text">"Выполнить в любом случае"</strong></li>
+				</ol>
+			</div>
+
+			{/* macOS */}
+			<div class="rounded-[var(--radius-card)] border-card bg-surface-card p-5 mb-3">
+				<p class="font-mono text-[13px] text-text font-medium mb-2">macOS (.dmg)</p>
+				<p class="text-[14px] text-text-secondary leading-[1.7] mb-3">
+					Приложение пока не нотаризовано. macOS Gatekeeper заблокирует запуск:
+				</p>
+				<ol class="text-[14px] text-text-secondary leading-[1.7] space-y-1 list-decimal list-inside">
+					<li>Откройте <strong class="text-text">Системные настройки</strong> &rarr; <strong class="text-text">Конфиденциальность и безопасность</strong></li>
+					<li>Прокрутите вниз до сообщения о заблокированном приложении</li>
+					<li>Нажмите <strong class="text-text">"Всё равно открыть"</strong></li>
+				</ol>
+			</div>
+
+			<div class="rounded-[var(--radius-card)] border border-yellow-500/20 bg-yellow-500/5 p-4">
+				<p class="text-[13px] text-text-secondary leading-[1.7]">
+					<span class="text-text font-medium">Не доверяете неподписанным приложениям?</span> Используйте CLI - <code class="font-mono text-[12px] bg-surface-deep px-1.5 py-0.5 rounded">npm install -g @reumbra/forge</code> - тот же инструмент, установленный из npm. Цифровая подпись в планах.
+				</p>
+			</div>
+		</div>
 	</section>
 
 	{/* Шаг 2: Активация */}
@@ -95,65 +143,76 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 		</div>
 	</section>
 
-	{/* Шаг 4: Перезапуск сессии */}
+	{/* Шаг 4: Настройка платформы */}
 	<section class="mb-16">
 		<div class="flex items-center gap-3 mb-6">
 			<span class="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/20 font-mono text-[14px] font-bold text-secondary">4</span>
-			<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text">Перезапустите AI-сессию</h2>
+			<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text">Настройте AI-окружение</h2>
 		</div>
-		<div class="rounded-[var(--radius-card)] border border-yellow-500/20 bg-yellow-500/5 p-5 mb-6">
-			<p class="text-[14px] text-text font-medium mb-2">Важно</p>
-			<p class="text-[14px] text-text-secondary leading-[1.7]">
-				После установки или обновления плагинов необходимо перезапустить AI-сессию, чтобы изменения вступили в силу.
+
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
+			Следуйте инструкциям для вашей платформы:
+		</p>
+
+		{/* Claude Code */}
+		<div class="rounded-[var(--radius-card)] border-card bg-surface-card p-6 mb-4">
+			<p class="font-mono text-[15px] text-text font-medium mb-3">Claude Code</p>
+			<p class="text-[14px] text-text-secondary leading-[1.7] mb-4">
+				Рекомендуем запускать Claude Code с пропуском разрешений:
 			</p>
+			<div class="rounded-[var(--radius-card)] border-card bg-surface-deep p-4 font-mono text-[13px] text-text-secondary mb-4">
+				<p><span class="text-text-muted">$</span> <span class="text-text">claude --dangerously-skip-permissions</span></p>
+			</div>
+			<div class="rounded-[var(--radius-card)] border border-secondary/20 bg-secondary/5 p-4">
+				<p class="text-[13px] text-text font-medium mb-2">Почему это безопасно с Forge?</p>
+				<p class="text-[13px] text-text-secondary leading-[1.7]">
+					У Forge собственная 7-этапная система качества, которая валидирует каждый шаг перед выполнением. Визард настройки читает десятки файлов, запускает команды детекции и записывает конфигурацию - стандартные запросы разрешений Claude Code потребовали бы сотни ручных нажатий "Разрешить" без реальной пользы для безопасности. Gates Forge - ваша система безопасности.
+				</p>
+			</div>
 		</div>
-		<div class="space-y-4">
-			<div>
-				<p class="font-mono text-[14px] text-text font-medium mb-2">Claude Code CLI</p>
-				<div class="rounded-[var(--radius-card)] border-card bg-surface-deep p-4 font-mono text-[13px] text-text-secondary">
-					<p>Введите <span class="text-text">/exit</span>, затем запустите <span class="text-text">claude</span> снова</p>
-				</div>
+
+		{/* Claude Cowork */}
+		<div class="rounded-[var(--radius-card)] border-card bg-surface-card p-6 mb-4">
+			<p class="font-mono text-[15px] text-text font-medium mb-3">Claude Cowork</p>
+			<p class="text-[14px] text-text-secondary leading-[1.7] mb-4">
+				После установки плагинов они появляются в Claude Cowork, но <strong class="text-text">отключены по умолчанию</strong>. Их нужно включить:
+			</p>
+			<ol class="text-[14px] text-text-secondary leading-[1.7] space-y-2 list-decimal list-inside mb-4">
+				<li>Откройте панель <strong class="text-text">Customize</strong> (иконка портфеля в левой боковой панели)</li>
+				<li>Найдите секцию <strong class="text-text">Personal plugins</strong> - вы увидите все плагины Forge как "Disabled"</li>
+				<li>Нажмите на каждый плагин Forge и включите его</li>
+				<li>Начните новый диалог</li>
+			</ol>
+			<div class="rounded-[var(--radius-card)] border border-yellow-500/20 bg-yellow-500/5 p-4">
+				<p class="text-[13px] text-text-secondary leading-[1.7]">
+					<span class="text-text font-medium">Совет:</span> Не обязательно включать все плагины сразу. Начните с <strong class="text-text">Forge core</strong> - это фундамент. Остальные включайте по мере необходимости.
+				</p>
 			</div>
-			<div>
-				<p class="font-mono text-[14px] text-text font-medium mb-2">Cursor</p>
-				<div class="rounded-[var(--radius-card)] border-card bg-surface-deep p-4 font-mono text-[13px] text-text-secondary">
-					<p>Перезагрузите окно: <span class="text-text">Cmd+Shift+P</span> &rarr; <span class="text-text">Developer: Reload Window</span></p>
-				</div>
-			</div>
-			<div>
-				<p class="font-mono text-[14px] text-text font-medium mb-2">Claude Desktop</p>
-				<div class="rounded-[var(--radius-card)] border-card bg-surface-deep p-4 font-mono text-[13px] text-text-secondary">
-					<p>Закройте и откройте приложение заново или начните новый диалог</p>
-				</div>
-			</div>
+		</div>
+
+		{/* Cursor */}
+		<div class="rounded-[var(--radius-card)] border-card bg-surface-card p-6">
+			<p class="font-mono text-[15px] text-text font-medium mb-3">Cursor</p>
+			<p class="text-[14px] text-text-secondary leading-[1.7] mb-3">
+				Устанавливайте плагины так же, как для Claude Code (шаги 1-3 выше). Cursor автоматически подхватывает установленные плагины из <code class="font-mono text-[12px] bg-surface-deep px-1.5 py-0.5 rounded">~/.claude/</code>.
+			</p>
+			<p class="text-[14px] text-text-secondary leading-[1.7]">
+				После установки перезагрузите окно: <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">Cmd+Shift+P</code> &rarr; <strong class="text-text">Developer: Reload Window</strong>.
+			</p>
 		</div>
 	</section>
 
-	{/* Шаг 5: Проверка */}
+	{/* Шаг 5: Запуск визарда */}
 	<section class="mb-16">
 		<div class="flex items-center gap-3 mb-6">
 			<span class="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/20 font-mono text-[14px] font-bold text-secondary">5</span>
-			<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text">Проверьте установку</h2>
-		</div>
-		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			В AI-сессии выполните <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/plugins</code> &rarr; перейдите в <strong class="text-text">marketplace</strong> &rarr; <strong class="text-text">reumbra</strong>. Вы увидите все установленные плагины Forge с их версиями.
-		</p>
-		<p class="text-[15px] text-text-secondary leading-[1.7]">
-			Или введите <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/forge:setup</code>, чтобы запустить визард настройки.
-		</p>
-	</section>
-
-	{/* Шаг 6: Запуск визарда */}
-	<section class="mb-16">
-		<div class="flex items-center gap-3 mb-6">
-			<span class="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/20 font-mono text-[14px] font-bold text-secondary">6</span>
 			<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text">Запустите визард настройки</h2>
 		</div>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			Перейдите в директорию проекта и выполните:
+			Перейдите в директорию проекта и введите в чате:
 		</p>
 		<div class="rounded-[var(--radius-card)] border-card bg-surface-deep p-5 font-mono text-[14px] text-text-secondary mb-6">
-			<p><span class="text-text-muted">$</span> <span class="text-text">/forge:setup</span></p>
+			<p><span class="text-text">/forge:setup</span></p>
 		</div>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
 			Визард проходит этапы последовательно - определяет экосистему, проводит аудит архитектуры, настраивает пайплайн и генерирует dev-скиллы под ваш проект.
@@ -164,7 +223,7 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 		</div>
 	</section>
 
-	{/* Шаг 7: Готово */}
+	{/* Шаг 6: Готово */}
 	<section class="mb-16">
 		<div class="flex items-center gap-3 mb-6">
 			<span class="flex h-8 w-8 items-center justify-center rounded-full bg-green-500/20 font-mono text-[14px] font-bold text-green-400">&#10003;</span>
@@ -177,7 +236,7 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 		<div class="mt-8 rounded-[var(--radius-card)] border-card bg-surface-card p-6">
 			<p class="font-sans text-[16px] text-text font-medium mb-3">Что дальше?</p>
 			<ul class="space-y-2 text-[15px] text-text-secondary">
-				<li>Используйте AI как обычно - теперь он понимает структуру вашего проекта</li>
+				<li>Введите <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/dev</code> чтобы начать работу над фичей - Forge проведёт вас через весь пайплайн</li>
 				<li>Запустите <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/forge:setup</code> в любой момент, чтобы увидеть дашборд или изменить настройки</li>
 				<li>Запустите <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/forge:setup upgrade --check</code>, чтобы проверить обновления</li>
 				<li>Загляните в <a href="/ru/docs/usage-guide" class="text-secondary hover:underline">Руководство</a> для полного справочника команд</li>
@@ -206,6 +265,11 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 						<td class="px-5 py-2.5 text-text-muted">Core+</td>
 					</tr>
 					<tr class="border-b border-[rgba(118,73,196,0.04)]">
+						<td class="px-5 py-2.5 text-secondary">/dev</td>
+						<td class="px-5 py-2.5">Полный пайплайн разработки (генерируется после setup)</td>
+						<td class="px-5 py-2.5 text-text-muted">Core+</td>
+					</tr>
+					<tr class="border-b border-[rgba(118,73,196,0.04)]">
 						<td class="px-5 py-2.5 text-secondary">/forge:patch</td>
 						<td class="px-5 py-2.5">Быстрые патчи конфигурации без полного визарда</td>
 						<td class="px-5 py-2.5 text-text-muted">Core+</td>
@@ -227,13 +291,13 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 					</tr>
 					<tr class="border-b border-[rgba(118,73,196,0.04)]">
 						<td class="px-5 py-2.5 text-secondary">/forge:autopilot</td>
-						<td class="px-5 py-2.5">Пакетная разработка автономными командами агентов</td>
+						<td class="px-5 py-2.5">Пакетная разработка с Agent Teams</td>
 						<td class="px-5 py-2.5 text-text-muted">Complete</td>
 					</tr>
 					<tr>
 						<td class="px-5 py-2.5 text-secondary">/forge:worktree-setup</td>
 						<td class="px-5 py-2.5">Шаблоны жизненного цикла git worktree</td>
-						<td class="px-5 py-2.5 text-text-muted">Complete</td>
+						<td class="px-5 py-2.5 text-text-muted">Core+</td>
 					</tr>
 				</tbody>
 			</table>
@@ -267,13 +331,28 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 			<div>
 				<p class="font-sans text-[16px] text-text font-medium mb-2">Плагины не отображаются?</p>
 				<p class="text-[15px] text-text-secondary leading-[1.7]">
-					Перезапустите AI-сессию после установки. В Claude Code: <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/exit</code>, затем <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">claude</code>. Проверьте через <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/plugins</code>.
+					<strong class="text-text">Claude Code:</strong> Введите <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/exit</code>, затем запустите <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">claude</code> снова. Проверьте через <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/plugins</code>.
+				</p>
+				<p class="text-[15px] text-text-secondary leading-[1.7] mt-2">
+					<strong class="text-text">Claude Cowork:</strong> Откройте Customize &rarr; Personal plugins. Если плагины отображаются как "Disabled", нажмите на каждый и включите.
 				</p>
 			</div>
 			<div>
 				<p class="font-sans text-[16px] text-text font-medium mb-2">Визард зависает?</p>
 				<p class="text-[15px] text-text-secondary leading-[1.7]">
 					Визард сохраняет прогресс после каждого этапа. Если процесс прервался, запустите <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/forge:setup</code> снова - он продолжит с того места, где остановился.
+				</p>
+			</div>
+			<div>
+				<p class="font-sans text-[16px] text-text font-medium mb-2">Windows SmartScreen блокирует установщик?</p>
+				<p class="text-[15px] text-text-secondary leading-[1.7]">
+					Нажмите "Подробнее" &rarr; "Выполнить в любом случае". Десктоп-приложение пока не имеет цифровой подписи. Если предпочитаете, используйте CLI: <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">npm install -g @reumbra/forge</code>.
+				</p>
+			</div>
+			<div>
+				<p class="font-sans text-[16px] text-text font-medium mb-2">macOS говорит "неизвестный разработчик"?</p>
+				<p class="text-[15px] text-text-secondary leading-[1.7]">
+					Системные настройки &rarr; Конфиденциальность и безопасность &rarr; "Всё равно открыть". Или используйте CLI.
 				</p>
 			</div>
 			<div>
