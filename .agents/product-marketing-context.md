@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-*Last updated: 2026-03-08*
+*Last updated: 2026-03-08 (v2 - bundle restructure)*
 *Source of truth for all marketing materials: landing, Lemon Squeezy, ads, social, emails.*
 
 ## Product Overview
@@ -17,16 +17,16 @@
 
 ## Pricing Tiers (Source of Truth)
 
-| | CORE | PRO | BUNDLE |
-|---|------|-----|--------|
+| | CORE | PRO | COMPLETE |
+|---|------|-----|----------|
 | **Price** | **EUR 29** | **EUR 79** | **EUR 149** |
-| **Persona** | For solo developers | For professional developers | For tech leads and teams |
-| **Description** | Foundation for architecture-aware AI development | Complete pipeline from design to tested code | All 6 modules today. Every new module tomorrow. One purchase. |
-| **Modules** | forge-core | forge-core + forge-product + forge-qa + forge-tracker | All 6 + every future module |
-| **Module count** | 1 | 4 | 6+ |
+| **Persona** | For solo developers | For professional developers | For developer-founders |
+| **Description** | Foundation for architecture-aware AI development | Full dev pipeline: from feature spec to tested, tracked code | Full automation + product intelligence. 15 modules. One purchase. |
+| **Modules** | forge-core + forge-worktree | + forge-product + forge-qa + forge-tracker + forge-prompts | + forge-autopilot + 8 advisory adapters |
+| **Module count** | 2 | 6 | 15 |
 | **Devices** | 2 | 3 | 5 |
 | **Badge** | - | Recommended | - |
-| **CTA** | Get Core | Get Pro | Get Bundle |
+| **CTA** | Get Core | Get Pro | Get Complete |
 | **Renewal** | EUR 19/yr | EUR 49/yr | EUR 89/yr |
 | **Checkout** | 5fade325-8f39-41c5-a416-2ba827eae6d4 | 2429257a-9691-46c4-8e9d-10332a6639a3 | 01e422a5-7160-41eb-b2c8-f22318ec170d |
 
@@ -40,32 +40,34 @@
 
 **PRO:** Everything in Core +
 - Describe features in business language - AI builds from spec (forge-product)
-- Tests that trace back to requirements, not AI guesswork (forge-qa)
-- Full pipeline: design -> code -> test
-- Task tracker sync - GitHub, Linear, ClickUp, Jira, Notion (forge-tracker)
+- Tests traced to requirements, not AI guesswork (forge-qa)
+- Full pipeline: design -> code -> test -> track
+- Prompt engineering frameworks - consistent AI output across sessions (forge-prompts)
 
-**BUNDLE:** Everything in Pro +
-- forge-autopilot - parallel agent orchestration
-- forge-worktree - git worktree lifecycle
+**COMPLETE:** Everything in Pro +
+- forge-autopilot - run parallel AI agents on your backlog
+- 8 product advisory modules - discovery to growth
 - Every future module included
 
 ### Module-to-Tier Mapping (from feature table)
 
-| Module | CORE | PRO | BUNDLE |
-|--------|------|-----|--------|
+| Module | CORE | PRO | COMPLETE |
+|--------|------|-----|----------|
 | forge-core | YES | YES | YES |
+| forge-worktree | YES | YES | YES |
 | forge-product | no | YES | YES |
 | forge-qa | no | YES | YES |
 | forge-tracker | no | YES | YES |
-| forge-autopilot | no | **no** | YES |
-| forge-worktree | no | **no** | YES |
+| forge-prompts | no | YES | YES |
+| forge-autopilot | no | no | YES |
+| 8 advisory adapters | no | no | YES |
 | Future modules | no | no | YES |
 
-**IMPORTANT:** forge-autopilot and forge-worktree are BUNDLE-ONLY. Never list them in Pro tier.
+**IMPORTANT:** forge-autopilot and 8 advisory adapters are COMPLETE-ONLY. forge-worktree is in all tiers (Core+). forge-prompts is in Pro+.
 
 ### License Terms
 - One-time purchase (not subscription)
-- Device activations per license: Core 2, Pro 3, Bundle 5
+- Device activations per license: Core 2, Pro 3, Complete 5
 - 1 year of updates included
 - Renewal optional at reduced price (~60%)
 - 14-day money-back guarantee
@@ -84,9 +86,9 @@
 
 ## Target Audience
 
-**Target companies:** Solo developers, small dev teams, tech leads using AI coding agents
+**Target companies:** Solo developers, professional developers, developer-founders using AI coding agents
 
-**Decision-makers:** Individual developers (self-serve), tech leads (team purchase planned)
+**Decision-makers:** Individual developers (self-serve)
 
 **Primary use case:** Making AI coding agents (Claude Code, Cursor, Windsurf) architecture-aware so generated code follows project conventions
 
@@ -98,8 +100,8 @@
 
 **Use cases:**
 - Solo dev who wants AI to respect their NestJS Clean Architecture
-- Professional dev who needs full pipeline: product spec -> code -> tests
-- Tech lead orchestrating parallel agent development across features
+- Professional dev who needs full pipeline: product spec -> code -> tests -> tracking
+- Developer-founder who wants full automation + product advisory for their project
 
 ## Problems & Pain Points
 
@@ -221,7 +223,7 @@
 - 8+ test frameworks supported
 - 5 task tracker integrations
 - 3 execution modes
-- 6 modules in ecosystem
+- 15 modules in ecosystem
 
 **Author:** Martin Sikora, Senior Engineer, 10+ years experience, Founder of Reumbra
 
@@ -233,7 +235,7 @@
 |-------|-------|
 | Architecture awareness | 7-gate audit auto-detects stack, layers, patterns |
 | Quality over speed | 50+ patterns prevent AI shortcuts, 15 rationalization detectors |
-| Full pipeline | 6 modules: audit -> design -> code -> test -> track -> orchestrate |
+| Full pipeline | 15 modules: audit -> design -> code -> test -> track -> orchestrate |
 | Economic model | One-time from EUR 29 vs Devin EUR 240/yr, Cursor Pro EUR 240/yr |
 | Zero lock-in | Disposable meta-tool - remove plugin, artifacts stay |
 
@@ -241,7 +243,7 @@
 
 **Business goal:** Revenue from plugin sales via Lemon Squeezy
 
-**Conversion action:** Purchase a tier (Core/Pro/Bundle) via checkout
+**Conversion action:** Purchase a tier (Core/Pro/Complete) via checkout
 
 **Current metrics:** Pre-launch / early stage
 
@@ -260,8 +262,8 @@
 | Audience | Primary message | Secondary message |
 |----------|----------------|-------------------|
 | Solo developer | "Stop re-explaining your stack. EUR 29, one time." | "50+ quality patterns you'd never write yourself" |
-| Professional dev | "Full pipeline: design -> code -> test. EUR 79." | "Tests trace back to requirements, not AI guesswork" |
-| Tech lead | "Parallel agents without merge hell. EUR 149, all modules." | "Every future module included automatically" |
+| Professional dev | "Full pipeline: design -> code -> test -> track. EUR 79." | "Tests trace back to requirements, not AI guesswork" |
+| Developer-founder | "Full automation + product intelligence. EUR 149, all 15 modules." | "8 advisory modules from discovery to growth" |
 
 ### Elevator Pitches
 
@@ -277,4 +279,4 @@
 
 **PRO (EUR 79):** "From business requirement to tested code. Design features in plain language, get tests that prove requirements. Full pipeline."
 
-**BUNDLE (EUR 149):** "The complete ecosystem. All 6 modules, parallel agent orchestration, every future module included. Best value for teams."
+**COMPLETE (EUR 149):** "Full automation + product intelligence. 15 modules. Parallel agents, 8 advisory modules, every future module included."

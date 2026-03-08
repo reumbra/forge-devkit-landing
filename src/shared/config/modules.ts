@@ -22,9 +22,9 @@ export interface ModulesConfig {
 
 export const modules = {
 	sectionLabel: "MODULES",
-	headline: "Six modules. One pipeline.",
+	headline: "6 dev pipeline modules. 8 advisory. One ecosystem.",
 	closingLine:
-		"Use all six for a full pipeline. Use separately - each module works standalone.",
+		"The dev pipeline handles code from spec to deploy. Advisory modules cover product strategy, discovery, marketing, and growth. Every module works standalone.",
 	modules: [
 		{
 			id: "forge-core",
@@ -127,9 +127,9 @@ export const modules = {
 
 const modulesRu: ModulesConfig = {
 	sectionLabel: "MODULES",
-	headline: "Шесть модулей. Один pipeline.",
+	headline: "6 модулей разработки. 8 advisory. Одна экосистема.",
 	closingLine:
-		"Используйте все шесть для полного pipeline. Или по отдельности - каждый модуль работает автономно.",
+		"Dev pipeline ведет код от спецификации до деплоя. Advisory-модули покрывают продуктовую стратегию, discovery, маркетинг и рост. Каждый модуль работает автономно.",
 	modules: [
 		{
 			id: "forge-core",

@@ -20,9 +20,9 @@ export interface PipelineConfig {
 
 export const pipeline = {
 	sectionLabel: "THE PIPELINE",
-	headline: "Six modules. One pipeline.",
+	headline: "15 modules. One ecosystem.",
 	subheadline:
-		"Each module handles one stage. Use all six for a full pipeline, or pick what you need - every module works standalone.",
+		"6 dev pipeline modules handle code from spec to deploy. 8 advisory modules cover product strategy - from discovery to growth. Pick what you need - every module works standalone.",
 	nodes: [
 		{
 			id: "core",
@@ -72,9 +72,9 @@ export const pipeline = {
 
 const pipelineRu: PipelineConfig = {
 	sectionLabel: "THE PIPELINE",
-	headline: "Шесть модулей. Один pipeline.",
+	headline: "15 модулей. Одна экосистема.",
 	subheadline:
-		"Каждый модуль отвечает за один этап. Используйте все шесть для полного pipeline или выберите нужные - каждый модуль работает автономно.",
+		"6 модулей dev pipeline ведут код от спецификации до деплоя. 8 advisory-модулей покрывают продуктовую стратегию - от discovery до growth. Выбирайте нужные - каждый модуль работает автономно.",
 	nodes: [
 		{
 			id: "core",

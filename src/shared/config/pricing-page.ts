@@ -27,24 +27,43 @@ export const pricingPage: PricingPageConfig = {
 		"Devin: \u20AC240/yr mandatory. Cursor Pro: \u20AC240/yr. Forge: from \u20AC29 once.",
 
 	featureTable: [
+		// forge-core (Starter+)
 		{ feature: "Architecture audit (7-gate wizard)", module: "forge-core", core: true, pro: true, bundle: true },
 		{ feature: "50+ quality patterns", module: "forge-core", core: true, pro: true, bundle: true },
 		{ feature: "15 rationalization detectors", module: "forge-core", core: true, pro: true, bundle: true },
 		{ feature: "3 execution modes", module: "forge-core", core: true, pro: true, bundle: true },
 		{ feature: "Cross-repo support", module: "forge-core", core: true, pro: true, bundle: true },
+		// forge-worktree (Starter+)
+		{ feature: "Git worktree lifecycle", module: "forge-worktree", core: true, pro: true, bundle: true },
+		{ feature: "Docker port isolation", module: "forge-worktree", core: true, pro: true, bundle: true },
+		// forge-product (Pro+)
 		{ feature: "Product design (9 archetypes)", module: "forge-product", core: false, pro: true, bundle: true },
 		{ feature: "User stories with AC", module: "forge-product", core: false, pro: true, bundle: true },
 		{ feature: "UX criteria library", module: "forge-product", core: false, pro: true, bundle: true },
+		// forge-qa (Pro+)
 		{ feature: "Test generation (8+ frameworks)", module: "forge-qa", core: false, pro: true, bundle: true },
 		{ feature: "4-level traceability", module: "forge-qa", core: false, pro: true, bundle: true },
 		{ feature: "LLM-as-Judge", module: "forge-qa", core: false, pro: true, bundle: true },
+		// forge-tracker (Pro+)
 		{ feature: "Task tracker sync (5 integrations)", module: "forge-tracker", core: false, pro: true, bundle: true },
+		// forge-prompts (Pro+)
+		{ feature: "Prompt engineering frameworks", module: "forge-prompts", core: false, pro: true, bundle: true },
+		{ feature: "Prompt inventory & audit", module: "forge-prompts", core: false, pro: true, bundle: true },
+		// forge-autopilot (Complete)
 		{ feature: "Parallel agent orchestration", module: "forge-autopilot", core: false, pro: false, bundle: true },
 		{ feature: "Conflict-free wave planning", module: "forge-autopilot", core: false, pro: false, bundle: true },
 		{ feature: "3 autonomy modes", module: "forge-autopilot", core: false, pro: false, bundle: true },
-		{ feature: "Git worktree lifecycle", module: "forge-worktree", core: false, pro: false, bundle: true },
-		{ feature: "Docker port isolation", module: "forge-worktree", core: false, pro: false, bundle: true },
-		{ feature: "Every future module", module: " -", core: false, pro: false, bundle: true },
+		// Product advisory (Complete) - 9 modules
+		{ feature: "Product discovery & validation", module: "forge-discovery", core: false, pro: false, bundle: true },
+		{ feature: "Marketing strategy & positioning", module: "forge-marketing", core: false, pro: false, bundle: true },
+		{ feature: "Analytics planning & event schemas", module: "forge-analytics", core: false, pro: false, bundle: true },
+		{ feature: "Onboarding flow design", module: "forge-onboarding", core: false, pro: false, bundle: true },
+		{ feature: "Production copy & brand voice", module: "forge-copy", core: false, pro: false, bundle: true },
+		{ feature: "SEO strategy & technical audit", module: "forge-seo", core: false, pro: false, bundle: true },
+		{ feature: "Growth loops & retention", module: "forge-growth", core: false, pro: false, bundle: true },
+		{ feature: "A/B test design & analysis", module: "forge-ab", core: false, pro: false, bundle: true },
+		// Future
+		{ feature: "Every future module", module: "-", core: false, pro: false, bundle: true },
 	],
 
 	trustBadges: [
@@ -112,12 +131,12 @@ export const pricingPage: PricingPageConfig = {
 		{
 			question: "Can I use it on multiple projects?",
 			answer:
-				"Yes. Each license includes device activations based on your tier: Core 2, Pro 3, Bundle 5. You can use Forge on as many projects as you want on those devices.",
+				"Yes. Each license includes device activations based on your tier: Core 2, Pro 3, Complete 5. You can use Forge on as many projects as you want on those devices.",
 		},
 		{
-			question: "Is there team licensing?",
+			question: "What are the 8 advisory modules in Complete?",
 			answer:
-				"Not yet. Each developer needs their own license. Team pricing is planned for later this year.",
+				"Discovery, marketing, analytics, onboarding, copy, SEO, growth, and A/B testing. Each generates strategy docs and configs your project can use - from competitive research to conversion optimization. They work best with forge-product as the central hub.",
 		},
 	],
 };
@@ -130,23 +149,42 @@ const pricingPageRu: PricingPageConfig = {
 		"Devin: \u20AC240/год обязательно. Cursor Pro: \u20AC240/год. Forge: от \u20AC29 однократно.",
 
 	featureTable: [
+		// forge-core (Starter+)
 		{ feature: "Архитектурный аудит (7-gate wizard)", module: "forge-core", core: true, pro: true, bundle: true },
 		{ feature: "50+ паттернов качества", module: "forge-core", core: true, pro: true, bundle: true },
 		{ feature: "15 детекторов рационализации", module: "forge-core", core: true, pro: true, bundle: true },
 		{ feature: "3 режима исполнения", module: "forge-core", core: true, pro: true, bundle: true },
 		{ feature: "Cross-repo поддержка", module: "forge-core", core: true, pro: true, bundle: true },
+		// forge-worktree (Starter+)
+		{ feature: "Lifecycle git worktree", module: "forge-worktree", core: true, pro: true, bundle: true },
+		{ feature: "Изоляция Docker-портов", module: "forge-worktree", core: true, pro: true, bundle: true },
+		// forge-product (Pro+)
 		{ feature: "Продуктовый дизайн (9 архетипов)", module: "forge-product", core: false, pro: true, bundle: true },
 		{ feature: "User stories с AC", module: "forge-product", core: false, pro: true, bundle: true },
 		{ feature: "Библиотека UX-критериев", module: "forge-product", core: false, pro: true, bundle: true },
+		// forge-qa (Pro+)
 		{ feature: "Генерация тестов (8+ фреймворков)", module: "forge-qa", core: false, pro: true, bundle: true },
 		{ feature: "4-уровневая трассировка", module: "forge-qa", core: false, pro: true, bundle: true },
 		{ feature: "LLM-as-Judge", module: "forge-qa", core: false, pro: true, bundle: true },
+		// forge-tracker (Pro+)
 		{ feature: "Синхронизация с трекерами (5 интеграций)", module: "forge-tracker", core: false, pro: true, bundle: true },
+		// forge-prompts (Pro+)
+		{ feature: "Фреймворки промпт-инжиниринга", module: "forge-prompts", core: false, pro: true, bundle: true },
+		{ feature: "Инвентаризация и аудит промптов", module: "forge-prompts", core: false, pro: true, bundle: true },
+		// forge-autopilot (Complete)
 		{ feature: "Параллельная оркестрация агентов", module: "forge-autopilot", core: false, pro: false, bundle: true },
 		{ feature: "Wave-планирование без конфликтов", module: "forge-autopilot", core: false, pro: false, bundle: true },
 		{ feature: "3 режима автономности", module: "forge-autopilot", core: false, pro: false, bundle: true },
-		{ feature: "Lifecycle git worktree", module: "forge-worktree", core: false, pro: false, bundle: true },
-		{ feature: "Изоляция Docker-портов", module: "forge-worktree", core: false, pro: false, bundle: true },
+		// Product advisory (Complete) - 9 модулей
+		{ feature: "Исследование и валидация продукта", module: "forge-discovery", core: false, pro: false, bundle: true },
+		{ feature: "Маркетинговая стратегия и позиционирование", module: "forge-marketing", core: false, pro: false, bundle: true },
+		{ feature: "Планирование аналитики и схемы событий", module: "forge-analytics", core: false, pro: false, bundle: true },
+		{ feature: "Дизайн онбординг-флоу", module: "forge-onboarding", core: false, pro: false, bundle: true },
+		{ feature: "Продуктовый копирайтинг и tone of voice", module: "forge-copy", core: false, pro: false, bundle: true },
+		{ feature: "SEO-стратегия и технический аудит", module: "forge-seo", core: false, pro: false, bundle: true },
+		{ feature: "Growth-петли и удержание", module: "forge-growth", core: false, pro: false, bundle: true },
+		{ feature: "Дизайн и анализ A/B-тестов", module: "forge-ab", core: false, pro: false, bundle: true },
+		// Future
 		{ feature: "Каждый будущий модуль", module: "-", core: false, pro: false, bundle: true },
 	],
 
@@ -215,12 +253,12 @@ const pricingPageRu: PricingPageConfig = {
 		{
 			question: "Можно ли использовать на нескольких проектах?",
 			answer:
-				"Да. Каждая лицензия включает активации по тарифу: Core 2, Pro 3, Bundle 5 устройств. Вы можете использовать Forge на любом количестве проектов на этих устройствах.",
+				"Да. Каждая лицензия включает активации по тарифу: Core 2, Pro 3, Complete 5 устройств. Вы можете использовать Forge на любом количестве проектов на этих устройствах.",
 		},
 		{
-			question: "Есть ли командное лицензирование?",
+			question: "Что входит в 8 advisory-модулей Complete?",
 			answer:
-				"Пока нет. Каждому разработчику нужна своя лицензия. Командные тарифы запланированы на этот год.",
+				"Discovery, маркетинг, аналитика, онбординг, копирайтинг, SEO, growth и A/B-тестирование. Каждый генерирует стратегические документы и конфигурации для вашего проекта - от конкурентного анализа до оптимизации конверсии. Лучше всего работают с forge-product как центральным хабом.",
 		},
 	],
 };

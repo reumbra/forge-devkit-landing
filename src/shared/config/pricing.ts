@@ -2,7 +2,7 @@ export interface PricingFeature {
 	text: string;
 }
 
-// Updated 2026-03-08: device limits differentiated per tier (Core 2, Pro 3, Bundle 5)
+// Updated 2026-03-08: device limits per tier (Core 2, Pro 3, Complete 5). Bundle renamed to Complete.
 export interface PricingTier {
 	id: string;
 	name: string;
@@ -57,12 +57,13 @@ export const pricing = {
 			name: "PRO",
 			price: 79,
 			persona: "For professional developers",
-			description: "Complete pipeline from design to tested code",
+			description: "Full dev pipeline: from feature spec to tested, tracked code",
 			features: [
 				"Everything in Core",
 				"Describe features in business language - AI builds from spec",
-				"Tests that trace back to requirements, not AI guesswork",
-				"Full pipeline: design \u2192 code \u2192 test",
+				"Tests traced to requirements, not AI guesswork",
+				"Full pipeline: design \u2192 code \u2192 test \u2192 track",
+				"Prompt engineering frameworks - consistent AI output across sessions",
 			],
 			cta: "Get Pro \u2192",
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/checkout/buy/2429257a-9691-46c4-8e9d-10332a6639a3",
@@ -74,18 +75,17 @@ export const pricing = {
 		},
 		{
 			id: "bundle",
-			name: "BUNDLE",
+			name: "COMPLETE",
 			price: 149,
-			persona: "For tech leads and teams",
-			description: "All 6 modules today. Every new module tomorrow. One purchase.",
+			persona: "For developer-founders",
+			description: "Full automation + product intelligence. 15 modules. One purchase.",
 			features: [
 				"Everything in Pro",
-				"Task tracker sync - GitHub, Linear, ClickUp, Jira, Notion",
-				"forge-autopilot - parallel agent orchestration",
-				"forge-worktree - git worktree lifecycle",
+				"forge-autopilot - run parallel AI agents on your backlog",
+				"8 product advisory modules - discovery to growth",
 				"Every future module included",
 			],
-			cta: "Get Bundle",
+			cta: "Get Complete",
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/checkout/buy/01e422a5-7160-41eb-b2c8-f22318ec170d",
 			isPopular: false,
 			devices: 5,
@@ -130,12 +130,13 @@ const pricingRu: PricingConfig = {
 			name: "PRO",
 			price: 79,
 			persona: "Для профессиональных разработчиков",
-			description: "Полный pipeline от дизайна до протестированного кода",
+			description: "Полный dev pipeline: от спецификации до протестированного и отслеженного кода",
 			features: [
 				"Все из Core",
 				"Описывайте фичи бизнес-языком - AI строит по спецификации",
 				"Тесты, привязанные к требованиям, а не угадывание AI",
-				"Полный pipeline: дизайн \u2192 код \u2192 тесты",
+				"Полный pipeline: дизайн \u2192 код \u2192 тесты \u2192 трекинг",
+				"Фреймворки промпт-инжиниринга - стабильный AI-вывод между сессиями",
 			],
 			cta: "Получить Pro \u2192",
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/checkout/buy/2429257a-9691-46c4-8e9d-10332a6639a3",
@@ -147,18 +148,17 @@ const pricingRu: PricingConfig = {
 		},
 		{
 			id: "bundle",
-			name: "BUNDLE",
+			name: "COMPLETE",
 			price: 149,
-			persona: "Для техлидов и команд",
-			description: "Все 6 модулей сейчас. Каждый новый модуль потом. Одна покупка.",
+			persona: "Для разработчиков-фаундеров",
+			description: "Полная автоматизация + продуктовый интеллект. 15 модулей. Одна покупка.",
 			features: [
 				"Все из Pro",
-				"Синхронизация с трекерами - GitHub, Linear, ClickUp, Jira, Notion",
-				"forge-autopilot - параллельная оркестрация агентов",
-				"forge-worktree - lifecycle git worktree",
+				"forge-autopilot - параллельные AI-агенты на вашем бэклоге",
+				"8 продуктовых advisory-модулей - от discovery до growth",
 				"Каждый будущий модуль включен",
 			],
-			cta: "Получить Bundle",
+			cta: "Получить Complete",
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/checkout/buy/01e422a5-7160-41eb-b2c8-f22318ec170d",
 			isPopular: false,
 			devices: 5,

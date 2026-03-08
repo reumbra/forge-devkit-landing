@@ -4,7 +4,7 @@ export const autopilotPageConfig: ModulePageConfig = {
 	slug: "autopilot",
 	name: "forge-autopilot",
 	tagline: "Parallel agents without merge hell",
-	tier: "Bundle",
+	tier: "Complete",
 	tierPrice: "€149",
 
 	problems: [
@@ -145,7 +145,7 @@ const autopilotPageConfigRu: ModulePageConfig = {
 	slug: "autopilot",
 	name: "forge-autopilot",
 	tagline: "Параллельные агенты без merge-хаоса",
-	tier: "Bundle",
+	tier: "Complete",
 	tierPrice: "€149",
 
 	problems: [

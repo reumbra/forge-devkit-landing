@@ -21,9 +21,9 @@ export interface HeroConfig {
 
 export const hero = {
 	sectionLabel: "FORGE DEVKIT",
-	headline: "Your AI writes code. Forge makes it production-ready.",
+	headline: "One command. From feature idea to tested code.",
 	subheadline:
-		"One command scans your repo - stack, layers, patterns - and generates guardrails your AI actually follows. 50+ quality rules. Works with Claude Code, Cursor, and any AI agent.",
+		"Forge scans your repo, detects your stack, and generates a full dev pipeline - architecture guardrails, quality gates, test traceability. Your AI stops guessing and starts following your rules.",
 	ctas: [
 		{
 			label: "Get Forge - from €29",
@@ -55,9 +55,9 @@ export const hero = {
 
 const heroRu: HeroConfig = {
 	sectionLabel: "FORGE DEVKIT",
-	headline: "Ваш AI пишет код. Forge делает его production-ready.",
+	headline: "Одна команда. От идеи фичи до протестированного кода.",
 	subheadline:
-		"Одна команда сканирует ваш репозиторий - стек, слои, паттерны - и генерирует гайдрейлы, которым ваш AI реально следует. 50+ правил качества. Работает с Claude Code, Cursor и любым AI-агентом.",
+		"Forge сканирует ваш репозиторий, определяет стек и генерирует полный dev pipeline - архитектурные гайдрейлы, quality gates, трассировку тестов. Ваш AI перестает угадывать и начинает следовать вашим правилам.",
 	ctas: [
 		{
 			label: "Получить Forge - от \u20ac29",
