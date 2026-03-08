@@ -3,7 +3,7 @@ import type { ModulePageConfig } from "./types";
 export const autopilotPageConfig: ModulePageConfig = {
 	slug: "autopilot",
 	name: "forge-autopilot",
-	tagline: "Parallel agents without merge hell",
+	tagline: "Agent Teams without merge hell",
 	tier: "Complete",
 	tierPrice: "€149",
 
@@ -135,7 +135,7 @@ export const autopilotPageConfig: ModulePageConfig = {
 	relatedComparisonsHeading: "See how Forge compares",
 
 	seo: {
-		title: "forge-autopilot - Parallel Agents Without Merge Hell | Forge DevKit",
+		title: "forge-autopilot - Agent Teams Without Merge Hell | Forge DevKit",
 		description:
 			"Orchestrate Claude Agent Teams with conflict-free wave planning. Backlog triage, file conflict detection, isolated worktrees, 3 autonomy modes.",
 	},
@@ -144,7 +144,7 @@ export const autopilotPageConfig: ModulePageConfig = {
 const autopilotPageConfigRu: ModulePageConfig = {
 	slug: "autopilot",
 	name: "forge-autopilot",
-	tagline: "Параллельные агенты без merge-хаоса",
+	tagline: "Agent Teams без merge-хаоса",
 	tier: "Complete",
 	tierPrice: "€149",
 
@@ -270,7 +270,7 @@ const autopilotPageConfigRu: ModulePageConfig = {
 	relatedComparisonsHeading: "Сравнения",
 
 	seo: {
-		title: "forge-autopilot - Параллельные агенты без merge-хаоса | Forge DevKit",
+		title: "forge-autopilot - Agent Teams без merge-хаоса | Forge DevKit",
 		description:
 			"Оркестрация Claude Agent Teams с бесконфликтным планированием волн. Триаж бэклога, детекция файловых конфликтов, изолированные worktree, 3 режима автономности.",
 	},

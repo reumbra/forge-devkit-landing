@@ -50,7 +50,7 @@ export const pricingPage: PricingPageConfig = {
 		{ feature: "Prompt engineering frameworks", module: "forge-prompts", core: false, pro: true, bundle: true },
 		{ feature: "Prompt inventory & audit", module: "forge-prompts", core: false, pro: true, bundle: true },
 		// forge-autopilot (Complete)
-		{ feature: "Parallel agent orchestration", module: "forge-autopilot", core: false, pro: false, bundle: true },
+		{ feature: "Agent Teams orchestration", module: "forge-autopilot", core: false, pro: false, bundle: true },
 		{ feature: "Conflict-free wave planning", module: "forge-autopilot", core: false, pro: false, bundle: true },
 		{ feature: "3 autonomy modes", module: "forge-autopilot", core: false, pro: false, bundle: true },
 		// Product advisory (Complete) - 9 modules
@@ -172,7 +172,7 @@ const pricingPageRu: PricingPageConfig = {
 		{ feature: "Фреймворки промпт-инжиниринга", module: "forge-prompts", core: false, pro: true, bundle: true },
 		{ feature: "Инвентаризация и аудит промптов", module: "forge-prompts", core: false, pro: true, bundle: true },
 		// forge-autopilot (Complete)
-		{ feature: "Параллельная оркестрация агентов", module: "forge-autopilot", core: false, pro: false, bundle: true },
+		{ feature: "Оркестрация Agent Teams", module: "forge-autopilot", core: false, pro: false, bundle: true },
 		{ feature: "Wave-планирование без конфликтов", module: "forge-autopilot", core: false, pro: false, bundle: true },
 		{ feature: "3 режима автономности", module: "forge-autopilot", core: false, pro: false, bundle: true },
 		// Product advisory (Complete) - 9 модулей

@@ -7,7 +7,7 @@
 
 **One-liner:** Architecture-aware AI pipeline for Claude Code, Cursor, and any AI agent.
 
-**What it does:** One command scans your repo - stack, layers, patterns - and generates guardrails your AI actually follows. 50+ quality rules. Works with Claude Code, Cursor, and any AI agent.
+**What it does:** One command scans your repo - stack, layers, conventions - and generates guardrails, quality patterns, and dev-skills your AI actually follows. 15 modules: from architecture audit to Agent Teams. Works with Claude Code, Cursor, and any AI agent.
 
 **Product category:** AI developer tools / AI coding infrastructure
 
@@ -45,7 +45,7 @@
 - Prompt engineering frameworks - consistent AI output across sessions (forge-prompts)
 
 **COMPLETE:** Everything in Pro +
-- forge-autopilot - run parallel AI agents on your backlog
+- forge-autopilot - Agent Teams on your backlog, zero merge conflicts
 - 8 product advisory modules - discovery to growth
 - Every future module included
 
@@ -81,7 +81,7 @@
 | forge-product | Feature design in business language | 8 product archetypes, User flows, Stories with AC, 50 UX criteria |
 | forge-qa | Tests from requirements | 8+ test frameworks, AC to unit tests, UC to E2E, Traceability matrix |
 | forge-tracker | Bridge backlog and development | 5 integrations: GitHub, ClickUp, Linear, Notion, Jira |
-| forge-autopilot | Parallel agents without merge hell | 3 autonomy modes, 0 merge conflicts, wave planning |
+| forge-autopilot | Agent Teams without merge hell | 3 autonomy modes, 0 merge conflicts, wave planning |
 | forge-worktree | Git worktree lifecycle manager | 3 templates, Docker port isolation, auto-cleanup |
 
 ## Target Audience
@@ -96,7 +96,7 @@
 - Stop re-explaining my architecture to AI every session
 - Make AI-generated code follow my project's patterns and conventions
 - Get tests that trace back to actual requirements, not AI guesswork
-- Run parallel AI agents without merge conflicts
+- Run Agent Teams on my backlog without merge conflicts
 
 **Use cases:**
 - Solo dev who wants AI to respect their NestJS Clean Architecture
@@ -247,6 +247,18 @@
 
 **Current metrics:** Pre-launch / early stage
 
+## Product Image Card Narrative (LemonSqueezy gallery)
+
+Each tier card follows: Hero (white bold, benefit-first) → Accent (purple/green, modules) → Description (gray, detail).
+
+| Tier | Hero line | Accent line | Description |
+|------|-----------|-------------|-------------|
+| CORE | Stop re-explaining your stack | 50+ patterns · 7-gate audit · one setup forever | forge-core + forge-worktree |
+| PRO | Design → Code → Test → Track | forge-product · qa · tracker · prompts · worktree | Describe features in business language - AI builds the rest |
+| COMPLETE | Agent Teams. Zero conflicts. | autopilot + 8 advisory + every future module | Full automation from product discovery to growth |
+
+Design file: `design/product-images.pen` (edit via Pencil MCP, save manually in Pencil app).
+
 ## Saying Framework
 
 ### Core Narrative Arc
@@ -269,7 +281,7 @@
 
 **5-second:** Architecture-aware pipeline for AI coding agents.
 
-**15-second:** Forge scans your repo and generates guardrails your AI actually follows. 50+ quality patterns, test traceability, parallel agent orchestration. One-time purchase from EUR 29.
+**15-second:** Forge scans your repo and generates guardrails your AI actually follows. 50+ quality patterns, test traceability, Agent Teams orchestration. One-time purchase from EUR 29.
 
 **30-second:** AI coding agents write fast but create technical debt because they don't understand your architecture. Forge DevKit runs a 7-gate audit on your project - stack, layers, conventions - and generates project-specific guardrails, quality patterns, and dev-skills. Full pipeline from design to tested code. Works with Claude Code, Cursor, any AI agent. One-time purchase, not a subscription.
 
@@ -279,4 +291,4 @@
 
 **PRO (EUR 79):** "From business requirement to tested code. Design features in plain language, get tests that prove requirements. Full pipeline."
 
-**COMPLETE (EUR 149):** "Full automation + product intelligence. 15 modules. Parallel agents, 8 advisory modules, every future module included."
+**COMPLETE (EUR 149):** "Agent Teams. Zero conflicts. Full automation + product intelligence. 15 modules, 8 advisory, every future module included."

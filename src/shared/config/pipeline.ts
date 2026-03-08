@@ -51,7 +51,7 @@ export const pipeline = {
 		{
 			id: "autopilot",
 			name: "forge-autopilot",
-			tagline: "Parallel agent orchestration",
+			tagline: "Agent Teams orchestration",
 			href: "/modules/autopilot",
 		},
 		{
@@ -103,7 +103,7 @@ const pipelineRu: PipelineConfig = {
 		{
 			id: "autopilot",
 			name: "forge-autopilot",
-			tagline: "Оркестрация параллельных агентов",
+			tagline: "Оркестрация Agent Teams",
 			href: "/modules/autopilot",
 		},
 		{

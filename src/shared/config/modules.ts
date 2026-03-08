@@ -100,7 +100,7 @@ export const modules = {
 		{
 			id: "forge-autopilot",
 			name: "forge-autopilot",
-			tagline: "Parallel agents without merge hell",
+			tagline: "Agent Teams without merge hell",
 			isHero: false,
 			stats: ["3 autonomy modes", "0 merge conflicts"],
 			features: [
@@ -205,7 +205,7 @@ const modulesRu: ModulesConfig = {
 		{
 			id: "forge-autopilot",
 			name: "forge-autopilot",
-			tagline: "Параллельные агенты без merge-хаоса",
+			tagline: "Agent Teams без merge-хаоса",
 			isHero: false,
 			stats: ["3 режима автономности", "0 merge-конфликтов"],
 			features: [

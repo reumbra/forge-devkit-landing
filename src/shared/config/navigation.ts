@@ -46,7 +46,7 @@ export const navigation = {
 				{
 					title: "Automation",
 					items: [
-						{ name: "forge-autopilot", description: "Parallel agent orchestration", href: "/modules/autopilot" },
+						{ name: "forge-autopilot", description: "Agent Teams orchestration", href: "/modules/autopilot" },
 						{ name: "forge-worktree", description: "Worktree lifecycle", href: "/modules" },
 					],
 				},
@@ -92,7 +92,7 @@ const navigationRu: NavigationConfig = {
 				{
 					title: "Автоматизация",
 					items: [
-						{ name: "forge-autopilot", description: "Параллельные агенты", href: "/modules/autopilot" },
+						{ name: "forge-autopilot", description: "Оркестрация Agent Teams", href: "/modules/autopilot" },
 						{ name: "forge-worktree", description: "Жизненный цикл worktree", href: "/modules" },
 					],
 				},

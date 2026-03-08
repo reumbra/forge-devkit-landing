@@ -70,7 +70,7 @@ export const deepDives = [
 	{
 		id: "autopilot-orchestration",
 		sectionLabel: "FORGE-AUTOPILOT",
-		headline: "Parallel agents without merge hell",
+		headline: "Agent Teams without merge hell",
 		description:
 			"Agent Teams are powerful - until 3 agents edit the same file. forge-autopilot orchestrates autonomous teammates like Kubernetes orchestrates containers: backlog triage, conflict detection, wave execution, auto-merge.",
 		layout: "text-right",
@@ -150,7 +150,7 @@ const deepDivesRu: DeepDivesConfig = [
 	{
 		id: "autopilot-orchestration",
 		sectionLabel: "FORGE-AUTOPILOT",
-		headline: "Параллельные агенты без merge-ада",
+		headline: "Agent Teams без merge-ада",
 		description:
 			"Agent Teams мощны - пока 3 агента не начнут редактировать один файл. forge-autopilot управляет автономными участниками команды как Kubernetes управляет контейнерами: триаж бэклога, детекция конфликтов, волновое выполнение, auto-merge.",
 		layout: "text-right",
