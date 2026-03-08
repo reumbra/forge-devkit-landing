@@ -112,7 +112,7 @@ export const pricingPage: PricingPageConfig = {
 		{
 			question: "Can I use it on multiple projects?",
 			answer:
-				"Yes. Your license works on up to 3 devices. You can use Forge on as many projects as you want on those devices.",
+				"Yes. Each license includes device activations based on your tier: Core 2, Pro 3, Bundle 5. You can use Forge on as many projects as you want on those devices.",
 		},
 		{
 			question: "Is there team licensing?",
@@ -215,7 +215,7 @@ const pricingPageRu: PricingPageConfig = {
 		{
 			question: "Можно ли использовать на нескольких проектах?",
 			answer:
-				"Да. Лицензия работает на 3 устройствах. Вы можете использовать Forge на любом количестве проектов на этих устройствах.",
+				"Да. Каждая лицензия включает активации по тарифу: Core 2, Pro 3, Bundle 5 устройств. Вы можете использовать Forge на любом количестве проектов на этих устройствах.",
 		},
 		{
 			question: "Есть ли командное лицензирование?",

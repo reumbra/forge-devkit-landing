@@ -2,6 +2,7 @@ export interface PricingFeature {
 	text: string;
 }
 
+// Updated 2026-03-08: device limits differentiated per tier (Core 2, Pro 3, Bundle 5)
 export interface PricingTier {
 	id: string;
 	name: string;
@@ -15,6 +16,7 @@ export interface PricingTier {
 	renewalPrice?: string;
 	updatesNote?: string;
 	persona?: string;
+	devices?: number;
 }
 
 export interface PricingConfig {
@@ -46,6 +48,7 @@ export const pricing = {
 			cta: "Get Core",
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/checkout/buy/5fade325-8f39-41c5-a416-2ba827eae6d4",
 			isPopular: false,
+			devices: 2,
 			renewalPrice: "€19/yr",
 			updatesNote: "Includes 1 year of updates",
 		},
@@ -65,6 +68,7 @@ export const pricing = {
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/checkout/buy/2429257a-9691-46c4-8e9d-10332a6639a3",
 			isPopular: true,
 			badge: "Recommended",
+			devices: 3,
 			renewalPrice: "€49/yr",
 			updatesNote: "Includes 1 year of updates",
 		},
@@ -84,6 +88,7 @@ export const pricing = {
 			cta: "Get Bundle",
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/checkout/buy/01e422a5-7160-41eb-b2c8-f22318ec170d",
 			isPopular: false,
+			devices: 5,
 			renewalPrice: "€89/yr",
 			updatesNote: "Includes 1 year of updates",
 		},
@@ -116,6 +121,7 @@ const pricingRu: PricingConfig = {
 			cta: "Получить Core",
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/checkout/buy/5fade325-8f39-41c5-a416-2ba827eae6d4",
 			isPopular: false,
+			devices: 2,
 			renewalPrice: "\u20AC19/yr",
 			updatesNote: "Включает 1 год обновлений",
 		},
@@ -135,6 +141,7 @@ const pricingRu: PricingConfig = {
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/checkout/buy/2429257a-9691-46c4-8e9d-10332a6639a3",
 			isPopular: true,
 			badge: "Рекомендуем",
+			devices: 3,
 			renewalPrice: "\u20AC49/yr",
 			updatesNote: "Включает 1 год обновлений",
 		},
@@ -154,6 +161,7 @@ const pricingRu: PricingConfig = {
 			cta: "Получить Bundle",
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/checkout/buy/01e422a5-7160-41eb-b2c8-f22318ec170d",
 			isPopular: false,
+			devices: 5,
 			renewalPrice: "\u20AC89/yr",
 			updatesNote: "Включает 1 год обновлений",
 		},
