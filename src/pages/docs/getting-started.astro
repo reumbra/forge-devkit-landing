@@ -74,8 +74,12 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 		{/* Desktop Apps */}
 		<div class="mb-6">
 			<p class="font-mono text-[14px] text-text font-medium mb-3">Option B: Desktop App</p>
-			<p class="text-[14px] text-text-secondary leading-[1.7] mb-4">
-				Download the installer for your platform from your purchase confirmation email.
+			<a href="https://github.com/reumbra/forge-plugin-manager/releases" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-[var(--radius-card)] bg-secondary/20 hover:bg-secondary/30 text-secondary font-mono text-[14px] font-medium px-5 py-2.5 mb-4 transition-colors">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+				Download for your platform
+			</a>
+			<p class="text-[13px] text-text-muted mb-4">
+				Pick the file for your OS in the <strong class="text-text">Assets</strong> section: <code class="font-mono text-[12px] bg-surface-deep px-1.5 py-0.5 rounded">.exe</code> for Windows, <code class="font-mono text-[12px] bg-surface-deep px-1.5 py-0.5 rounded">.dmg</code> for macOS.
 			</p>
 
 			{/* Windows */}
