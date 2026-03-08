@@ -1,0 +1,586 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "KXISi",
+      "x": 0,
+      "y": 0,
+      "name": "Product — Main Image",
+      "width": 1600,
+      "height": 1200,
+      "fill": "#08080F",
+      "layout": "none",
+      "children": [
+        {
+          "type": "text",
+          "id": "3u3AJ",
+          "x": 724,
+          "y": 200,
+          "name": "logo1",
+          "fill": "#7649C4",
+          "content": "⚒",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 120,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "AqYEx",
+          "x": 418,
+          "y": 360,
+          "name": "title1",
+          "fill": "#FFFFFF",
+          "content": "Forge DevKit",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 120,
+          "fontWeight": "800"
+        },
+        {
+          "type": "text",
+          "id": "IZqsB",
+          "x": 332,
+          "y": 520,
+          "name": "sub1",
+          "fill": "#9A75EA",
+          "content": "Architecture-Aware AI Pipeline",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 64,
+          "fontWeight": "500"
+        },
+        {
+          "type": "text",
+          "id": "DTBAf",
+          "x": 584,
+          "y": 620,
+          "name": "tag1",
+          "fill": "#777777",
+          "content": "for Claude Code",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 56
+        },
+        {
+          "type": "frame",
+          "id": "kJAbY",
+          "x": 336,
+          "y": 780,
+          "name": "pill_row",
+          "width": 928,
+          "height": 72,
+          "gap": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "2nbyE",
+              "name": "p1",
+              "width": 280,
+              "height": 64,
+              "fill": "#1A1A2E",
+              "cornerRadius": 32,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "0nmHn",
+                  "x": 49,
+                  "y": 10,
+                  "name": "p1t",
+                  "fill": "#CCCCCC",
+                  "content": "6 Modules",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 36,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "zkL6t",
+              "name": "p2",
+              "width": 320,
+              "height": 64,
+              "fill": "#1A1A2E",
+              "cornerRadius": 32,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "AmqpJ",
+                  "x": 47,
+                  "y": 10,
+                  "name": "p2t",
+                  "fill": "#CCCCCC",
+                  "content": "50+ Patterns",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 36,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "TxxmD",
+              "name": "p3",
+              "width": 280,
+              "height": 64,
+              "fill": "#1A1A2E",
+              "cornerRadius": 32,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "R28xc",
+                  "x": 58,
+                  "y": 10,
+                  "name": "p3t",
+                  "fill": "#CCCCCC",
+                  "content": "One-time",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 36,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "BmXpU",
+          "x": 400,
+          "y": 940,
+          "name": "line1",
+          "width": 800,
+          "height": 2,
+          "fill": "#222233",
+          "cornerRadius": 1
+        },
+        {
+          "type": "text",
+          "id": "hIUBF",
+          "x": 202,
+          "y": 980,
+          "name": "foot1",
+          "fill": "#555566",
+          "content": "Project-specific guardrails, quality patterns, and dev workflows",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 40
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "i3YTh",
+      "x": 0,
+      "y": 1300,
+      "name": "Variant — Starter",
+      "width": 1600,
+      "height": 1200,
+      "fill": "#08080F",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "yaR1i",
+          "x": 680,
+          "y": 100,
+          "name": "badge_s",
+          "width": 240,
+          "height": 56,
+          "fill": "#1A1A2E",
+          "cornerRadius": 28,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "CUoqV",
+              "x": 64,
+              "y": 9,
+              "name": "badge_st",
+              "fill": "#9A75EA",
+              "content": "CORE",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 32,
+              "fontWeight": "700",
+              "letterSpacing": 6
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "KZeg9",
+          "x": 521,
+          "y": 180,
+          "name": "price_s",
+          "fill": "#FFFFFF",
+          "content": "€29",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 280,
+          "fontWeight": "800"
+        },
+        {
+          "type": "text",
+          "id": "kGDAE",
+          "x": 585,
+          "y": 480,
+          "name": "onet_s",
+          "fill": "#666677",
+          "content": "one-time purchase",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 48
+        },
+        {
+          "type": "frame",
+          "id": "RDOH7",
+          "x": 400,
+          "y": 580,
+          "name": "div_s",
+          "width": 800,
+          "height": 2,
+          "fill": "#222233",
+          "cornerRadius": 1
+        },
+        {
+          "type": "text",
+          "id": "427iN",
+          "x": 584,
+          "y": 620,
+          "name": "mod_s",
+          "fill": "#FFFFFF",
+          "content": "forge-core",
+          "textAlign": "center",
+          "fontFamily": "JetBrains Mono",
+          "fontSize": 72,
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "Y5WNf",
+          "x": 427,
+          "y": 720,
+          "name": "desc_s",
+          "fill": "#999999",
+          "content": "Architecture audit & AI guardrails",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 48
+        },
+        {
+          "type": "text",
+          "id": "RZvDf",
+          "x": 325,
+          "y": 830,
+          "name": "stats_s",
+          "fill": "#7649C4",
+          "content": "50+ patterns  ·  7 gates  ·  15 detectors  ·  3 modes",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 40,
+          "fontWeight": "500"
+        },
+        {
+          "type": "text",
+          "id": "Qevcj",
+          "x": 544,
+          "y": 940,
+          "name": "lic_s",
+          "fill": "#555566",
+          "content": "1 year updates  ·  2 devices",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 40
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "GaJH9",
+      "x": 0,
+      "y": 2600,
+      "name": "Variant — Pro",
+      "width": 1600,
+      "height": 1200,
+      "fill": "#08080F",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "yvvyt",
+          "x": 0,
+          "y": 0,
+          "name": "banner_p",
+          "width": 1600,
+          "height": 72,
+          "fill": "#7649C4",
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "kvXNf",
+              "x": 600,
+              "y": 14,
+              "name": "banner_pt",
+              "fill": "#FFFFFF",
+              "content": "★  RECOMMENDED",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 36,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "Lkr7y",
+          "x": 713,
+          "y": 100,
+          "name": "label_p",
+          "fill": "#9A75EA",
+          "content": "PRO",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 72,
+          "fontWeight": "700",
+          "letterSpacing": 8
+        },
+        {
+          "type": "text",
+          "id": "w3uD9",
+          "x": 530,
+          "y": 180,
+          "name": "price_p",
+          "fill": "#FFFFFF",
+          "content": "€79",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 280,
+          "fontWeight": "800"
+        },
+        {
+          "type": "text",
+          "id": "sMgvp",
+          "x": 585,
+          "y": 480,
+          "name": "onet_p",
+          "fill": "#666677",
+          "content": "one-time purchase",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 48
+        },
+        {
+          "type": "frame",
+          "id": "tEnJb",
+          "x": 400,
+          "y": 570,
+          "name": "div_p",
+          "width": 800,
+          "height": 2,
+          "fill": "#222233",
+          "cornerRadius": 1
+        },
+        {
+          "type": "text",
+          "id": "wKjyY",
+          "x": 534,
+          "y": 610,
+          "name": "count_p",
+          "fill": "#FFFFFF",
+          "content": "4 modules included",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 56,
+          "fontWeight": "600"
+        },
+        {
+          "type": "text",
+          "id": "RxrvY",
+          "x": 480,
+          "y": 700,
+          "name": "mods_p",
+          "fill": "#9A75EA",
+          "content": "core  ·  product  ·  qa  ·  tracker",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 44,
+          "fontWeight": "500"
+        },
+        {
+          "type": "text",
+          "id": "0APOW",
+          "x": 370,
+          "y": 790,
+          "name": "hero_p",
+          "fill": "#555566",
+          "content": "Complete pipeline from design to tested code",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 40
+        },
+        {
+          "type": "text",
+          "id": "F9REG",
+          "x": 544,
+          "y": 940,
+          "name": "lic_p",
+          "fill": "#555566",
+          "content": "1 year updates  ·  3 devices",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 40
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "hUrMq",
+      "x": 0,
+      "y": 3900,
+      "name": "Variant — Bundle",
+      "width": 1600,
+      "height": 1200,
+      "fill": "#08080F",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "YSEFR",
+          "x": 0,
+          "y": 0,
+          "name": "banner_b",
+          "width": 1600,
+          "height": 72,
+          "fill": "#166534",
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "U1Fi6",
+              "x": 480,
+              "y": 14,
+              "name": "banner_bt",
+              "fill": "#4ADE80",
+              "content": "★  BEST VALUE  —  SAVE 40%+",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 36,
+              "fontWeight": "700",
+              "letterSpacing": 3
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "3RNa7",
+          "x": 630,
+          "y": 100,
+          "name": "label_b",
+          "fill": "#4ADE80",
+          "content": "BUNDLE",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 72,
+          "fontWeight": "700",
+          "letterSpacing": 8
+        },
+        {
+          "type": "text",
+          "id": "eVh55",
+          "x": 477,
+          "y": 180,
+          "name": "price_b",
+          "fill": "#FFFFFF",
+          "content": "€149",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 260,
+          "fontWeight": "800"
+        },
+        {
+          "type": "text",
+          "id": "DJg0c",
+          "x": 585,
+          "y": 470,
+          "name": "onet_b",
+          "fill": "#666677",
+          "content": "one-time purchase",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 48
+        },
+        {
+          "type": "frame",
+          "id": "ZHGWY",
+          "x": 400,
+          "y": 560,
+          "name": "div_b",
+          "width": 800,
+          "height": 2,
+          "fill": "#222233",
+          "cornerRadius": 1
+        },
+        {
+          "type": "text",
+          "id": "EUif4",
+          "x": 502,
+          "y": 600,
+          "name": "count_b",
+          "fill": "#FFFFFF",
+          "content": "All 6 modules + future",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 56,
+          "fontWeight": "600"
+        },
+        {
+          "type": "text",
+          "id": "6wZWF",
+          "x": 339,
+          "y": 690,
+          "name": "mods_b",
+          "fill": "#4ADE80",
+          "content": "core · autopilot · product · qa · tracker · worktree",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 40,
+          "fontWeight": "500"
+        },
+        {
+          "type": "text",
+          "id": "oB2yW",
+          "x": 369,
+          "y": 780,
+          "name": "future_b",
+          "fill": "#555566",
+          "content": "Every new module included automatically",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 44
+        },
+        {
+          "type": "text",
+          "id": "XWQF8",
+          "x": 544,
+          "y": 940,
+          "name": "lic_b",
+          "fill": "#555566",
+          "content": "1 year updates  ·  5 devices",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 40
+        }
+      ]
+    }
+  ]
+}
