@@ -13,7 +13,7 @@
 | BL-006 | P2 | backlog | Terms page: verify current | `[gdpr]` `[legal]` |
 | BL-007 | P2 | backlog | Cloudflare Web Analytics integration | `[analytics]` `[gdpr]` |
 | BL-008 | P2 | backlog | OG images for all pages (social sharing) | `[seo]` `[meta]` |
-| BL-009 | P2 | backlog | Structured data: Product, FAQ, Breadcrumb schema | `[seo]` `[schema]` |
+| BL-009 | P2 | done | Structured data: Product, FAQ, Breadcrumb schema | `[seo]` `[schema]` |
 | BL-010 | P3 | backlog | Changelog page (currently disabled link in footer) | `[page]` `[content]` |
 | BL-011 | P3 | backlog | Mobile nav: verify Docs dropdown works on touch | `[ux]` `[mobile]` |
 | BL-012 | P3 | concept | Blog / content marketing section | `[page]` `[seo]` `[content]` |
@@ -22,8 +22,8 @@
 | BL-015 | P1 | done | Verify all LemonSqueezy checkout URLs are live | `[revenue]` `[qa]` |
 | BL-016 | P2 | backlog | 404 page: custom design with nav back to home | `[page]` `[ux]` |
 | BL-017 | P3 | concept | Product Hunt launch assets (tagline, screenshots, maker comment) | `[launch]` `[marketing]` |
-| BL-018 | P2 | backlog | Sitemap.xml generation (Astro integration) | `[seo]` `[infra]` |
-| BL-019 | P2 | backlog | robots.txt: verify correct for Cloudflare Pages | `[seo]` `[infra]` |
+| BL-018 | P2 | done | Sitemap.xml generation (Astro integration) | `[seo]` `[infra]` |
+| BL-019 | P2 | done | robots.txt: verify correct for Cloudflare Pages | `[seo]` `[infra]` |
 | BL-020 | P3 | backlog | DPA verification: Cloudflare, LemonSqueezy | `[gdpr]` `[legal]` |
 | BL-021 | P1 | blocked | Landing copy audit: pipeline → TDD refactor | `[content]` `[copy]` `[blocked:refactor]` |
 | BL-022 | P1 | backlog | Pricing/plans sync: landing ↔ API ↔ marketplace ↔ LemonSqueezy | `[revenue]` `[sync]` `[cross-repo]` |
