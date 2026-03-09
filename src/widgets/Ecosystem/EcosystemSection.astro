@@ -1,16 +1,15 @@
 ---
 import Container from "@shared/ui/Container.astro";
 import SectionLabel from "@shared/ui/SectionLabel.astro";
-import { ecosystemI18n } from "@shared/config/ecosystem";
-import { i18n } from "@shared/utils/locale";
+import { journeyI18n } from "@shared/config/ecosystem";
+import { localePath, i18n } from "@shared/utils/locale";
 
-const config = i18n(ecosystemI18n, Astro.currentLocale);
-const { sectionLabel, headline, subheadline, stages, foundation, crossCutting } = config;
-
-const stageNumbers = ["01", "02", "03"];
+const lp = (path: string) => localePath(path, Astro.currentLocale);
+const config = i18n(journeyI18n, Astro.currentLocale);
+const { sectionLabel, headline, subheadline, zones, crossCutting } = config;
 ---
 
-<section id="ecosystem" class="py-12 md:py-24 lg:py-32">
+<section id="journey" class="py-12 md:py-24 lg:py-32">
 	<Container>
 		{/* Header */}
 		<div class="fade-up mb-16 text-center">
@@ -25,50 +24,123 @@ const stageNumbers = ["01", "02", "03"];
 			</p>
 		</div>
 
-		{/* Desktop: 3-column stages with arrows */}
-		<div class="hidden md:grid grid-cols-[1fr_40px_1fr_40px_1fr] items-stretch gap-0">
-			{stages.map((stage, idx) => (
+		{/* Desktop: 4-column journey ribbon */}
+		<div class="hidden lg:grid grid-cols-[1fr_32px_1fr_32px_1fr_32px_1fr] items-stretch gap-0">
+			{zones.map((zone, idx) => (
 				<>
-					{/* Arrow connector (columns 2 and 4) */}
+					{/* Arrow connector between zones */}
 					{idx > 0 && (
 						<div class="flex items-center justify-center">
-							<svg width="40" height="24" viewBox="0 0 40 24" fill="none" class="text-secondary opacity-40">
-								<path d="M0 12H36M36 12L28 4M36 12L28 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							<svg width="32" height="24" viewBox="0 0 32 24" fill="none" style={`color: ${zone.color}`} class="opacity-40">
+								<path d="M0 12H28M28 12L20 4M28 12L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
 							</svg>
 						</div>
 					)}
 
-					{/* Stage card */}
-					<div class="rounded-[14px] border border-card bg-surface p-6 transition-all duration-300 hover:border-card-hover hover:shadow-[0_0_32px_rgba(118,73,196,0.08)]">
-						<div class="flex items-baseline gap-3 mb-3">
-							<span class="font-mono text-[12px] font-medium text-secondary opacity-60">
-								{stageNumbers[idx]}
-							</span>
-							<h3 class="font-sans text-[20px] font-semibold text-text">
-								{stage.title}
-							</h3>
-						</div>
-						<p class="font-sans text-[14px] leading-[1.6] text-text-muted mb-5">
-							{stage.description}
+					{/* Zone card */}
+					<div
+						class="journey-zone rounded-[14px] border p-5 transition-all duration-300 hover:shadow-lg"
+						style={`border-color: ${zone.color}30; background: ${zone.color}08;`}
+						data-zone={zone.id}
+					>
+						{/* Persona badge */}
+						<span
+							class="inline-block rounded-[6px] border px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-[0.1em]"
+							style={`border-color: ${zone.color}40; color: ${zone.color}; background: ${zone.color}10;`}
+						>
+							{zone.persona}
+						</span>
+
+						{/* Zone title */}
+						<h3
+							class="mt-3 font-sans text-[18px] font-bold"
+							style={`color: ${zone.color};`}
+						>
+							{zone.title}
+						</h3>
+
+						{/* Description */}
+						<p class="mt-1 font-sans text-[13px] leading-[1.5] text-text-muted">
+							{zone.description}
 						</p>
-						<div class="flex flex-wrap gap-2">
-							{stage.modules.map((mod) => {
-								const isHub = stage.accent === "hub" && mod === "forge-product";
-								return (
-									<span
-										class:list={[
-											"inline-flex items-center gap-1.5 rounded-[8px] border px-3 py-1.5 font-mono text-[12px] transition-colors duration-200",
-											isHub
-												? "border-secondary/30 bg-secondary/5 text-secondary"
-												: "border-card bg-bg text-text-secondary",
-										]}
-									>
-										<span class="text-secondary text-[10px]">{"\u25C7"}</span>
-										{mod}
-										{isHub && <span class="text-[10px] opacity-60 ml-0.5">hub</span>}
-									</span>
-								);
-							})}
+
+						{/* Module pills */}
+						<div class="mt-4 flex flex-col gap-1.5">
+							{zone.modules.map((mod) => (
+								<a
+									href={lp(`/modules/${mod.slug}`)}
+									class="group inline-flex items-center gap-1.5 rounded-[8px] border px-3 py-1.5 font-mono text-[12px] transition-all duration-200 hover:-translate-y-px"
+									style={`border-color: ${zone.color}20; background: ${zone.color}06;`}
+								>
+									<span style={`color: ${zone.color};`} class="text-[10px]">{"\u25C7"}</span>
+									<span class="text-text group-hover:text-text">{mod.name}</span>
+									{mod.badge && (
+										<span
+											class="ml-auto text-[9px] font-medium uppercase tracking-[0.08em] opacity-60"
+											style={`color: ${zone.color};`}
+										>
+											{mod.badge}
+										</span>
+									)}
+								</a>
+							))}
+						</div>
+					</div>
+				</>
+			))}
+		</div>
+
+		{/* Cycle indicator (desktop) */}
+		<div class="hidden lg:flex justify-end mt-2 mr-4">
+			<span class="font-mono text-[11px] text-text-muted opacity-50">
+				{"\u21B3"} cycle back to Validate
+			</span>
+		</div>
+
+		{/* Tablet: 2x2 grid */}
+		<div class="hidden md:grid lg:hidden grid-cols-2 gap-4">
+			{zones.map((zone, idx) => (
+				<>
+					{/* Arrow between row 1 and row 2 */}
+					{idx === 2 && (
+						<div class="col-span-2 flex justify-center py-1">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-text-muted opacity-30">
+								<path d="M12 0V20M12 20L4 12M12 20L20 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</div>
+					)}
+					<div
+						class="rounded-[14px] border p-5 transition-all duration-300 hover:shadow-lg"
+						style={`border-color: ${zone.color}30; background: ${zone.color}08;`}
+					>
+						<span
+							class="inline-block rounded-[6px] border px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-[0.1em]"
+							style={`border-color: ${zone.color}40; color: ${zone.color}; background: ${zone.color}10;`}
+						>
+							{zone.persona}
+						</span>
+						<h3 class="mt-3 font-sans text-[18px] font-bold" style={`color: ${zone.color};`}>
+							{zone.title}
+						</h3>
+						<p class="mt-1 font-sans text-[13px] leading-[1.5] text-text-muted">
+							{zone.description}
+						</p>
+						<div class="mt-4 flex flex-wrap gap-1.5">
+							{zone.modules.map((mod) => (
+								<a
+									href={lp(`/modules/${mod.slug}`)}
+									class="inline-flex items-center gap-1.5 rounded-[8px] border px-3 py-1.5 font-mono text-[12px] transition-all duration-200"
+									style={`border-color: ${zone.color}20; background: ${zone.color}06;`}
+								>
+									<span style={`color: ${zone.color};`} class="text-[10px]">{"\u25C7"}</span>
+									<span class="text-text">{mod.name}</span>
+									{mod.badge && (
+										<span class="text-[9px] font-medium uppercase tracking-[0.08em] opacity-60" style={`color: ${zone.color};`}>
+											{mod.badge}
+										</span>
+									)}
+								</a>
+							))}
 						</div>
 					</div>
 				</>
@@ -77,84 +149,76 @@ const stageNumbers = ["01", "02", "03"];
 
 		{/* Mobile: vertical stack */}
 		<div class="flex flex-col md:hidden">
-			{stages.map((stage, idx) => (
+			{zones.map((zone, idx) => (
 				<>
 					{idx > 0 && (
 						<div class="flex items-center justify-center py-3">
-							<svg width="24" height="32" viewBox="0 0 24 32" fill="none" class="text-secondary opacity-40">
+							<svg width="24" height="32" viewBox="0 0 24 32" fill="none" style={`color: ${zone.color}`} class="opacity-40">
 								<path d="M12 0V28M12 28L4 20M12 28L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
 							</svg>
 						</div>
 					)}
-					<div class="rounded-[14px] border border-card bg-surface p-6 transition-all duration-300 hover:border-card-hover">
-						<div class="flex items-baseline gap-3 mb-3">
-							<span class="font-mono text-[12px] font-medium text-secondary opacity-60">
-								{stageNumbers[idx]}
-							</span>
-							<h3 class="font-sans text-[18px] font-semibold text-text">
-								{stage.title}
-							</h3>
-						</div>
-						<p class="font-sans text-[14px] leading-[1.6] text-text-muted mb-5">
-							{stage.description}
+					<div
+						class="rounded-[14px] border p-5 transition-all duration-300"
+						style={`border-color: ${zone.color}30; background: ${zone.color}08;`}
+					>
+						<span
+							class="inline-block rounded-[6px] border px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-[0.1em]"
+							style={`border-color: ${zone.color}40; color: ${zone.color}; background: ${zone.color}10;`}
+						>
+							{zone.persona}
+						</span>
+						<h3 class="mt-3 font-sans text-[18px] font-bold" style={`color: ${zone.color};`}>
+							{zone.title}
+						</h3>
+						<p class="mt-1 font-sans text-[13px] leading-[1.5] text-text-muted">
+							{zone.description}
 						</p>
-						<div class="flex flex-wrap gap-2">
-							{stage.modules.map((mod) => {
-								const isHub = stage.accent === "hub" && mod === "forge-product";
-								return (
-									<span
-										class:list={[
-											"inline-flex items-center gap-1.5 rounded-[8px] border px-3 py-1.5 font-mono text-[12px] transition-colors duration-200",
-											isHub
-												? "border-secondary/30 bg-secondary/5 text-secondary"
-												: "border-card bg-bg text-text-secondary",
-										]}
-									>
-										<span class="text-secondary text-[10px]">{"\u25C7"}</span>
-										{mod}
-										{isHub && <span class="text-[10px] opacity-60 ml-0.5">hub</span>}
-									</span>
-								);
-							})}
+						<div class="mt-4 flex flex-wrap gap-1.5">
+							{zone.modules.map((mod) => (
+								<a
+									href={lp(`/modules/${mod.slug}`)}
+									class="inline-flex items-center gap-1.5 rounded-[8px] border px-3 py-1.5 font-mono text-[12px] transition-all duration-200"
+									style={`border-color: ${zone.color}20; background: ${zone.color}06;`}
+								>
+									<span style={`color: ${zone.color};`} class="text-[10px]">{"\u25C7"}</span>
+									<span class="text-text">{mod.name}</span>
+									{mod.badge && (
+										<span class="text-[9px] font-medium uppercase tracking-[0.08em] opacity-60" style={`color: ${zone.color};`}>
+											{mod.badge}
+										</span>
+									)}
+								</a>
+							))}
 						</div>
 					</div>
 				</>
 			))}
+			{/* Cycle indicator (mobile) */}
+			<div class="flex justify-center py-3">
+				<span class="font-mono text-[11px] text-text-muted opacity-50">
+					{"\u21BB"} cycle back to Validate
+				</span>
+			</div>
 		</div>
 
-		{/* Foundation bar + cross-cutting */}
-		<div class="mt-6 grid gap-4 md:grid-cols-2">
-			{/* forge-core foundation */}
-			<div class="rounded-[14px] border border-secondary/20 bg-secondary/[0.03] px-6 py-5">
-				<div class="flex items-center gap-2 mb-2">
-					<span class="text-secondary text-[10px]">{"\u25C7"}</span>
-					<span class="font-mono text-[14px] font-medium text-secondary">
-						{foundation.title}
-					</span>
-					<span class="ml-auto font-mono text-[10px] uppercase tracking-[0.1em] text-secondary/50">
-						foundation
-					</span>
-				</div>
-				<p class="font-sans text-[13px] leading-[1.5] text-text-muted">
-					{foundation.description}
-				</p>
-			</div>
-
-			{/* forge-prompts cross-cutting */}
-			<div class="rounded-[14px] border border-card bg-surface px-6 py-5">
-				<div class="flex items-center gap-2 mb-2">
-					<span class="text-secondary text-[10px]">{"\u25C7"}</span>
-					<span class="font-mono text-[14px] font-medium text-text">
-						{crossCutting.module}
-					</span>
-					<span class="ml-auto font-mono text-[10px] uppercase tracking-[0.1em] text-text-muted">
-						{crossCutting.title}
-					</span>
-				</div>
-				<p class="font-sans text-[13px] leading-[1.5] text-text-muted">
+		{/* Cross-cutting: forge-prompts bar */}
+		<div class="mt-6">
+			<a
+				href={lp(`/modules/${crossCutting.slug}`)}
+				class="group flex items-center gap-3 rounded-[14px] border border-card bg-surface px-6 py-4 transition-all duration-300 hover:border-card-hover hover:shadow-[0_0_32px_rgba(118,73,196,0.08)]"
+			>
+				<span class="text-secondary text-[10px]">{"\u25C7"}</span>
+				<span class="font-mono text-[14px] font-medium text-text group-hover:text-secondary transition-colors">
+					{crossCutting.module}
+				</span>
+				<span class="hidden sm:inline font-mono text-[10px] uppercase tracking-[0.1em] text-text-muted">
+					cross-cutting
+				</span>
+				<span class="ml-auto font-sans text-[13px] text-text-muted">
 					{crossCutting.description}
-				</p>
-			</div>
+				</span>
+			</a>
 		</div>
 	</Container>
 </section>

@@ -1,127 +1,156 @@
-export interface EcosystemStage {
-	id: string;
-	title: string;
-	description: string;
-	modules: string[];
-	accent?: string;
+export interface JourneyModule {
+	name: string;
+	slug: string;
+	badge?: string; // e.g. "hub", "foundation"
 }
 
-export interface EcosystemConfig {
+export interface JourneyZone {
+	id: string;
+	title: string;
+	persona: string;
+	description: string;
+	color: string; // hex for border/bg tints
+	modules: JourneyModule[];
+}
+
+export interface JourneyConfig {
 	sectionLabel: string;
 	headline: string;
 	subheadline: string;
-	stages: EcosystemStage[];
-	foundation: {
-		title: string;
-		description: string;
-	};
+	zones: JourneyZone[];
 	crossCutting: {
-		title: string;
 		module: string;
+		slug: string;
 		description: string;
 	};
 }
 
-export const ecosystem = {
-	sectionLabel: "ECOSYSTEM",
-	headline: "Modules that talk to each other",
+export const journey: JourneyConfig = {
+	sectionLabel: "THE JOURNEY",
+	headline: "From idea validation to growth loops",
 	subheadline:
-		"Every module shares context with the rest. Discovery feeds marketing, marketing feeds product, product feeds everything downstream. No copy-pasting between tools.",
-	stages: [
+		"15 modules. 4 stages. Each maps to who uses it and when.",
+	zones: [
 		{
-			id: "before-code",
-			title: "Before code",
-			description: "Validate the idea, define positioning, build the product spec",
-			modules: ["forge-discovery", "forge-marketing", "forge-product"],
-			accent: "hub",
-		},
-		{
-			id: "dev-pipeline",
-			title: "Dev pipeline",
-			description: "Turn specs into code with tests, tracking, and autonomous agents",
+			id: "validate",
+			title: "VALIDATE",
+			persona: "Founder / PM",
+			description: "Validate before you build",
+			color: "#9A75EA",
 			modules: [
-				"forge-product",
-				"forge-qa",
-				"forge-tracker",
-				"forge-autopilot",
-				"forge-worktree",
+				{ name: "forge-discovery", slug: "discovery" },
+				{ name: "forge-marketing", slug: "marketing" },
+				{ name: "forge-product", slug: "product", badge: "hub" },
 			],
 		},
 		{
-			id: "after-code",
-			title: "After code",
-			description:
-				"Advisory modules read product context to generate copy, SEO, analytics, onboarding, growth experiments, and A/B tests",
+			id: "build",
+			title: "BUILD",
+			persona: "Developer",
+			description: "Build with guardrails",
+			color: "#3B82F6",
 			modules: [
-				"forge-copy",
-				"forge-seo",
-				"forge-analytics",
-				"forge-onboarding",
-				"forge-growth",
-				"forge-ab",
+				{ name: "forge-core", slug: "core", badge: "foundation" },
+				{ name: "forge-qa", slug: "qa" },
+				{ name: "forge-tracker", slug: "tracker" },
+			],
+		},
+		{
+			id: "scale",
+			title: "SCALE",
+			persona: "Team Lead",
+			description: "Parallel agents, zero conflicts",
+			color: "#10B981",
+			modules: [
+				{ name: "forge-autopilot", slug: "autopilot" },
+				{ name: "forge-worktree", slug: "worktree" },
+			],
+		},
+		{
+			id: "grow",
+			title: "GROW",
+			persona: "Growth / Product",
+			description: "Measure and iterate",
+			color: "#F59E0B",
+			modules: [
+				{ name: "forge-analytics", slug: "analytics" },
+				{ name: "forge-onboarding", slug: "onboarding" },
+				{ name: "forge-copy", slug: "copy" },
+				{ name: "forge-seo", slug: "seo" },
+				{ name: "forge-growth", slug: "growth" },
+				{ name: "forge-ab", slug: "ab" },
 			],
 		},
 	],
-	foundation: {
-		title: "forge-core",
-		description: "Foundation for every module - architecture audit, quality patterns, dev-skill generation",
-	},
 	crossCutting: {
-		title: "Cross-cutting",
 		module: "forge-prompts",
+		slug: "prompts",
 		description: "Prompt architecture across the entire pipeline",
 	},
-} as const satisfies EcosystemConfig;
+};
 
-const ecosystemRu: EcosystemConfig = {
-	sectionLabel: "\u042D\u041A\u041E\u0421\u0418\u0421\u0422\u0415\u041C\u0410",
-	headline: "\u041C\u043E\u0434\u0443\u043B\u0438, \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u043E\u0431\u0449\u0430\u044E\u0442\u0441\u044F \u0434\u0440\u0443\u0433 \u0441 \u0434\u0440\u0443\u0433\u043E\u043C",
+const journeyRu: JourneyConfig = {
+	sectionLabel: "\u041F\u0423\u0422\u042C",
+	headline: "\u041E\u0442 \u0432\u0430\u043B\u0438\u0434\u0430\u0446\u0438\u0438 \u0438\u0434\u0435\u0438 \u0434\u043E \u043F\u0435\u0442\u0435\u043B\u044C \u0440\u043E\u0441\u0442\u0430",
 	subheadline:
-		"\u041A\u0430\u0436\u0434\u044B\u0439 \u043C\u043E\u0434\u0443\u043B\u044C \u0434\u0435\u043B\u0438\u0442\u0441\u044F \u043A\u043E\u043D\u0442\u0435\u043A\u0441\u0442\u043E\u043C \u0441 \u043E\u0441\u0442\u0430\u043B\u044C\u043D\u044B\u043C\u0438. Discovery \u043F\u0438\u0442\u0430\u0435\u0442 \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433, \u043C\u0430\u0440\u043A\u0435\u0442\u0438\u043D\u0433 \u043F\u0438\u0442\u0430\u0435\u0442 \u043F\u0440\u043E\u0434\u0443\u043A\u0442, \u043F\u0440\u043E\u0434\u0443\u043A\u0442 \u043F\u0438\u0442\u0430\u0435\u0442 \u0432\u0441\u0451 \u043D\u0438\u0436\u0435 \u043F\u043E \u043F\u043E\u0442\u043E\u043A\u0443. \u041D\u0438\u043A\u0430\u043A\u043E\u0433\u043E copy-paste \u043C\u0435\u0436\u0434\u0443 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u0430\u043C\u0438.",
-	stages: [
+		"15 \u043C\u043E\u0434\u0443\u043B\u0435\u0439. 4 \u044D\u0442\u0430\u043F\u0430. \u041A\u0430\u0436\u0434\u044B\u0439 \u043F\u0440\u0438\u0432\u044F\u0437\u0430\u043D \u043A \u0440\u043E\u043B\u0438 \u0438 \u043C\u043E\u043C\u0435\u043D\u0442\u0443.",
+	zones: [
 		{
-			id: "before-code",
-			title: "\u0414\u043E \u043A\u043E\u0434\u0430",
-			description: "\u0412\u0430\u043B\u0438\u0434\u0438\u0440\u0443\u0439\u0442\u0435 \u0438\u0434\u0435\u044E, \u043E\u043F\u0440\u0435\u0434\u0435\u043B\u0438\u0442\u0435 \u043F\u043E\u0437\u0438\u0446\u0438\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435, \u0441\u043E\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u043E\u0432\u044B\u0439 \u0441\u043F\u0435\u043A",
-			modules: ["forge-discovery", "forge-marketing", "forge-product"],
-			accent: "hub",
-		},
-		{
-			id: "dev-pipeline",
-			title: "Dev pipeline",
-			description: "\u041F\u0440\u0435\u0432\u0440\u0430\u0442\u0438\u0442\u0435 \u0441\u043F\u0435\u043A\u0438 \u0432 \u043A\u043E\u0434 \u0441 \u0442\u0435\u0441\u0442\u0430\u043C\u0438, \u0442\u0440\u0435\u043A\u0438\u043D\u0433\u043E\u043C \u0438 \u0430\u0432\u0442\u043E\u043D\u043E\u043C\u043D\u044B\u043C\u0438 \u0430\u0433\u0435\u043D\u0442\u0430\u043C\u0438",
+			id: "validate",
+			title: "VALIDATE",
+			persona: "Founder / PM",
+			description: "\u0412\u0430\u043B\u0438\u0434\u0438\u0440\u0443\u0439\u0442\u0435 \u043F\u0440\u0435\u0436\u0434\u0435 \u0447\u0435\u043C \u0441\u0442\u0440\u043E\u0438\u0442\u044C",
+			color: "#9A75EA",
 			modules: [
-				"forge-product",
-				"forge-qa",
-				"forge-tracker",
-				"forge-autopilot",
-				"forge-worktree",
+				{ name: "forge-discovery", slug: "discovery" },
+				{ name: "forge-marketing", slug: "marketing" },
+				{ name: "forge-product", slug: "product", badge: "hub" },
 			],
 		},
 		{
-			id: "after-code",
-			title: "\u041F\u043E\u0441\u043B\u0435 \u043A\u043E\u0434\u0430",
-			description:
-				"Advisory-\u043C\u043E\u0434\u0443\u043B\u0438 \u0447\u0438\u0442\u0430\u044E\u0442 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u043E\u0432\u044B\u0439 \u043A\u043E\u043D\u0442\u0435\u043A\u0441\u0442 \u0434\u043B\u044F \u0433\u0435\u043D\u0435\u0440\u0430\u0446\u0438\u0438 \u043A\u043E\u043F\u0438, SEO, \u0430\u043D\u0430\u043B\u0438\u0442\u0438\u043A\u0438, \u043E\u043D\u0431\u043E\u0440\u0434\u0438\u043D\u0433\u0430, \u0433\u0440\u043E\u0443\u0442\u0445 \u044D\u043A\u0441\u043F\u0435\u0440\u0438\u043C\u0435\u043D\u0442\u043E\u0432 \u0438 A/B-\u0442\u0435\u0441\u0442\u043E\u0432",
+			id: "build",
+			title: "BUILD",
+			persona: "Developer",
+			description: "\u0421\u0442\u0440\u043E\u0439\u0442\u0435 \u0441 \u0433\u0430\u0439\u0434\u0440\u0435\u0439\u043B\u0430\u043C\u0438",
+			color: "#3B82F6",
 			modules: [
-				"forge-copy",
-				"forge-seo",
-				"forge-analytics",
-				"forge-onboarding",
-				"forge-growth",
-				"forge-ab",
+				{ name: "forge-core", slug: "core", badge: "foundation" },
+				{ name: "forge-qa", slug: "qa" },
+				{ name: "forge-tracker", slug: "tracker" },
+			],
+		},
+		{
+			id: "scale",
+			title: "SCALE",
+			persona: "Team Lead",
+			description: "\u041F\u0430\u0440\u0430\u043B\u043B\u0435\u043B\u044C\u043D\u044B\u0435 \u0430\u0433\u0435\u043D\u0442\u044B, \u043D\u043E\u043B\u044C \u043A\u043E\u043D\u0444\u043B\u0438\u043A\u0442\u043E\u0432",
+			color: "#10B981",
+			modules: [
+				{ name: "forge-autopilot", slug: "autopilot" },
+				{ name: "forge-worktree", slug: "worktree" },
+			],
+		},
+		{
+			id: "grow",
+			title: "GROW",
+			persona: "Growth / Product",
+			description: "\u0418\u0437\u043C\u0435\u0440\u044F\u0439\u0442\u0435 \u0438 \u0438\u0442\u0435\u0440\u0438\u0440\u0443\u0439\u0442\u0435",
+			color: "#F59E0B",
+			modules: [
+				{ name: "forge-analytics", slug: "analytics" },
+				{ name: "forge-onboarding", slug: "onboarding" },
+				{ name: "forge-copy", slug: "copy" },
+				{ name: "forge-seo", slug: "seo" },
+				{ name: "forge-growth", slug: "growth" },
+				{ name: "forge-ab", slug: "ab" },
 			],
 		},
 	],
-	foundation: {
-		title: "forge-core",
-		description: "\u0424\u0443\u043D\u0434\u0430\u043C\u0435\u043D\u0442 \u0434\u043B\u044F \u043A\u0430\u0436\u0434\u043E\u0433\u043E \u043C\u043E\u0434\u0443\u043B\u044F - \u0430\u0440\u0445\u0438\u0442\u0435\u043A\u0442\u0443\u0440\u043D\u044B\u0439 \u0430\u0443\u0434\u0438\u0442, \u043F\u0430\u0442\u0442\u0435\u0440\u043D\u044B \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0430, \u0433\u0435\u043D\u0435\u0440\u0430\u0446\u0438\u044F dev-\u0441\u043A\u0438\u043B\u043B\u043E\u0432",
-	},
 	crossCutting: {
-		title: "Cross-cutting",
 		module: "forge-prompts",
+		slug: "prompts",
 		description: "\u041F\u0440\u043E\u043C\u043F\u0442-\u0430\u0440\u0445\u0438\u0442\u0435\u043A\u0442\u0443\u0440\u0430 \u0434\u043B\u044F \u0432\u0441\u0435\u0433\u043E \u043F\u0430\u0439\u043F\u043B\u0430\u0439\u043D\u0430",
 	},
 };
 
-export const ecosystemI18n: Record<string, EcosystemConfig> = { en: ecosystem, ru: ecosystemRu };
+export const journeyI18n: Record<string, JourneyConfig> = { en: journey, ru: journeyRu };

@@ -3,6 +3,8 @@ export interface Step {
 	label: string;
 	command: string;
 	description: string;
+	hint?: string;
+	hintHref?: string;
 }
 
 export interface PlatformBadge {
@@ -26,6 +28,8 @@ export const howItWorks = {
 			label: "INSTALL",
 			command: "npm i -g @reumbra/forge",
 			description: "Global CLI install",
+			hint: "Or use Forge Manager - desktop app for Windows and macOS",
+			hintHref: "/docs/getting-started#option-b",
 		},
 		{
 			number: 2,
@@ -65,6 +69,8 @@ const howItWorksRu: HowItWorksConfig = {
 			label: "INSTALL",
 			command: "npm i -g @reumbra/forge",
 			description: "Глобальная установка CLI",
+			hint: "Или используйте Forge Manager - десктоп-приложение для Windows и macOS",
+			hintHref: "/ru/docs/getting-started#option-b",
 		},
 		{
 			number: 2,

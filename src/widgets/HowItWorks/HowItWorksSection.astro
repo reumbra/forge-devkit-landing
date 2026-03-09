@@ -50,6 +50,19 @@ const howItWorks = i18n(howItWorksI18n, Astro.currentLocale);
 						<p class="mt-1 font-sans text-[14px] leading-[1.6] text-text-muted">
 							{step.description}
 						</p>
+
+						{/* Optional hint (e.g. desktop app alternative) */}
+						{step.hint && (
+							<p class="mt-1 font-sans text-[12px] leading-[1.5] text-text-muted/60">
+								{step.hintHref ? (
+									<a href={step.hintHref} class="underline decoration-text-muted/30 underline-offset-2 transition-colors hover:text-text-muted">
+										{step.hint}
+									</a>
+								) : (
+									step.hint
+								)}
+							</p>
+						)}
 					</div>
 				))
 			}
