@@ -78,6 +78,31 @@ All visual components live here. Widgets and pages build UI only through design 
 - Content data (pricing, features, FAQ) lives in `src/shared/config/`, not hardcoded in widgets
 - **Content-driven widgets**: All UI text lives in `src/shared/config/*.ts`. Widgets read from configs, never hardcode copy. This enables parallel editing of content (config) and layout (widget) independently.
 
+### Naming Conventions
+
+| Category | Pattern | Example |
+|----------|---------|---------|
+| Widget directories | PascalCase | `Hero/`, `Pricing/`, `ModulePage/` |
+| Shared UI components | PascalCase.astro | `Button.astro`, `Card.astro` |
+| Config files | kebab-case.ts | `pricing-page.ts`, `social-proof.ts` |
+| Pages | kebab-case.astro | `pricing.astro`, `refund.astro` |
+
+Note: 3 existing widget dirs use kebab-case (`comparison-page`, `module-page`, `pricing-page`) — new widgets must use PascalCase.
+
+### Quality Gates
+
+Run before completing any feature:
+
+**Required:** `pnpm build` (clean), `pnpm lint` (zero violations), no secrets in git, `.env` in `.gitignore`
+**Recommended:** a11y on interactive elements, `pnpm audit`, lockfile committed
+
+## Forge Pipeline
+
+- **Mode:** parallel (score 8/10) — 2-3 concurrent feature streams supported
+- **Execution:** balanced + adaptive (agent auto-selects per task)
+- **Git:** trunk-based, emoji-prefix commits, protected branch: `main`
+- **Backlog:** BACKLOG.md (local)
+
 ## Development
 
 - `pnpm dev` — start dev server (http://localhost:4321/)

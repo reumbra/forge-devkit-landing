@@ -331,3 +331,26 @@ Test all breakpoints: mobile (<768px), tablet (768-1023px), desktop (≥1024px).
 Open Graph tags, favicon, sitemap, robots.txt. Lighthouse audit target: 90+.
 
 **Checkpoint 5:** Full landing page works, both locales, responsive, animated, performant.
+
+---
+
+## Phase 6: Post-Launch Content & Narrative
+
+### Task 6.1: Untrusted Developer Guide
+
+Add a guide/page explaining how to bypass "untrusted developer" warnings on each OS:
+- **Windows:** SmartScreen → "More info" → "Run anyway"
+- **macOS:** Gatekeeper → System Settings → Privacy & Security → "Open Anyway"
+- **Linux:** chmod +x (if AppImage), no signing issues typically
+
+Link from the download/pricing section. Include screenshots or step-by-step visuals.
+
+### Task 6.2: CLI vs GUI Narrative
+
+Update landing page narrative to communicate:
+- **CLI** (`@reumbra/forge`) — full-featured, requires Node.js installed
+- **GUI** (Forge Plugin Manager) — desktop app, no Node required, marked as **Beta**
+
+Integrate into Hero or How It Works section. Ensure both download paths are clear with appropriate expectations set.
+
+**Checkpoint 6:** Guide page exists, narrative updated, both locales.

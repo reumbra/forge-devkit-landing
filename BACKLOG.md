@@ -52,6 +52,7 @@
 | BL-045 | P3 | backlog | EN copy: add rationalization detector example | `[copy]` `[specificity]` |
 | BL-046 | P2 | done | Marketing: Token Economy as value prop (execution modes, context isolation, P25 artifacts) | `[copy]` `[cro]` `[content]` |
 | BL-047 | P2 | done | Terms page: add /refund link + create /refund page (EN+RU) | `[legal]` `[gdpr]` |
+| BL-048 | P2 | backlog | Launch pricing → regular pricing transition + ad coupons | `[pricing]` `[ads]` `[revenue]` |
 
 ---
 
@@ -210,6 +211,29 @@ Pricing, plan names, included modules, and checkout URLs must be consistent acro
 - Deep Dive секция на homepage (pipeline flow с token counts)
 - Comparison page: "Forge vs raw Claude Code" с реальными числами
 - Module page forge-core: секция "Pipeline Economy"
+
+### BL-048: Launch pricing → regular pricing transition + ad coupons
+
+Текущие цены = launch pricing. Через 2-4 недели после запуска (или по триггеру первых N продаж) поднять до regular, ad coupons возвращают к текущему уровню.
+
+**Целевые цены:**
+
+| Tier | Launch (текущие) | Regular | Купон в Ads |
+|------|-----------------|---------|-------------|
+| Core | €29 | €39 | -25% → €29 |
+| Pro | €79 | €99 | -20% → €79 |
+| Complete | €149 | €199 | -25% → €149 |
+
+**Шаги:**
+1. За неделю до повышения: добавить "Launch Price" badge на pricing cards (landing)
+2. Опционально: countdown timer
+3. Обновить цены в LemonSqueezy (products + variants)
+4. Создать купоны в LemonSqueezy для ad campaigns
+5. Обновить landing pricing configs (pricing.ts, pricing-page.ts, hero.ts)
+6. Обновить API seed (planPluginData prices)
+7. Обновить product-marketing-context.md
+
+**Триггер:** решение принимается после первых 2-4 недель трафика, когда понятна конверсия.
 
 ### BL-047: Terms page — Refund Link + /refund Page
 
