@@ -215,6 +215,7 @@ const personaModules = config.personas.map((p) => {
 				</button>
 				{/* Expandable body */}
 				<div id="customize-body" class="hidden mt-3 space-y-2">
+					<p class="font-sans text-[12px] text-text-muted leading-[1.5] pb-1">{config.ui.customizeHint}</p>
 					{CAPABILITIES.map((cap) => {
 						const capI18n = config.capabilities.find((c) => c.id === cap.id);
 						const capModules = SIMULATOR_MODULES.filter((m) => cap.moduleIds.includes(m.id));
@@ -243,7 +244,7 @@ const personaModules = config.personas.map((p) => {
 							<span class="font-sans text-[13px] text-text-muted">{config.ui.coverageLabel}:</span>
 							<span id="cust-coverage" class="font-mono text-[15px] font-bold text-secondary">0%</span>
 						</div>
-						<button type="button" id="rebuild-btn" class="rounded-[10px] bg-secondary px-5 py-2 font-sans text-[13px] font-semibold text-white transition-all hover:opacity-90 active:scale-[0.98]">
+						<button type="button" id="rebuild-btn" class="hidden rounded-[10px] bg-secondary px-5 py-2 font-sans text-[13px] font-semibold text-white transition-all hover:opacity-90 active:scale-[0.98]">
 							{config.ui.rebuildButton}
 						</button>
 					</div>
@@ -865,6 +866,82 @@ const personaModules = config.personas.map((p) => {
 		const mods = getModulesForCustom();
 		const cov = calcCoverage(mods);
 		if (custCoverage) custCoverage.textContent = `${cov}%`;
+
+		// Live-update metric bars without re-running animation
+		updateMetricsLive(mods);
+
+		// Show rebuild button if any checkbox state differs from default
+		const hasChanges = Array.from(document.querySelectorAll<HTMLInputElement>(".sim-cap-cb")).some((cb) => {
+			const capId = cb.dataset.cap!;
+			const presetCapIds = TIER_PRESETS[activePersona] || [];
+			const inPreset = presetCapIds.includes(capId);
+			return !inPreset && cb.checked; // only visible cards matter (preset ones are hidden)
+		});
+		rebuildBtn.classList.toggle("hidden", !hasChanges);
+	}
+
+	/** Update metric bars + overall in real-time (no terminal animation) */
+	function updateMetricsLive(selected: Set<string>) {
+		let wSum = 0;
+		let wTotal = 0;
+
+		for (const [mid, contribs] of Object.entries(METRIC_CONTRIBUTIONS)) {
+			let score = 0;
+			const missing: string[] = [];
+
+			for (const [modId, val] of Object.entries(contribs)) {
+				if (selected.has(modId)) {
+					score += val;
+				} else {
+					const mod = SIMULATOR_MODULES.find((m) => m.id === modId);
+					if (mod) missing.push(mod.name);
+				}
+			}
+			score = Math.min(100, score);
+
+			const w = METRIC_WEIGHTS[mid] || 0;
+			wSum += score * w;
+			wTotal += w;
+
+			const row = document.querySelector(`.sim-metric[data-metric="${mid}"]`);
+			if (!row) continue;
+
+			const valEl = row.querySelector(".sim-mv") as HTMLElement;
+			const fillEl = row.querySelector(".sim-mf") as HTMLElement;
+			const impEl = row.querySelector(".sim-mi") as HTMLElement;
+			const missEl = row.querySelector(".sim-mm") as HTMLElement;
+
+			valEl.textContent = `${score}%`;
+			fillEl.style.width = `${score}%`;
+			fillEl.className = `sim-mf relative h-full rounded-full transition-all duration-500 ease-out ${colorClass(score)}`;
+			impEl.textContent = score === 100 ? (impEl.dataset.full || "") : (impEl.dataset.zero || "");
+			missEl.textContent = missing.length > 0 && score < 100 ? `+ ${missing.join(", ")}` : "";
+		}
+
+		const overall = wTotal > 0 ? Math.round(wSum / wTotal) : 0;
+		const ovVal = $("#ov-val");
+		const ovFill = $("#ov-fill");
+		if (ovVal) ovVal.textContent = `${overall}%`;
+		if (ovFill) ovFill.style.width = `${overall}%`;
+
+		// Update recommendation + CTA text
+		const recText = $("#rec-text");
+		if (recText) {
+			if (overall === 100) recText.textContent = t.recommendations.full;
+			else if (overall >= 80) recText.textContent = t.recommendations.high;
+			else if (overall >= 40) recText.textContent = t.recommendations.medium;
+			else recText.textContent = t.recommendations.low;
+		}
+
+		const ctaLink = $("#cta-link");
+		if (ctaLink) {
+			const proMods = getPresetModules("pro");
+			const starterMods = getPresetModules("starter");
+			if (overall === 100) ctaLink.textContent = t.cta.alreadyFull;
+			else if ([...proMods].every((m) => selected.has(m))) ctaLink.textContent = t.cta.toComplete;
+			else if ([...starterMods].every((m) => selected.has(m))) ctaLink.textContent = t.cta.toPro;
+			else ctaLink.textContent = t.cta.toStarter;
+		}
 	}
 
 	// ── Event listeners ──────────────────────────────────────────────
@@ -895,6 +972,7 @@ const personaModules = config.personas.map((p) => {
 	if (rebuildBtn) {
 		rebuildBtn.addEventListener("click", () => {
 			const mods = getModulesForCustom();
+			rebuildBtn.classList.add("hidden");
 			startAssembly(mods);
 		});
 	}
