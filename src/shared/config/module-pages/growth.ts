@@ -3,7 +3,7 @@ import type { ModulePageConfig } from "./types";
 export const growthPageConfig: ModulePageConfig = {
 	slug: "growth",
 	name: "forge-growth",
-	tagline: "Grow smarter, not just faster",
+	tagline: "Retention loops before acquisition tactics",
 	tier: "Complete",
 	tierPrice: "€149",
 
@@ -41,7 +41,7 @@ export const growthPageConfig: ModulePageConfig = {
 		},
 		{
 			title: "Iterate",
-			description: "Measure impact, refine strategy, compound growth over time.",
+			description: "Measure retention lift, referral conversion, and expansion revenue. Refine what works, cut what doesn't.",
 		},
 	],
 
@@ -64,7 +64,7 @@ export const growthPageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Referral mechanics design",
-			description: "Two-sided incentive structures, viral loops, and invite flows - designed to compound.",
+			description: "Two-sided incentives (giver + receiver both benefit), invite flows with tracking, and viral loops - each with concrete implementation specs.",
 		},
 	],
 
@@ -105,16 +105,44 @@ export const growthPageConfig: ModulePageConfig = {
 		},
 	],
 
+	outputExample: {
+		title: "forge:growth - Retention Loop Spec",
+		language: "bash",
+		code: `<span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Retention Loop - taskflow-app</span>
+
+<span class="t-white t-bold">Loop:</span> <span class="t-cyan">Weekly Invoice Digest</span>
+<span class="t-muted">Trigger:</span>     <span class="t-white">Monday 9am, user has >= 1 unpaid invoice</span>
+<span class="t-muted">Channel:</span>     <span class="t-white">Email + in-app badge</span>
+<span class="t-muted">Content:</span>     <span class="t-white">Outstanding amount + 1-click reminder to client</span>
+<span class="t-muted">Success:</span>     <span class="t-green">User sends at least 1 reminder per week</span>
+
+<span class="t-white t-bold">Compound Effect:</span>
+  <span class="t-muted">Week 1:</span> <span class="t-white">User discovers reminder feature</span>
+  <span class="t-muted">Week 4:</span> <span class="t-white">Habit formed, checks dashboard weekly</span>
+  <span class="t-muted">Week 8:</span> <span class="t-green">70% of users with loop active still retained</span>
+
+<span class="t-yellow t-bold">Bias alert:</span> <span class="t-yellow">Don't optimize for email opens - measure actual reminder sends</span>`,
+	},
+
+	personas: {
+		title: "Who is this for",
+		items: [
+			{ role: "Product Lead", benefit: "Design retention loops and referral mechanics as systems, not afterthought hacks." },
+			{ role: "Founder", benefit: "Fix churn at the source before spending on acquisition - retention-first growth." },
+			{ role: "Growth Marketer", benefit: "Get concrete referral mechanics and upgrade trigger specs with psychology-informed design." },
+		],
+	},
+
 	seo: {
-		title: "forge-growth - Grow Smarter, Not Just Faster | Forge DevKit",
-		description: "Retention loops, referral mechanics, upgrade triggers. 6 psychology biases at growth decisions. Retention-first approach, then compound with referrals.",
+		title: "forge-growth - AI Growth Strategy Plugin | Forge DevKit",
+		description: "Design retention loops, referral mechanics, and upgrade triggers with AI. Retention-first approach with 6 bias detectors. Claude Code plugin for sustainable growth.",
 	},
 };
 
 const growthPageConfigRu: ModulePageConfig = {
 	slug: "growth",
 	name: "forge-growth",
-	tagline: "Расти умнее, а не просто быстрее",
+	tagline: "Петли удержания важнее тактик привлечения",
 	tier: "Complete",
 	tierPrice: "€149",
 
@@ -150,7 +178,7 @@ const growthPageConfigRu: ModulePageConfig = {
 		},
 		{
 			title: "Итерация",
-			description: "Измерение импакта, уточнение стратегии, компаундный рост со временем.",
+			description: "Измерение роста retention, конверсии реферралов и expansion-дохода. Масштабируйте то, что работает, отсекайте то, что нет.",
 		},
 	],
 
@@ -173,7 +201,7 @@ const growthPageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Дизайн реферральных механик",
-			description: "Двусторонние incentive-структуры, вирусные петли и invite-flow - спроектированные для компаунда.",
+			description: "Двусторонние incentives (дающий + получающий оба выигрывают), invite-flow с трекингом и вирусные петли - каждый с конкретными спеками реализации.",
 		},
 	],
 
@@ -214,9 +242,18 @@ const growthPageConfigRu: ModulePageConfig = {
 		},
 	],
 
+	personas: {
+		title: "Для кого это",
+		items: [
+			{ role: "Продакт-лид", benefit: "Проектируйте петли retention и реферральные механики как системы, не как запоздалые хаки." },
+			{ role: "Основатель", benefit: "Чините отток в корне до трат на привлечение - рост через retention-first." },
+			{ role: "Growth-маркетолог", benefit: "Получите конкретные реферральные механики и триггеры апгрейда с психологическим обоснованием." },
+		],
+	},
+
 	seo: {
-		title: "forge-growth - Расти умнее, а не быстрее | Forge DevKit",
-		description: "Петли retention, реферральные механики, триггеры апгрейда. 6 психологических предупреждений. Retention-first подход.",
+		title: "forge-growth - AI-стратегия роста продукта | Forge DevKit",
+		description: "Проектируйте retention-петли, реферральные механики и триггеры апгрейда с AI. Retention-first подход, 6 детекторов искажений. Плагин Claude Code для роста.",
 	},
 };
 

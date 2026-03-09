@@ -3,7 +3,7 @@ import type { ModulePageConfig } from "./types";
 export const analyticsPageConfig: ModulePageConfig = {
 	slug: "analytics",
 	name: "forge-analytics",
-	tagline: "Measure what matters, before you code",
+	tagline: "Plan measurement before you code",
 	tier: "Complete",
 	tierPrice: "€149",
 
@@ -58,13 +58,13 @@ export const analyticsPageConfig: ModulePageConfig = {
 		},
 		{
 			icon: "\u25C7",
-			title: "Naming conventions",
+			title: "Enforced event taxonomy",
 			description: "Consistent event taxonomy generated from product context. One naming scheme for the entire project.",
 		},
 		{
 			icon: "\u25C7",
 			title: "Dashboard specs",
-			description: "Layout, dimensions, filters - specified before implementation. Developers build what product needs.",
+			description: "Layout, dimensions, filters - specified before implementation. Developers build the dashboard once instead of iterating through 5 versions of 'can you add a filter?'",
 		},
 	],
 
@@ -105,16 +105,43 @@ export const analyticsPageConfig: ModulePageConfig = {
 		},
 	],
 
+	outputExample: {
+		title: "forge:analytics - Event Schema",
+		language: "yaml",
+		code: `<span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Event Schema - taskflow-app</span>
+
+<span class="t-cyan">event:</span>     <span class="t-white">checkout_completed</span>
+<span class="t-cyan">trigger:</span>   <span class="t-muted">User completes payment on /checkout</span>
+<span class="t-cyan">decision:</span>  <span class="t-green">Measures conversion rate for pricing page changes</span>
+
+<span class="t-cyan">properties:</span>
+  <span class="t-white">plan_tier:</span>       <span class="t-muted">string</span>   <span class="t-muted"># starter | pro | team</span>
+  <span class="t-white">payment_method:</span>  <span class="t-muted">string</span>   <span class="t-muted"># card | paypal</span>
+  <span class="t-white">trial_converted:</span> <span class="t-muted">boolean</span>  <span class="t-muted"># was user on free trial?</span>
+  <span class="t-white">cart_value:</span>      <span class="t-muted">number</span>   <span class="t-muted"># in cents, USD</span>
+
+<span class="t-muted">Dashboard:</span> <span class="t-white">Revenue Overview</span> <span class="t-muted">|</span> <span class="t-muted">Source:</span> <span class="t-white">Stripe webhook + client</span>`,
+	},
+
+	personas: {
+		title: "Who is this for",
+		items: [
+			{ role: "Product Manager", benefit: "Define what to measure before features ship - no more retroactive tracking scrambles." },
+			{ role: "Data-Informed Developer", benefit: "Get concrete event names, properties, and triggers instead of guessing what to track." },
+			{ role: "Growth Lead", benefit: "Ensure every tracked event maps to a business decision - zero vanity metrics." },
+		],
+	},
+
 	seo: {
-		title: "forge-analytics - Measure What Matters | Forge DevKit",
-		description: "Measurement-first analytics: tracking plans, event schemas, dashboard specs. Every event maps to a business decision. Reads product context for relevant metrics.",
+		title: "forge-analytics - Plan Tracking Before Code | Forge DevKit",
+		description: "Design tracking plans, event schemas, and dashboards before you build. Every event tied to a business decision. AI development plugin for measurement-first analytics.",
 	},
 };
 
 const analyticsPageConfigRu: ModulePageConfig = {
 	slug: "analytics",
 	name: "forge-analytics",
-	tagline: "Измеряй важное - до написания кода",
+	tagline: "Спланируй измерения до первого коммита",
 	tier: "Complete",
 	tierPrice: "€149",
 
@@ -167,13 +194,13 @@ const analyticsPageConfigRu: ModulePageConfig = {
 		},
 		{
 			icon: "\u25C7",
-			title: "Конвенции именования",
+			title: "Обязательная таксономия событий",
 			description: "Консистентная таксономия событий из продуктового контекста. Одна схема именования на весь проект.",
 		},
 		{
 			icon: "\u25C7",
 			title: "Спецификации дашбордов",
-			description: "Layout, измерения, фильтры - специфицированы до реализации. Разработчики строят то, что нужно продукту.",
+			description: "Layout, измерения, фильтры - специфицированы до реализации. Разработчики собирают дашборд один раз, а не итерируют через 5 версий 'а добавьте фильтр'.",
 		},
 	],
 
@@ -214,9 +241,18 @@ const analyticsPageConfigRu: ModulePageConfig = {
 		},
 	],
 
+	personas: {
+		title: "Для кого это",
+		items: [
+			{ role: "Продакт-менеджер", benefit: "Определите что измерять до запуска фич - без ретроактивных авралов с трекингом." },
+			{ role: "Data-informed разработчик", benefit: "Получите конкретные имена событий, свойства и триггеры вместо угадывания что трекать." },
+			{ role: "Growth-лид", benefit: "Каждое трекаемое событие привязано к бизнес-решению - ноль vanity-метрик." },
+		],
+	},
+
 	seo: {
-		title: "forge-analytics - Измеряй важное | Forge DevKit",
-		description: "Measurement-first аналитика: tracking-планы, event-схемы, спецификации дашбордов. Каждое событие привязано к бизнес-решению.",
+		title: "forge-analytics - Аналитика до первой строки кода | Forge DevKit",
+		description: "Проектируйте tracking-планы, event-схемы и дашборды до начала разработки. Каждое событие привязано к бизнес-решению. AI-плагин для measurement-first подхода.",
 	},
 };
 

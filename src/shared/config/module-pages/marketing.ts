@@ -49,7 +49,7 @@ export const marketingPageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "4 strategy modes",
-			description: "Position, price, launch, content. Each grounded in discovery insights when available.",
+			description: "Position, price, launch, content. When forge-discovery data exists, strategies are evidence-based. Without it, guided frameworks fill the gap.",
 		},
 		{
 			icon: "\u25C7",
@@ -59,12 +59,12 @@ export const marketingPageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Competitive positioning",
-			description: "Maps your differentiation against alternatives. Identifies messaging gaps and opportunities.",
+			description: "Maps your differentiation against up to 5 alternatives. Produces a positioning matrix with gaps you can own and messages competitors can't copy.",
 		},
 		{
 			icon: "\u25C7",
 			title: "Pricing strategy framework",
-			description: "Value-based pricing with tier structure, anchor points, and willingness-to-pay analysis.",
+			description: "Outputs a tier structure with specific prices, anchor points, and free-vs-paid feature splits - not just 'consider value-based pricing'.",
 		},
 	],
 
@@ -105,9 +105,32 @@ export const marketingPageConfig: ModulePageConfig = {
 		},
 	],
 
+	outputExample: {
+		title: "forge:marketing - Positioning Matrix",
+		language: "bash",
+		code: `<span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Positioning Matrix - taskflow-app</span>
+
+<span class="t-white t-bold">Dimension</span>          <span class="t-white t-bold">Your Position</span>              <span class="t-white t-bold">Competitor Avg</span>
+<span class="t-white">Target segment</span>     <span class="t-cyan">Solo freelancers, 1-5 ppl</span>   <span class="t-muted">SMB teams 10-50</span>
+<span class="t-white">Core promise</span>       <span class="t-cyan">Invoice in 30 seconds</span>       <span class="t-muted">Full project management</span>
+<span class="t-white">Price anchor</span>       <span class="t-cyan">$9/mo (vs $29 avg)</span>         <span class="t-muted">$29-49/mo</span>
+<span class="t-white">Key differentiator</span> <span class="t-green">AI auto-categorization</span>      <span class="t-muted">Manual tagging</span>
+
+<span class="t-yellow t-bold">Bias alert:</span> <span class="t-yellow">Feature parity trap - don't add features just because competitors have them</span>`,
+	},
+
+	personas: {
+		title: "Who is this for",
+		items: [
+			{ role: "Founder", benefit: "Build evidence-based positioning and pricing instead of guessing what resonates." },
+			{ role: "Marketing Lead", benefit: "Get a competitive positioning matrix and launch plan grounded in product data." },
+			{ role: "Solo SaaS Builder", benefit: "Cover positioning, pricing, and GTM strategy without hiring a marketing team." },
+		],
+	},
+
 	seo: {
-		title: "forge-marketing - From Problem to Go-to-Market | Forge DevKit",
-		description: "Evidence-based positioning, value-based pricing, launch planning. 8 psychology biases at decision points. Feeds copy, SEO, and growth modules.",
+		title: "forge-marketing - AI Go-to-Market Strategy | Forge DevKit",
+		description: "Build positioning, pricing, and launch plans with AI guidance. Evidence-based decisions with 8 bias detectors. Claude Code plugin that feeds copy, SEO, and growth.",
 	},
 };
 
@@ -158,7 +181,7 @@ const marketingPageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "4 режима стратегии",
-			description: "Position, price, launch, content. Каждый опирается на инсайты discovery когда доступны.",
+			description: "Position, price, launch, content. Когда есть данные forge-discovery, стратегии строятся на доказательствах. Без них - управляемые фреймворки заполняют пробел.",
 		},
 		{
 			icon: "\u25C7",
@@ -168,12 +191,12 @@ const marketingPageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Конкурентное позиционирование",
-			description: "Маппит вашу дифференциацию против альтернатив. Выявляет пробелы и возможности в месседжинге.",
+			description: "Маппит вашу дифференциацию против до 5 альтернатив. Создаёт матрицу позиционирования с нишами, которые можно занять, и месседжами, которые конкуренты не скопируют.",
 		},
 		{
 			icon: "\u25C7",
 			title: "Фреймворк ценовой стратегии",
-			description: "Ценообразование от ценности с тирной структурой, якорными точками и анализом готовности платить.",
+			description: "На выходе - тирная структура с конкретными ценами, якорными точками и разделением free/paid фич - а не просто 'рассмотрите value-based ценообразование'.",
 		},
 	],
 
@@ -214,9 +237,18 @@ const marketingPageConfigRu: ModulePageConfig = {
 		},
 	],
 
+	personas: {
+		title: "Для кого это",
+		items: [
+			{ role: "Основатель", benefit: "Стройте позиционирование и ценообразование на доказательствах, а не на догадках." },
+			{ role: "Маркетинг-лид", benefit: "Получите матрицу конкурентного позиционирования и план запуска на основе данных продукта." },
+			{ role: "Соло SaaS-разработчик", benefit: "Покройте позиционирование, ценообразование и GTM без найма маркетинговой команды." },
+		],
+	},
+
 	seo: {
-		title: "forge-marketing - От проблемы к выходу на рынок | Forge DevKit",
-		description: "Доказательное позиционирование, ценообразование от ценности, планирование запуска. 8 психологических предупреждений. Питает модули copy, SEO, growth.",
+		title: "forge-marketing - AI-стратегия выхода на рынок | Forge DevKit",
+		description: "Позиционирование, ценообразование и план запуска с AI-помощью. 8 детекторов когнитивных искажений. Плагин Claude Code, питающий модули copy, SEO и growth.",
 	},
 };
 

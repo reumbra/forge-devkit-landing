@@ -114,10 +114,37 @@ export const productPageConfig: ModulePageConfig = {
 	],
 	relatedComparisonsHeading: "See how Forge compares",
 
+	outputExample: {
+		title: "forge:product design - User Story",
+		language: "markdown",
+		code: `<span class="t-purple t-bold">◆</span> <span class="t-white t-bold">User Story: Shopping Cart Checkout</span>
+
+<span class="t-muted">As a</span> <span class="t-white">registered customer on shoply-api</span>
+<span class="t-muted">I want to</span> <span class="t-white">complete checkout with saved payment methods</span>
+<span class="t-muted">So that</span> <span class="t-white">I can purchase items without re-entering card details</span>
+
+<span class="t-white t-bold">Acceptance Criteria:</span>
+  <span class="t-green">AC-1:</span> <span class="t-white">Saved cards displayed with last 4 digits + expiry</span>
+  <span class="t-green">AC-2:</span> <span class="t-white">New card option with Stripe Elements integration</span>
+  <span class="t-green">AC-3:</span> <span class="t-white">Order confirmation email within 30s of payment</span>
+  <span class="t-green">AC-4:</span> <span class="t-white">Cart cleared and inventory decremented atomically</span>
+
+<span class="t-muted">Complexity:</span> <span class="t-yellow">M (3-5 files)</span> <span class="t-muted">|</span> <span class="t-muted">Priority:</span> <span class="t-cyan">P1</span>`,
+	},
+
+	personas: {
+		title: "Who is this for",
+		items: [
+			{ role: "Product Manager", benefit: "Turn business requirements into structured specs that AI agents can actually execute." },
+			{ role: "Tech Lead", benefit: "Translate product requirements into architecture-aware artifacts without manual spec writing." },
+			{ role: "Founder", benefit: "Validate feature ideas with structured user flows before committing engineering time." },
+		],
+	},
+
 	seo: {
-		title: "forge-product - Business Specs AI Can Actually Consume | Forge DevKit",
+		title: "forge-product - AI-Ready Product Specs | Forge DevKit",
 		description:
-			"Turn feature descriptions into AI-consumable artifacts: user stories with AC, use cases, UX criteria. 9 product archetypes, 9 methodology frameworks.",
+			"Turn feature ideas into specs Claude Code can execute - user stories, acceptance criteria, UX flows. 9 product archetypes. AI coding starts with clear requirements.",
 	},
 };
 
@@ -233,10 +260,19 @@ const productPageConfigRu: ModulePageConfig = {
 	],
 	relatedComparisonsHeading: "Сравнения",
 
+	personas: {
+		title: "Для кого это",
+		items: [
+			{ role: "Продакт-менеджер", benefit: "Превращайте бизнес-требования в структурированные спеки, которые AI-агенты могут выполнить." },
+			{ role: "Тех-лид", benefit: "Переводите продуктовые требования в артефакты с учетом архитектуры без ручного написания спек." },
+			{ role: "Основатель", benefit: "Валидируйте идеи фич через структурированные user flow до начала разработки." },
+		],
+	},
+
 	seo: {
-		title: "forge-product - Бизнес-спеки, которые AI действительно понимает | Forge DevKit",
+		title: "forge-product - Спеки, понятные AI | Forge DevKit",
 		description:
-			"Превращайте описания фич в артефакты для AI: user stories с AC, use cases, UX-критерии. 9 продуктовых архетипов, 9 фреймворков методологий.",
+			"Превращайте идеи фич в спеки для Claude Code - user stories, критерии приемки, UX-потоки. 9 продуктовых архетипов. AI-разработка начинается с ясных требований.",
 	},
 };
 

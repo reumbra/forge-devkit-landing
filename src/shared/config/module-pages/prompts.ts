@@ -54,7 +54,7 @@ export const promptsPageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "3 prompt frameworks",
-			description: "CO-STAR, RISEN, TIDD-EC - or custom. Pick the framework that fits your use case.",
+			description: "CO-STAR (context-structured), RISEN (role-based), TIDD-EC (task-decomposed) - or define your own. Each enforces a different prompt architecture.",
 		},
 		{
 			icon: "\u25C7",
@@ -64,12 +64,12 @@ export const promptsPageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "5 psychology biases",
-			description: "Contextual warnings against anchoring to first drafts, confirmation bias in testing, and more.",
+			description: "Anchoring to first drafts, confirmation bias in test evaluation, sunk cost on failing prompts, authority bias toward vendor examples, and framing effects in A/B prompt comparison.",
 		},
 		{
 			icon: "\u25C7",
 			title: "Learning loop",
-			description: "Real findings from audits and tests feed back into principles. Your prompt craft improves with every cycle.",
+			description: "Audit findings become new principles automatically. After 3 cycles, your prompt guidelines reflect real project patterns, not generic best practices.",
 		},
 	],
 
@@ -115,9 +115,31 @@ export const promptsPageConfig: ModulePageConfig = {
 		},
 	],
 
+	outputExample: {
+		title: "forge:prompts audit",
+		language: "bash",
+		code: `<span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Prompt Audit - acme-web</span>
+
+<span class="t-white t-bold">File</span>                              <span class="t-white t-bold">Framework</span>  <span class="t-white t-bold">Score</span>  <span class="t-white t-bold">Issues</span>
+<span class="t-white">prompts/generate-summary.md</span>       <span class="t-cyan">CO-STAR</span>    <span class="t-green">9/10</span>   <span class="t-muted">-</span>
+<span class="t-white">prompts/classify-ticket.md</span>        <span class="t-cyan">RISEN</span>      <span class="t-yellow">6/10</span>   <span class="t-yellow">missing negative examples</span>
+<span class="t-white">prompts/draft-email.md</span>            <span class="t-muted">none</span>       <span class="t-red">3/10</span>   <span class="t-red">no role, no output format</span>
+
+<span class="t-muted">Total:</span> <span class="t-white">3 prompts</span> <span class="t-muted">|</span> <span class="t-green">1 passing</span> <span class="t-muted">|</span> <span class="t-yellow">1 warning</span> <span class="t-muted">|</span> <span class="t-red">1 failing</span>`,
+	},
+
+	personas: {
+		title: "Who is this for",
+		items: [
+			{ role: "AI Engineer", benefit: "Manage and version-control prompts with frameworks, audit trails, and regression tests." },
+			{ role: "Developer Using LLM APIs", benefit: "Stop ad-hoc prompt writing - get structured frameworks and automated quality checks." },
+			{ role: "Team Lead", benefit: "Standardize prompt engineering across the team with shared principles and learning loops." },
+		],
+	},
+
 	seo: {
-		title: "forge-prompts - Manage Prompts Like Code | Forge DevKit",
-		description: "Prompt inventory, audit, regression testing, and learning loop evolution. 3 frameworks: CO-STAR, RISEN, TIDD-EC. Integrated with forge-qa for LLM-as-judge tests.",
+		title: "forge-prompts - Prompt Engineering at Scale | Forge DevKit",
+		description: "Inventory, audit, and regression-test your LLM prompts. CO-STAR, RISEN, TIDD-EC frameworks. Claude Code plugin for prompt lifecycle management and evolution.",
 	},
 };
 
@@ -173,7 +195,7 @@ const promptsPageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "3 фреймворка промптов",
-			description: "CO-STAR, RISEN, TIDD-EC - или кастомный. Выберите фреймворк под ваш use case.",
+			description: "CO-STAR (контекстно-структурированный), RISEN (ролевой), TIDD-EC (декомпозиция задач) - или создайте свой. Каждый задаёт свою архитектуру промптов.",
 		},
 		{
 			icon: "\u25C7",
@@ -183,12 +205,12 @@ const promptsPageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "5 психологических предупреждений",
-			description: "Контекстные предупреждения против привязки к первым черновикам, confirmation bias в тестировании и других.",
+			description: "Привязка к первым черновикам, confirmation bias при оценке тестов, sunk cost на неработающих промптах, авторитетный bias к примерам вендоров и эффекты фрейминга при A/B-сравнении промптов.",
 		},
 		{
 			icon: "\u25C7",
 			title: "Learning loop",
-			description: "Реальные находки из аудитов и тестов возвращаются в принципы. Ваше мастерство промптов растёт с каждым циклом.",
+			description: "Находки аудитов автоматически становятся новыми принципами. После 3 циклов ваши гайдлайны промптов отражают реальные паттерны проекта, а не генерические best practices.",
 		},
 	],
 
@@ -234,9 +256,18 @@ const promptsPageConfigRu: ModulePageConfig = {
 		},
 	],
 
+	personas: {
+		title: "Для кого это",
+		items: [
+			{ role: "AI-инженер", benefit: "Управляйте промптами с фреймворками, аудит-трейлами и регрессионными тестами." },
+			{ role: "Разработчик с LLM API", benefit: "Перестаньте писать промпты ad-hoc - получите структурированные фреймворки и автоматические проверки качества." },
+			{ role: "Тимлид", benefit: "Стандартизируйте промпт-инжиниринг по команде с общими принципами и learning loop." },
+		],
+	},
+
 	seo: {
-		title: "forge-prompts - Управляй промптами как кодом | Forge DevKit",
-		description: "Инвентаризация промптов, аудит, регрессионное тестирование и learning loop эволюция. 3 фреймворка: CO-STAR, RISEN, TIDD-EC.",
+		title: "forge-prompts - Промпт-инжиниринг в масштабе | Forge DevKit",
+		description: "Инвентаризация, аудит и регрессионное тестирование LLM-промптов. Фреймворки CO-STAR, RISEN, TIDD-EC. Плагин Claude Code для управления жизненным циклом промптов.",
 	},
 };
 

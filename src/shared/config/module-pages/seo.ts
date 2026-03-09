@@ -3,7 +3,7 @@ import type { ModulePageConfig } from "./types";
 export const seoPageConfig: ModulePageConfig = {
 	slug: "seo",
 	name: "forge-seo",
-	tagline: "Search visibility without gaming",
+	tagline: "SEO grounded in your product, not tricks",
 	tier: "Complete",
 	tierPrice: "€149",
 
@@ -54,12 +54,12 @@ export const seoPageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "4 psychology biases",
-			description: "Anchoring to vanity keywords, recency bias in trends - surfaced as warnings during keyword research.",
+			description: "Warns when you anchor to high-volume vanity keywords, chase trend spikes, or copy competitor keywords without product fit.",
 		},
 		{
 			icon: "\u25C7",
 			title: "Product-grounded keywords",
-			description: "Keywords tied to what you sell, not what has the highest volume. Intent over traffic.",
+			description: "Keywords tied to what you sell, not what has the highest volume. A keyword with 200 searches/month from buyers beats 10,000 from browsers.",
 		},
 		{
 			icon: "\u25C7",
@@ -105,16 +105,40 @@ export const seoPageConfig: ModulePageConfig = {
 		},
 	],
 
+	outputExample: {
+		title: "forge:seo research - Keyword Analysis",
+		language: "bash",
+		code: `<span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Keyword Research - taskflow-app</span>
+
+<span class="t-white t-bold">Keyword</span>                      <span class="t-white t-bold">Intent</span>       <span class="t-white t-bold">Volume</span>  <span class="t-white t-bold">Difficulty</span>  <span class="t-white t-bold">Fit</span>
+<span class="t-white">freelance invoice tool</span>       <span class="t-cyan">transactional</span> <span class="t-white">2.4K</span>   <span class="t-green">Low</span>         <span class="t-green t-bold">95%</span>
+<span class="t-white">send invoice online free</span>     <span class="t-cyan">transactional</span> <span class="t-white">8.1K</span>   <span class="t-yellow">Medium</span>      <span class="t-yellow">70%</span>
+<span class="t-white">invoice generator</span>            <span class="t-muted">navigational</span>  <span class="t-white">14K</span>    <span class="t-red">High</span>        <span class="t-red">40%</span>
+<span class="t-white">how to invoice as freelancer</span>  <span class="t-cyan">informational</span> <span class="t-white">1.8K</span>   <span class="t-green">Low</span>         <span class="t-green t-bold">90%</span>
+
+<span class="t-muted">Recommended:</span> <span class="t-white">Target long-tail transactional keywords first</span>
+<span class="t-yellow t-bold">Bias alert:</span> <span class="t-yellow">High-volume keywords look attractive but competition makes ROI low</span>`,
+	},
+
+	personas: {
+		title: "Who is this for",
+		items: [
+			{ role: "Marketing Lead", benefit: "Get product-grounded keyword strategy and technical audit without an SEO agency." },
+			{ role: "Content Writer", benefit: "Write for intent-matched keywords with ready-to-use schema markup." },
+			{ role: "Founder", benefit: "Cover technical SEO, keywords, and structured data without learning the discipline." },
+		],
+	},
+
 	seo: {
-		title: "forge-seo - Search Visibility Without Gaming | Forge DevKit",
-		description: "Technical audit, intent-based keywords, schema markup generation. Grounded in your product positioning. 4 psychology biases at keyword decisions.",
+		title: "forge-seo - AI-Powered SEO Strategy | Forge DevKit",
+		description: "Technical SEO audit, intent-based keywords, and schema markup - grounded in your product positioning. Claude Code plugin for search visibility without black-hat tricks.",
 	},
 };
 
 const seoPageConfigRu: ModulePageConfig = {
 	slug: "seo",
 	name: "forge-seo",
-	tagline: "Видимость в поиске без накрутки",
+	tagline: "SEO из контекста продукта, а не трюков",
 	tier: "Complete",
 	tierPrice: "€149",
 
@@ -163,12 +187,12 @@ const seoPageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "4 психологических предупреждения",
-			description: "Привязка к vanity-ключам, recency bias в трендах - предупреждения при исследовании ключевых слов.",
+			description: "Предупреждает, когда вы цепляетесь за высокочастотные vanity-ключи, гонитесь за всплесками трендов или копируете ключевые слова конкурентов без продуктового fit.",
 		},
 		{
 			icon: "\u25C7",
 			title: "Продуктово-обоснованные ключевые слова",
-			description: "Ключи привязаны к тому, что вы продаёте, а не к тому, что имеет максимальный объём. Intent важнее трафика.",
+			description: "Ключи привязаны к тому, что вы продаёте, а не к тому, что имеет максимальный объём. Ключ с 200 поисками/мес от покупателей бьёт 10 000 от зевак.",
 		},
 		{
 			icon: "\u25C7",
@@ -214,9 +238,18 @@ const seoPageConfigRu: ModulePageConfig = {
 		},
 	],
 
+	personas: {
+		title: "Для кого это",
+		items: [
+			{ role: "Маркетинг-лид", benefit: "Стратегия ключевых слов и технический аудит на основе продукта без SEO-агентства." },
+			{ role: "Контент-райтер", benefit: "Пишите под intent-matched ключевые слова с готовым schema markup." },
+			{ role: "Основатель", benefit: "Покройте технический SEO, ключевые слова и structured data без изучения дисциплины." },
+		],
+	},
+
 	seo: {
-		title: "forge-seo - Видимость в поиске без накрутки | Forge DevKit",
-		description: "Технический аудит, intent-based ключевые слова, генерация schema markup. Основана на позиционировании продукта.",
+		title: "forge-seo - AI-стратегия поисковой оптимизации | Forge DevKit",
+		description: "Технический SEO-аудит, intent-based ключевые слова и schema markup на основе позиционирования продукта. Плагин Claude Code для видимости без накрутки.",
 	},
 };
 

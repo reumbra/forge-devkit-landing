@@ -84,7 +84,7 @@ export const modules = {
 		{
 			id: "forge-tracker",
 			name: "forge-tracker",
-			tagline: "Bridge backlog and development",
+			tagline: "Your tracker talks to your AI agent",
 			isHero: false,
 			stats: [
 				"5 integrations",
@@ -113,7 +113,7 @@ export const modules = {
 		{
 			id: "forge-worktree",
 			name: "forge-worktree",
-			tagline: "Git worktree lifecycle manager",
+			tagline: "Parallel branches, zero port conflicts",
 			isHero: false,
 			stats: ["3 templates", "0 port conflicts"],
 			features: [
@@ -167,7 +167,7 @@ export const modules = {
 		{
 			id: "forge-analytics",
 			name: "forge-analytics",
-			tagline: "Measure what matters",
+			tagline: "Plan measurement before you code",
 			isHero: false,
 			badge: "Complete",
 			stats: ["3 modes", "Decision-mapped events"],
@@ -209,7 +209,7 @@ export const modules = {
 		{
 			id: "forge-seo",
 			name: "forge-seo",
-			tagline: "Search visibility without gaming",
+			tagline: "SEO grounded in your product, not tricks",
 			isHero: false,
 			badge: "Complete",
 			stats: ["3 modes", "4 bias detectors"],
@@ -223,7 +223,7 @@ export const modules = {
 		{
 			id: "forge-growth",
 			name: "forge-growth",
-			tagline: "Grow smarter, not just faster",
+			tagline: "Retention loops before acquisition tactics",
 			isHero: false,
 			badge: "Complete",
 			stats: ["3 modes", "6 bias detectors"],
@@ -315,7 +315,7 @@ const modulesRu: ModulesConfig = {
 		{
 			id: "forge-tracker",
 			name: "forge-tracker",
-			tagline: "Мост между бэклогом и разработкой",
+			tagline: "Ваш трекер разговаривает с AI-агентом",
 			isHero: false,
 			stats: [
 				"5 интеграций",
@@ -344,7 +344,7 @@ const modulesRu: ModulesConfig = {
 		{
 			id: "forge-worktree",
 			name: "forge-worktree",
-			tagline: "Lifecycle-менеджер git worktree",
+			tagline: "Параллельные ветки, ноль конфликтов портов",
 			isHero: false,
 			stats: ["3 шаблона", "0 конфликтов портов"],
 			features: [
@@ -398,7 +398,7 @@ const modulesRu: ModulesConfig = {
 		{
 			id: "forge-analytics",
 			name: "forge-analytics",
-			tagline: "Измеряй важное",
+			tagline: "Спланируй измерения до первого коммита",
 			isHero: false,
 			badge: "Complete",
 			stats: ["3 режима", "Decision-mapped события"],
@@ -440,7 +440,7 @@ const modulesRu: ModulesConfig = {
 		{
 			id: "forge-seo",
 			name: "forge-seo",
-			tagline: "Видимость в поиске без накрутки",
+			tagline: "SEO из контекста продукта, а не трюков",
 			isHero: false,
 			badge: "Complete",
 			stats: ["3 режима", "4 детектора bias"],
@@ -454,7 +454,7 @@ const modulesRu: ModulesConfig = {
 		{
 			id: "forge-growth",
 			name: "forge-growth",
-			tagline: "Расти умнее, а не быстрее",
+			tagline: "Петли удержания важнее тактик привлечения",
 			isHero: false,
 			badge: "Complete",
 			stats: ["3 режима", "6 детекторов bias"],

@@ -10,7 +10,7 @@ export const discoveryPageConfig: ModulePageConfig = {
 	problems: [
 		{
 			pain: "Building features nobody asked for",
-			evidence: "80% of product features are rarely or never used. Discovery prevents building the wrong thing.",
+			evidence: "Pendo/ProductPlan data shows the average SaaS app has 45% of features never clicked. Discovery prevents building what nobody asked for.",
 		},
 		{
 			pain: "Assumptions disguised as requirements",
@@ -49,7 +49,7 @@ export const discoveryPageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "4 discovery modes",
-			description: "Ideate, research, validate, interview. Each produces structured artifacts for the next step.",
+			description: "Ideate (diverge), research (competitive landscape), validate (evidence-test assumptions), interview (extract user patterns). Each output feeds the next.",
 		},
 		{
 			icon: "\u25C7",
@@ -59,7 +59,7 @@ export const discoveryPageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Competitive landscape mapping",
-			description: "Structured competitor analysis with positioning gaps and opportunity identification.",
+			description: "Structured competitor analysis with positioning gaps and opportunity identification - so you build differentiators, not clones.",
 		},
 		{
 			icon: "\u25C7",
@@ -100,9 +100,36 @@ export const discoveryPageConfig: ModulePageConfig = {
 		},
 	],
 
+	outputExample: {
+		title: "forge:discovery validate - Hypothesis",
+		language: "bash",
+		code: `<span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Validation Hypothesis #3</span>
+
+<span class="t-white t-bold">Belief:</span>  <span class="t-white">Freelancers will pay for automated invoice reminders</span>
+<span class="t-white t-bold">Signal:</span>  <span class="t-cyan">70% of survey respondents chase payments manually</span>
+
+<span class="t-white t-bold">Test Design:</span>
+  <span class="t-muted">Method:</span>    <span class="t-white">Fake-door test on taskflow-app pricing page</span>
+  <span class="t-muted">Audience:</span>  <span class="t-white">200 existing free-tier users</span>
+  <span class="t-muted">Duration:</span>  <span class="t-white">7 days</span>
+  <span class="t-muted">Pass if:</span>   <span class="t-green">>= 15% click "Upgrade for reminders"</span>
+  <span class="t-muted">Fail if:</span>   <span class="t-red">< 5% click rate</span>
+
+<span class="t-yellow t-bold">Bias check:</span> <span class="t-yellow">Confirmation bias - also track "not interested" reasons</span>`,
+	},
+
+	personas: {
+		title: "Who is this for",
+		items: [
+			{ role: "Founder", benefit: "Validate product ideas with structured research before committing development resources." },
+			{ role: "Product Manager", benefit: "Run evidence-based discovery with bias protection instead of gut-feel prioritization." },
+			{ role: "UX Researcher", benefit: "Synthesize interview patterns and competitive insights into actionable product specs." },
+		],
+	},
+
 	seo: {
-		title: "forge-discovery - Validate Before You Build | Forge DevKit",
-		description: "Structured product discovery: ideation, competitive research, validation, interview synthesis. 7 cognitive bias detectors. Artifacts feed marketing and product modules.",
+		title: "forge-discovery - AI Product Validation | Forge DevKit",
+		description: "Validate product ideas before writing code. AI-guided ideation, competitive research, and interview synthesis. Claude Code plugin with 7 cognitive bias detectors.",
 	},
 };
 
@@ -116,7 +143,7 @@ const discoveryPageConfigRu: ModulePageConfig = {
 	problems: [
 		{
 			pain: "Строите фичи, которые никто не просил",
-			evidence: "80% продуктовых фич используются редко или никогда. Discovery предотвращает строительство не того.",
+			evidence: "По данным Pendo/ProductPlan, в среднем SaaS-приложении 45% фич ни разу не кликают. Discovery предотвращает разработку того, что никто не просил.",
 		},
 		{
 			pain: "Предположения маскируются под требования",
@@ -153,7 +180,7 @@ const discoveryPageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "4 режима discovery",
-			description: "Идеация, исследование, валидация, интервью. Каждый создаёт структурированные артефакты.",
+			description: "Идеация (дивергенция), исследование (конкурентный ландшафт), валидация (проверка гипотез доказательствами), интервью (извлечение паттернов). Выход каждого режима питает следующий.",
 		},
 		{
 			icon: "\u25C7",
@@ -163,7 +190,7 @@ const discoveryPageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Карта конкурентного ландшафта",
-			description: "Структурированный анализ конкурентов с выявлением позиционных пробелов и возможностей.",
+			description: "Структурированный анализ конкурентов с выявлением позиционных пробелов и возможностей - чтобы вы создавали отличия, а не клоны.",
 		},
 		{
 			icon: "\u25C7",
@@ -204,9 +231,18 @@ const discoveryPageConfigRu: ModulePageConfig = {
 		},
 	],
 
+	personas: {
+		title: "Для кого это",
+		items: [
+			{ role: "Основатель", benefit: "Валидируйте идеи продукта структурированным исследованием до вложения ресурсов в разработку." },
+			{ role: "Продакт-менеджер", benefit: "Проводите evidence-based discovery с защитой от bias вместо приоритизации по интуиции." },
+			{ role: "UX-ресерчер", benefit: "Синтезируйте паттерны из интервью и конкурентные инсайты в actionable продуктовые спеки." },
+		],
+	},
+
 	seo: {
-		title: "forge-discovery - Валидируй прежде чем строить | Forge DevKit",
-		description: "Структурированный product discovery: идеация, конкурентный анализ, валидация, синтез интервью. 7 детекторов когнитивных искажений.",
+		title: "forge-discovery - AI-валидация продуктовых идей | Forge DevKit",
+		description: "Валидируйте идеи до написания кода. AI-идеация, конкурентный анализ и синтез интервью. Плагин Claude Code с 7 детекторами когнитивных искажений.",
 	},
 };
 

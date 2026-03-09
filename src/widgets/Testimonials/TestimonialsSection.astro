@@ -1,0 +1,9 @@
+---
+import Testimonials from "@shared/ui/Testimonials.astro";
+import { testimonialsI18n } from "@shared/config/testimonials";
+import { i18n } from "@shared/utils/locale";
+
+const config = i18n(testimonialsI18n, Astro.currentLocale);
+---
+
+<Testimonials config={config} />

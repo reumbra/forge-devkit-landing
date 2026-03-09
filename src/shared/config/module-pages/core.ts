@@ -146,10 +146,37 @@ export const corePageConfig: ModulePageConfig = {
 	],
 	relatedComparisonsHeading: "See how Forge compares",
 
+	personas: {
+		title: "Who is this for",
+		items: [
+			{ role: "Solo Developer", benefit: "Stop re-explaining your stack every session - guardrails persist automatically." },
+			{ role: "Tech Lead", benefit: "Enforce architecture patterns across the team without manual reviews." },
+			{ role: "Agency Developer", benefit: "Spin up guardrails for each client project in minutes, not hours." },
+		],
+	},
+
+	outputExample: {
+		title: "forge:setup - Gate 1: Architecture Audit",
+		language: "bash",
+		code: `<span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Gate 1: Architecture Audit - Results</span>
+
+<span class="t-muted">Stack:</span>  <span class="t-white">NestJS 11.0 + TypeScript 5.8 + Prisma 6.4</span>
+<span class="t-muted">Build:</span>  <span class="t-white">SWC</span> <span class="t-muted">|</span> <span class="t-muted">Linter:</span> <span class="t-white">ESLint + Prettier</span>
+<span class="t-muted">Arch:</span>   <span class="t-cyan">DDD (3 bounded contexts)</span>
+
+<span class="t-white t-bold">Layers:</span>
+  <span class="t-muted">modules:</span>  <span class="t-white">src/modules/</span>   <span class="t-muted">(24 files) - domain logic, CQRS handlers</span>
+  <span class="t-muted">infra:</span>    <span class="t-white">src/infra/</span>     <span class="t-muted">(12 files) - Prisma repos, external APIs</span>
+  <span class="t-muted">shared:</span>   <span class="t-white">src/shared/</span>    <span class="t-muted">(8 files) - guards, pipes, decorators</span>
+
+<span class="t-muted">Conflict zones:</span>   <span class="t-green">none (0 files)</span>
+<span class="t-muted">Parallel readiness:</span> <span class="t-green t-bold">9/10 - highly parallel</span>`,
+	},
+
 	seo: {
-		title: "forge-core - Architecture-Aware AI Guardrails | Forge DevKit",
+		title: "forge-core - AI Guardrails for Your Stack | Forge DevKit",
 		description:
-			"Auto-generate project-specific CLAUDE.md, quality patterns, and dev-skills from a 7-gate architecture audit. 50+ patterns, 15 rationalization detectors.",
+			"Generate CLAUDE.md, quality patterns, and dev-skills tuned to your architecture. 7-gate audit, 50+ patterns. The Claude Code plugin that stops AI drift.",
 	},
 };
 
@@ -294,10 +321,19 @@ const corePageConfigRu: ModulePageConfig = {
 	],
 	relatedComparisonsHeading: "Сравнения",
 
+	personas: {
+		title: "Для кого это",
+		items: [
+			{ role: "Соло-разработчик", benefit: "Перестаньте объяснять свой стек каждую сессию - гайдрейлы сохраняются автоматически." },
+			{ role: "Тех-лид", benefit: "Обеспечьте архитектурные паттерны по всей команде без ручных ревью." },
+			{ role: "Агентство", benefit: "Поднимайте гайдрейлы для каждого клиентского проекта за минуты, а не часы." },
+		],
+	},
+
 	seo: {
-		title: "forge-core - Гайдрейлы AI с пониманием архитектуры | Forge DevKit",
+		title: "forge-core - AI-гайдрейлы под ваш стек | Forge DevKit",
 		description:
-			"Автогенерация CLAUDE.md, паттернов качества и dev-скиллов через 7-гейтовый аудит архитектуры. 50+ паттернов, 15 детекторов рационализации.",
+			"Генерация CLAUDE.md, паттернов качества и dev-скиллов под вашу архитектуру. 7-гейтовый аудит, 50+ паттернов. Плагин Claude Code против дрейфа AI.",
 	},
 };
 

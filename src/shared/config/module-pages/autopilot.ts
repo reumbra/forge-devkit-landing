@@ -134,10 +134,34 @@ export const autopilotPageConfig: ModulePageConfig = {
 	],
 	relatedComparisonsHeading: "See how Forge compares",
 
+	outputExample: {
+		title: "forge:autopilot - Wave Plan",
+		language: "bash",
+		code: `<span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Wave 1 - Execution Plan</span>
+
+<span class="t-white t-bold">Teammate</span>     <span class="t-white t-bold">Task</span>                    <span class="t-white t-bold">Worktree</span>           <span class="t-white t-bold">Files</span>
+<span class="t-cyan">agent-1</span>      <span class="t-white">TF-142 SSO login flow</span>   <span class="t-muted">wt/feat-sso</span>        <span class="t-white">4</span>
+<span class="t-cyan">agent-2</span>      <span class="t-white">TF-143 Cart rounding</span>    <span class="t-muted">wt/fix-cart</span>        <span class="t-white">2</span>
+<span class="t-cyan">agent-3</span>      <span class="t-white">TF-145 Rate limiting</span>    <span class="t-muted">wt/feat-ratelimit</span>  <span class="t-white">3</span>
+
+<span class="t-muted">Conflict check:</span> <span class="t-green">0 file overlaps detected</span>
+<span class="t-muted">Autonomy:</span> <span class="t-cyan">semi-auto</span> <span class="t-muted">(pause on merge conflicts)</span>
+<span class="t-muted">Est. duration:</span> <span class="t-white">~12 min</span>`,
+	},
+
+	personas: {
+		title: "Who is this for",
+		items: [
+			{ role: "Tech Lead", benefit: "Run parallel feature development with conflict-free wave planning - no merge hell." },
+			{ role: "CTO", benefit: "Multiply team throughput by letting AI agents batch-execute your backlog safely." },
+			{ role: "Senior Developer", benefit: "Delegate batch work to autonomous teammates while you focus on architecture decisions." },
+		],
+	},
+
 	seo: {
-		title: "forge-autopilot - Agent Teams Without Merge Hell | Forge DevKit",
+		title: "forge-autopilot - Parallel AI Coding Teams | Forge DevKit",
 		description:
-			"Orchestrate Claude Agent Teams with conflict-free wave planning. Backlog triage, file conflict detection, isolated worktrees, 3 autonomy modes.",
+			"Run multiple Claude Code agents in parallel without merge conflicts. Wave planning, backlog triage, file conflict detection. 3 autonomy modes for AI development.",
 	},
 };
 
@@ -269,10 +293,19 @@ const autopilotPageConfigRu: ModulePageConfig = {
 	],
 	relatedComparisonsHeading: "Сравнения",
 
+	personas: {
+		title: "Для кого это",
+		items: [
+			{ role: "Тех-лид", benefit: "Запускайте параллельную разработку фич с бесконфликтным планированием волн." },
+			{ role: "CTO", benefit: "Умножьте пропускную способность команды, дав AI-агентам batch-выполнять бэклог безопасно." },
+			{ role: "Старший разработчик", benefit: "Делегируйте пакетную работу автономным тиммейтам, пока вы фокусируетесь на архитектуре." },
+		],
+	},
+
 	seo: {
-		title: "forge-autopilot - Agent Teams без merge-хаоса | Forge DevKit",
+		title: "forge-autopilot - Параллельные AI-команды | Forge DevKit",
 		description:
-			"Оркестрация Claude Agent Teams с бесконфликтным планированием волн. Триаж бэклога, детекция файловых конфликтов, изолированные worktree, 3 режима автономности.",
+			"Запускайте несколько агентов Claude Code параллельно без merge-конфликтов. Волновое планирование, триаж бэклога, детекция конфликтов. 3 режима автономности.",
 	},
 };
 

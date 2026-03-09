@@ -3,7 +3,7 @@ import type { ModulePageConfig } from "./types";
 export const worktreePageConfig: ModulePageConfig = {
 	slug: "worktree",
 	name: "forge-worktree",
-	tagline: "Git worktree lifecycle manager",
+	tagline: "Parallel branches, zero port conflicts",
 	tier: "Core",
 	tierPrice: "€29",
 
@@ -50,7 +50,7 @@ export const worktreePageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "3 project templates",
-			description: "Docker backend, Frontend, Generic. Each with template-specific port isolation and env handling.",
+			description: "Docker backend, Frontend, Non-Docker (Node, Python, Go). Each with template-specific port isolation and env handling.",
 		},
 		{
 			icon: "\u25C7",
@@ -70,7 +70,7 @@ export const worktreePageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Auto-cleanup on merge",
-			description: "When a branch is merged, the worktree and its resources are cleaned up automatically.",
+			description: "When a branch is merged, the worktree and its resources are cleaned up automatically. No orphaned Docker resources accumulating on your machine.",
 		},
 	],
 
@@ -111,16 +111,39 @@ export const worktreePageConfig: ModulePageConfig = {
 		},
 	],
 
+	outputExample: {
+		title: "forge:worktree-setup - Create Worktree",
+		language: "bash",
+		code: `<span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Creating worktree: feat-sso</span>
+
+<span class="t-green">created</span>  <span class="t-white">Branch:</span>    <span class="t-cyan">feat/sso-login</span>
+<span class="t-green">created</span>  <span class="t-white">Worktree:</span>  <span class="t-muted">../taskflow-app-wt/feat-sso/</span>
+<span class="t-green">created</span>  <span class="t-white">Port:</span>      <span class="t-cyan">3001</span> <span class="t-muted">(main: 3000, isolated)</span>
+<span class="t-green">created</span>  <span class="t-white">Docker:</span>    <span class="t-cyan">taskflow-feat-sso-db</span> <span class="t-muted">(port 5433)</span>
+<span class="t-green">copied</span>   <span class="t-white">.env</span>       <span class="t-muted">with port overrides applied</span>
+
+<span class="t-muted">Ready. Run from:</span> <span class="t-white">cd ../taskflow-app-wt/feat-sso</span>`,
+	},
+
+	personas: {
+		title: "Who is this for",
+		items: [
+			{ role: "Docker Backend Dev", benefit: "Each worktree gets isolated ports and its own Docker stack - no conflicts." },
+			{ role: "Team with Parallel PRs", benefit: "Run multiple feature branches simultaneously without killing servers." },
+			{ role: "CI/CD Engineer", benefit: "Automated worktree lifecycle with safe teardown - no orphaned resources." },
+		],
+	},
+
 	seo: {
-		title: "forge-worktree - Git Worktree Lifecycle Manager | Forge DevKit",
-		description: "Zero port conflicts, Docker isolation per worktree, safe teardown. 3 templates: Docker backend, Frontend, Generic. Works with forge-autopilot for parallel development.",
+		title: "forge-worktree - Branch Isolation for AI Dev | Forge DevKit",
+		description: "Manage git worktrees with zero port conflicts and Docker isolation. 3 templates for backend and frontend. Essential for parallel AI coding with Claude Code agents.",
 	},
 };
 
 const worktreePageConfigRu: ModulePageConfig = {
 	slug: "worktree",
 	name: "forge-worktree",
-	tagline: "Lifecycle-менеджер git worktree",
+	tagline: "Параллельные ветки, ноль конфликтов портов",
 	tier: "Core",
 	tierPrice: "€29",
 
@@ -164,7 +187,7 @@ const worktreePageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "3 шаблона проектов",
-			description: "Docker backend, Frontend, Generic. Каждый с изоляцией портов и обработкой env под тип проекта.",
+			description: "Docker backend, Frontend, Non-Docker (Node, Python, Go). Каждый с изоляцией портов и обработкой env под тип проекта.",
 		},
 		{
 			icon: "\u25C7",
@@ -184,7 +207,7 @@ const worktreePageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Авто-очистка при merge",
-			description: "Когда ветка смерджена, worktree и его ресурсы очищаются автоматически.",
+			description: "Когда ветка смерджена, worktree и его ресурсы очищаются автоматически. Никаких осиротевших Docker-ресурсов на вашей машине.",
 		},
 	],
 
@@ -225,9 +248,18 @@ const worktreePageConfigRu: ModulePageConfig = {
 		},
 	],
 
+	personas: {
+		title: "Для кого это",
+		items: [
+			{ role: "Docker Backend Dev", benefit: "Каждый worktree получает изолированные порты и свой Docker-стек - без конфликтов." },
+			{ role: "Команда с параллельными PR", benefit: "Запускайте несколько feature-веток одновременно без убийства серверов." },
+			{ role: "CI/CD-инженер", benefit: "Автоматический lifecycle worktree с безопасной очисткой - без orphaned-ресурсов." },
+		],
+	},
+
 	seo: {
-		title: "forge-worktree - Lifecycle-менеджер git worktree | Forge DevKit",
-		description: "Ноль конфликтов портов, Docker-изоляция по worktree, безопасная очистка. 3 шаблона: Docker backend, Frontend, Generic.",
+		title: "forge-worktree - Изоляция веток для AI-разработки | Forge DevKit",
+		description: "Управление git worktree без конфликтов портов и с Docker-изоляцией. 3 шаблона для backend и frontend. Основа параллельной AI-разработки с агентами Claude Code.",
 	},
 };
 

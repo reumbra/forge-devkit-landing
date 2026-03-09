@@ -10,7 +10,7 @@ export const onboardingPageConfig: ModulePageConfig = {
 	problems: [
 		{
 			pain: "Users sign up and never come back",
-			evidence: "Average SaaS activation rate is 36%. Most users never reach the moment they understand your product's value.",
+			evidence: "Average SaaS activation rate is 36% - top products hit 65%+. The gap is almost always onboarding design, not product quality.",
 		},
 		{
 			pain: "Empty states that kill momentum",
@@ -49,7 +49,7 @@ export const onboardingPageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Activation flow design",
-			description: "Maps the shortest path from signup to value. Removes friction at every step.",
+			description: "Maps the shortest path from signup to value. For each step: required fields, skip conditions, progress indicators, and fallback paths.",
 		},
 		{
 			icon: "\u25C7",
@@ -64,7 +64,7 @@ export const onboardingPageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Onboarding audit",
-			description: "Review existing activation flow against specs. Identify and fix drop-off points.",
+			description: "Compares your live onboarding against generated specs step by step. Produces a gap report: what's missing, what's confusing, what's unnecessary.",
 		},
 	],
 
@@ -100,9 +100,33 @@ export const onboardingPageConfig: ModulePageConfig = {
 		},
 	],
 
+	outputExample: {
+		title: "forge:onboarding - Activation Flow",
+		language: "bash",
+		code: `<span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Activation Flow - taskflow-app</span>
+
+<span class="t-white t-bold">Step</span>  <span class="t-white t-bold">Screen</span>              <span class="t-white t-bold">Goal</span>                      <span class="t-white t-bold">Drop-off Risk</span>
+<span class="t-cyan">1</span>     <span class="t-white">Welcome</span>              <span class="t-muted">Set role (freelancer/team)</span>  <span class="t-green">Low</span>
+<span class="t-cyan">2</span>     <span class="t-white">Connect bank</span>         <span class="t-muted">Link Stripe for payouts</span>    <span class="t-red t-bold">High</span>
+<span class="t-cyan">3</span>     <span class="t-white">First invoice</span>        <span class="t-muted">Create + send in < 60s</span>     <span class="t-yellow">Medium</span>
+<span class="t-cyan">4</span>     <span class="t-white">Aha moment</span>           <span class="t-muted">Client pays the invoice</span>    <span class="t-green">Low</span>
+
+<span class="t-muted">Time to value:</span> <span class="t-white">~3 min</span> <span class="t-muted">|</span> <span class="t-muted">Aha moment:</span> <span class="t-green">First paid invoice received</span>
+<span class="t-yellow t-bold">Risk:</span> <span class="t-yellow">Step 2 requires bank details - offer skip + manual payout option</span>`,
+	},
+
+	personas: {
+		title: "Who is this for",
+		items: [
+			{ role: "Product Manager", benefit: "Design activation flows before launch - not as a post-launch patch." },
+			{ role: "UX Designer", benefit: "Get structured empty states strategy and first-run experience specs with drop-off analysis." },
+			{ role: "Growth Lead", benefit: "Map the shortest path to your aha moment with psychology-informed design decisions." },
+		],
+	},
+
 	seo: {
-		title: "forge-onboarding - From Signup to Aha Moment | Forge DevKit",
-		description: "Design activation flows, empty states, and first-run experiences. 5 psychology biases at design decisions. Audit existing onboarding for drop-off points.",
+		title: "forge-onboarding - Design Activation Flows | Forge DevKit",
+		description: "Design user onboarding with AI - activation flows, empty states, first-run UX. Audit drop-off points with 5 bias detectors. Claude Code plugin for user activation.",
 	},
 };
 
@@ -116,7 +140,7 @@ const onboardingPageConfigRu: ModulePageConfig = {
 	problems: [
 		{
 			pain: "Пользователи регистрируются и не возвращаются",
-			evidence: "Средний показатель активации SaaS - 36%. Большинство пользователей не доходят до момента, когда понимают ценность продукта.",
+			evidence: "Средний показатель активации SaaS - 36%, топовые продукты достигают 65%+. Разрыв почти всегда в дизайне онбординга, а не в качестве продукта.",
 		},
 		{
 			pain: "Пустые экраны убивают импульс",
@@ -153,7 +177,7 @@ const onboardingPageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Дизайн activation flow",
-			description: "Маппит кратчайший путь от регистрации до ценности. Убирает трение на каждом шаге.",
+			description: "Маппит кратчайший путь от регистрации до ценности. Для каждого шага: обязательные поля, условия пропуска, индикаторы прогресса и запасные пути.",
 		},
 		{
 			icon: "\u25C7",
@@ -168,7 +192,7 @@ const onboardingPageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Аудит онбординга",
-			description: "Ревью существующего activation flow по спекам. Выявление и исправление точек отвала.",
+			description: "Сравнивает ваш живой онбординг со сгенерированными спеками пошагово. Создаёт gap-отчёт: что отсутствует, что запутывает, что лишнее.",
 		},
 	],
 
@@ -204,9 +228,18 @@ const onboardingPageConfigRu: ModulePageConfig = {
 		},
 	],
 
+	personas: {
+		title: "Для кого это",
+		items: [
+			{ role: "Продакт-менеджер", benefit: "Проектируйте activation flow до запуска - не как заплатку после." },
+			{ role: "UX-дизайнер", benefit: "Получите стратегию пустых экранов и спеки first-run experience с анализом отвала." },
+			{ role: "Growth-лид", benefit: "Проложите кратчайший путь к aha-моменту с психологически обоснованным дизайном." },
+		],
+	},
+
 	seo: {
-		title: "forge-onboarding - От регистрации до aha-момента | Forge DevKit",
-		description: "Дизайн activation flow, пустых экранов и first-run experience. 5 психологических предупреждений. Аудит существующего онбординга.",
+		title: "forge-onboarding - Дизайн активации пользователей | Forge DevKit",
+		description: "Проектируйте онбординг с AI - activation flow, пустые экраны, first-run UX. Аудит точек оттока с 5 детекторами искажений. Плагин Claude Code для активации.",
 	},
 };
 

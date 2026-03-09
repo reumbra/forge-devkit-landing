@@ -19,5 +19,17 @@ export interface ModulePageConfig {
 	relatedComparisons?: { label: string; href: string }[];
 	relatedComparisonsHeading?: string;
 	diagram?: { src: string; alt: string; caption: string; sourceUrl?: string; sourceLabel?: string };
+	outputExample?: {
+		title: string;
+		language: string;
+		code: string;
+	};
+	personas?: {
+		title: string;
+		items: {
+			role: string;
+			benefit: string;
+		}[];
+	};
 	seo: { title: string; description: string };
 }

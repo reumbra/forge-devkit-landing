@@ -49,12 +49,12 @@ export const copyPageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Multi-surface copy",
-			description: "UI microcopy, transactional emails, push notifications, error messages - all from one source of truth.",
+			description: "UI microcopy, transactional emails, push notifications, error messages - all from one source of truth. Change the tone once, every surface updates.",
 		},
 		{
 			icon: "\u25C7",
 			title: "Brand voice enforcement",
-			description: "Every piece of copy checked against your established tone, style, and terminology rules.",
+			description: "Every piece of copy gets checked against your tone, style, and terminology rules. Deviations are flagged with specific fix suggestions.",
 		},
 		{
 			icon: "\u25C7",
@@ -64,7 +64,7 @@ export const copyPageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Copy review mode",
-			description: "Audit existing copy for inconsistencies, brand drift, and missed opportunities.",
+			description: "Scans existing copy for tone inconsistencies and brand drift. Flags generic microcopy ('Submit', 'Error') that could reinforce your brand instead.",
 		},
 	],
 
@@ -100,9 +100,36 @@ export const copyPageConfig: ModulePageConfig = {
 		},
 	],
 
+	outputExample: {
+		title: "forge:copy audit - Microcopy Review",
+		language: "bash",
+		code: `<span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Microcopy Audit - acme-web</span>
+
+<span class="t-white t-bold">Surface</span>            <span class="t-white t-bold">Current</span>                    <span class="t-white t-bold">Issue</span>
+<span class="t-white">404 page</span>            <span class="t-muted">"Page not found"</span>            <span class="t-yellow">Generic - no brand voice</span>
+<span class="t-white">Empty cart</span>          <span class="t-muted">"Your cart is empty"</span>        <span class="t-yellow">No CTA, missed upsell</span>
+<span class="t-white">Success toast</span>       <span class="t-muted">"Done!"</span>                     <span class="t-red">Unclear what completed</span>
+<span class="t-white">Error modal</span>         <span class="t-muted">"Something went wrong"</span>      <span class="t-red">No recovery action</span>
+
+<span class="t-white t-bold">Suggested:</span>
+  <span class="t-green">404:</span> <span class="t-white">"Looks like this page took a wrong turn. Let's get you back."</span>
+  <span class="t-green">Cart:</span> <span class="t-white">"Nothing here yet - check out what's trending."</span>
+
+<span class="t-muted">Total:</span> <span class="t-white">4 issues</span> <span class="t-muted">|</span> <span class="t-yellow">2 warnings</span> <span class="t-muted">|</span> <span class="t-red">2 errors</span>`,
+	},
+
+	personas: {
+		title: "Who is this for",
+		items: [
+			{ role: "Content Writer", benefit: "Enforce brand voice across all surfaces with automated drift detection." },
+			{ role: "Product Manager", benefit: "Get consistent microcopy for UI, emails, and errors without writing it yourself." },
+			{ role: "Solo Founder", benefit: "Sound professional across every surface without hiring a copywriter." },
+		],
+	},
+
 	seo: {
-		title: "forge-copy - Consistent Voice Across Every Surface | Forge DevKit",
-		description: "UI microcopy, emails, error messages - all in your brand voice. Copy review catches drift. Reads marketing positioning for consistent messaging.",
+		title: "forge-copy - AI Brand Voice for Your App | Forge DevKit",
+		description: "Generate UI microcopy, emails, and error messages in your brand voice. AI catches tone drift across surfaces. Claude Code plugin for consistent product copywriting.",
 	},
 };
 
@@ -153,12 +180,12 @@ const copyPageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Мульти-поверхностный копирайтинг",
-			description: "UI-микрокопи, транзакционные имейлы, push-уведомления, сообщения об ошибках - из одного источника правды.",
+			description: "UI-микрокопи, транзакционные имейлы, push-уведомления, сообщения об ошибках - из одного источника правды. Измените тон один раз - все поверхности обновятся.",
 		},
 		{
 			icon: "\u25C7",
 			title: "Контроль голоса бренда",
-			description: "Каждый элемент копирайтинга проверяется по установленным правилам тона, стиля и терминологии.",
+			description: "Каждый элемент копирайтинга проверяется по правилам тона, стиля и терминологии. Отклонения помечаются с конкретными рекомендациями по исправлению.",
 		},
 		{
 			icon: "\u25C7",
@@ -168,7 +195,7 @@ const copyPageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Режим ревью копирайтинга",
-			description: "Аудит существующего копирайтинга на неконсистентности, дрейф бренда и упущенные возможности.",
+			description: "Сканирует существующий копирайтинг на неконсистентность тона и дрейф бренда. Помечает генерическое микрокопи ('Submit', 'Error'), которое могло бы усиливать ваш бренд.",
 		},
 	],
 
@@ -204,9 +231,18 @@ const copyPageConfigRu: ModulePageConfig = {
 		},
 	],
 
+	personas: {
+		title: "Для кого это",
+		items: [
+			{ role: "Контент-райтер", benefit: "Обеспечьте голос бренда на всех поверхностях с автоматической детекцией дрейфа." },
+			{ role: "Продакт-менеджер", benefit: "Получите единое микрокопи для UI, писем и ошибок без собственного написания." },
+			{ role: "Соло-основатель", benefit: "Звучите профессионально на каждой поверхности без найма копирайтера." },
+		],
+	},
+
 	seo: {
-		title: "forge-copy - Единый голос на каждой поверхности | Forge DevKit",
-		description: "UI-микрокопи, имейлы, сообщения об ошибках - в голосе вашего бренда. Ревью ловит дрейф. Читает маркетинговое позиционирование.",
+		title: "forge-copy - AI-голос бренда в вашем приложении | Forge DevKit",
+		description: "Генерация UI-микрокопи, писем и сообщений об ошибках в голосе бренда. AI ловит дрейф тона. Плагин Claude Code для единого копирайтинга продукта.",
 	},
 };
 

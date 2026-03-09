@@ -1,0 +1,160 @@
+---
+import Container from "@shared/ui/Container.astro";
+import SectionLabel from "@shared/ui/SectionLabel.astro";
+import { ecosystemI18n } from "@shared/config/ecosystem";
+import { i18n } from "@shared/utils/locale";
+
+const config = i18n(ecosystemI18n, Astro.currentLocale);
+const { sectionLabel, headline, subheadline, stages, foundation, crossCutting } = config;
+
+const stageNumbers = ["01", "02", "03"];
+---
+
+<section id="ecosystem" class="py-12 md:py-24 lg:py-32">
+	<Container>
+		{/* Header */}
+		<div class="fade-up mb-16 text-center">
+			<SectionLabel text={sectionLabel} />
+			<h2
+				class="mt-4 font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]"
+			>
+				{headline}
+			</h2>
+			<p class="mx-auto mt-4 max-w-[600px] font-sans text-[16px] leading-[1.6] text-text-secondary md:text-[18px]">
+				{subheadline}
+			</p>
+		</div>
+
+		{/* Desktop: 3-column stages with arrows */}
+		<div class="hidden md:grid grid-cols-[1fr_40px_1fr_40px_1fr] items-stretch gap-0">
+			{stages.map((stage, idx) => (
+				<>
+					{/* Arrow connector (columns 2 and 4) */}
+					{idx > 0 && (
+						<div class="flex items-center justify-center">
+							<svg width="40" height="24" viewBox="0 0 40 24" fill="none" class="text-secondary opacity-40">
+								<path d="M0 12H36M36 12L28 4M36 12L28 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</div>
+					)}
+
+					{/* Stage card */}
+					<div class="rounded-[14px] border border-card bg-surface p-6 transition-all duration-300 hover:border-card-hover hover:shadow-[0_0_32px_rgba(118,73,196,0.08)]">
+						<div class="flex items-baseline gap-3 mb-3">
+							<span class="font-mono text-[12px] font-medium text-secondary opacity-60">
+								{stageNumbers[idx]}
+							</span>
+							<h3 class="font-sans text-[20px] font-semibold text-text">
+								{stage.title}
+							</h3>
+						</div>
+						<p class="font-sans text-[14px] leading-[1.6] text-text-muted mb-5">
+							{stage.description}
+						</p>
+						<div class="flex flex-wrap gap-2">
+							{stage.modules.map((mod) => {
+								const isHub = stage.accent === "hub" && mod === "forge-product";
+								return (
+									<span
+										class:list={[
+											"inline-flex items-center gap-1.5 rounded-[8px] border px-3 py-1.5 font-mono text-[12px] transition-colors duration-200",
+											isHub
+												? "border-secondary/30 bg-secondary/5 text-secondary"
+												: "border-card bg-bg text-text-secondary",
+										]}
+									>
+										<span class="text-secondary text-[10px]">{"\u25C7"}</span>
+										{mod}
+										{isHub && <span class="text-[10px] opacity-60 ml-0.5">hub</span>}
+									</span>
+								);
+							})}
+						</div>
+					</div>
+				</>
+			))}
+		</div>
+
+		{/* Mobile: vertical stack */}
+		<div class="flex flex-col md:hidden">
+			{stages.map((stage, idx) => (
+				<>
+					{idx > 0 && (
+						<div class="flex items-center justify-center py-3">
+							<svg width="24" height="32" viewBox="0 0 24 32" fill="none" class="text-secondary opacity-40">
+								<path d="M12 0V28M12 28L4 20M12 28L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</div>
+					)}
+					<div class="rounded-[14px] border border-card bg-surface p-6 transition-all duration-300 hover:border-card-hover">
+						<div class="flex items-baseline gap-3 mb-3">
+							<span class="font-mono text-[12px] font-medium text-secondary opacity-60">
+								{stageNumbers[idx]}
+							</span>
+							<h3 class="font-sans text-[18px] font-semibold text-text">
+								{stage.title}
+							</h3>
+						</div>
+						<p class="font-sans text-[14px] leading-[1.6] text-text-muted mb-5">
+							{stage.description}
+						</p>
+						<div class="flex flex-wrap gap-2">
+							{stage.modules.map((mod) => {
+								const isHub = stage.accent === "hub" && mod === "forge-product";
+								return (
+									<span
+										class:list={[
+											"inline-flex items-center gap-1.5 rounded-[8px] border px-3 py-1.5 font-mono text-[12px] transition-colors duration-200",
+											isHub
+												? "border-secondary/30 bg-secondary/5 text-secondary"
+												: "border-card bg-bg text-text-secondary",
+										]}
+									>
+										<span class="text-secondary text-[10px]">{"\u25C7"}</span>
+										{mod}
+										{isHub && <span class="text-[10px] opacity-60 ml-0.5">hub</span>}
+									</span>
+								);
+							})}
+						</div>
+					</div>
+				</>
+			))}
+		</div>
+
+		{/* Foundation bar + cross-cutting */}
+		<div class="mt-6 grid gap-4 md:grid-cols-2">
+			{/* forge-core foundation */}
+			<div class="rounded-[14px] border border-secondary/20 bg-secondary/[0.03] px-6 py-5">
+				<div class="flex items-center gap-2 mb-2">
+					<span class="text-secondary text-[10px]">{"\u25C7"}</span>
+					<span class="font-mono text-[14px] font-medium text-secondary">
+						{foundation.title}
+					</span>
+					<span class="ml-auto font-mono text-[10px] uppercase tracking-[0.1em] text-secondary/50">
+						foundation
+					</span>
+				</div>
+				<p class="font-sans text-[13px] leading-[1.5] text-text-muted">
+					{foundation.description}
+				</p>
+			</div>
+
+			{/* forge-prompts cross-cutting */}
+			<div class="rounded-[14px] border border-card bg-surface px-6 py-5">
+				<div class="flex items-center gap-2 mb-2">
+					<span class="text-secondary text-[10px]">{"\u25C7"}</span>
+					<span class="font-mono text-[14px] font-medium text-text">
+						{crossCutting.module}
+					</span>
+					<span class="ml-auto font-mono text-[10px] uppercase tracking-[0.1em] text-text-muted">
+						{crossCutting.title}
+					</span>
+				</div>
+				<p class="font-sans text-[13px] leading-[1.5] text-text-muted">
+					{crossCutting.description}
+				</p>
+			</div>
+		</div>
+	</Container>
+</section>

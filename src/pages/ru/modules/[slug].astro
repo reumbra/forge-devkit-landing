@@ -10,6 +10,8 @@ import ModuleEcosystem from "@widgets/module-page/ModuleEcosystem.astro";
 import ModuleCta from "@widgets/module-page/ModuleCta.astro";
 import ModuleDiagram from "@widgets/module-page/ModuleDiagram.astro";
 import ModuleRelatedComparisons from "@widgets/module-page/ModuleRelatedComparisons.astro";
+import ModuleOutputExample from "@widgets/module-page/ModuleOutputExample.astro";
+import ModulePersonas from "@shared/ui/ModulePersonas.astro";
 import { modulePagesI18n, moduleSlugs } from "@shared/config/module-pages";
 import type { ModulePageConfig } from "@shared/config/module-pages";
 import { i18n } from "@shared/utils/locale";
@@ -46,6 +48,16 @@ const breadcrumbs = [
 	)}
 	<ModuleHowItWorks steps={config.steps} />
 	<ModuleCapabilities capabilities={config.capabilities} />
+	{config.outputExample && (
+		<ModuleOutputExample
+			title={config.outputExample.title}
+			language={config.outputExample.language}
+			code={config.outputExample.code}
+		/>
+	)}
+	{config.personas && (
+		<ModulePersonas title={config.personas.title} items={config.personas.items} />
+	)}
 	<ModuleComparison rows={config.comparison} target={config.comparisonTarget} moduleName={config.name} moduleSlug={config.slug} />
 	<ModuleEcosystem integrations={config.integrations} />
 	{config.relatedComparisons && config.relatedComparisons.length > 0 && (

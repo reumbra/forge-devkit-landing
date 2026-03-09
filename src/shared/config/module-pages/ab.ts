@@ -41,7 +41,7 @@ export const abPageConfig: ModulePageConfig = {
 		},
 		{
 			title: "Learn",
-			description: "Every test produces a documented learning - win or lose. Knowledge compounds across experiments.",
+			description: "Every test produces a structured doc: hypothesis, result, confidence level, and next action. Win or lose, it's searchable.",
 		},
 	],
 
@@ -49,7 +49,7 @@ export const abPageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "3 experiment modes",
-			description: "Hypothesis, design, analyze. Full lifecycle from idea to statistically valid conclusion.",
+			description: "Hypothesis (structured if/then/because), design (sample size + duration calc), analyze (significance test + documented learning).",
 		},
 		{
 			icon: "\u25C7",
@@ -76,7 +76,7 @@ export const abPageConfig: ModulePageConfig = {
 		},
 		{
 			dimension: "Hypothesis",
-			them: "Change stuff, see what happens",
+			them: "Change it, measure everything, find something significant",
 			forge: "Structured: If [change] then [metric] because [reason]",
 		},
 		{
@@ -100,9 +100,36 @@ export const abPageConfig: ModulePageConfig = {
 		},
 	],
 
+	outputExample: {
+		title: "forge:ab design - Experiment Spec",
+		language: "bash",
+		code: `<span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Experiment: Pricing Page CTA Color</span>
+
+<span class="t-white t-bold">Hypothesis:</span> <span class="t-white">Changing CTA from blue to green increases clicks by 10%</span>
+<span class="t-white t-bold">Metric:</span>     <span class="t-cyan">CTA click-through rate on /pricing</span>
+<span class="t-white t-bold">Guardrail:</span>  <span class="t-muted">Bounce rate must not increase by > 5%</span>
+
+<span class="t-white t-bold">Design:</span>
+  <span class="t-muted">Control:</span>  <span class="t-white">Blue CTA (#2563EB)</span>    <span class="t-muted">50% traffic</span>
+  <span class="t-muted">Variant:</span>  <span class="t-white">Green CTA (#16A34A)</span>   <span class="t-muted">50% traffic</span>
+  <span class="t-muted">Sample:</span>   <span class="t-white">3,200 visitors</span>        <span class="t-muted">(MDE 10%, power 80%)</span>
+  <span class="t-muted">Duration:</span> <span class="t-white">~14 days</span>              <span class="t-muted">at current traffic</span>
+
+<span class="t-yellow t-bold">Pre-commit:</span> <span class="t-yellow">Decision logged before results - no peeking</span>`,
+	},
+
+	personas: {
+		title: "Who is this for",
+		items: [
+			{ role: "Product Manager", benefit: "Run statistically rigorous experiments with pre-committed hypotheses and sample sizes." },
+			{ role: "Growth Lead", benefit: "Document every experiment result - wins and losses compound into organizational knowledge." },
+			{ role: "Data-Driven Developer", benefit: "Get concrete experiment specs with sample size calculations instead of gut-feel testing." },
+		],
+	},
+
 	seo: {
-		title: "forge-ab - Test With Rigor, Not Hunches | Forge DevKit",
-		description: "Structured A/B testing: pre-committed hypotheses, sample sizes, and documented learnings. 4 psychology biases at experiment decisions. Knowledge compounds.",
+		title: "forge-ab - AI A/B Test Design Plugin | Forge DevKit",
+		description: "Design rigorous A/B tests with pre-committed hypotheses, sample size calculations, and structured learnings. Claude Code plugin with 4 experiment bias detectors.",
 	},
 };
 
@@ -145,7 +172,7 @@ const abPageConfigRu: ModulePageConfig = {
 		},
 		{
 			title: "Обучение",
-			description: "Каждый тест создаёт документированное знание - победа или поражение. Знания компаундятся между экспериментами.",
+			description: "Каждый тест создаёт структурированный документ: гипотеза, результат, уровень уверенности и следующее действие. Победа или поражение - всё доступно для поиска.",
 		},
 	],
 
@@ -153,7 +180,7 @@ const abPageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "3 режима экспериментов",
-			description: "Hypothesis, design, analyze. Полный lifecycle от идеи до статистически валидного заключения.",
+			description: "Hypothesis (структурированное если/тогда/потому что), design (расчёт выборки + длительности), analyze (тест значимости + документированное знание).",
 		},
 		{
 			icon: "\u25C7",
@@ -180,7 +207,7 @@ const abPageConfigRu: ModulePageConfig = {
 		},
 		{
 			dimension: "Гипотеза",
-			them: "Менять что-то, смотреть что будет",
+			them: "Менять, измерять всё подряд, найти что-то значимое",
 			forge: "Структурированная: Если [изменение] то [метрика] потому что [причина]",
 		},
 		{
@@ -204,9 +231,18 @@ const abPageConfigRu: ModulePageConfig = {
 		},
 	],
 
+	personas: {
+		title: "Для кого это",
+		items: [
+			{ role: "Продакт-менеджер", benefit: "Запускайте статистически строгие эксперименты с предфиксированными гипотезами и выборками." },
+			{ role: "Growth-лид", benefit: "Документируйте каждый результат эксперимента - победы и поражения компаундятся в организационные знания." },
+			{ role: "Data-driven разработчик", benefit: "Получите конкретные спеки экспериментов с расчетом выборки вместо тестирования по наитию." },
+		],
+	},
+
 	seo: {
-		title: "forge-ab - Тестируй с точностью, а не по наитию | Forge DevKit",
-		description: "Структурированное A/B тестирование: предфиксированные гипотезы, выборки и документированные знания. 4 психологических предупреждения.",
+		title: "forge-ab - AI-дизайн A/B тестов | Forge DevKit",
+		description: "Проектируйте A/B тесты с предфиксированными гипотезами, расчетом выборки и структурированными выводами. Плагин Claude Code с 4 детекторами искажений в экспериментах.",
 	},
 };
 

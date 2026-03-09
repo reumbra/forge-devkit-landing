@@ -3,7 +3,7 @@ import type { ModulePageConfig } from "./types";
 export const trackerPageConfig: ModulePageConfig = {
 	slug: "tracker",
 	name: "forge-tracker",
-	tagline: "Bridge backlog and development",
+	tagline: "Your tracker talks to your AI agent",
 	tier: "Pro",
 	tierPrice: "€79",
 
@@ -70,7 +70,7 @@ export const trackerPageConfig: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Autonomous scripts",
-			description: "Generated scripts work independently after setup. Remove the plugin - sync keeps running.",
+			description: "Remove the plugin after setup - sync scripts keep running. Zero vendor lock-in.",
 		},
 	],
 
@@ -96,7 +96,7 @@ export const trackerPageConfig: ModulePageConfig = {
 			forge: "Autonomous scripts - plugin removable",
 		},
 	],
-	comparisonTarget: "Manual task management",
+	comparisonTarget: "IDE task management plugins",
 
 	integrations: [
 		{
@@ -116,16 +116,38 @@ export const trackerPageConfig: ModulePageConfig = {
 		},
 	],
 
+	outputExample: {
+		title: "forge:tracker sync",
+		language: "bash",
+		code: `<span class="t-purple t-bold">◆</span> <span class="t-white t-bold">Syncing tasks from ClickUp...</span>
+
+<span class="t-green">synced</span>  <span class="t-white">TF-142</span>  <span class="t-muted">Add SSO login flow</span>        <span class="t-cyan">In Progress</span> <span class="t-muted">-></span> <span class="t-cyan">In Progress</span>
+<span class="t-green">synced</span>  <span class="t-white">TF-143</span>  <span class="t-muted">Fix cart total rounding</span>   <span class="t-yellow">To Do</span>       <span class="t-muted">-></span> <span class="t-cyan">In Progress</span>
+<span class="t-green">synced</span>  <span class="t-white">TF-144</span>  <span class="t-muted">Update email templates</span>   <span class="t-cyan">In Progress</span> <span class="t-muted">-></span> <span class="t-green">Done</span>
+<span class="t-green">synced</span>  <span class="t-white">TF-145</span>  <span class="t-muted">API rate limiting</span>        <span class="t-yellow">To Do</span>       <span class="t-muted">-></span> <span class="t-yellow">To Do</span>
+
+<span class="t-muted">Total:</span> <span class="t-white">4 tasks synced</span> <span class="t-muted">|</span> <span class="t-green">1 completed</span> <span class="t-muted">|</span> <span class="t-yellow">1 status changed</span>`,
+	},
+
+	personas: {
+		title: "Who is this for",
+		items: [
+			{ role: "Any Developer", benefit: "Stop context-switching between tracker and IDE - tasks sync directly to your AI agent." },
+			{ role: "Tech Lead", benefit: "Keep task statuses in sync across the team without chasing updates manually." },
+			{ role: "Product Manager", benefit: "Get automatic status updates as AI agents complete work - no standups needed." },
+		],
+	},
+
 	seo: {
-		title: "forge-tracker - Bridge Backlog and Development | Forge DevKit",
-		description: "Bidirectional sync with GitHub, ClickUp, Linear, Notion, Jira. AI reads tasks, updates status. Autonomous scripts work after plugin removal.",
+		title: "forge-tracker - AI Reads Your Backlog | Forge DevKit",
+		description: "Connect Claude Code to GitHub, ClickUp, Linear, Notion, or Jira. AI reads tasks, updates status, syncs progress. Autonomous scripts survive plugin removal.",
 	},
 };
 
 const trackerPageConfigRu: ModulePageConfig = {
 	slug: "tracker",
 	name: "forge-tracker",
-	tagline: "Мост между бэклогом и разработкой",
+	tagline: "Ваш трекер разговаривает с AI-агентом",
 	tier: "Pro",
 	tierPrice: "€79",
 
@@ -189,7 +211,7 @@ const trackerPageConfigRu: ModulePageConfig = {
 		{
 			icon: "\u25C7",
 			title: "Автономные скрипты",
-			description: "Сгенерированные скрипты работают самостоятельно. Удалите плагин - синхронизация продолжится.",
+			description: "Удалите плагин после настройки - скрипты синхронизации продолжат работать. Нулевая привязка к вендору.",
 		},
 	],
 
@@ -215,7 +237,7 @@ const trackerPageConfigRu: ModulePageConfig = {
 			forge: "Автономные скрипты - плагин можно удалить",
 		},
 	],
-	comparisonTarget: "Ручное управление задачами",
+	comparisonTarget: "IDE-плагины управления задачами",
 
 	integrations: [
 		{
@@ -235,9 +257,18 @@ const trackerPageConfigRu: ModulePageConfig = {
 		},
 	],
 
+	personas: {
+		title: "Для кого это",
+		items: [
+			{ role: "Любой разработчик", benefit: "Перестаньте переключаться между трекером и IDE - задачи синхронизируются напрямую с AI-агентом." },
+			{ role: "Тех-лид", benefit: "Статусы задач в синхроне по всей команде без ручного сбора апдейтов." },
+			{ role: "Продакт-менеджер", benefit: "Автоматические обновления статусов по мере работы AI-агентов - без стендапов." },
+		],
+	},
+
 	seo: {
-		title: "forge-tracker - Мост между бэклогом и разработкой | Forge DevKit",
-		description: "Двусторонняя синхронизация с GitHub, ClickUp, Linear, Notion, Jira. AI читает задачи, обновляет статус. Автономные скрипты работают после удаления плагина.",
+		title: "forge-tracker - AI читает ваш бэклог | Forge DevKit",
+		description: "Подключите Claude Code к GitHub, ClickUp, Linear, Notion или Jira. AI читает задачи, обновляет статус, синхронизирует прогресс. Скрипты работают автономно.",
 	},
 };
 
