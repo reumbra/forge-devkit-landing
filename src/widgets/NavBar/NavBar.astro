@@ -96,8 +96,19 @@ const viewAllLabel = locale === "ru" ? "Смотреть все модули" : 
 							data-nav-link={lp(link.href)}
 							target={link.external ? "_blank" : undefined}
 							rel={link.external ? "noopener noreferrer" : undefined}
-							class="nav-link font-sans text-[14px] font-medium text-text-muted hover:text-white transition-colors duration-300 ease-in-out"
+							class:list={[
+								"nav-link font-sans text-[14px] font-medium transition-colors duration-300 ease-in-out",
+								link.href.includes("#journey")
+									? "text-secondary hover:text-primary flex items-center gap-1.5"
+									: "text-text-muted hover:text-white",
+							]}
 						>
+							{link.href.includes("#journey") && (
+								<span class="relative flex h-2 w-2">
+									<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+									<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+								</span>
+							)}
 							{link.label}
 							{link.external && (
 								<svg width="10" height="10" viewBox="0 0 12 12" fill="none" class="inline ml-1 opacity-40" aria-hidden="true">
@@ -179,8 +190,19 @@ const viewAllLabel = locale === "ru" ? "Смотреть все модули" : 
 							href={lp(link.href)}
 							target={link.external ? "_blank" : undefined}
 							rel={link.external ? "noopener noreferrer" : undefined}
-							class="font-sans text-[15px] font-normal text-text-muted hover:text-white transition-colors duration-300 ease-in-out py-3"
+							class:list={[
+							"font-sans text-[15px] font-normal transition-colors duration-300 ease-in-out py-3",
+							link.href.includes("#journey")
+								? "text-secondary hover:text-primary flex items-center gap-2"
+								: "text-text-muted hover:text-white",
+						]}
 						>
+							{link.href.includes("#journey") && (
+								<span class="relative flex h-2 w-2">
+									<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+									<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+								</span>
+							)}
 							{link.label}
 							{link.external && (
 								<svg width="10" height="10" viewBox="0 0 12 12" fill="none" class="inline ml-1 opacity-40" aria-hidden="true">

@@ -53,6 +53,7 @@ export const navigation = {
 			],
 		},
 		{ label: "Pricing", href: "/pricing" },
+		{ label: "Try it", href: "/#journey" },
 		{
 			label: "Docs",
 			href: "/docs/getting-started",
@@ -99,6 +100,7 @@ const navigationRu: NavigationConfig = {
 			],
 		},
 		{ label: "Цены", href: "/pricing" },
+		{ label: "Попробовать", href: "/#journey" },
 		{
 			label: "Документация",
 			href: "/docs/getting-started",

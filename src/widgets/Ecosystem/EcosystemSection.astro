@@ -322,7 +322,12 @@ const personaModules = config.personas.map((p) => {
 	.tl-out { color: #e6edf3; }
 	.tl-ok  { color: #3fb950; font-weight: 600; }
 	.tl-skip { color: #d29922; opacity: 0.6; }
-	.tl-stg { color: #58a6ff; font-weight: 600; margin-top: 6px; }
+	.tl-stg { font-weight: 600; margin-top: 6px; }
+	.tl-stg-VALIDATE     { color: #d2a8ff; }
+	.tl-stg-ARCHITECTURE { color: #3fb950; }
+	.tl-stg-DEVELOP      { color: #58a6ff; }
+	.tl-stg-SCALE        { color: #f0883e; }
+	.tl-stg-GROW         { color: #d29922; }
 	.tl .chk { color: #3fb950; }
 
 	/* Cursor blink */
@@ -628,7 +633,7 @@ const personaModules = config.personas.map((p) => {
 		for (const stage of TERMINAL_STAGES) {
 			if (cancel) break;
 
-			await addLine(`--- ${stage.label} ---`, "tl-stg");
+			await addLine(`--- ${stage.label} ---`, `tl-stg tl-stg-${stage.label}`);
 			await sleep(150);
 
 			let any = false;
