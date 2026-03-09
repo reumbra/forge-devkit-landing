@@ -1,224 +1,899 @@
 ---
 import Container from "@shared/ui/Container.astro";
 import SectionLabel from "@shared/ui/SectionLabel.astro";
-import { journeyI18n } from "@shared/config/ecosystem";
+import {
+	simulatorI18n,
+	SIMULATOR_MODULES,
+	CAPABILITIES,
+	BASE_MODULES,
+	TIER_PRESETS,
+} from "@shared/config/ecosystem";
 import { localePath, i18n } from "@shared/utils/locale";
 
 const lp = (path: string) => localePath(path, Astro.currentLocale);
-const config = i18n(journeyI18n, Astro.currentLocale);
-const { sectionLabel, headline, subheadline, zones, crossCutting } = config;
+const config = i18n(simulatorI18n, Astro.currentLocale);
+const locale = Astro.currentLocale || "en";
+
+// Resolve module objects for each persona card
+const personaModules = config.personas.map((p) => {
+	const capIds = TIER_PRESETS[p.id] || [];
+	const moduleIds = new Set([
+		...BASE_MODULES,
+		...capIds.flatMap((cid) => {
+			const cap = CAPABILITIES.find((c) => c.id === cid);
+			return cap ? cap.moduleIds : [];
+		}),
+	]);
+	const modules = SIMULATOR_MODULES.filter((m) => moduleIds.has(m.id));
+	return { ...p, modules, total: moduleIds.size };
+});
 ---
 
 <section id="journey" class="py-12 md:py-24 lg:py-32">
 	<Container>
-		{/* Header */}
-		<div class="fade-up mb-16 text-center">
-			<SectionLabel text={sectionLabel} />
-			<h2
-				class="mt-4 font-sans text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[48px]"
-			>
-				{headline}
-			</h2>
-			<p class="mx-auto mt-4 max-w-[600px] font-sans text-[16px] leading-[1.6] text-text-secondary md:text-[18px]">
-				{subheadline}
-			</p>
-		</div>
-
-		{/* Desktop: 4-column journey ribbon */}
-		<div class="hidden lg:grid grid-cols-[1fr_32px_1fr_32px_1fr_32px_1fr] items-stretch gap-0">
-			{zones.map((zone, idx) => (
-				<>
-					{/* Arrow connector between zones */}
-					{idx > 0 && (
-						<div class="flex items-center justify-center">
-							<svg width="32" height="24" viewBox="0 0 32 24" fill="none" style={`color: ${zone.color}`} class="opacity-40">
-								<path d="M0 12H28M28 12L20 4M28 12L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-							</svg>
-						</div>
-					)}
-
-					{/* Zone card */}
-					<div
-						class="journey-zone rounded-[14px] border p-5 transition-all duration-300 hover:shadow-lg"
-						style={`border-color: ${zone.color}30; background: ${zone.color}08;`}
-						data-zone={zone.id}
-					>
-						{/* Persona badge */}
-						<span
-							class="inline-block rounded-[6px] border px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-[0.1em]"
-							style={`border-color: ${zone.color}40; color: ${zone.color}; background: ${zone.color}10;`}
-						>
-							{zone.persona}
-						</span>
-
-						{/* Zone title */}
-						<h3
-							class="mt-3 font-sans text-[18px] font-bold"
-							style={`color: ${zone.color};`}
-						>
-							{zone.title}
-						</h3>
-
-						{/* Description */}
-						<p class="mt-1 font-sans text-[13px] leading-[1.5] text-text-muted">
-							{zone.description}
-						</p>
-
-						{/* Module pills */}
-						<div class="mt-4 flex flex-col gap-1.5">
-							{zone.modules.map((mod) => (
-								<a
-									href={lp(`/modules/${mod.slug}`)}
-									class="group inline-flex items-center gap-1.5 rounded-[8px] border px-3 py-1.5 font-mono text-[12px] transition-all duration-200 hover:-translate-y-px"
-									style={`border-color: ${zone.color}20; background: ${zone.color}06;`}
-								>
-									<span style={`color: ${zone.color};`} class="text-[10px]">{"\u25C7"}</span>
-									<span class="text-text group-hover:text-text">{mod.name}</span>
-									{mod.badge && (
-										<span
-											class="ml-auto text-[9px] font-medium uppercase tracking-[0.08em] opacity-60"
-											style={`color: ${zone.color};`}
-										>
-											{mod.badge}
-										</span>
-									)}
-								</a>
-							))}
-						</div>
-					</div>
-				</>
-			))}
-		</div>
-
-		{/* Cycle indicator (desktop) */}
-		<div class="hidden lg:flex justify-end mt-2 mr-4">
-			<span class="font-mono text-[11px] text-text-muted opacity-50">
-				{"\u21B3"} cycle back to Validate
-			</span>
-		</div>
-
-		{/* Tablet: 2x2 grid */}
-		<div class="hidden md:grid lg:hidden grid-cols-2 gap-4">
-			{zones.map((zone, idx) => (
-				<>
-					{/* Arrow between row 1 and row 2 */}
-					{idx === 2 && (
-						<div class="col-span-2 flex justify-center py-1">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-text-muted opacity-30">
-								<path d="M12 0V20M12 20L4 12M12 20L20 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-							</svg>
-						</div>
-					)}
-					<div
-						class="rounded-[14px] border p-5 transition-all duration-300 hover:shadow-lg"
-						style={`border-color: ${zone.color}30; background: ${zone.color}08;`}
-					>
-						<span
-							class="inline-block rounded-[6px] border px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-[0.1em]"
-							style={`border-color: ${zone.color}40; color: ${zone.color}; background: ${zone.color}10;`}
-						>
-							{zone.persona}
-						</span>
-						<h3 class="mt-3 font-sans text-[18px] font-bold" style={`color: ${zone.color};`}>
-							{zone.title}
-						</h3>
-						<p class="mt-1 font-sans text-[13px] leading-[1.5] text-text-muted">
-							{zone.description}
-						</p>
-						<div class="mt-4 flex flex-wrap gap-1.5">
-							{zone.modules.map((mod) => (
-								<a
-									href={lp(`/modules/${mod.slug}`)}
-									class="inline-flex items-center gap-1.5 rounded-[8px] border px-3 py-1.5 font-mono text-[12px] transition-all duration-200"
-									style={`border-color: ${zone.color}20; background: ${zone.color}06;`}
-								>
-									<span style={`color: ${zone.color};`} class="text-[10px]">{"\u25C7"}</span>
-									<span class="text-text">{mod.name}</span>
-									{mod.badge && (
-										<span class="text-[9px] font-medium uppercase tracking-[0.08em] opacity-60" style={`color: ${zone.color};`}>
-											{mod.badge}
-										</span>
-									)}
-								</a>
-							))}
-						</div>
-					</div>
-				</>
-			))}
-		</div>
-
-		{/* Mobile: vertical stack */}
-		<div class="flex flex-col md:hidden">
-			{zones.map((zone, idx) => (
-				<>
-					{idx > 0 && (
-						<div class="flex items-center justify-center py-3">
-							<svg width="24" height="32" viewBox="0 0 24 32" fill="none" style={`color: ${zone.color}`} class="opacity-40">
-								<path d="M12 0V28M12 28L4 20M12 28L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-							</svg>
-						</div>
-					)}
-					<div
-						class="rounded-[14px] border p-5 transition-all duration-300"
-						style={`border-color: ${zone.color}30; background: ${zone.color}08;`}
-					>
-						<span
-							class="inline-block rounded-[6px] border px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-[0.1em]"
-							style={`border-color: ${zone.color}40; color: ${zone.color}; background: ${zone.color}10;`}
-						>
-							{zone.persona}
-						</span>
-						<h3 class="mt-3 font-sans text-[18px] font-bold" style={`color: ${zone.color};`}>
-							{zone.title}
-						</h3>
-						<p class="mt-1 font-sans text-[13px] leading-[1.5] text-text-muted">
-							{zone.description}
-						</p>
-						<div class="mt-4 flex flex-wrap gap-1.5">
-							{zone.modules.map((mod) => (
-								<a
-									href={lp(`/modules/${mod.slug}`)}
-									class="inline-flex items-center gap-1.5 rounded-[8px] border px-3 py-1.5 font-mono text-[12px] transition-all duration-200"
-									style={`border-color: ${zone.color}20; background: ${zone.color}06;`}
-								>
-									<span style={`color: ${zone.color};`} class="text-[10px]">{"\u25C7"}</span>
-									<span class="text-text">{mod.name}</span>
-									{mod.badge && (
-										<span class="text-[9px] font-medium uppercase tracking-[0.08em] opacity-60" style={`color: ${zone.color};`}>
-											{mod.badge}
-										</span>
-									)}
-								</a>
-							))}
-						</div>
-					</div>
-				</>
-			))}
-			{/* Cycle indicator (mobile) */}
-			<div class="flex justify-center py-3">
-				<span class="font-mono text-[11px] text-text-muted opacity-50">
-					{"\u21BB"} cycle back to Validate
-				</span>
+		<div id="simulator" data-locale={locale}>
+			{/* Header */}
+			<div class="mb-12 text-center">
+				<SectionLabel text={config.sectionLabel} />
+				<h2 class="mt-4 font-sans text-[30px] font-bold leading-[1.1] tracking-[-0.02em] text-text md:text-[42px]">
+					{config.headline}
+				</h2>
+				<p class="mx-auto mt-3 max-w-[540px] font-sans text-[15px] leading-[1.6] text-text-secondary md:text-[17px]">
+					{config.subheadline}
+				</p>
 			</div>
-		</div>
 
-		{/* Cross-cutting: forge-prompts bar */}
-		<div class="mt-6">
+			{/* Persona Cards */}
+			<div class="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4 mb-8">
+				{personaModules.map((persona) => {
+					const tier = config.tiers.find((t) => t.id === persona.id);
+					const pillLimit = persona.id === "complete" ? 3 : 6;
+					const showPills = persona.modules.slice(0, pillLimit);
+					const extraCount = persona.modules.length - showPills.length;
+					return (
+						<button
+							type="button"
+							class="sim-persona group relative flex flex-col rounded-[14px] border border-card bg-surface p-4 text-left cursor-pointer transition-all duration-300"
+							data-persona={persona.id}
+						>
+							{persona.id === "pro" && (
+								<span class="absolute -top-2.5 right-4 rounded-full bg-secondary px-3 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-white">
+									{config.ui.recommendedLabel}
+								</span>
+							)}
+							<div class="flex items-baseline justify-between">
+								<span class="font-sans text-[16px] font-bold text-text">{persona.title}</span>
+								<span class="font-mono text-[13px] text-secondary">{tier?.price}</span>
+							</div>
+							<p class="mt-1.5 font-sans text-[13px] leading-[1.5] text-text-secondary">{persona.description}</p>
+							<div class="mt-auto pt-3 flex flex-wrap gap-1.5">
+								{showPills.map((mod) => (
+									<span class="rounded-full bg-[rgba(255,255,255,0.06)] px-2.5 py-0.5 font-mono text-[10px] text-text-muted">
+										{mod.name}
+									</span>
+								))}
+								{extraCount > 0 && (
+									<span class="rounded-full bg-[rgba(118,73,196,0.12)] px-2.5 py-0.5 font-mono text-[10px] text-secondary">
+										+{extraCount} more
+									</span>
+								)}
+							</div>
+							<div class="mt-3 flex items-center justify-between">
+								<span class="font-mono text-[11px] text-text-muted">
+									{persona.total} {config.ui.modulesIncluded}
+								</span>
+								<span class="font-mono text-[11px] font-medium text-secondary group-hover:translate-x-0.5 transition-transform">
+									{config.ui.buildButton} &rarr;
+								</span>
+							</div>
+						</button>
+					);
+				})}
+			</div>
+
+			{/* Assembly Area */}
+			<div id="assembly-area" class="sim-hidden sim-fade mb-8 grid gap-4 lg:grid-cols-[220px_1fr]">
+				{/* Diamond SVG */}
+				<div class="hidden lg:flex items-center justify-center">
+					<svg viewBox="0 0 200 210" width="200" height="210">
+						{/* Faint target outline */}
+						<g class="sim-pulse" transform="translate(100,95) rotate(45)">
+							<rect x="-36" y="-36" width="72" height="72" fill="none" stroke="currentColor"
+								stroke-width="1" stroke-dasharray="4 4" class="text-text-muted" opacity="0.15" />
+						</g>
+						{/* 4 diamond shards - scattered by default, assemble on build */}
+						<path id="shard-tr" class="shard" d="M100,95 L100,45 L150,95 Z"
+							fill="rgba(154,117,234,0.08)" stroke="#9A75EA" stroke-width="1.2" stroke-linejoin="round" />
+						<path id="shard-br" class="shard" d="M100,95 L150,95 L100,145 Z"
+							fill="rgba(59,130,246,0.08)" stroke="#3B82F6" stroke-width="1.2" stroke-linejoin="round" />
+						<path id="shard-bl" class="shard" d="M100,95 L100,145 L50,95 Z"
+							fill="rgba(16,185,129,0.08)" stroke="#10B981" stroke-width="1.2" stroke-linejoin="round" />
+						<path id="shard-tl" class="shard" d="M100,95 L50,95 L100,45 Z"
+							fill="rgba(245,158,11,0.08)" stroke="#F59E0B" stroke-width="1.2" stroke-linejoin="round" />
+						{/* Crack lines - visible when assembled without validation */}
+						<g id="crack-lines" class="crack-lines">
+							<line x1="100" y1="47" x2="100" y2="143" stroke="#D29922" stroke-width="1" stroke-dasharray="3 2" />
+							<line x1="52" y1="95" x2="148" y2="95" stroke="#D29922" stroke-width="1" stroke-dasharray="3 2" />
+						</g>
+						{/* Test: checkmark */}
+						<g id="layer-test" class="sim-layer" opacity="0">
+							<path d="M88 95 L96 103 L114 83" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+						</g>
+						{/* Scale: side diamonds */}
+						<g id="layer-scale" class="sim-layer" opacity="0">
+							<g transform="translate(50,95) rotate(45)">
+								<rect x="-11" y="-11" width="22" height="22" fill="rgba(16,185,129,0.1)" stroke="#10B981" stroke-width="1" />
+							</g>
+							<g transform="translate(150,95) rotate(45)">
+								<rect x="-11" y="-11" width="22" height="22" fill="rgba(16,185,129,0.1)" stroke="#10B981" stroke-width="1" />
+							</g>
+						</g>
+						{/* Grow: sparkles */}
+						<g id="layer-grow" class="sim-layer" opacity="0">
+							<circle cx="68" cy="66" r="2.5" fill="#F59E0B" class="sim-sparkle" />
+							<circle cx="134" cy="62" r="2" fill="#F59E0B" class="sim-sparkle" style="animation-delay:.3s" />
+							<circle cx="56" cy="124" r="2" fill="#F59E0B" class="sim-sparkle" style="animation-delay:.6s" />
+							<circle cx="144" cy="128" r="2.5" fill="#F59E0B" class="sim-sparkle" style="animation-delay:.9s" />
+							<circle cx="100" cy="52" r="1.5" fill="#F59E0B" class="sim-sparkle" style="animation-delay:.15s" />
+							<circle cx="100" cy="142" r="1.5" fill="#F59E0B" class="sim-sparkle" style="animation-delay:.45s" />
+						</g>
+						{/* Stage label */}
+						<text id="diamond-stage" x="100" y="190" text-anchor="middle"
+							font-family="ui-monospace,monospace" font-size="11" fill="currentColor" class="text-text-muted" opacity="0">
+						</text>
+					</svg>
+				</div>
+
+				{/* Terminal */}
+				<div class="rounded-[12px] border border-[#1e2a3a] bg-[#0d1117] overflow-hidden">
+					<div class="flex items-center gap-1.5 px-4 py-2 border-b border-[#1e2a3a]">
+						<span class="w-2.5 h-2.5 rounded-full bg-[#ff5f57]"></span>
+						<span class="w-2.5 h-2.5 rounded-full bg-[#febc2e]"></span>
+						<span class="w-2.5 h-2.5 rounded-full bg-[#28c840]"></span>
+						<span class="ml-2 font-mono text-[11px] text-[#8b949e]">Terminal</span>
+					</div>
+					<div id="terminal-body" class="h-[260px] sm:h-[280px] overflow-y-auto p-3 sm:p-4 font-mono text-[11px] sm:text-[12px] leading-[1.7]" aria-live="polite">
+						<div id="terminal-cursor" class="sim-cursor"></div>
+					</div>
+				</div>
+			</div>
+
+			{/* Health Metrics */}
+			<div id="metrics-panel" class="sim-hidden sim-fade mb-8">
+				<h3 class="mb-5 font-sans text-[20px] font-bold text-text">{config.ui.metricsHeadline}</h3>
+				<div class="grid gap-3 sm:grid-cols-2">
+					{config.metrics.map((m) => (
+						<div class="sim-metric rounded-[12px] border border-card bg-surface p-4" data-metric={m.id}>
+							<div class="flex items-baseline justify-between mb-2">
+								<span class="font-sans text-[13px] font-medium text-text">{m.label}</span>
+								<span class="flex items-baseline gap-1.5">
+									<span class="sim-md font-mono text-[11px] font-semibold hidden"></span>
+									<span class="sim-mv font-mono text-[13px] font-bold text-text-muted">0%</span>
+								</span>
+							</div>
+							<div class="relative h-2 rounded-full bg-[rgba(255,255,255,0.06)] overflow-hidden">
+								<div class="sim-mf-prev absolute inset-y-0 left-0 rounded-full transition-all duration-500 ease-out" style="width:0%"></div>
+								<div class="sim-mf relative h-full rounded-full transition-all duration-1000 ease-out" style="width:0%"></div>
+							</div>
+							<p class="sim-mi mt-2 font-sans text-[12px] leading-[1.5] text-text-muted"
+								data-zero={m.zeroImpact} data-full={m.fullImpact}>
+								{m.zeroImpact}
+							</p>
+							<p class="sim-mm mt-1 font-mono text-[11px] text-secondary opacity-70"></p>
+						</div>
+					))}
+				</div>
+
+				{/* Overall */}
+				<div class="mt-5 rounded-[12px] border border-card bg-surface p-5">
+					<div class="flex items-baseline justify-between mb-2">
+						<span class="font-sans text-[15px] font-bold text-text">{config.ui.overallLabel}</span>
+						<span class="flex items-baseline gap-2">
+							<span id="ov-delta" class="font-mono text-[12px] font-semibold hidden"></span>
+							<span id="ov-val" class="font-mono text-[18px] font-bold text-secondary">0%</span>
+						</span>
+					</div>
+					<div class="relative h-3 rounded-full bg-[rgba(255,255,255,0.06)] overflow-hidden">
+						<div id="ov-fill-prev" class="absolute inset-y-0 left-0 rounded-full transition-all duration-500 ease-out" style="width:0%"></div>
+						<div id="ov-fill" class="relative h-full rounded-full bg-secondary transition-all duration-1000 ease-out" style="width:0%"></div>
+					</div>
+					<p id="rec-text" class="mt-3 font-sans text-[13px] leading-[1.6] text-text-secondary"></p>
+					<a id="cta-link" href={`${lp("/pricing")}`}
+						class="mt-4 inline-block rounded-[10px] bg-secondary px-6 py-2.5 font-sans text-[14px] font-semibold text-white transition-all duration-200 hover:opacity-90">
+					</a>
+				</div>
+			</div>
+
+			{/* Customize Panel */}
+			<div id="customize-panel" class="sim-hidden mb-8">
+				{/* Toggle header */}
+				<button id="customize-toggle" class="flex w-full items-center justify-between rounded-[14px] border border-card bg-surface px-5 py-3.5 transition-all hover:border-card-hover">
+					<span class="font-sans text-[14px] font-medium text-text">{config.ui.customizeLabel}</span>
+					<svg id="customize-chevron" class="h-4 w-4 text-text-muted transition-transform" viewBox="0 0 16 16" fill="none">
+						<path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+					</svg>
+				</button>
+				{/* Expandable body */}
+				<div id="customize-body" class="hidden mt-3 space-y-2">
+					{CAPABILITIES.map((cap) => {
+						const capI18n = config.capabilities.find((c) => c.id === cap.id);
+						const capModules = SIMULATOR_MODULES.filter((m) => cap.moduleIds.includes(m.id));
+						const tierLabel = config.tiers.find((t) => t.id === cap.tier)?.label;
+						return (
+							<label class="sim-cap-card flex items-start gap-3 rounded-[12px] border border-card bg-surface px-4 py-3 cursor-pointer transition-all hover:border-card-hover" data-cap={cap.id} data-tier={cap.tier}>
+								<input type="checkbox" class="sim-cap-cb mt-0.5" data-cap={cap.id} />
+								<div class="flex-1 min-w-0">
+									<div class="flex items-baseline gap-2">
+										<span class="font-sans text-[13px] font-medium text-text">{capI18n?.label}</span>
+										<span class="rounded-full bg-[rgba(255,255,255,0.06)] px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-text-muted">{tierLabel}</span>
+									</div>
+									<p class="mt-0.5 font-sans text-[12px] text-text-muted">{capI18n?.description}</p>
+									<div class="mt-1.5 flex flex-wrap gap-1">
+										{capModules.map((mod) => (
+											<a href={lp(`/modules/${mod.slug}`)} class="font-mono text-[10px] text-text-muted hover:text-secondary transition-colors" onclick="event.stopPropagation()">{mod.name}</a>
+										))}
+									</div>
+								</div>
+							</label>
+						);
+					})}
+					{/* Coverage + rebuild */}
+					<div class="flex items-center justify-between pt-2">
+						<div class="flex items-center gap-3">
+							<span class="font-sans text-[13px] text-text-muted">{config.ui.coverageLabel}:</span>
+							<span id="cust-coverage" class="font-mono text-[15px] font-bold text-secondary">0%</span>
+						</div>
+						<button type="button" id="rebuild-btn" class="rounded-[10px] bg-secondary px-5 py-2 font-sans text-[13px] font-semibold text-white transition-all hover:opacity-90 active:scale-[0.98]">
+							{config.ui.rebuildButton}
+						</button>
+					</div>
+				</div>
+			</div>
+
+			{/* Cross-cutting */}
 			<a
-				href={lp(`/modules/${crossCutting.slug}`)}
-				class="group flex items-center gap-3 rounded-[14px] border border-card bg-surface px-6 py-4 transition-all duration-300 hover:border-card-hover hover:shadow-[0_0_32px_rgba(118,73,196,0.08)]"
+				href={lp(`/modules/${config.crossCutting.slug}`)}
+				class="group flex items-center gap-3 rounded-[14px] border border-card bg-surface px-5 py-3.5 transition-all duration-300 hover:border-card-hover"
 			>
 				<span class="text-secondary text-[10px]">{"\u25C7"}</span>
 				<span class="font-mono text-[14px] font-medium text-text group-hover:text-secondary transition-colors">
-					{crossCutting.module}
+					{config.crossCutting.module}
 				</span>
-				<span class="hidden sm:inline font-mono text-[10px] uppercase tracking-[0.1em] text-text-muted">
-					cross-cutting
-				</span>
-				<span class="ml-auto font-sans text-[13px] text-text-muted">
-					{crossCutting.description}
-				</span>
+				<span class="hidden sm:inline font-mono text-[10px] uppercase tracking-[0.1em] text-text-muted">cross-cutting</span>
+				<span class="ml-auto font-sans text-[13px] text-text-muted">{config.crossCutting.description}</span>
 			</a>
 		</div>
 	</Container>
 </section>
+
+<style>
+	/* Visibility */
+	.sim-hidden { display: none; }
+	.sim-fade { animation: simFadeIn 0.5s ease-out; }
+	@keyframes simFadeIn {
+		from { opacity: 0; transform: translateY(16px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+
+	/* Persona cards */
+	.sim-persona[data-selected="true"] {
+		border-color: rgb(118, 73, 196);
+		box-shadow: 0 0 24px rgba(118, 73, 196, 0.1);
+	}
+	.sim-persona:not([data-selected="true"]):hover {
+		border-color: rgba(118, 73, 196, 0.3);
+	}
+
+	/* Capability checkboxes */
+	.sim-cap-cb {
+		appearance: none;
+		width: 14px; height: 14px;
+		border: 1.5px solid rgba(255,255,255,0.2);
+		border-radius: 3px;
+		background: transparent;
+		cursor: pointer;
+		transition: all 0.15s;
+		flex-shrink: 0;
+	}
+	.sim-cap-cb:checked {
+		background: rgb(118, 73, 196);
+		border-color: rgb(118, 73, 196);
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 7.5L5.5 10L11 4' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	}
+
+	/* Capability card active state */
+	.sim-cap-card:has(.sim-cap-cb:checked) {
+		border-color: rgba(118, 73, 196, 0.3);
+		background: rgba(118, 73, 196, 0.04);
+	}
+
+	/* Customize chevron rotation */
+	#customize-chevron.open { transform: rotate(180deg); }
+
+	/* Terminal scrollbar */
+	#terminal-body::-webkit-scrollbar { width: 4px; }
+	#terminal-body::-webkit-scrollbar-track { background: transparent; }
+	#terminal-body::-webkit-scrollbar-thumb { background: #1e2a3a; border-radius: 2px; }
+
+	/* Terminal lines */
+	.tl { opacity: 0; transition: opacity 0.12s; white-space: pre; }
+	.tl.v { opacity: 1; }
+	.tl-cmd { color: #d2a8ff; }
+	.tl-out { color: #e6edf3; }
+	.tl-ok  { color: #3fb950; font-weight: 600; }
+	.tl-skip { color: #d29922; opacity: 0.6; }
+	.tl-stg { color: #58a6ff; font-weight: 600; margin-top: 6px; }
+	.tl .chk { color: #3fb950; }
+
+	/* Cursor blink */
+	.sim-cursor::after { content: '\u25CB'; animation: blink 1s step-end infinite; color: #e6edf3; opacity: 0.7; }
+	@keyframes blink { 50% { opacity: 0; } }
+
+	/* Diamond shards */
+	.shard {
+		transform-origin: 100px 95px;
+		transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease-out;
+	}
+	/* Scattered (default) */
+	#shard-tr { transform: translate(14px, -22px) rotate(10deg); opacity: 0.35; }
+	#shard-br { transform: translate(20px, 14px) rotate(-8deg); opacity: 0.35; }
+	#shard-bl { transform: translate(-14px, 22px) rotate(10deg); opacity: 0.35; }
+	#shard-tl { transform: translate(-20px, -14px) rotate(-8deg); opacity: 0.35; }
+	/* Drift (VALIDATE) */
+	.shard.drift { opacity: 0.7; }
+	#shard-tr.drift { transform: translate(3px, -4px) rotate(2deg); }
+	#shard-br.drift { transform: translate(4px, 3px) rotate(-1deg); }
+	#shard-bl.drift { transform: translate(-3px, 4px) rotate(2deg); }
+	#shard-tl.drift { transform: translate(-4px, -3px) rotate(-1deg); }
+	/* Snap (BUILD after VALIDATE) - ID selectors to beat scattered defaults */
+	#shard-tr.snap, #shard-br.snap, #shard-bl.snap, #shard-tl.snap {
+		transform: translate(0, 0) rotate(0deg); opacity: 1;
+	}
+	/* Cracked (BUILD without VALIDATE) - misaligned, visible gaps + rotation */
+	#shard-tr.cracked { transform: translate(3px, -4px) rotate(3deg); opacity: 0.75; }
+	#shard-br.cracked { transform: translate(4px, 3px) rotate(-2deg); opacity: 0.75; }
+	#shard-bl.cracked { transform: translate(-3px, 4px) rotate(2deg); opacity: 0.75; }
+	#shard-tl.cracked { transform: translate(-4px, -3px) rotate(-3deg); opacity: 0.75; }
+	/* Crack lines */
+	.crack-lines { opacity: 0; transition: opacity 0.8s ease-out; }
+	.crack-lines.visible { opacity: 1; }
+	/* Diamond layers (test/scale/grow) */
+	.sim-layer { transition: opacity 0.8s ease-out; }
+	.sim-pulse { animation: dPulse 3s ease-in-out infinite; }
+	@keyframes dPulse { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.3; } }
+	.sim-sparkle { animation: sparkle 2s ease-in-out infinite; }
+	@keyframes sparkle { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+	/* Metric bar colors */
+	.mf-red { background: #ef4444; }
+	.mf-yel { background: #eab308; }
+	.mf-grn { background: #22c55e; }
+
+	/* Ghost bar (previous score) */
+	.sim-mf-prev, #ov-fill-prev {
+		background: rgba(255,255,255,0.12);
+		border-right: 2px dashed rgba(255,255,255,0.3);
+		opacity: 0;
+	}
+	.sim-mf-prev.vis, #ov-fill-prev.vis { opacity: 1; }
+
+	/* Delta badges */
+	.sim-md, #ov-delta {
+		padding: 1px 6px;
+		border-radius: 4px;
+		line-height: 1.3;
+	}
+	.delta-up { color: #22c55e; background: rgba(34,197,94,0.1); }
+	.delta-down { color: #ef4444; background: rgba(239,68,68,0.1); }
+	.delta-same { color: #64748b; background: rgba(100,116,139,0.1); }
+</style>
+
+<script>
+	import {
+		simulatorI18n,
+		SIMULATOR_MODULES,
+		CAPABILITIES,
+		BASE_MODULES,
+		TIER_PRESETS,
+		METRIC_CONTRIBUTIONS,
+		METRIC_WEIGHTS,
+		TERMINAL_STAGES,
+		DIAMOND_LAYERS,
+	} from "@shared/config/ecosystem";
+
+	const $ = (s: string) => document.querySelector(s) as HTMLElement;
+	const $$ = (s: string) => document.querySelectorAll(s);
+
+	// Locale + i18n
+	const locale = $("#simulator")?.dataset.locale || "en";
+	const t = simulatorI18n[locale] || simulatorI18n.en;
+
+	// Key elements
+	const assemblyArea = $("#assembly-area");
+	const termBody = $("#terminal-body");
+	const cursor = $("#terminal-cursor");
+	const metricsPanel = $("#metrics-panel");
+	const customizePanel = $("#customize-panel");
+	const customizeToggle = $("#customize-toggle");
+	const customizeBody = $("#customize-body");
+	const customizeChevron = $("#customize-chevron");
+	const custCoverage = $("#cust-coverage");
+	const rebuildBtn = $("#rebuild-btn");
+
+	// State
+	let running = false;
+	let cancel = false;
+	let built = false;
+	let activePersona: string = "";
+
+	const PERSONA_ORDER = ["starter", "pro", "complete"];
+
+	const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+	// ── Module resolution ────────────────────────────────────────────
+
+	function getPresetModules(personaId: string): Set<string> {
+		const capIds = TIER_PRESETS[personaId] || [];
+		const mods = new Set(BASE_MODULES);
+		capIds.forEach((cid) => {
+			const cap = CAPABILITIES.find((c) => c.id === cid);
+			cap?.moduleIds.forEach((m) => mods.add(m));
+		});
+		return mods;
+	}
+
+	function getModulesForPersona(personaId: string): Set<string> {
+		return getPresetModules(personaId);
+	}
+
+	function getModulesForCustom(): Set<string> {
+		const mods = new Set(getPresetModules(activePersona));
+		$$(".sim-cap-cb").forEach((cb) => {
+			const el = cb as HTMLInputElement;
+			if (el.checked) {
+				const capId = el.dataset.cap!;
+				const cap = CAPABILITIES.find((c) => c.id === capId);
+				cap?.moduleIds.forEach((m) => mods.add(m));
+			}
+		});
+		return mods;
+	}
+
+	// ── Coverage calculation ─────────────────────────────────────────
+
+	function calcCoverage(moduleIds: Set<string>): number {
+		let wSum = 0;
+		let wTotal = 0;
+		for (const [mid, contribs] of Object.entries(METRIC_CONTRIBUTIONS)) {
+			let score = 0;
+			for (const [modId, val] of Object.entries(contribs)) {
+				if (moduleIds.has(modId)) score += val;
+			}
+			score = Math.min(100, score);
+			const w = METRIC_WEIGHTS[mid] || 0;
+			wSum += score * w;
+			wTotal += w;
+		}
+		return wTotal > 0 ? Math.round(wSum / wTotal) : 0;
+	}
+
+	// ── Persona selection ────────────────────────────────────────────
+
+	function highlightPersonas(personaId: string) {
+		const idx = PERSONA_ORDER.indexOf(personaId);
+		$$(".sim-persona").forEach((card) => {
+			const cardIdx = PERSONA_ORDER.indexOf((card as HTMLElement).dataset.persona!);
+			(card as HTMLElement).dataset.selected = String(cardIdx <= idx && idx >= 0);
+		});
+	}
+
+	function selectPersona(personaId: string) {
+		activePersona = personaId;
+		highlightPersonas(personaId);
+		startAssembly();
+	}
+
+	// ── Terminal ──────────────────────────────────────────────────────
+
+	async function addLine(text: string, cls = "tl-out", typed = false): Promise<HTMLElement> {
+		const el = document.createElement("div");
+		el.className = `tl ${cls}`;
+		termBody.insertBefore(el, cursor);
+
+		if (typed && text) {
+			for (const ch of text) {
+				el.textContent += ch;
+				termBody.scrollTop = termBody.scrollHeight;
+				await sleep(15);
+				if (cancel) break;
+			}
+		} else {
+			el.textContent = text;
+		}
+
+		requestAnimationFrame(() => el.classList.add("v"));
+		termBody.scrollTop = termBody.scrollHeight;
+		return el;
+	}
+
+	function addCheck(lineEl: HTMLElement) {
+		const sp = document.createElement("span");
+		sp.className = "chk";
+		sp.textContent = " \u2713";
+		lineEl.appendChild(sp);
+	}
+
+	function padName(moduleId: string): string {
+		const mod = SIMULATOR_MODULES.find((m) => m.id === moduleId);
+		return (mod?.name || moduleId).padEnd(19);
+	}
+
+	// ── Diamond layers ───────────────────────────────────────────────
+
+	const STAGE_LAYER: Record<string, string> = {
+		VALIDATE: "validate",
+		ARCHITECTURE: "build",
+		DEVELOP: "test",
+		SCALE: "scale",
+		GROW: "grow",
+	};
+
+	let validated = false;
+
+	function activateLayer(layerId: string, selected: Set<string>) {
+		const layerMods = DIAMOND_LAYERS[layerId] || [];
+		if (!layerMods.some((m) => selected.has(m))) return;
+
+		if (layerId === "validate") {
+			validated = true;
+			document.querySelectorAll(".shard").forEach((s) => s.classList.add("drift"));
+		} else if (layerId === "build") {
+			const cls = validated ? "snap" : "cracked";
+			document.querySelectorAll(".shard").forEach((s) => {
+				s.classList.remove("drift");
+				s.classList.add(cls);
+			});
+			if (!validated) {
+				const cl = document.getElementById("crack-lines");
+				if (cl) cl.classList.add("visible");
+			}
+		} else {
+			const g = $(`#layer-${layerId}`);
+			if (g) g.setAttribute("opacity", "1");
+		}
+
+		const lbl = $("#diamond-stage");
+		if (lbl) {
+			lbl.textContent = layerId.toUpperCase();
+			lbl.setAttribute("opacity", "1");
+		}
+	}
+
+	function resetLayers() {
+		validated = false;
+		document.querySelectorAll(".shard").forEach((s) => {
+			s.classList.remove("drift", "snap", "cracked");
+		});
+		const cl = document.getElementById("crack-lines");
+		if (cl) cl.classList.remove("visible");
+		for (const id of ["test", "scale", "grow"]) {
+			const g = $(`#layer-${id}`);
+			if (g) g.setAttribute("opacity", "0");
+		}
+		const lbl = $("#diamond-stage");
+		if (lbl) lbl.setAttribute("opacity", "0");
+	}
+
+	// ── Score history (for delta display) ────────────────────────────
+
+	const prevScores: Record<string, number> = {};
+	let prevOverall = -1; // -1 = no previous build
+
+	// ── Assembly animation ───────────────────────────────────────────
+
+	async function startAssembly(customModules?: Set<string>) {
+		if (running) {
+			cancel = true;
+			await sleep(100);
+			cancel = false;
+			running = false;
+		}
+		running = true;
+		cancel = false;
+
+		const selected = customModules || getModulesForPersona(activePersona);
+		if (selected.size === 0) { running = false; return; }
+
+		// UI: show assembly, hide metrics + customize
+		metricsPanel.classList.add("sim-hidden");
+		customizePanel.classList.add("sim-hidden");
+		assemblyArea.classList.remove("sim-hidden");
+		// Force re-animation
+		assemblyArea.classList.remove("sim-fade");
+		void assemblyArea.offsetWidth;
+		assemblyArea.classList.add("sim-fade");
+
+		// Reset terminal + diamond
+		termBody.querySelectorAll(".tl").forEach((el) => el.remove());
+		resetLayers();
+
+		// Init
+		const modList = [...selected].join(",");
+		await addLine(`$ forge assembly --modules ${modList}`, "tl-cmd", true);
+		await sleep(250);
+		await addLine("Initializing pipeline...", "tl-out");
+		await sleep(350);
+
+		// Stages
+		for (const stage of TERMINAL_STAGES) {
+			if (cancel) break;
+
+			await addLine(`--- ${stage.label} ---`, "tl-stg");
+			await sleep(150);
+
+			let any = false;
+			for (const mod of stage.modules) {
+				if (cancel) break;
+
+				if (selected.has(mod.moduleId)) {
+					for (const line of mod.lines) {
+						const el = await addLine(line.text, "tl-out");
+						if (line.check) {
+							await sleep(250);
+							addCheck(el);
+						}
+						await sleep(100);
+					}
+					any = true;
+				} else {
+					await addLine(`${padName(mod.moduleId)}\u26A0 ${t.ui.skippedLabel}`, "tl-skip");
+					await sleep(60);
+				}
+			}
+
+			const layerId = STAGE_LAYER[stage.label];
+			if (layerId && any) activateLayer(layerId, selected);
+		}
+
+		if (!cancel) {
+			await sleep(350);
+			await addLine("", "tl-out");
+			await addLine(t.ui.pipelineComplete, "tl-ok");
+			await addLine(`${selected.size} ${t.ui.modulesConfigured}`, "tl-out");
+
+			await sleep(500);
+			showMetrics(selected);
+			showCustomize(selected);
+		}
+
+		running = false;
+		built = true;
+	}
+
+	// ── Metrics ──────────────────────────────────────────────────────
+
+	function deltaHTML(prev: number, curr: number): { text: string; cls: string } | null {
+		const diff = curr - prev;
+		if (diff > 0) return { text: `+${diff}%`, cls: "delta-up" };
+		if (diff < 0) return { text: `${diff}%`, cls: "delta-down" };
+		return null; // no change = hide delta
+	}
+
+	function showMetrics(selected: Set<string>) {
+		metricsPanel.classList.remove("sim-hidden");
+		metricsPanel.classList.remove("sim-fade");
+		void metricsPanel.offsetWidth;
+		metricsPanel.classList.add("sim-fade");
+
+		const hasPrev = prevOverall >= 0;
+		let wSum = 0;
+		let wTotal = 0;
+
+		for (const [mid, contribs] of Object.entries(METRIC_CONTRIBUTIONS)) {
+			let score = 0;
+			const missing: string[] = [];
+
+			for (const [modId, val] of Object.entries(contribs)) {
+				if (selected.has(modId)) {
+					score += val;
+				} else {
+					const mod = SIMULATOR_MODULES.find((m) => m.id === modId);
+					if (mod) missing.push(mod.name);
+				}
+			}
+			score = Math.min(100, score);
+
+			const w = METRIC_WEIGHTS[mid] || 0;
+			wSum += score * w;
+			wTotal += w;
+
+			const row = $(`.sim-metric[data-metric="${mid}"]`);
+			if (!row) continue;
+
+			const valEl = row.querySelector(".sim-mv") as HTMLElement;
+			const fillEl = row.querySelector(".sim-mf") as HTMLElement;
+			const prevFillEl = row.querySelector(".sim-mf-prev") as HTMLElement;
+			const deltaEl = row.querySelector(".sim-md") as HTMLElement;
+			const impEl = row.querySelector(".sim-mi") as HTMLElement;
+			const missEl = row.querySelector(".sim-mm") as HTMLElement;
+
+			const prev = prevScores[mid] ?? -1;
+
+			setTimeout(() => {
+				valEl.textContent = `${score}%`;
+				fillEl.style.width = `${score}%`;
+				fillEl.className = `sim-mf relative h-full rounded-full transition-all duration-1000 ease-out ${colorClass(score)}`;
+				impEl.textContent = score === 100 ? (impEl.dataset.full || "") : (impEl.dataset.zero || "");
+
+				if (missing.length > 0 && score < 100) {
+					missEl.textContent = `+ ${missing.join(", ")}`;
+				} else {
+					missEl.textContent = "";
+				}
+
+				// Ghost bar + delta
+				if (hasPrev && prev >= 0) {
+					const d = deltaHTML(prev, score);
+					if (d) {
+						prevFillEl.style.width = `${prev}%`;
+						prevFillEl.classList.add("vis");
+						deltaEl.textContent = d.text;
+						deltaEl.className = `sim-md font-mono text-[11px] font-semibold ${d.cls}`;
+					} else {
+						prevFillEl.classList.remove("vis");
+						deltaEl.className = "sim-md font-mono text-[11px] font-semibold hidden";
+					}
+				} else {
+					prevFillEl.classList.remove("vis");
+					deltaEl.className = "sim-md font-mono text-[11px] font-semibold hidden";
+				}
+			}, 100);
+
+			// Save current as prev for next build
+			prevScores[mid] = score;
+		}
+
+		const overall = wTotal > 0 ? Math.round(wSum / wTotal) : 0;
+
+		setTimeout(() => {
+			const ovVal = $("#ov-val");
+			const ovFill = $("#ov-fill");
+			const ovFillPrev = $("#ov-fill-prev");
+			const ovDelta = $("#ov-delta");
+			const recText = $("#rec-text");
+			const ctaLink = $("#cta-link");
+
+			if (ovVal) ovVal.textContent = `${overall}%`;
+			if (ovFill) ovFill.style.width = `${overall}%`;
+
+			// Overall ghost bar + delta
+			if (hasPrev) {
+				const d = deltaHTML(prevOverall, overall);
+				if (d && ovFillPrev) {
+					ovFillPrev.style.width = `${prevOverall}%`;
+					ovFillPrev.classList.add("vis");
+				} else if (ovFillPrev) {
+					ovFillPrev.classList.remove("vis");
+				}
+				if (d && ovDelta) {
+					ovDelta.textContent = d.text;
+					ovDelta.className = `font-mono text-[12px] font-semibold ${d.cls}`;
+				} else if (ovDelta) {
+					ovDelta.className = "font-mono text-[12px] font-semibold hidden";
+				}
+			}
+
+			prevOverall = overall;
+
+			if (recText) {
+				if (overall === 100) recText.textContent = t.recommendations.full;
+				else if (overall >= 80) recText.textContent = t.recommendations.high;
+				else if (overall >= 40) recText.textContent = t.recommendations.medium;
+				else recText.textContent = t.recommendations.low;
+			}
+
+			if (ctaLink) {
+				const proMods = getPresetModules("pro");
+				const starterMods = getPresetModules("starter");
+
+				if (overall === 100) {
+					ctaLink.textContent = t.cta.alreadyFull;
+				} else if ([...proMods].every((m) => selected.has(m))) {
+					ctaLink.textContent = t.cta.toComplete;
+				} else if ([...starterMods].every((m) => selected.has(m))) {
+					ctaLink.textContent = t.cta.toPro;
+				} else {
+					ctaLink.textContent = t.cta.toStarter;
+				}
+			}
+
+			// Smooth scroll so metrics header is visible with some breathing room
+			metricsPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+		}, 200);
+	}
+
+	function colorClass(score: number): string {
+		if (score >= 80) return "mf-grn";
+		if (score >= 40) return "mf-yel";
+		return "mf-red";
+	}
+
+	// ── Customize panel ──────────────────────────────────────────────
+
+	function showCustomize(selected: Set<string>) {
+		// For complete persona, hide customize - everything is ON
+		if (activePersona === "complete") {
+			customizePanel.classList.add("sim-hidden");
+			return;
+		}
+
+		customizePanel.classList.remove("sim-hidden");
+
+		const presetCapIds = new Set(TIER_PRESETS[activePersona] || []);
+
+		// Configure capability checkboxes
+		$$(".sim-cap-card").forEach((card) => {
+			const capId = (card as HTMLElement).dataset.cap!;
+			const cb = card.querySelector(".sim-cap-cb") as HTMLInputElement;
+
+			if (presetCapIds.has(capId)) {
+				// Capability is in preset - hide the card
+				(card as HTMLElement).style.display = "none";
+				cb.checked = true;
+			} else {
+				// Show the card, unchecked by default
+				(card as HTMLElement).style.display = "";
+				cb.checked = false;
+			}
+		});
+
+		// Update coverage display
+		updateCoverage();
+
+		// Collapse body by default
+		customizeBody.classList.add("hidden");
+		customizeChevron.classList.remove("open");
+	}
+
+	function updateCoverage() {
+		const mods = getModulesForCustom();
+		const cov = calcCoverage(mods);
+		if (custCoverage) custCoverage.textContent = `${cov}%`;
+	}
+
+	// ── Event listeners ──────────────────────────────────────────────
+
+	// Persona card clicks
+	$$(".sim-persona").forEach((card) => {
+		card.addEventListener("click", () => {
+			selectPersona((card as HTMLElement).dataset.persona!);
+		});
+	});
+
+	// Customize toggle
+	if (customizeToggle) {
+		customizeToggle.addEventListener("click", () => {
+			customizeBody.classList.toggle("hidden");
+			customizeChevron.classList.toggle("open");
+		});
+	}
+
+	// Capability checkbox changes
+	$$(".sim-cap-cb").forEach((cb) => {
+		cb.addEventListener("change", () => {
+			updateCoverage();
+		});
+	});
+
+	// Rebuild button
+	if (rebuildBtn) {
+		rebuildBtn.addEventListener("click", () => {
+			const mods = getModulesForCustom();
+			startAssembly(mods);
+		});
+	}
+
+	// Initialize: highlight pro card (no auto-assembly)
+	highlightPersonas("pro");
+	activePersona = "pro";
+</script>
