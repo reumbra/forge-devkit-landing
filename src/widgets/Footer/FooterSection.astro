@@ -62,19 +62,19 @@ const footer = i18n(footerI18n, locale);
 				<p class="font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-text-muted mb-4">
 					{footer.subscribe.headline}
 				</p>
-				<form id="subscribe-form" class="flex gap-2" data-btn-label={footer.subscribe.buttonLabel}>
+				<form id="subscribe-form" class="flex flex-col gap-2 sm:flex-row" data-btn-label={footer.subscribe.buttonLabel}>
 					<input
 						type="email"
 						name="email"
 						required
 						placeholder={footer.subscribe.placeholder}
-						class="flex-1 rounded-lg border border-card bg-transparent px-4 py-2.5 font-sans text-[14px] text-text placeholder:text-text-muted/50 outline-none transition-colors duration-200 focus:border-primary"
+						class="flex-1 rounded-lg border border-[rgba(118,73,196,0.06)] bg-transparent px-4 py-2.5 font-sans text-[14px] text-text placeholder:text-text-muted/50 outline-none transition-colors duration-200 focus:border-primary"
 					/>
 					{/* Honeypot - hidden from real users */}
 					<input type="text" name="_hp" class="hidden" tabindex="-1" autocomplete="off" />
 					<button
 						type="submit"
-						class="rounded-lg bg-primary px-5 py-2.5 font-sans text-[14px] font-medium text-white transition-all duration-200 hover:brightness-110 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+						class="w-full rounded-lg bg-primary px-5 py-2.5 font-sans text-[14px] font-medium text-white transition-all duration-200 hover:brightness-110 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed sm:w-auto"
 					>
 						{footer.subscribe.buttonLabel}
 					</button>
