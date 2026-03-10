@@ -56,8 +56,38 @@ const footer = i18n(footerI18n, locale);
 			}
 		</div>
 
+		{/* Subscribe form */}
+		<div class="mt-12 border-t border-[rgba(118,73,196,0.06)] pt-8">
+			<div class="mx-auto max-w-md text-center">
+				<p class="font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-text-muted mb-4">
+					{footer.subscribe.headline}
+				</p>
+				<form id="subscribe-form" class="flex gap-2" data-btn-label={footer.subscribe.buttonLabel}>
+					<input
+						type="email"
+						name="email"
+						required
+						placeholder={footer.subscribe.placeholder}
+						class="flex-1 rounded-lg border border-card bg-transparent px-4 py-2.5 font-sans text-[14px] text-text placeholder:text-text-muted/50 outline-none transition-colors duration-200 focus:border-primary"
+					/>
+					{/* Honeypot - hidden from real users */}
+					<input type="text" name="_hp" class="hidden" tabindex="-1" autocomplete="off" />
+					<button
+						type="submit"
+						class="rounded-lg bg-primary px-5 py-2.5 font-sans text-[14px] font-medium text-white transition-all duration-200 hover:brightness-110 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+					>
+						{footer.subscribe.buttonLabel}
+					</button>
+				</form>
+				<p id="subscribe-message" class="mt-3 font-sans text-[12px] text-text-muted hidden"></p>
+				<p class="mt-2 font-sans text-[11px] text-text-muted/60">
+					{footer.subscribe.privacyNote}
+				</p>
+			</div>
+		</div>
+
 		{/* Bottom bar */}
-		<div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[rgba(118,73,196,0.06)] pt-8 md:flex-row">
+		<div class="mt-8 flex flex-col items-center justify-between gap-4 border-t border-[rgba(118,73,196,0.06)] pt-8 md:flex-row">
 			<div class="flex items-center gap-2">
 				<ReumbraLogo size={16} class="text-text-muted" />
 				<span class="font-sans text-[13px] text-text-muted">{footer.logo} {footer.companyTagline}</span>
@@ -69,12 +99,62 @@ const footer = i18n(footerI18n, locale);
 	</Container>
 </footer>
 
-<script>
-	declare const zaraz: { showConsentModal?: () => void } | undefined;
+<script
+	is:inline
+	define:vars={{
+		successMsg: footer.subscribe.successMessage,
+		errorMsg: footer.subscribe.errorMessage,
+		lang: locale === "ru" ? "ru" : "en",
+	}}
+>
+	(function () {
+		var form = document.getElementById("subscribe-form");
+		var msgEl = document.getElementById("subscribe-message");
+		if (!form || !msgEl) return;
 
-	document.querySelector("[data-action='zaraz-consent']")?.addEventListener("click", () => {
-		if (typeof zaraz !== "undefined" && zaraz?.showConsentModal) {
-			zaraz.showConsentModal();
+		form.addEventListener("submit", function (e) {
+			e.preventDefault();
+			var fd = new FormData(form);
+			var email = (fd.get("email") || "").toString().trim();
+			var hp = (fd.get("_hp") || "").toString();
+			if (!email) return;
+
+			var btn = form.querySelector("button[type='submit']");
+			if (btn) { btn.disabled = true; btn.textContent = "..."; }
+
+			fetch("https://api.reumbra.com/velvet/subscribe", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ email: email, source: "footer", language: lang, _hp: hp }),
+			})
+				.then(function (res) {
+					if (!res.ok) throw new Error("fail");
+					msgEl.textContent = successMsg;
+					msgEl.className = "mt-3 font-sans text-[12px] text-emerald-400";
+					form.reset();
+				})
+				.catch(function () {
+					msgEl.textContent = errorMsg;
+					msgEl.className = "mt-3 font-sans text-[12px] text-red-400";
+				})
+				.finally(function () {
+					if (btn) {
+						btn.disabled = false;
+						btn.textContent = form.dataset.btnLabel || "Subscribe";
+					}
+				});
+		});
+	})();
+
+	// Zaraz consent
+	(function () {
+		var el = document.querySelector("[data-action='zaraz-consent']");
+		if (el) {
+			el.addEventListener("click", function () {
+				if (typeof zaraz !== "undefined" && zaraz && zaraz.showConsentModal) {
+					zaraz.showConsentModal();
+				}
+			});
 		}
-	});
+	})();
 </script>

@@ -11,12 +11,22 @@ export interface FooterColumn {
 	links: FooterLink[];
 }
 
+export interface SubscribeConfig {
+	headline: string;
+	placeholder: string;
+	buttonLabel: string;
+	successMessage: string;
+	errorMessage: string;
+	privacyNote: string;
+}
+
 export interface FooterConfig {
 	logo: string;
 	companyName: string;
 	companyTagline: string;
 	columns: FooterColumn[];
 	copyright: string;
+	subscribe: SubscribeConfig;
 	finalCta: {
 		headline: string;
 		subheadline: string;
@@ -71,6 +81,14 @@ export const footer = {
 		},
 	],
 	copyright: "\u00a9 2026 Reumbra O\u00dc",
+	subscribe: {
+		headline: "Stay in the loop",
+		placeholder: "you@company.com",
+		buttonLabel: "Subscribe",
+		successMessage: "You're in! We'll keep you posted.",
+		errorMessage: "Something went wrong. Please try again.",
+		privacyNote: "No spam. Unsubscribe anytime.",
+	},
 	finalCta: {
 		headline: "Your AI should respect your architecture.",
 		subheadline: "50+ guardrails. 7-gate audit. Tests from requirements. One setup.",
@@ -84,6 +102,14 @@ const footerRu: FooterConfig = {
 	logo: "Forge DevKit",
 	companyName: "Reumbra",
 	companyTagline: "by Reumbra",
+	subscribe: {
+		headline: "Будьте в курсе",
+		placeholder: "you@company.com",
+		buttonLabel: "Подписаться",
+		successMessage: "Готово! Будем держать в курсе.",
+		errorMessage: "Что-то пошло не так. Попробуйте ещё раз.",
+		privacyNote: "Без спама. Отписка в любой момент.",
+	},
 	columns: [
 		{
 			title: "Продукт",

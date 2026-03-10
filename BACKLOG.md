@@ -53,6 +53,13 @@
 | BL-046 | P2 | done | Marketing: Token Economy as value prop (execution modes, context isolation, P25 artifacts) | `[copy]` `[cro]` `[content]` |
 | BL-047 | P2 | done | Terms page: add /refund link + create /refund page (EN+RU) | `[legal]` `[gdpr]` |
 | BL-048 | P2 | backlog | Launch pricing → regular pricing transition + ad coupons | `[pricing]` `[ads]` `[revenue]` |
+| BL-049 | P1 | backlog | Blog/Changelog: инфраструктура + скилл blog для ведения | `[launch]` `[content]` `[infra]` |
+| BL-050 | P1 | backlog | Twitter/X: аккаунт + контент-план + скилл twitter | `[launch]` `[social]` `[marketing]` |
+| BL-051 | P1 | backlog | Reddit: стратегия присутствия + скилл reddit | `[launch]` `[social]` `[marketing]` |
+| BL-052 | P2 | backlog | Лицензии блогерам/ютуберам: outreach + tracking | `[launch]` `[borrowed-channel]` |
+| BL-053 | P2 | backlog | AI newsletters: питч в TLDR, Ben's Bites, The Rundown AI | `[launch]` `[borrowed-channel]` |
+| BL-054 | P1 | backlog | Demo video + GIF/скринкасты для launch assets | `[launch]` `[content]` `[assets]` |
+| BL-055 | P1 | backlog | Product Hunt: подготовка листинга + launch day plan | `[launch]` `[marketing]` |
 
 ---
 
@@ -234,6 +241,115 @@ Pricing, plan names, included modules, and checkout URLs must be consistent acro
 7. Обновить product-marketing-context.md
 
 **Триггер:** решение принимается после первых 2-4 недель трафика, когда понятна конверсия.
+
+### BL-049: Blog/Changelog — инфраструктура + скилл blog
+
+**Цель:** Создать blog-секцию на лендинге (reumbra.dev/forge/blog) и скилл `blog` для AI-assisted ведения.
+
+**Инфра:**
+- Astro content collection для постов (MDX)
+- Страницы: /blog (лист), /blog/{slug} (пост), RSS feed
+- Категории: changelog, tutorial, comparison, case-study
+- EN + RU
+
+**Скилл blog:**
+- Запускает цепочку: тема -> copywriting skill -> copy-editing skill -> SEO audit -> publish
+- Интеграция с marketing-skills (copywriting, seo-audit, content-strategy)
+- Шаблоны постов по категориям
+- Auto-generate changelog posts из version-history.md
+
+**Первые посты (launch content):**
+1. "Introducing Forge DevKit" (launch announcement)
+2. "Why AI agents need architecture context" (thought leadership)
+3. "Forge DevKit v8.0: Parallel Batch Setup" (changelog)
+
+### BL-050: Twitter/X — аккаунт + контент-план + скилл twitter
+
+**Цель:** Присутствие в Twitter/X как основной rented channel для dev-аудитории.
+
+**Setup:**
+- Аккаунт @reumbra или @forgedevkit
+- Bio, pinned tweet, banner
+- Скилл `twitter` для генерации тредов и постов через social-content skill
+
+**Контент-план (первые 2 недели pre-launch):**
+- Тред 1: "Why your AI agent writes bad code (and how to fix it)"
+- Тред 2: "One command setup demo" (с GIF)
+- Тред 3: "Token economy - stop burning $50 per session"
+- Ежедневные tips/observations об AI coding workflows
+- Retweets/engagement в AI dev community
+
+**Скилл twitter:** генерация постов -> copy-editing -> scheduling suggestions
+
+### BL-051: Reddit — стратегия + скилл reddit
+
+**Цель:** Органический reach через Reddit dev-сообщества.
+
+**Target subreddits:**
+- r/ClaudeAI (primary)
+- r/cursor
+- r/programming
+- r/webdev
+- r/devtools
+
+**Стратегия:** value-first (помогать в тредах, делиться insights) -> мягкое упоминание Forge когда релевантно -> Show HN/launch post
+
+**Скилл reddit:** генерация постов/комментов адаптированных под subreddit culture, через social-content + marketing-psychology skills
+
+### BL-052: Лицензии блогерам/ютуберам
+
+**Цель:** Borrowed channel - бесплатные лицензии для обзоров.
+
+**Тактика (по примеру TRMNL -> Snazzy Labs):**
+- Составить список 15-20 AI/DevTools YouTubers и блогеров
+- Отправить Complete лицензию + персональное письмо (cold-email skill)
+- Не платная спонсорская интеграция - просто "попробуйте, если понравится - расскажите"
+- Affiliate program через LemonSqueezy для мотивации
+
+**Targets:** AI coding channels, Claude Code reviewers, DevTools reviewers
+
+### BL-053: AI newsletters — питч
+
+**Цель:** Упоминание в крупных AI-рассылках для reach.
+
+**Targets:**
+- TLDR AI / TLDR Web Dev
+- Ben's Bites
+- The Rundown AI
+- Superhuman AI
+- Console.dev (devtools focused)
+
+**Формат:** Short pitch + demo GIF + unique angle ("first architecture-aware AI pipeline")
+
+### BL-054: Demo video + GIF/скринкасты
+
+**Цель:** Визуальные launch assets для всех каналов.
+
+**Assets to create:**
+1. **Demo video (2-3 мин):** `forge setup` на реальном проекте, от нуля до первой фичи
+2. **Hero GIF (15 сек):** terminal animation - setup command -> output
+3. **Feature GIFs (5-10 сек каждый):** architecture audit, TDD pipeline, Agent Teams
+4. **Social cards:** screenshots с overlay text для Twitter/Reddit
+
+**Tools:** OBS/asciinema для terminal recording, FFmpeg для GIF conversion
+
+### BL-055: Product Hunt — подготовка + launch
+
+**Цель:** Product Hunt launch как key launch event.
+
+**Prep (по case studies SavvyCal, Reform):**
+- Tagline (<=60 chars): "One command. AI that understands your architecture."
+- 5 screenshots/GIFs (hero, audit output, TDD pipeline, Agent Teams, pricing)
+- Maker comment draft (story: why built, who for, what's different)
+- First-day offer strategy (launch discount? exclusive tier?)
+- Hunter outreach (find relevant hunters)
+
+**Launch day plan:**
+- Publish 00:01 PST
+- Respond to every comment in real-time
+- Cross-post to Twitter, Reddit, HN ("Show HN")
+- Email blast (requires BL-049 blog + email list)
+- Monitor + engage all day
 
 ### BL-047: Terms page — Refund Link + /refund Page
 
