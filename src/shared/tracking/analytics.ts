@@ -14,6 +14,11 @@
  * - docs_view (pageload on /docs/*)
  * - pricing_feature_table_view (IntersectionObserver)
  * - module_click (click on links to /modules/*)
+ * - persona_select (click on simulator persona card)
+ * - assembly_complete (custom event from simulator)
+ * - customize_toggle (click on customize panel toggle)
+ * - capability_toggle (checkbox change on capability)
+ * - rebuild_click (click on rebuild button)
  */
 
 declare const zaraz:
@@ -47,7 +52,7 @@ const SECTION_INDEX: Record<string, number> = {
 	hero: 1,
 	problems: 2,
 	solution: 3,
-	pipeline: 4,
+	journey: 4,
 	"architecture-audit": 5,
 	"autopilot-orchestration": 6,
 	"requirement-traceability": 7,
@@ -346,6 +351,73 @@ function initPageContextTracking() {
 	}
 }
 
+// --- Simulator (Ecosystem Section) ---
+
+function initSimulatorTracking() {
+	if (getPageType() !== "homepage") return;
+
+	const lang = getLang();
+
+	// persona_select: click on persona card
+	document.addEventListener("click", (e) => {
+		const card = (e.target as HTMLElement).closest(
+			".sim-persona[data-persona]",
+		) as HTMLElement | null;
+		if (!card) return;
+
+		track("persona_select", {
+			persona_id: card.dataset.persona || "",
+			page_language: lang,
+		});
+	});
+
+	// assembly_complete: custom event dispatched from EcosystemSection.astro
+	document.addEventListener("forge:assembly-complete", ((
+		e: CustomEvent<{ persona: string; moduleCount: number }>,
+	) => {
+		track("assembly_complete", {
+			persona_id: e.detail.persona,
+			module_count: e.detail.moduleCount,
+			page_language: lang,
+		});
+	}) as EventListener);
+
+	// customize_toggle: expand/collapse customize panel
+	const toggleBtn = document.getElementById("customize-toggle");
+	if (toggleBtn) {
+		toggleBtn.addEventListener("click", () => {
+			const body = document.getElementById("customize-body");
+			const isOpening = body?.classList.contains("hidden");
+			track("customize_toggle", {
+				action: isOpening ? "open" : "close",
+				page_language: lang,
+			});
+		});
+	}
+
+	// capability_toggle: individual capability checkbox
+	for (const cb of document.querySelectorAll(".sim-cap-cb[data-cap]")) {
+		cb.addEventListener("change", () => {
+			const input = cb as HTMLInputElement;
+			track("capability_toggle", {
+				capability_id: input.dataset.cap || "",
+				enabled: input.checked,
+				page_language: lang,
+			});
+		});
+	}
+
+	// rebuild_click: re-run assembly after customization
+	const rebuildBtn = document.getElementById("rebuild-btn");
+	if (rebuildBtn) {
+		rebuildBtn.addEventListener("click", () => {
+			track("rebuild_click", {
+				page_language: lang,
+			});
+		});
+	}
+}
+
 // --- Init all trackers ---
 
 initSectionTracking();
@@ -356,3 +428,4 @@ initCheckoutTracking();
 initLangSwitchTracking();
 initModuleClickTracking();
 initPageContextTracking();
+initSimulatorTracking();

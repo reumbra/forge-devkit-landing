@@ -671,6 +671,11 @@ const personaModules = config.personas.map((p) => {
 			await sleep(500);
 			showMetrics(selected);
 			showCustomize(selected);
+
+			// Analytics: signal assembly complete
+			document.dispatchEvent(new CustomEvent("forge:assembly-complete", {
+				detail: { persona: activePersona, moduleCount: selected.size },
+			}));
 		}
 
 		running = false;
