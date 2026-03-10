@@ -1,11 +1,11 @@
 # Product Marketing Context
 
-*Last updated: 2026-03-08 (v2 - bundle restructure)*
+*Last updated: 2026-03-10 (v3 - narrative update)*
 *Source of truth for all marketing materials: landing, Lemon Squeezy, ads, social, emails.*
 
 ## Product Overview
 
-**One-liner:** Architecture-aware AI pipeline for Claude Code, Cursor, and any AI agent.
+**One-liner:** One command. From feature idea to tested code - for Claude Code, Cursor, and any AI agent.
 
 **What it does:** One command scans your repo - stack, layers, conventions - and generates guardrails, quality patterns, and dev-skills your AI actually follows. 15 modules: from architecture audit to Agent Teams. Works with Claude Code, Cursor, and any AI agent.
 

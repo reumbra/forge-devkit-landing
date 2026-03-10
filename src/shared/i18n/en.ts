@@ -1,5 +1,5 @@
 export const en = {
-	"site.title": "Forge DevKit  - Architecture-aware AI pipeline",
+	"site.title": "Forge DevKit - One command. From feature idea to tested code.",
 	"site.description":
 		"Auto-generates project-specific guardrails, quality patterns, and development workflows for AI coding agents across any platform.",
 	"nav.modules": "Modules",
