@@ -2,11 +2,11 @@
 import DocsLayout from "../../../layouts/DocsLayout.astro";
 import DocHighlight from "@shared/ui/DocHighlight.astro";
 
-const modules = [
+const coreModules = [
 	{
 		id: "core",
 		name: "forge-core",
-		tier: "Core+",
+		tier: "Starter+",
 		tagline: "Фундамент. Одна команда - и AI понимает весь ваш проект.",
 		description: "forge-core проводит 7-этапный архитектурный аудит: автоматически определяет стек, слои, соглашения и паттерны. Генерирует dev-скиллы и 50+ гайдрейлов качества, которые AI использует в каждой сессии. Без ручного промпт-инжиниринга. Без повторных объяснений архитектуры.",
 		benefits: [
@@ -44,7 +44,7 @@ const modules = [
 				],
 			},
 		],
-		workflow: "Установка → /forge:setup (7-этапный аудит) → /dev для начала работы. /forge:setup в любой момент для дашборда.",
+		workflow: "Установка \u2192 /forge:setup (7-этапный аудит) \u2192 /dev для начала работы. /forge:setup в любой момент для дашборда.",
 	},
 	{
 		id: "product",
@@ -78,17 +78,17 @@ const modules = [
 				],
 			},
 		],
-		workflow: "/forge:product-setup → /forge:product design для каждой фичи → stories попадают в /dev пайплайн.",
+		workflow: "/forge:product-setup \u2192 /forge:product design для каждой фичи \u2192 stories попадают в /dev пайплайн.",
 	},
 	{
 		id: "qa",
 		name: "forge-qa",
 		tier: "Pro+",
 		tagline: "Тесты, которые привязаны к требованиям. Не к догадкам AI.",
-		description: "forge-qa генерирует тесты из критериев приёмки, а не из предположений AI. 10 режимов тестирования и 4-уровневая матрица трассируемости: критерии приёмки → юнит-тесты, use cases → E2E-тесты, UX-критерии → визуальные тесты и LLM-as-Judge для оценки качества AI-output. Каждый тест доказывает требование - никаких orphan-тестов, никаких пробелов в покрытии.",
+		description: "forge-qa генерирует тесты из критериев приёмки, а не из предположений AI. 10 режимов тестирования и 4-уровневая матрица трассируемости: критерии приёмки \u2192 юнит-тесты, use cases \u2192 E2E-тесты, UX-критерии \u2192 визуальные тесты и LLM-as-Judge для оценки качества AI-output. Каждый тест доказывает требование - никаких orphan-тестов, никаких пробелов в покрытии.",
 		benefits: [
 			"Генерирует тесты из критериев приёмки - не из догадок",
-			"4-уровневая трассируемость: AC → юнит, UC → E2E, UX → визуальные, Judge",
+			"4-уровневая трассируемость: AC \u2192 юнит, UC \u2192 E2E, UX \u2192 визуальные, Judge",
 			"10 режимов тестирования для разных сценариев",
 			"LLM-as-Judge оценивает качество AI-сгенерированного вывода",
 			"Quality gates блокируют мердж, пока требования не покрыты",
@@ -107,13 +107,13 @@ const modules = [
 				subcommands: [
 					{ sub: "/forge:qa generate", detail: "Сгенерировать тесты из критериев приёмки или user stories" },
 					{ sub: "/forge:qa coverage", detail: "Проанализировать покрытие и предложить недостающие тесты" },
-					{ sub: "/forge:qa trace", detail: "Показать матрицу трассируемости (AC → тест → код)" },
+					{ sub: "/forge:qa trace", detail: "Показать матрицу трассируемости (AC \u2192 тест \u2192 код)" },
 					{ sub: "/forge:qa judge", detail: "Запустить LLM-as-Judge для оценки качества тестов" },
 					{ sub: "/forge:qa gate", detail: "Запустить quality gate проверки перед мерджем" },
 				],
 			},
 		],
-		workflow: "/forge:qa-setup → /forge:product design (генерирует AC) → /forge:qa generate → /forge:qa gate перед мерджем.",
+		workflow: "/forge:qa-setup \u2192 /forge:product design (генерирует AC) \u2192 /forge:qa generate \u2192 /forge:qa gate перед мерджем.",
 	},
 	{
 		id: "tracker",
@@ -146,7 +146,42 @@ const modules = [
 				],
 			},
 		],
-		workflow: "/forge:tracker-setup → /forge:tracker pick → /dev → /forge:tracker sync → /forge:tracker close.",
+		workflow: "/forge:tracker-setup \u2192 /forge:tracker pick \u2192 /dev \u2192 /forge:tracker sync \u2192 /forge:tracker close.",
+	},
+	{
+		id: "prompts",
+		name: "forge-prompts",
+		tier: "Pro+",
+		tagline: "Ваши AI-промпты - это код. Управляйте ими как кодом.",
+		description: "forge-prompts привносит инженерную строгость в управление промптами. Инвентаризирует все LLM-промпты в проекте, проверяет их по провайдер-специфичным лучшим практикам и отслеживает качество во времени. Три фреймворка (CO-STAR, RISEN, TIDD-EC) направляют структурированный дизайн промптов. Выделенный субагент занимается написанием и рефакторингом промптов.",
+		benefits: [
+			"Автоинвентаризация всех LLM-промптов в кодовой базе",
+			"Провайдер-специфичный аудит (Anthropic, OpenAI, generic)",
+			"3 структурированных фреймворка: CO-STAR, RISEN, TIDD-EC",
+			"Выделенный субагент prompt-engineer для написания и рефакторинга",
+			"Learning loop фиксирует паттерны промптов из вашего проекта",
+		],
+		commands: [
+			{
+				command: "/forge:prompts-setup",
+				description: "Настройка архитектуры промптов, принципов и провайдера.",
+				subcommands: [
+					{ sub: "/forge:prompts-setup", detail: "3-этапный визард: определение LLM, архитектура промптов, принципы" },
+				],
+			},
+			{
+				command: "/forge:prompts",
+				description: "Операции с промптами - инвентаризация, аудит, ревью, тест, эволюция.",
+				subcommands: [
+					{ sub: "/forge:prompts inventory", detail: "Сканировать кодовую базу и перечислить все LLM-промпты" },
+					{ sub: "/forge:prompts audit", detail: "Аудит промптов по лучшим практикам провайдера" },
+					{ sub: "/forge:prompts review", detail: "Глубокий ревью конкретного промпта с рекомендациями" },
+					{ sub: "/forge:prompts test", detail: "Тестировать промпт с примерными вводными данными" },
+					{ sub: "/forge:prompts evolve", detail: "Применить learning loop - зафиксировать паттерны, обновить принципы" },
+				],
+			},
+		],
+		workflow: "/forge:prompts-setup \u2192 inventory \u2192 audit \u2192 исправить проблемы \u2192 evolve.",
 	},
 	{
 		id: "autopilot",
@@ -167,19 +202,19 @@ const modules = [
 				description: "Запуск пакетного автономного пайплайна разработки.",
 				subcommands: [
 					{ sub: "/forge:autopilot --setup", detail: "Настроить режим автономности и источники фич" },
-					{ sub: "/forge:autopilot", detail: "Запустить пакет с настроенными источниками (триаж → волны → выполнение)" },
+					{ sub: "/forge:autopilot", detail: "Запустить пакет с настроенными источниками (триаж \u2192 волны \u2192 выполнение)" },
 					{ sub: '/forge:autopilot "auth, payments"', detail: "Запустить пакет с конкретными фичами" },
 					{ sub: "/forge:autopilot --resume", detail: "Возобновить прерванный пакет с последнего чекпоинта" },
 					{ sub: "/forge:autopilot --abort", detail: "Прервать текущий пакет и очистить worktree" },
 				],
 			},
 		],
-		workflow: "/forge:autopilot --setup → /forge:autopilot → агенты: триаж, детекция конфликтов, выполнение волнами → ревью результатов.",
+		workflow: "/forge:autopilot --setup \u2192 /forge:autopilot \u2192 агенты: триаж, детекция конфликтов, выполнение волнами \u2192 ревью результатов.",
 	},
 	{
 		id: "worktree",
 		name: "forge-worktree",
-		tier: "Complete",
+		tier: "Starter+",
 		tagline: "Изолированные ветки без конфликтов портов. Автоматическая очистка.",
 		description: "forge-worktree управляет жизненным циклом git worktree для параллельной разработки. Каждый worktree получает свою директорию, смещения Docker-портов и конфигурацию окружения - никаких конфликтов портов между ветками. Три шаблона: Docker backend (с изоляцией портов), Frontend (со смещениями dev-сервера) и Generic. Worktree создаются автоматически forge-autopilot или вручную.",
 		benefits: [
@@ -198,30 +233,299 @@ const modules = [
 				],
 			},
 		],
-		workflow: "/forge:worktree-setup → worktree создаются автоматически forge-autopilot или вручную через git worktree.",
+		workflow: "/forge:worktree-setup \u2192 worktree создаются автоматически forge-autopilot или вручную через git worktree.",
 	},
 ];
+
+const advisoryModules = [
+	{
+		id: "discovery",
+		name: "forge-discovery",
+		tier: "Complete",
+		tagline: "Валидируйте до начала разработки. Исследуйте до принятия решений.",
+		description: "forge-discovery структурирует хаотичную раннюю фазу разработки продукта. Вместо прыжка к коду, модуль проводит вас через идеацию, конкурентное исследование, валидацию проблемы и планирование пользовательских интервью. Результаты попадают напрямую в forge-product - к моменту проектирования фич у вас проверенные предположения, а не догадки.",
+		benefits: [
+			"Направленная идеация с фреймворками мозговых штурмов",
+			"Конкурентное исследование с анализом позиционирования",
+			"Валидация проблемы перед принятием решений",
+			"Генерация скриптов пользовательских интервью",
+			"Артефакты discovery подаются напрямую в forge-product",
+		],
+		commands: [
+			{
+				command: "/forge:discovery-setup",
+				description: "Настройка скоупа discovery и методологии исследования.",
+				subcommands: [
+					{ sub: "/forge:discovery-setup", detail: "Визард настройки - определение скоупа, целевого рынка, подхода к исследованию" },
+				],
+			},
+			{
+				command: "/forge:discovery",
+				description: "Операции product discovery - идеация, исследование, валидация, интервью.",
+				subcommands: [
+					{ sub: "/forge:discovery ideate", detail: "Структурированный мозговой штурм от идеи до карты возможностей" },
+					{ sub: "/forge:discovery research", detail: "Конкурентный анализ и исследование рынка" },
+					{ sub: "/forge:discovery validate", detail: "Валидация проблемы с доказательной оценкой" },
+					{ sub: "/forge:discovery interview", detail: "Генерация скриптов интервью и фреймворков анализа" },
+				],
+			},
+		],
+		workflow: "/forge:discovery-setup \u2192 ideate \u2192 research \u2192 validate \u2192 результаты в /forge:product.",
+	},
+	{
+		id: "marketing",
+		name: "forge-marketing",
+		tier: "Complete",
+		tagline: "От подтверждённой проблемы к продаваемому продукту. Стратегия, а не догадки.",
+		description: "forge-marketing превращает ваши продуктовые инсайты в маркетинговую стратегию. Генерирует позиционирование, рекомендации по ценообразованию, планы выхода на рынок и контент-календари - всё основано на данных вашего продукта, а не на шаблонах. Если установлены forge-discovery и forge-product, автоматически читает их артефакты для контекстных рекомендаций.",
+		benefits: [
+			"Фреймворк позиционирования под ваш продукт и рынок",
+			"Ценообразование на основе данных с конкурентным контекстом",
+			"Plan выхода на рынок с канальной стратегией и таймлайном",
+			"Контент-календарь привязанный к продуктовым вехам",
+			"Читает артефакты discovery и product для контекстного вывода",
+		],
+		commands: [
+			{
+				command: "/forge:marketing-setup",
+				description: "Настройка маркетингового скоупа и параметров стратегии.",
+				subcommands: [
+					{ sub: "/forge:marketing-setup", detail: "Визард настройки - определение рынка, каналов, ограничений бюджета" },
+				],
+			},
+			{
+				command: "/forge:marketing",
+				description: "Маркетинговые операции - позиционирование, цены, GTM, контент.",
+				subcommands: [
+					{ sub: "/forge:marketing position", detail: "Генерация фреймворка позиционирования и месседжинга" },
+					{ sub: "/forge:marketing price", detail: "Стратегия ценообразования с дизайном тиров и конкурентным анализом" },
+					{ sub: "/forge:marketing launch", detail: "План выхода на рынок с таймлайном и канальной стратегией" },
+					{ sub: "/forge:marketing content", detail: "Контент-календарь привязанный к продуктовому роадмапу" },
+				],
+			},
+		],
+		workflow: "/forge:marketing-setup \u2192 position \u2192 price \u2192 launch plan \u2192 контент-календарь.",
+	},
+	{
+		id: "copy",
+		name: "forge-copy",
+		tier: "Complete",
+		tagline: "Единый голос на каждом экране, в каждом письме и уведомлении.",
+		description: "forge-copy управляет продакшн-копирайтингом как первоклассной задачей. Определите голос бренда один раз - модуль генерирует и проверяет UI-микрокопи, шаблоны писем, тексты уведомлений и сообщения об ошибках по вашим гайдлайнам. Если установлены forge-product или forge-marketing, использует их позиционирование и пользовательские исследования для копи на языке клиента.",
+		benefits: [
+			"Конфигурация голоса бренда с правилами тона и стиля",
+			"Генерация UI-микрокопи, писем, уведомлений, сообщений об ошибках",
+			"Ревью существующего копи по гайдлайнам бренда",
+			"Использует продуктовый и маркетинговый контекст",
+			"Проверки консистентности по всем точкам контакта",
+		],
+		commands: [
+			{
+				command: "/forge:copy-setup",
+				description: "Настройка голоса бренда, правил тона и скоупа копи.",
+				subcommands: [
+					{ sub: "/forge:copy-setup", detail: "Визард настройки - определение голоса, тона, терминологии, правил стиля" },
+				],
+			},
+			{
+				command: "/forge:copy",
+				description: "Операции с копи - генерация и ревью во всех контекстах.",
+				subcommands: [
+					{ sub: "/forge:copy generate", detail: "Генерировать копи для контекста (UI, email, уведомление)" },
+					{ sub: "/forge:copy review", detail: "Ревью существующего копи по гайдлайнам голоса бренда" },
+				],
+			},
+		],
+		workflow: "/forge:copy-setup \u2192 generate для каждого контекста \u2192 review перед релизом.",
+	},
+	{
+		id: "seo",
+		name: "forge-seo",
+		tier: "Complete",
+		tagline: "Техническое SEO, которое AI реально понимает. Не чеклист - стратегия.",
+		description: "forge-seo объединяет технический SEO-аудит с исследованием ключевых слов и генерацией schema-разметки. Сканирует страницы на проблемы (отсутствующие мета-теги, сломанные структурированные данные, узкие места производительности), исследует ключевые слова под ваше позиционирование и генерирует JSON-LD schema-разметку. Если установлен forge-analytics, коррелирует SEO-метрики с данными о поведении пользователей.",
+		benefits: [
+			"Технический SEO-аудит с приоритизированным списком исправлений",
+			"Исследование ключевых слов привязанное к позиционированию",
+			"Генерация JSON-LD schema-разметки для rich snippets",
+			"Анализ контент-гэпов по ранжированию конкурентов",
+			"Корреляция с данными аналитики при наличии forge-analytics",
+		],
+		commands: [
+			{
+				command: "/forge:seo-setup",
+				description: "Настройка SEO-скоупа и целевых параметров.",
+				subcommands: [
+					{ sub: "/forge:seo-setup", detail: "Визард настройки - определение целевых страниц, ключевых слов, конкурентов" },
+				],
+			},
+			{
+				command: "/forge:seo",
+				description: "SEO-операции - аудит, ключевые слова, schema-разметка.",
+				subcommands: [
+					{ sub: "/forge:seo audit", detail: "Технический SEO-аудит с приоритизированным списком проблем" },
+					{ sub: "/forge:seo keywords", detail: "Исследование ключевых слов с анализом поискового интента" },
+					{ sub: "/forge:seo schema", detail: "Генерация JSON-LD структурированных данных" },
+				],
+			},
+		],
+		workflow: "/forge:seo-setup \u2192 audit \u2192 исправить проблемы \u2192 keywords \u2192 schema.",
+	},
+	{
+		id: "analytics",
+		name: "forge-analytics",
+		tier: "Complete",
+		tagline: "Метрики прежде всего. Планируйте трекинг до отправки в прод.",
+		description: "forge-analytics переворачивает стандартный подход: вместо добавления трекинга после запуска, вы определяете план измерений во время разработки. Генерирует схемы событий, планы трекинга и спецификации дашбордов до написания первой строки трекинг-кода. Команда точно знает, какие данные будут в день запуска.",
+		benefits: [
+			"Планы трекинга measurement-first определяются во время разработки",
+			"Генерация схем событий с конвенциями именования",
+			"Спецификации дашбордов готовые к реализации",
+			"Привязка к продуктовым артефактам (user flows, критерии приёмки)",
+			"Никаких пробелов в трекинге после запуска - планируйте до отправки",
+		],
+		commands: [
+			{
+				command: "/forge:analytics-setup",
+				description: "Настройка скоупа аналитики и стратегии измерений.",
+				subcommands: [
+					{ sub: "/forge:analytics-setup", detail: "Визард настройки - определение ключевых метрик, событий, источников данных" },
+				],
+			},
+			{
+				command: "/forge:analytics",
+				description: "Операции аналитики - планы трекинга, схемы событий, дашборды.",
+				subcommands: [
+					{ sub: "/forge:analytics plan", detail: "Генерация плана измерений с KPI и таксономией событий" },
+					{ sub: "/forge:analytics schema", detail: "Генерация схем событий с конвенциями именования" },
+					{ sub: "/forge:analytics dashboard", detail: "Проектирование спецификаций дашбордов для ключевых метрик" },
+				],
+			},
+		],
+		workflow: "/forge:analytics-setup \u2192 plan \u2192 schema \u2192 реализация трекинга \u2192 dashboard.",
+	},
+	{
+		id: "onboarding",
+		name: "forge-onboarding",
+		tier: "Complete",
+		tagline: "От регистрации до aha-момента. Проектируйте путь, а не только страницу.",
+		description: "forge-onboarding проектирует потоки активации, которые превращают регистрации в вовлечённых пользователей. Строит маршрут от первого входа до \"aha-момента\" - точки, где пользователь ощущает ключевую ценность. Генерирует пошаговые потоки онбординга, дизайн пустых состояний, последовательности тултипов и индикаторы прогресса.",
+		benefits: [
+			"Проектирование потока активации от регистрации до aha-момента",
+			"Спецификации пустых состояний и первого запуска",
+			"Планирование последовательностей тултипов и гайд-туров",
+			"Проектирование индикаторов прогресса и вех",
+			"Аудит существующего онбординга на точки отвала",
+		],
+		commands: [
+			{
+				command: "/forge:onboarding-setup",
+				description: "Настройка скоупа онбординга и целей активации.",
+				subcommands: [
+					{ sub: "/forge:onboarding-setup", detail: "Визард настройки - определение aha-момента, шагов активации, персон" },
+				],
+			},
+			{
+				command: "/forge:onboarding",
+				description: "Операции онбординга - проектирование потоков, аудит опыта.",
+				subcommands: [
+					{ sub: "/forge:onboarding design", detail: "Проектирование потока активации от регистрации до aha-момента" },
+					{ sub: "/forge:onboarding audit", detail: "Аудит существующего онбординга на фрикшн и точки отвала" },
+				],
+			},
+		],
+		workflow: "/forge:onboarding-setup \u2192 design \u2192 реализация \u2192 audit после запуска.",
+	},
+	{
+		id: "growth",
+		name: "forge-growth",
+		tier: "Complete",
+		tagline: "Удерживай, рекомендуй, расширяй. Три рычага, один модуль.",
+		description: "forge-growth структурирует три ключевых рычага роста: удержание (снижение оттока), рекомендации (органическое привлечение) и расширение (апселл и кросс-селл). Генерирует стратегии предотвращения оттока с дизайном cancel-потоков, фреймворки реферальных программ и плейбуки расширения выручки. Если установлен forge-analytics, обосновывает рекомендации реальными данными о поведении пользователей.",
+		benefits: [
+			"Предотвращение оттока с дизайном cancel-потока и save-оферов",
+			"Фреймворк реферальной программы с моделированием стимулов",
+			"Плейбук расширения выручки (апселл, кросс-селл триггеры)",
+			"Обоснование данными аналитики при наличии forge-analytics",
+			"Рекомендации по когортному анализу удержания",
+		],
+		commands: [
+			{
+				command: "/forge:growth-setup",
+				description: "Настройка скоупа роста и целей удержания.",
+				subcommands: [
+					{ sub: "/forge:growth-setup", detail: "Визард настройки - определение модели роста, целей удержания, целей рефералов" },
+				],
+			},
+			{
+				command: "/forge:growth",
+				description: "Операции роста - удержание, рефералы, расширение.",
+				subcommands: [
+					{ sub: "/forge:growth retain", detail: "Стратегия предотвращения оттока с дизайном cancel-потока" },
+					{ sub: "/forge:growth refer", detail: "Дизайн реферальной программы со структурой стимулов" },
+					{ sub: "/forge:growth expand", detail: "Плейбук расширения выручки (апселл, кросс-селл)" },
+				],
+			},
+		],
+		workflow: "/forge:growth-setup \u2192 retain \u2192 refer \u2192 expand.",
+	},
+	{
+		id: "ab",
+		name: "forge-ab",
+		tier: "Complete",
+		tagline: "Статистически валидные эксперименты. Не \"мы поменяли цвет кнопки\".",
+		description: "forge-ab привносит статистическую строгость в продуктовое экспериментирование. Структурирует эксперименты от гипотезы до анализа: определяет метрики успеха, рассчитывает необходимый размер выборки, проектирует варианты и предоставляет фреймворки анализа. Если установлен forge-analytics, использует ваши схемы событий для определения метрик.",
+		benefits: [
+			"Структурированный формат гипотез с измеримыми результатами",
+			"Расчёт размера выборки для статистической мощности",
+			"Дизайн экспериментов со спецификациями вариантов",
+			"Фреймворк статистического анализа для интерпретации результатов",
+			"Использование схем событий аналитики для консистентных метрик",
+		],
+		commands: [
+			{
+				command: "/forge:ab-setup",
+				description: "Настройка трекинга экспериментов и параметров анализа.",
+				subcommands: [
+					{ sub: "/forge:ab-setup", detail: "Визард настройки - инфраструктура экспериментов, пороги значимости" },
+				],
+			},
+			{
+				command: "/forge:ab",
+				description: "Операции A/B-экспериментов - гипотеза, дизайн, анализ.",
+				subcommands: [
+					{ sub: "/forge:ab hypothesis", detail: "Структурировать гипотезу эксперимента с критериями успеха" },
+					{ sub: "/forge:ab design", detail: "Спроектировать эксперимент с вариантами, метриками, размером выборки" },
+					{ sub: "/forge:ab analyze", detail: "Проанализировать результаты с тестированием статистической значимости" },
+				],
+			},
+		],
+		workflow: "/forge:ab-setup \u2192 hypothesis \u2192 design \u2192 провести эксперимент \u2192 analyze.",
+	},
+];
+
+const modules = [...coreModules, ...advisoryModules];
 ---
 
 <DocsLayout
 	title="Руководство - Forge DevKit"
-	description="Полный справочник команд и модулей Forge DevKit - все 6 модулей."
+	description="Полный справочник команд и модулей Forge DevKit - все 15 модулей."
 >
 	<h1 class="font-sans text-[36px] md:text-[48px] font-black leading-[1.1] tracking-[-0.02em] text-text mb-4">
 		Руководство
 	</h1>
 	<p class="font-sans text-[18px] md:text-[20px] text-text-secondary leading-[1.6] mb-6">
-		Полный гайд по всем 6 модулям Forge DevKit &mdash; что делают, как использовать и зачем нужны.
+		Полный гайд по всем 15 модулям Forge DevKit &mdash; что делают, как использовать и зачем нужны.
 	</p>
 	<p class="text-[15px] text-text-muted leading-[1.7] mb-16">
 		Все команды выполняются внутри AI-сессии (Claude Code, Cursor или Claude Desktop). Forge DevKit &mdash; система плагинов, команды становятся доступны после <a href="/ru/docs/getting-started" class="text-secondary hover:underline">установки</a>.
 	</p>
 
-	{/* Quick nav */}
-	<nav class="mb-16 rounded-[var(--radius-card)] border border-card bg-surface-card p-6">
-		<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-4">Перейти к модулю</p>
+	{/* Quick nav - Core Pipeline */}
+	<nav class="mb-6 rounded-[var(--radius-card)] border border-card bg-surface-card p-6">
+		<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-4">Базовый пайплайн</p>
 		<div class="flex flex-wrap gap-3">
-			{modules.map((m) => (
+			{coreModules.map((m) => (
 				<a href={`#${m.id}`} class="inline-flex items-center gap-2 rounded-full border border-card px-4 py-1.5 font-mono text-[13px] text-text hover:border-secondary/40 hover:text-secondary transition-colors">
 					{m.name}
 					<span class="text-[11px] text-text-muted">{m.tier}</span>
@@ -230,30 +534,49 @@ const modules = [
 		</div>
 	</nav>
 
-	{/* Module sections */}
-	{modules.map((m) => (
-		<section id={m.id} class="mb-20 scroll-mt-24">
-			{/* Header */}
-			<div class="flex items-baseline gap-3 mb-2">
-				<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text">
+	{/* Quick nav - Advisory Modules */}
+	<nav class="mb-16 rounded-[var(--radius-card)] border border-card bg-surface-card p-6">
+		<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-4">Модули-советники</p>
+		<div class="flex flex-wrap gap-3">
+			{advisoryModules.map((m) => (
+				<a href={`#${m.id}`} class="inline-flex items-center gap-2 rounded-full border border-card px-4 py-1.5 font-mono text-[13px] text-text hover:border-secondary/40 hover:text-secondary transition-colors">
 					{m.name}
-				</h2>
+					<span class="text-[11px] text-text-muted">{m.tier}</span>
+				</a>
+			))}
+		</div>
+	</nav>
+
+	{/* --- Core Pipeline --- */}
+	<div class="mb-8">
+		<div class="flex items-center gap-4 mb-2">
+			<h2 class="font-sans text-[22px] md:text-[26px] font-bold text-text">Базовый пайплайн</h2>
+			<span class="text-[13px] text-text-muted">{coreModules.length} модулей</span>
+		</div>
+		<p class="text-[15px] text-text-muted leading-[1.7]">
+			Основа разработки. Эти модули обеспечивают визард настройки, пайплайн разработки, тестирование, трекинг задач, параллельное выполнение и изоляцию веток.
+		</p>
+	</div>
+
+	{coreModules.map((m) => (
+		<section id={m.id} class="mb-20 scroll-mt-24">
+			<div class="flex items-baseline gap-3 mb-2">
+				<h3 class="font-sans text-[28px] md:text-[32px] font-bold text-text">
+					{m.name}
+				</h3>
 				<span class="rounded-full bg-[rgba(118,73,196,0.08)] px-3 py-0.5 font-mono text-[12px] text-secondary">
 					{m.tier}
 				</span>
 			</div>
 
-			{/* Tagline */}
 			<p class="font-sans text-[18px] text-text leading-[1.5] font-medium mb-4">
 				{m.tagline}
 			</p>
 
-			{/* Description */}
 			<p class="text-[15px] text-text-secondary leading-[1.7] mb-2">
 				{m.description}
 			</p>
 
-			{/* Marketing highlights - pain/gain callouts per module */}
 			{m.id === "core" && (
 				<>
 					<DocHighlight variant="pain">
@@ -294,6 +617,11 @@ const modules = [
 					</DocHighlight>
 				</>
 			)}
+			{m.id === "prompts" && (
+				<DocHighlight variant="insight">
+					<strong>Зачем управлять промптами?</strong> AI-приложения содержат десятки LLM-промптов. Без инвентаризации и аудита промпты деградируют вместе с кодом - AI-output ухудшается, и причину сложно отследить до устаревшего системного промпта.
+				</DocHighlight>
+			)}
 			{m.id === "autopilot" && (
 				<>
 					<DocHighlight variant="pain">
@@ -310,7 +638,6 @@ const modules = [
 				</DocHighlight>
 			)}
 
-			{/* Benefits */}
 			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5 mb-8">
 				<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-3">Что вы получаете</p>
 				<ul class="space-y-2">
@@ -323,7 +650,6 @@ const modules = [
 				</ul>
 			</div>
 
-			{/* Commands */}
 			<div class="space-y-6 mb-6">
 				{m.commands.map((cmd) => (
 					<div class="rounded-[var(--radius-card)] border border-card bg-surface-card overflow-hidden">
@@ -347,7 +673,83 @@ const modules = [
 				))}
 			</div>
 
-			{/* Workflow */}
+			<div class="rounded-[var(--radius-card)] border border-secondary/15 bg-secondary/5 px-5 py-3">
+				<p class="text-[13px]">
+					<span class="font-mono text-[12px] font-medium text-secondary mr-2">Типичный workflow:</span>
+					<span class="text-text-muted">{m.workflow}</span>
+				</p>
+			</div>
+		</section>
+	))}
+
+	{/* --- Advisory Modules --- */}
+	<div class="mb-8 mt-8 pt-8 border-t border-[rgba(118,73,196,0.15)]">
+		<div class="flex items-center gap-4 mb-2">
+			<h2 class="font-sans text-[22px] md:text-[26px] font-bold text-text">Модули-советники</h2>
+			<span class="text-[13px] text-text-muted">{advisoryModules.length} модулей</span>
+		</div>
+		<p class="text-[15px] text-text-muted leading-[1.7] mb-2">
+			Стратегические советники вокруг базового пайплайна. Каждый модуль генерирует артефакты планирования, аудиты и рекомендации - от discovery и маркетинга до SEO, аналитики и роста. Доступны в плане Complete.
+		</p>
+		<DocHighlight variant="insight">
+			<strong>Как работают модули-советники:</strong> Они читают артефакты базового пайплайна (user flows, критерии приёмки, продуктовую стратегию) и генерируют доменно-специфичные выходные данные. Каждый модуль связан с другими через shared state - forge-marketing читает результаты forge-discovery, forge-copy читает позиционирование forge-marketing, и так далее. Установите один или все - каждый работает самостоятельно, но становится умнее с контекстом от соседей.
+		</DocHighlight>
+	</div>
+
+	{advisoryModules.map((m) => (
+		<section id={m.id} class="mb-20 scroll-mt-24">
+			<div class="flex items-baseline gap-3 mb-2">
+				<h3 class="font-sans text-[28px] md:text-[32px] font-bold text-text">
+					{m.name}
+				</h3>
+				<span class="rounded-full bg-[rgba(118,73,196,0.08)] px-3 py-0.5 font-mono text-[12px] text-secondary">
+					{m.tier}
+				</span>
+			</div>
+
+			<p class="font-sans text-[18px] text-text leading-[1.5] font-medium mb-4">
+				{m.tagline}
+			</p>
+
+			<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
+				{m.description}
+			</p>
+
+			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5 mb-8">
+				<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-3">Что вы получаете</p>
+				<ul class="space-y-2">
+					{m.benefits.map((b) => (
+						<li class="flex items-start gap-2 text-[14px] text-text-secondary leading-[1.6]">
+							<span class="text-secondary mt-0.5 shrink-0">&#10003;</span>
+							<span>{b}</span>
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<div class="space-y-6 mb-6">
+				{m.commands.map((cmd) => (
+					<div class="rounded-[var(--radius-card)] border border-card bg-surface-card overflow-hidden">
+						<div class="border-b border-card px-5 py-3 flex items-baseline gap-3">
+							<code class="font-mono text-[15px] font-medium text-secondary">{cmd.command}</code>
+							<span class="text-[13px] text-text-muted">{cmd.description}</span>
+						</div>
+						<div class="px-5 py-3">
+							<table class="w-full">
+								<tbody>
+									{cmd.subcommands.map((sc) => (
+										<tr class="border-b border-card/30 last:border-0">
+											<td class="py-2 pr-4 font-mono text-[13px] text-text whitespace-nowrap align-top">{sc.sub}</td>
+											<td class="py-2 text-[13px] text-text-muted">{sc.detail}</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				))}
+			</div>
+
 			<div class="rounded-[var(--radius-card)] border border-secondary/15 bg-secondary/5 px-5 py-3">
 				<p class="text-[13px]">
 					<span class="font-mono text-[12px] font-medium text-secondary mr-2">Типичный workflow:</span>

@@ -1,0 +1,237 @@
+---
+import DocsLayout from "../../../layouts/DocsLayout.astro";
+import DocHighlight from "@shared/ui/DocHighlight.astro";
+---
+
+<DocsLayout
+	title="Концепция - Forge DevKit"
+	description="Как работает Forge DevKit: мета-инструмент, одноразовые артефакты, автодетекция вместо конфигурации и экосистема модулей-советников."
+>
+	<h1 class="font-sans text-[36px] md:text-[48px] font-black leading-[1.1] tracking-[-0.02em] text-text mb-4">
+		Концепция
+	</h1>
+	<p class="font-sans text-[18px] md:text-[20px] text-text-secondary leading-[1.6] mb-16">
+		Как Forge DevKit думает, почему работает именно так и чем отличается от библиотек промптов.
+	</p>
+
+	{/* Meta-Tool Architecture */}
+	<section class="mb-16">
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-4">
+			Архитектура мета-инструмента
+		</h2>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			Forge - не библиотека промптов. Это <strong class="text-text">мета-инструмент</strong> - инструмент, который генерирует инструменты. Когда вы запускаете <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/forge:setup</code>, Forge анализирует ваш проект и генерирует специфичные для него артефакты: dev-скиллы, паттерны качества, конфигурации пайплайна и гайдрейлы. Артефакты живут в директории <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">.claude/</code> вашего проекта и работают автономно.
+		</p>
+		<DocHighlight variant="insight">
+			<strong>Одноразовый по дизайну:</strong> После настройки вы можете полностью удалить Forge. Сгенерированные артефакты продолжат работать - это самодостаточные файлы, которые AI читает при старте сессии. Forge - генератор, а не рантайм.
+		</DocHighlight>
+
+		<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-6 mb-6">
+			<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-4">Как это работает</p>
+			<div class="space-y-4 text-[14px] text-text-secondary leading-[1.7]">
+				<div class="flex items-start gap-3">
+					<span class="flex h-6 w-6 items-center justify-center rounded-full bg-secondary/20 font-mono text-[11px] font-bold text-secondary shrink-0 mt-0.5">1</span>
+					<div>
+						<strong class="text-text">Детекция.</strong> Forge сканирует ваш проект: стек, фреймворки, архитектурные слои, соглашения, файловую структуру, зависимости. Никаких конфигурационных файлов не нужно.
+					</div>
+				</div>
+				<div class="flex items-start gap-3">
+					<span class="flex h-6 w-6 items-center justify-center rounded-full bg-secondary/20 font-mono text-[11px] font-bold text-secondary shrink-0 mt-0.5">2</span>
+					<div>
+						<strong class="text-text">Генерация.</strong> На основе результатов детекции Forge генерирует артефакты под ваш проект: dev-скиллы с вашими соглашениями, паттерны качества для вашего стека, фазы пайплайна для вашего воркфлоу.
+					</div>
+				</div>
+				<div class="flex items-start gap-3">
+					<span class="flex h-6 w-6 items-center justify-center rounded-full bg-secondary/20 font-mono text-[11px] font-bold text-secondary shrink-0 mt-0.5">3</span>
+					<div>
+						<strong class="text-text">Автономность.</strong> Сгенерированные артефакты загружаются AI автоматически при каждом старте сессии. Они содержат архитектуру вашего проекта, паттерны и правила - AI никогда не забывает.
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* Detection Over Configuration */}
+	<section class="mb-16">
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-4">
+			Детекция вместо конфигурации
+		</h2>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			В Forge ноль захардкоженных знаний о проектах. Он не поставляется с шаблонами NestJS, паттернами React или конвенциями Django. Вместо этого он <strong class="text-text">определяет</strong>, что использует ваш проект, и генерирует артефакты на основе того, что находит.
+		</p>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			7-этапный визард настройки анализирует вашу реальную кодовую базу: package.json, структуру директорий, паттерны импортов, Docker-конфиги, CI-пайплайны, миграции базы данных. Он строит модель вашей архитектуры - не из шаблонов, а из доказательств.
+		</p>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5">
+				<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-3">Что Forge определяет</p>
+				<ul class="space-y-2 text-[14px] text-text-secondary">
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Стек и фреймворки</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Архитектурные слои и границы</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Конвенции именования и стиль кода</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Тест-фреймворки и паттерны</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Docker, CI/CD и инфраструктура</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> База данных и ORM</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Auth, events и AI/LLM-паттерны</li>
+				</ul>
+			</div>
+			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5">
+				<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-3">Почему детекция важна</p>
+				<ul class="space-y-2 text-[14px] text-text-secondary">
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Работает с любой комбинацией стека</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Нет конфиг-файлов для поддержки</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Адаптируется к проекту, а не наоборот</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Ловит конвенции, которые шаблоны пропускают</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Переконфигурируйте в любой момент по мере развития проекта</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	{/* Core + Adapters */}
+	<section class="mb-16">
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-4">
+			Core + Адаптеры
+		</h2>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			Forge использует архитектуру <strong class="text-text">core + адаптеры</strong>. forge-core - это фундамент: настройка, детекция, генерация артефактов и пайплайн разработки. Все остальные модули - адаптеры, расширяющие ядро.
+		</p>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			Адаптеры - это независимые плагины, связанные через shared state в <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">.claude/forge/</code>. Каждый адаптер читает артефакты других модулей, от которых зависит (discovery не читает ничего, marketing читает discovery, copy читает marketing) - но все зависимости опциональны. Каждый адаптер работает самостоятельно; он просто становится умнее с контекстом от соседей.
+		</p>
+
+		<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-6 mb-6">
+			<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-4">Поток экосистемы</p>
+			<div class="font-mono text-[13px] text-text-secondary leading-[2] whitespace-pre-wrap">discovery &rarr; marketing &rarr; product &rarr; /dev пайплайн
+                                  &darr;
+                            copy, seo, analytics
+                                  &darr;
+                     onboarding, growth, ab</div>
+		</div>
+
+		<DocHighlight variant="insight">
+			<strong>Установите то, что нужно.</strong> Starter даёт базовый пайплайн (forge-core + forge-worktree). Pro добавляет продуктовый дизайн, тестирование, трекинг задач и управление промптами. Complete открывает 8 модулей-советников, окружающих пайплайн стратегией: от discovery до A/B-тестирования.
+		</DocHighlight>
+	</section>
+
+	{/* The Development Pipeline */}
+	<section class="mb-16">
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-4">
+			Пайплайн разработки
+		</h2>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			Когда вы вводите <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/dev</code>, Forge активирует многофазный пайплайн, сгенерированный специально для вашего проекта. Каждая фаза имеет чёткие границы, проверки качества и гайдрейлы, предотвращающие попытки AI срезать углы.
+		</p>
+
+		<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-6 mb-6">
+			<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-4">Фазы пайплайна</p>
+			<div class="space-y-3 text-[14px]">
+				<div class="flex items-start gap-3">
+					<span class="font-mono text-[12px] text-secondary font-bold shrink-0 w-14">Фаза 0</span>
+					<div>
+						<strong class="text-text">Понимание.</strong>
+						<span class="text-text-secondary"> Прочитать задачу, загрузить контекст из трекера и продуктовых артефактов, спланировать подход.</span>
+					</div>
+				</div>
+				<div class="flex items-start gap-3">
+					<span class="font-mono text-[12px] text-secondary font-bold shrink-0 w-14">Фаза 1</span>
+					<div>
+						<strong class="text-text">Планирование.</strong>
+						<span class="text-text-secondary"> Разбить задачу на шаги, определить затронутые файлы и слои, валидировать относительно архитектуры.</span>
+					</div>
+				</div>
+				<div class="flex items-start gap-3">
+					<span class="font-mono text-[12px] text-secondary font-bold shrink-0 w-14">Фаза 2</span>
+					<div>
+						<strong class="text-text">Реализация.</strong>
+						<span class="text-text-secondary"> Писать код следуя обнаруженным конвенциям, границам слоёв и паттернам именования.</span>
+					</div>
+				</div>
+				<div class="flex items-start gap-3">
+					<span class="font-mono text-[12px] text-secondary font-bold shrink-0 w-14">Фаза 3</span>
+					<div>
+						<strong class="text-text">Тестирование.</strong>
+						<span class="text-text-secondary"> Генерация тестов из критериев приёмки (не из догадок AI), запуск quality gates.</span>
+					</div>
+				</div>
+				<div class="flex items-start gap-3">
+					<span class="font-mono text-[12px] text-secondary font-bold shrink-0 w-14">Фаза 4</span>
+					<div>
+						<strong class="text-text">Ревью.</strong>
+						<span class="text-text-secondary"> Самопроверка по 50+ паттернам качества, проверка на рационализацию, верификация полноты.</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			Каждая фаза включает <strong class="text-text">детекторы рационализации</strong> - 15 паттернов, которые ловят попытки AI пропустить шаги, упростить требования или срезать углы. Они калиброваны под уровень сложности вашего проекта: не замедляют простые задачи, но перехватывают ярлыки на сложных.
+		</p>
+	</section>
+
+	{/* Quality Patterns */}
+	<section class="mb-16">
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-4">
+			Паттерны качества
+		</h2>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			После определения возможностей вашего проекта (UI, API, база данных, Docker, auth, events, AI) Forge генерирует паттерны качества, ограниченные тем, что у вас реально есть. Бэкенд API-проект получает другие паттерны, чем full-stack приложение с React-фронтендом.
+		</p>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5">
+				<p class="font-mono text-[13px] text-text font-medium mb-2">UI-паттерны</p>
+				<p class="text-[13px] text-text-muted">Границы компонентов, управление состоянием, доступность, адаптивный дизайн, бюджеты производительности</p>
+			</div>
+			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5">
+				<p class="font-mono text-[13px] text-text font-medium mb-2">API-паттерны</p>
+				<p class="text-[13px] text-text-muted">Обработка ошибок, валидация, auth guards, rate limiting, контракты ответов</p>
+			</div>
+			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5">
+				<p class="font-mono text-[13px] text-text font-medium mb-2">Инфраструктурные паттерны</p>
+				<p class="text-[13px] text-text-muted">Docker-конфигурация, безопасность CI/CD, изоляция окружений, стратегии миграций</p>
+			</div>
+			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5">
+				<p class="font-mono text-[13px] text-text font-medium mb-2">Общие паттерны</p>
+				<p class="text-[13px] text-text-muted">Конвенции именования, границы слоёв, правила зависимостей, организация кода, структура тестов</p>
+			</div>
+		</div>
+	</section>
+
+	{/* Upgrade & Evolution */}
+	<section class="mb-16">
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-4">
+			Обновления и эволюция
+		</h2>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			Forge отслеживает владение каждым сгенерированным файлом через заголовки версий. При обновлении плагина Forge знает, какие файлы он сгенерировал (безопасно обновить) и какие вы изменили (сохранить). Запустите <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/forge:setup upgrade</code>, чтобы проверить обновления и применить их безопасно.
+		</p>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			Ваш проект эволюционирует, и Forge эволюционирует вместе с ним. Сменили тест-фреймворк? Реструктурировали слои? Запустите <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/forge:setup reconfigure</code>, чтобы переопределить и перегенерировать артефакты. Визард сохраняет прогресс после каждого этапа, поэтому прерывания безопасны.
+		</p>
+	</section>
+
+	{/* CTA */}
+	<section class="mb-16">
+		<div class="rounded-[var(--radius-card)] border border-secondary/20 bg-secondary/5 p-8 text-center">
+			<p class="font-sans text-[20px] md:text-[24px] font-bold text-text mb-3">
+				Хотите увидеть в действии?
+			</p>
+			<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+				<a
+					href="/ru/docs/getting-started"
+					class="inline-flex items-center justify-center rounded-[var(--radius-button)] bg-primary px-8 py-3 font-sans text-[15px] font-medium text-white transition-all duration-200 hover:bg-primary-hover"
+				>
+					Начать за 5 минут &rarr;
+				</a>
+				<a
+					href="/ru/docs/usage-guide"
+					class="inline-flex items-center justify-center rounded-[var(--radius-button)] border border-card px-8 py-3 font-sans text-[15px] font-medium text-text transition-all duration-200 hover:border-secondary/40"
+				>
+					Все 15 модулей
+				</a>
+			</div>
+		</div>
+	</section>
+</DocsLayout>

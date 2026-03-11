@@ -2,11 +2,11 @@
 import DocsLayout from "../../layouts/DocsLayout.astro";
 import DocHighlight from "@shared/ui/DocHighlight.astro";
 
-const modules = [
+const coreModules = [
 	{
 		id: "core",
 		name: "forge-core",
-		tier: "Core+",
+		tier: "Starter+",
 		tagline: "The foundation. One command makes your AI understand your entire project.",
 		description: "forge-core runs a 7-gate architecture audit that auto-detects your stack, layers, conventions, and patterns. It generates project-specific dev-skills and 50+ quality guardrails that your AI follows in every session. No manual prompt engineering. No re-explaining your architecture.",
 		benefits: [
@@ -44,7 +44,7 @@ const modules = [
 				],
 			},
 		],
-		workflow: "Install → /forge:setup (7-gate audit) → /dev to start building. Run /forge:setup anytime for dashboard.",
+		workflow: "Install \u2192 /forge:setup (7-gate audit) \u2192 /dev to start building. Run /forge:setup anytime for dashboard.",
 	},
 	{
 		id: "product",
@@ -78,17 +78,17 @@ const modules = [
 				],
 			},
 		],
-		workflow: "/forge:product-setup → /forge:product design for each feature → stories feed into /dev pipeline.",
+		workflow: "/forge:product-setup \u2192 /forge:product design for each feature \u2192 stories feed into /dev pipeline.",
 	},
 	{
 		id: "qa",
 		name: "forge-qa",
 		tier: "Pro+",
 		tagline: "Tests that trace back to requirements. Not AI guesswork.",
-		description: "forge-qa generates tests from acceptance criteria, not from AI assumptions. It supports 10 testing modes and maintains a 4-level traceability matrix: acceptance criteria → unit tests, use cases → E2E tests, UX criteria → visual tests, and LLM-as-Judge for AI output quality. Every test proves a requirement - no orphan tests, no missing coverage.",
+		description: "forge-qa generates tests from acceptance criteria, not from AI assumptions. It supports 10 testing modes and maintains a 4-level traceability matrix: acceptance criteria \u2192 unit tests, use cases \u2192 E2E tests, UX criteria \u2192 visual tests, and LLM-as-Judge for AI output quality. Every test proves a requirement - no orphan tests, no missing coverage.",
 		benefits: [
 			"Generates tests from acceptance criteria - not guesswork",
-			"4-level traceability: AC → unit, UC → E2E, UX → visual, Judge",
+			"4-level traceability: AC \u2192 unit, UC \u2192 E2E, UX \u2192 visual, Judge",
 			"10 testing modes for different scenarios",
 			"LLM-as-Judge evaluates AI-generated output quality",
 			"Quality gates block merges until requirements are covered",
@@ -107,13 +107,13 @@ const modules = [
 				subcommands: [
 					{ sub: "/forge:qa generate", detail: "Generate tests from acceptance criteria or user stories" },
 					{ sub: "/forge:qa coverage", detail: "Analyze test coverage and suggest missing tests" },
-					{ sub: "/forge:qa trace", detail: "Show traceability matrix (AC → test → code)" },
+					{ sub: "/forge:qa trace", detail: "Show traceability matrix (AC \u2192 test \u2192 code)" },
 					{ sub: "/forge:qa judge", detail: "Run LLM-as-Judge to evaluate test quality" },
 					{ sub: "/forge:qa gate", detail: "Run quality gate checks before merge" },
 				],
 			},
 		],
-		workflow: "/forge:qa-setup → /forge:product design (generates AC) → /forge:qa generate → /forge:qa gate before merge.",
+		workflow: "/forge:qa-setup \u2192 /forge:product design (generates AC) \u2192 /forge:qa generate \u2192 /forge:qa gate before merge.",
 	},
 	{
 		id: "tracker",
@@ -146,7 +146,42 @@ const modules = [
 				],
 			},
 		],
-		workflow: "/forge:tracker-setup → /forge:tracker pick → /dev → /forge:tracker sync → /forge:tracker close.",
+		workflow: "/forge:tracker-setup \u2192 /forge:tracker pick \u2192 /dev \u2192 /forge:tracker sync \u2192 /forge:tracker close.",
+	},
+	{
+		id: "prompts",
+		name: "forge-prompts",
+		tier: "Pro+",
+		tagline: "Your AI prompts are code. Manage them like code.",
+		description: "forge-prompts brings software engineering rigor to prompt management. It inventories every LLM prompt in your project, audits them against provider-specific best practices, and tracks quality over time. Three frameworks (CO-STAR, RISEN, TIDD-EC) guide structured prompt design. A dedicated subagent handles prompt writing and refactoring - so your prompts evolve as your product grows.",
+		benefits: [
+			"Auto-inventories all LLM prompts across your codebase",
+			"Provider-aware auditing (Anthropic, OpenAI, generic)",
+			"3 structured frameworks: CO-STAR, RISEN, TIDD-EC",
+			"Dedicated prompt-engineer subagent for writing and refactoring",
+			"Learning loop captures prompt patterns from your project",
+		],
+		commands: [
+			{
+				command: "/forge:prompts-setup",
+				description: "Configure prompt architecture, principles, and provider settings.",
+				subcommands: [
+					{ sub: "/forge:prompts-setup", detail: "3-gate wizard: LLM detection, prompt architecture, principles" },
+				],
+			},
+			{
+				command: "/forge:prompts",
+				description: "Prompt engineering operations - inventory, audit, review, test, evolve.",
+				subcommands: [
+					{ sub: "/forge:prompts inventory", detail: "Scan codebase and list all LLM prompts with metadata" },
+					{ sub: "/forge:prompts audit", detail: "Audit prompts against provider best practices" },
+					{ sub: "/forge:prompts review", detail: "Deep review of a specific prompt with improvement suggestions" },
+					{ sub: "/forge:prompts test", detail: "Test prompt with sample inputs, evaluate output quality" },
+					{ sub: "/forge:prompts evolve", detail: "Apply learning loop - capture patterns, update principles" },
+				],
+			},
+		],
+		workflow: "/forge:prompts-setup \u2192 /forge:prompts inventory \u2192 audit \u2192 fix issues \u2192 /forge:prompts evolve.",
 	},
 	{
 		id: "autopilot",
@@ -167,19 +202,19 @@ const modules = [
 				description: "Launch batch autonomous development pipeline.",
 				subcommands: [
 					{ sub: "/forge:autopilot --setup", detail: "Configure autonomy mode and feature sources" },
-					{ sub: "/forge:autopilot", detail: "Start batch with configured sources (triage → waves → execute)" },
+					{ sub: "/forge:autopilot", detail: "Start batch with configured sources (triage \u2192 waves \u2192 execute)" },
 					{ sub: '/forge:autopilot "auth, payments"', detail: "Start batch with specific features" },
 					{ sub: "/forge:autopilot --resume", detail: "Resume interrupted batch from last checkpoint" },
 					{ sub: "/forge:autopilot --abort", detail: "Abort current batch and clean up worktrees" },
 				],
 			},
 		],
-		workflow: "/forge:autopilot --setup → /forge:autopilot → agents triage, detect conflicts, execute in waves → review results.",
+		workflow: "/forge:autopilot --setup \u2192 /forge:autopilot \u2192 agents triage, detect conflicts, execute in waves \u2192 review results.",
 	},
 	{
 		id: "worktree",
 		name: "forge-worktree",
-		tier: "Complete",
+		tier: "Starter+",
 		tagline: "Isolated branches with zero port conflicts. Automatic cleanup.",
 		description: "forge-worktree manages the git worktree lifecycle for parallel development. Each worktree gets its own directory, Docker port offsets, and environment configuration - no more port conflicts between branches. Three templates cover common setups: Docker backend (with port isolation), Frontend (with dev server offsets), and Generic. Worktrees are auto-provisioned by forge-autopilot or created manually.",
 		benefits: [
@@ -198,30 +233,299 @@ const modules = [
 				],
 			},
 		],
-		workflow: "/forge:worktree-setup → worktrees are auto-provisioned by forge-autopilot or created manually via git worktree.",
+		workflow: "/forge:worktree-setup \u2192 worktrees are auto-provisioned by forge-autopilot or created manually via git worktree.",
 	},
 ];
+
+const advisoryModules = [
+	{
+		id: "discovery",
+		name: "forge-discovery",
+		tier: "Complete",
+		tagline: "Validate before you build. Research before you commit.",
+		description: "forge-discovery structures the messy early phase of product development. Instead of jumping to code, it guides you through ideation, competitive research, problem validation, and user interview planning. The output feeds directly into forge-product - so by the time you design features, you have validated assumptions, not guesses.",
+		benefits: [
+			"Guided ideation with structured brainstorming frameworks",
+			"Competitive research with positioning analysis",
+			"Problem validation before committing to solutions",
+			"User interview script generation for qualitative research",
+			"Discovery artifacts feed directly into forge-product",
+		],
+		commands: [
+			{
+				command: "/forge:discovery-setup",
+				description: "Configure discovery scope and research methodology.",
+				subcommands: [
+					{ sub: "/forge:discovery-setup", detail: "Setup wizard - define scope, target market, research approach" },
+				],
+			},
+			{
+				command: "/forge:discovery",
+				description: "Product discovery operations - ideate, research, validate, interview.",
+				subcommands: [
+					{ sub: "/forge:discovery ideate", detail: "Structured brainstorming from raw idea to opportunity map" },
+					{ sub: "/forge:discovery research", detail: "Competitive analysis and market research" },
+					{ sub: "/forge:discovery validate", detail: "Problem validation with evidence-based scoring" },
+					{ sub: "/forge:discovery interview", detail: "Generate user interview scripts and analysis frameworks" },
+				],
+			},
+		],
+		workflow: "/forge:discovery-setup \u2192 ideate \u2192 research \u2192 validate \u2192 feed results into /forge:product.",
+	},
+	{
+		id: "marketing",
+		name: "forge-marketing",
+		tier: "Complete",
+		tagline: "From validated problem to sellable product. Strategy, not guesswork.",
+		description: "forge-marketing turns your validated product insights into marketing strategy. It generates positioning, pricing recommendations, go-to-market plans, and content calendars - all grounded in your product data, not generic templates. When forge-discovery and forge-product are installed, it reads their artifacts automatically for context-aware recommendations.",
+		benefits: [
+			"Positioning framework tailored to your product and market",
+			"Data-driven pricing with competitive context",
+			"Go-to-market plan with channel strategy and timeline",
+			"Content calendar aligned with product milestones",
+			"Reads discovery and product artifacts for context-aware output",
+		],
+		commands: [
+			{
+				command: "/forge:marketing-setup",
+				description: "Configure marketing scope and strategy parameters.",
+				subcommands: [
+					{ sub: "/forge:marketing-setup", detail: "Setup wizard - define market, channels, budget constraints" },
+				],
+			},
+			{
+				command: "/forge:marketing",
+				description: "Marketing operations - positioning, pricing, GTM, content.",
+				subcommands: [
+					{ sub: "/forge:marketing position", detail: "Generate positioning and messaging framework" },
+					{ sub: "/forge:marketing price", detail: "Pricing strategy with tier design and competitive analysis" },
+					{ sub: "/forge:marketing launch", detail: "Go-to-market plan with timeline and channel strategy" },
+					{ sub: "/forge:marketing content", detail: "Content calendar aligned with product roadmap" },
+				],
+			},
+		],
+		workflow: "/forge:marketing-setup \u2192 position \u2192 price \u2192 launch plan \u2192 content calendar.",
+	},
+	{
+		id: "copy",
+		name: "forge-copy",
+		tier: "Complete",
+		tagline: "Consistent voice across every screen, email, and notification.",
+		description: "forge-copy manages production copy as a first-class concern. Define your brand voice once - it generates and reviews UI microcopy, email templates, notification text, and error messages against your voice guidelines. When forge-product or forge-marketing are installed, it uses their positioning and user research for copy that speaks your customer's language.",
+		benefits: [
+			"Brand voice configuration with tone and style rules",
+			"Generates UI microcopy, emails, notifications, error messages",
+			"Reviews existing copy against brand guidelines",
+			"Uses product and marketing context for customer-aware copy",
+			"Consistency checks across all copy touchpoints",
+		],
+		commands: [
+			{
+				command: "/forge:copy-setup",
+				description: "Configure brand voice, tone rules, and copy scope.",
+				subcommands: [
+					{ sub: "/forge:copy-setup", detail: "Setup wizard - define voice, tone, terminology, style rules" },
+				],
+			},
+			{
+				command: "/forge:copy",
+				description: "Copy operations - generate and review across all contexts.",
+				subcommands: [
+					{ sub: "/forge:copy generate", detail: "Generate copy for a specific context (UI, email, notification)" },
+					{ sub: "/forge:copy review", detail: "Review existing copy against brand voice guidelines" },
+				],
+			},
+		],
+		workflow: "/forge:copy-setup \u2192 /forge:copy generate for each context \u2192 /forge:copy review before release.",
+	},
+	{
+		id: "seo",
+		name: "forge-seo",
+		tier: "Complete",
+		tagline: "Technical SEO your AI actually understands. Not a checklist - a strategy.",
+		description: "forge-seo combines technical SEO auditing with keyword research and schema markup generation. It scans your pages for issues (missing meta tags, broken structured data, performance bottlenecks), researches keywords aligned with your product positioning, and generates JSON-LD schema markup. When forge-analytics is installed, it correlates SEO metrics with user behavior data.",
+		benefits: [
+			"Technical SEO audit with prioritized fix list",
+			"Keyword research aligned with product positioning",
+			"JSON-LD schema markup generation for rich snippets",
+			"Content gap analysis based on competitor rankings",
+			"Correlates with analytics data when forge-analytics is installed",
+		],
+		commands: [
+			{
+				command: "/forge:seo-setup",
+				description: "Configure SEO scope and target parameters.",
+				subcommands: [
+					{ sub: "/forge:seo-setup", detail: "Setup wizard - define target pages, keywords, competitors" },
+				],
+			},
+			{
+				command: "/forge:seo",
+				description: "SEO operations - audit, keywords, schema markup.",
+				subcommands: [
+					{ sub: "/forge:seo audit", detail: "Technical SEO audit with prioritized issue list" },
+					{ sub: "/forge:seo keywords", detail: "Keyword research with search intent analysis" },
+					{ sub: "/forge:seo schema", detail: "Generate JSON-LD structured data markup" },
+				],
+			},
+		],
+		workflow: "/forge:seo-setup \u2192 /forge:seo audit \u2192 fix issues \u2192 keywords \u2192 schema.",
+	},
+	{
+		id: "analytics",
+		name: "forge-analytics",
+		tier: "Complete",
+		tagline: "Measurement-first. Plan what to track before you ship.",
+		description: "forge-analytics flips the usual approach: instead of adding tracking after launch, you define a measurement plan during development. It generates event schemas, tracking plans, and dashboard specifications before a single line of tracking code is written. Your team knows exactly what data you'll have on day one.",
+		benefits: [
+			"Measurement-first tracking plans defined during development",
+			"Event schema generation with naming conventions",
+			"Dashboard specifications ready for implementation",
+			"Aligned with product artifacts (user flows, acceptance criteria)",
+			"No post-launch tracking gaps - plan before you ship",
+		],
+		commands: [
+			{
+				command: "/forge:analytics-setup",
+				description: "Configure analytics scope and measurement strategy.",
+				subcommands: [
+					{ sub: "/forge:analytics-setup", detail: "Setup wizard - define key metrics, events, data sources" },
+				],
+			},
+			{
+				command: "/forge:analytics",
+				description: "Analytics operations - tracking plans, event schemas, dashboards.",
+				subcommands: [
+					{ sub: "/forge:analytics plan", detail: "Generate measurement plan with KPIs and event taxonomy" },
+					{ sub: "/forge:analytics schema", detail: "Generate event schemas with naming conventions" },
+					{ sub: "/forge:analytics dashboard", detail: "Design dashboard specifications for key metrics" },
+				],
+			},
+		],
+		workflow: "/forge:analytics-setup \u2192 plan \u2192 schema \u2192 implement tracking \u2192 dashboard.",
+	},
+	{
+		id: "onboarding",
+		name: "forge-onboarding",
+		tier: "Complete",
+		tagline: "From signup to aha moment. Design the path, not just the page.",
+		description: "forge-onboarding designs activation flows that convert signups into engaged users. It maps the journey from first login to the \"aha moment\" - the point where users experience core value. Generates step-by-step onboarding flows, empty state designs, tooltip sequences, and progress indicators. When forge-product is installed, it uses user flows and personas to tailor the onboarding path.",
+		benefits: [
+			"Activation flow design from signup to aha moment",
+			"Empty state and first-run experience specifications",
+			"Tooltip and guided tour sequence planning",
+			"Progress indicator and milestone design",
+			"Audit existing onboarding for drop-off points",
+		],
+		commands: [
+			{
+				command: "/forge:onboarding-setup",
+				description: "Configure onboarding scope and activation goals.",
+				subcommands: [
+					{ sub: "/forge:onboarding-setup", detail: "Setup wizard - define aha moment, activation steps, personas" },
+				],
+			},
+			{
+				command: "/forge:onboarding",
+				description: "Onboarding design operations - design flows, audit existing experience.",
+				subcommands: [
+					{ sub: "/forge:onboarding design", detail: "Design activation flow from signup to aha moment" },
+					{ sub: "/forge:onboarding audit", detail: "Audit existing onboarding for friction and drop-off points" },
+				],
+			},
+		],
+		workflow: "/forge:onboarding-setup \u2192 design \u2192 implement \u2192 /forge:onboarding audit after launch.",
+	},
+	{
+		id: "growth",
+		name: "forge-growth",
+		tier: "Complete",
+		tagline: "Retain, refer, expand. Three levers, one module.",
+		description: "forge-growth structures the three core growth levers: retention (reduce churn), referral (organic acquisition), and expansion (upsell and cross-sell). It generates churn prevention strategies with cancel flow designs, referral program frameworks, and expansion revenue playbooks. When forge-analytics is installed, it grounds recommendations in actual user behavior data.",
+		benefits: [
+			"Churn prevention with cancel flow and save offer design",
+			"Referral program framework with incentive modeling",
+			"Expansion revenue playbook (upsell, cross-sell triggers)",
+			"Grounded in analytics data when forge-analytics is installed",
+			"Cohort-based retention analysis recommendations",
+		],
+		commands: [
+			{
+				command: "/forge:growth-setup",
+				description: "Configure growth scope and retention goals.",
+				subcommands: [
+					{ sub: "/forge:growth-setup", detail: "Setup wizard - define growth model, retention targets, referral goals" },
+				],
+			},
+			{
+				command: "/forge:growth",
+				description: "Growth operations - retention, referral, expansion strategies.",
+				subcommands: [
+					{ sub: "/forge:growth retain", detail: "Churn prevention strategy with cancel flow design" },
+					{ sub: "/forge:growth refer", detail: "Referral program design with incentive structure" },
+					{ sub: "/forge:growth expand", detail: "Expansion revenue playbook (upsell, cross-sell)" },
+				],
+			},
+		],
+		workflow: "/forge:growth-setup \u2192 retain \u2192 refer \u2192 expand.",
+	},
+	{
+		id: "ab",
+		name: "forge-ab",
+		tier: "Complete",
+		tagline: "Statistically valid experiments. Not \"we changed the button color.\"",
+		description: "forge-ab brings statistical rigor to product experimentation. It structures experiments from hypothesis to analysis: defines success metrics, calculates required sample sizes, designs variants, and provides analysis frameworks. No more running tests without enough traffic, or declaring winners based on gut feeling. When forge-analytics is installed, it uses your event schemas for metric definitions.",
+		benefits: [
+			"Structured hypothesis format with measurable outcomes",
+			"Sample size calculation to avoid underpowered tests",
+			"Experiment design with variant specifications",
+			"Statistical analysis framework for interpreting results",
+			"Uses analytics event schemas for consistent metrics",
+		],
+		commands: [
+			{
+				command: "/forge:ab-setup",
+				description: "Configure experiment tracking and analysis settings.",
+				subcommands: [
+					{ sub: "/forge:ab-setup", detail: "Setup wizard - experiment infrastructure, significance thresholds" },
+				],
+			},
+			{
+				command: "/forge:ab",
+				description: "A/B experiment operations - hypothesis, design, analyze.",
+				subcommands: [
+					{ sub: "/forge:ab hypothesis", detail: "Structure experiment hypothesis with success criteria" },
+					{ sub: "/forge:ab design", detail: "Design experiment with variants, metrics, sample size" },
+					{ sub: "/forge:ab analyze", detail: "Analyze results with statistical significance testing" },
+				],
+			},
+		],
+		workflow: "/forge:ab-setup \u2192 hypothesis \u2192 design \u2192 run experiment \u2192 analyze.",
+	},
+];
+
+const modules = [...coreModules, ...advisoryModules];
 ---
 
 <DocsLayout
 	title="Usage Guide - Forge DevKit"
-	description="Complete command reference and module guide for all 6 Forge DevKit modules."
+	description="Complete command reference and module guide for all 15 Forge DevKit modules."
 >
 	<h1 class="font-sans text-[36px] md:text-[48px] font-black leading-[1.1] tracking-[-0.02em] text-text mb-4">
 		Usage Guide
 	</h1>
 	<p class="font-sans text-[18px] md:text-[20px] text-text-secondary leading-[1.6] mb-6">
-		Complete guide to all 6 Forge DevKit modules &mdash; what they do, how to use them, and why they matter.
+		Complete guide to all 15 Forge DevKit modules &mdash; what they do, how to use them, and why they matter.
 	</p>
 	<p class="text-[15px] text-text-muted leading-[1.7] mb-16">
 		All commands run inside your AI session (Claude Code, Cursor, or Claude Desktop). Forge DevKit is a plugin system &mdash; commands become available after <a href="/docs/getting-started" class="text-secondary hover:underline">installation</a>.
 	</p>
 
-	{/* Quick nav */}
-	<nav class="mb-16 rounded-[var(--radius-card)] border border-card bg-surface-card p-6">
-		<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-4">Jump to module</p>
+	{/* Quick nav - Core Pipeline */}
+	<nav class="mb-6 rounded-[var(--radius-card)] border border-card bg-surface-card p-6">
+		<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-4">Core Pipeline</p>
 		<div class="flex flex-wrap gap-3">
-			{modules.map((m) => (
+			{coreModules.map((m) => (
 				<a href={`#${m.id}`} class="inline-flex items-center gap-2 rounded-full border border-card px-4 py-1.5 font-mono text-[13px] text-text hover:border-secondary/40 hover:text-secondary transition-colors">
 					{m.name}
 					<span class="text-[11px] text-text-muted">{m.tier}</span>
@@ -230,30 +534,49 @@ const modules = [
 		</div>
 	</nav>
 
-	{/* Module sections */}
-	{modules.map((m) => (
-		<section id={m.id} class="mb-20 scroll-mt-24">
-			{/* Header */}
-			<div class="flex items-baseline gap-3 mb-2">
-				<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text">
+	{/* Quick nav - Advisory Modules */}
+	<nav class="mb-16 rounded-[var(--radius-card)] border border-card bg-surface-card p-6">
+		<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-4">Advisory Modules</p>
+		<div class="flex flex-wrap gap-3">
+			{advisoryModules.map((m) => (
+				<a href={`#${m.id}`} class="inline-flex items-center gap-2 rounded-full border border-card px-4 py-1.5 font-mono text-[13px] text-text hover:border-secondary/40 hover:text-secondary transition-colors">
 					{m.name}
-				</h2>
+					<span class="text-[11px] text-text-muted">{m.tier}</span>
+				</a>
+			))}
+		</div>
+	</nav>
+
+	{/* --- Core Pipeline Modules --- */}
+	<div class="mb-8">
+		<div class="flex items-center gap-4 mb-2">
+			<h2 class="font-sans text-[22px] md:text-[26px] font-bold text-text">Core Pipeline</h2>
+			<span class="text-[13px] text-text-muted">{coreModules.length} modules</span>
+		</div>
+		<p class="text-[15px] text-text-muted leading-[1.7]">
+			The development backbone. These modules power the setup wizard, development pipeline, testing, task tracking, parallel execution, and branch isolation.
+		</p>
+	</div>
+
+	{coreModules.map((m) => (
+		<section id={m.id} class="mb-20 scroll-mt-24">
+			<div class="flex items-baseline gap-3 mb-2">
+				<h3 class="font-sans text-[28px] md:text-[32px] font-bold text-text">
+					{m.name}
+				</h3>
 				<span class="rounded-full bg-[rgba(118,73,196,0.08)] px-3 py-0.5 font-mono text-[12px] text-secondary">
 					{m.tier}
 				</span>
 			</div>
 
-			{/* Tagline */}
 			<p class="font-sans text-[18px] text-text leading-[1.5] font-medium mb-4">
 				{m.tagline}
 			</p>
 
-			{/* Description */}
 			<p class="text-[15px] text-text-secondary leading-[1.7] mb-2">
 				{m.description}
 			</p>
 
-			{/* Marketing highlights - pain/gain callouts per module */}
 			{m.id === "core" && (
 				<>
 					<DocHighlight variant="pain">
@@ -294,6 +617,11 @@ const modules = [
 					</DocHighlight>
 				</>
 			)}
+			{m.id === "prompts" && (
+				<DocHighlight variant="insight">
+					<strong>Why manage prompts?</strong> AI-powered apps ship dozens of LLM prompts. Without inventory and auditing, prompts rot as your codebase evolves - leading to degraded AI output that's hard to trace back to a stale system prompt.
+				</DocHighlight>
+			)}
 			{m.id === "autopilot" && (
 				<>
 					<DocHighlight variant="pain">
@@ -310,7 +638,6 @@ const modules = [
 				</DocHighlight>
 			)}
 
-			{/* Benefits */}
 			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5 mb-8">
 				<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-3">What you get</p>
 				<ul class="space-y-2">
@@ -323,7 +650,6 @@ const modules = [
 				</ul>
 			</div>
 
-			{/* Commands */}
 			<div class="space-y-6 mb-6">
 				{m.commands.map((cmd) => (
 					<div class="rounded-[var(--radius-card)] border border-card bg-surface-card overflow-hidden">
@@ -347,7 +673,83 @@ const modules = [
 				))}
 			</div>
 
-			{/* Workflow */}
+			<div class="rounded-[var(--radius-card)] border border-secondary/15 bg-secondary/5 px-5 py-3">
+				<p class="text-[13px]">
+					<span class="font-mono text-[12px] font-medium text-secondary mr-2">Typical workflow:</span>
+					<span class="text-text-muted">{m.workflow}</span>
+				</p>
+			</div>
+		</section>
+	))}
+
+	{/* --- Advisory Modules --- */}
+	<div class="mb-8 mt-8 pt-8 border-t border-[rgba(118,73,196,0.15)]">
+		<div class="flex items-center gap-4 mb-2">
+			<h2 class="font-sans text-[22px] md:text-[26px] font-bold text-text">Advisory Modules</h2>
+			<span class="text-[13px] text-text-muted">{advisoryModules.length} modules</span>
+		</div>
+		<p class="text-[15px] text-text-muted leading-[1.7] mb-2">
+			Strategic advisors that surround the core pipeline. Each module generates planning artifacts, audits, and recommendations - from discovery and marketing to SEO, analytics, and growth. Available in the Complete plan.
+		</p>
+		<DocHighlight variant="insight">
+			<strong>How advisory modules work:</strong> They read artifacts from the core pipeline (user flows, acceptance criteria, product strategy) and generate domain-specific outputs. Each module connects to others through shared state - forge-marketing reads forge-discovery results, forge-copy reads forge-marketing positioning, and so on. Install one or install all - each works standalone but gets smarter with context from its neighbors.
+		</DocHighlight>
+	</div>
+
+	{advisoryModules.map((m) => (
+		<section id={m.id} class="mb-20 scroll-mt-24">
+			<div class="flex items-baseline gap-3 mb-2">
+				<h3 class="font-sans text-[28px] md:text-[32px] font-bold text-text">
+					{m.name}
+				</h3>
+				<span class="rounded-full bg-[rgba(118,73,196,0.08)] px-3 py-0.5 font-mono text-[12px] text-secondary">
+					{m.tier}
+				</span>
+			</div>
+
+			<p class="font-sans text-[18px] text-text leading-[1.5] font-medium mb-4">
+				{m.tagline}
+			</p>
+
+			<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
+				{m.description}
+			</p>
+
+			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5 mb-8">
+				<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-3">What you get</p>
+				<ul class="space-y-2">
+					{m.benefits.map((b) => (
+						<li class="flex items-start gap-2 text-[14px] text-text-secondary leading-[1.6]">
+							<span class="text-secondary mt-0.5 shrink-0">&#10003;</span>
+							<span>{b}</span>
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<div class="space-y-6 mb-6">
+				{m.commands.map((cmd) => (
+					<div class="rounded-[var(--radius-card)] border border-card bg-surface-card overflow-hidden">
+						<div class="border-b border-card px-5 py-3 flex items-baseline gap-3">
+							<code class="font-mono text-[15px] font-medium text-secondary">{cmd.command}</code>
+							<span class="text-[13px] text-text-muted">{cmd.description}</span>
+						</div>
+						<div class="px-5 py-3">
+							<table class="w-full">
+								<tbody>
+									{cmd.subcommands.map((sc) => (
+										<tr class="border-b border-card/30 last:border-0">
+											<td class="py-2 pr-4 font-mono text-[13px] text-text whitespace-nowrap align-top">{sc.sub}</td>
+											<td class="py-2 text-[13px] text-text-muted">{sc.detail}</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				))}
+			</div>
+
 			<div class="rounded-[var(--radius-card)] border border-secondary/15 bg-secondary/5 px-5 py-3">
 				<p class="text-[13px]">
 					<span class="font-mono text-[12px] font-medium text-secondary mr-2">Typical workflow:</span>

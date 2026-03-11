@@ -21,17 +21,32 @@ export const docsNav = {
 			items: [
 				{ label: "Getting Started", href: "/docs/getting-started" },
 				{ label: "Usage Guide", href: "/docs/usage-guide" },
+				{ label: "Concepts", href: "/docs/concepts" },
 			],
 		},
 		{
-			title: "Modules",
+			title: "Core Pipeline",
 			items: [
 				{ label: "forge-core", href: "/docs/usage-guide#core" },
 				{ label: "forge-product", href: "/docs/usage-guide#product" },
 				{ label: "forge-qa", href: "/docs/usage-guide#qa" },
 				{ label: "forge-tracker", href: "/docs/usage-guide#tracker" },
+				{ label: "forge-prompts", href: "/docs/usage-guide#prompts" },
 				{ label: "forge-autopilot", href: "/docs/usage-guide#autopilot" },
 				{ label: "forge-worktree", href: "/docs/usage-guide#worktree" },
+			],
+		},
+		{
+			title: "Advisory Modules",
+			items: [
+				{ label: "forge-discovery", href: "/docs/usage-guide#discovery" },
+				{ label: "forge-marketing", href: "/docs/usage-guide#marketing" },
+				{ label: "forge-copy", href: "/docs/usage-guide#copy" },
+				{ label: "forge-seo", href: "/docs/usage-guide#seo" },
+				{ label: "forge-analytics", href: "/docs/usage-guide#analytics" },
+				{ label: "forge-onboarding", href: "/docs/usage-guide#onboarding" },
+				{ label: "forge-growth", href: "/docs/usage-guide#growth" },
+				{ label: "forge-ab", href: "/docs/usage-guide#ab" },
 			],
 		},
 		{
@@ -50,17 +65,32 @@ const docsNavRu: DocsNavConfig = {
 			items: [
 				{ label: "Начало работы", href: "/docs/getting-started" },
 				{ label: "Руководство по использованию", href: "/docs/usage-guide" },
+				{ label: "Концепция", href: "/docs/concepts" },
 			],
 		},
 		{
-			title: "Модули",
+			title: "Базовый пайплайн",
 			items: [
 				{ label: "forge-core", href: "/docs/usage-guide#core" },
 				{ label: "forge-product", href: "/docs/usage-guide#product" },
 				{ label: "forge-qa", href: "/docs/usage-guide#qa" },
 				{ label: "forge-tracker", href: "/docs/usage-guide#tracker" },
+				{ label: "forge-prompts", href: "/docs/usage-guide#prompts" },
 				{ label: "forge-autopilot", href: "/docs/usage-guide#autopilot" },
 				{ label: "forge-worktree", href: "/docs/usage-guide#worktree" },
+			],
+		},
+		{
+			title: "Модули-советники",
+			items: [
+				{ label: "forge-discovery", href: "/docs/usage-guide#discovery" },
+				{ label: "forge-marketing", href: "/docs/usage-guide#marketing" },
+				{ label: "forge-copy", href: "/docs/usage-guide#copy" },
+				{ label: "forge-seo", href: "/docs/usage-guide#seo" },
+				{ label: "forge-analytics", href: "/docs/usage-guide#analytics" },
+				{ label: "forge-onboarding", href: "/docs/usage-guide#onboarding" },
+				{ label: "forge-growth", href: "/docs/usage-guide#growth" },
+				{ label: "forge-ab", href: "/docs/usage-guide#ab" },
 			],
 		},
 		{

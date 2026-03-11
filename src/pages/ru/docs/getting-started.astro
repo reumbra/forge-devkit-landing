@@ -125,7 +125,7 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 			<p><span class="text-text-muted">$</span> <span class="text-text">forge activate FRG-XXXX-XXXX-XXXX</span></p>
 		</div>
 		<p class="text-[15px] text-text-muted mb-4">
-			Используйте лицензионный ключ из письма с подтверждением покупки. Активации по тарифу: Core 2, Pro 3, Complete 5 устройств.
+			Используйте лицензионный ключ из письма с подтверждением покупки. Активации по тарифу: Starter 2, Pro 3, Complete 5 устройств.
 		</p>
 		<p class="text-[15px] text-text-muted">
 			Нет лицензии? <a href="/ru/pricing" class="text-secondary hover:underline">Получите здесь</a>.
@@ -266,17 +266,17 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 					<tr class="border-b border-[rgba(118,73,196,0.04)]">
 						<td class="px-5 py-2.5 text-secondary">/forge:setup</td>
 						<td class="px-5 py-2.5">Визард настройки, дашборд, обновление, реконфигурация</td>
-						<td class="px-5 py-2.5 text-text-muted">Core+</td>
+						<td class="px-5 py-2.5 text-text-muted">Starter+</td>
 					</tr>
 					<tr class="border-b border-[rgba(118,73,196,0.04)]">
 						<td class="px-5 py-2.5 text-secondary">/dev</td>
 						<td class="px-5 py-2.5">Полный пайплайн разработки (генерируется после setup)</td>
-						<td class="px-5 py-2.5 text-text-muted">Core+</td>
+						<td class="px-5 py-2.5 text-text-muted">Starter+</td>
 					</tr>
 					<tr class="border-b border-[rgba(118,73,196,0.04)]">
 						<td class="px-5 py-2.5 text-secondary">/forge:patch</td>
 						<td class="px-5 py-2.5">Быстрые патчи конфигурации без полного визарда</td>
-						<td class="px-5 py-2.5 text-text-muted">Core+</td>
+						<td class="px-5 py-2.5 text-text-muted">Starter+</td>
 					</tr>
 					<tr class="border-b border-[rgba(118,73,196,0.04)]">
 						<td class="px-5 py-2.5 text-secondary">/forge:product</td>
@@ -298,10 +298,58 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 						<td class="px-5 py-2.5">Пакетная разработка с Agent Teams</td>
 						<td class="px-5 py-2.5 text-text-muted">Complete</td>
 					</tr>
-					<tr>
+					<tr class="border-b border-[rgba(118,73,196,0.04)]">
 						<td class="px-5 py-2.5 text-secondary">/forge:worktree-setup</td>
 						<td class="px-5 py-2.5">Шаблоны жизненного цикла git worktree</td>
-						<td class="px-5 py-2.5 text-text-muted">Core+</td>
+						<td class="px-5 py-2.5 text-text-muted">Starter+</td>
+					</tr>
+					<tr class="border-b border-[rgba(118,73,196,0.04)]">
+						<td class="px-5 py-2.5 text-secondary">/forge:prompts</td>
+						<td class="px-5 py-2.5">Промпт-инжиниринг (инвентаризация, аудит, эволюция)</td>
+						<td class="px-5 py-2.5 text-text-muted">Pro+</td>
+					</tr>
+					<tr class="border-b border-[rgba(118,73,196,0.12)] bg-[rgba(118,73,196,0.02)]">
+						<td colspan="3" class="px-5 py-2 font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-text-muted">Модули-советники (план Complete)</td>
+					</tr>
+					<tr class="border-b border-[rgba(118,73,196,0.04)]">
+						<td class="px-5 py-2.5 text-secondary">/forge:discovery</td>
+						<td class="px-5 py-2.5">Product discovery (идеация, исследование, валидация)</td>
+						<td class="px-5 py-2.5 text-text-muted">Complete</td>
+					</tr>
+					<tr class="border-b border-[rgba(118,73,196,0.04)]">
+						<td class="px-5 py-2.5 text-secondary">/forge:marketing</td>
+						<td class="px-5 py-2.5">Маркетинговая стратегия (позиционирование, цены, GTM)</td>
+						<td class="px-5 py-2.5 text-text-muted">Complete</td>
+					</tr>
+					<tr class="border-b border-[rgba(118,73,196,0.04)]">
+						<td class="px-5 py-2.5 text-secondary">/forge:copy</td>
+						<td class="px-5 py-2.5">Копирайтинг бренда (генерация, ревью)</td>
+						<td class="px-5 py-2.5 text-text-muted">Complete</td>
+					</tr>
+					<tr class="border-b border-[rgba(118,73,196,0.04)]">
+						<td class="px-5 py-2.5 text-secondary">/forge:seo</td>
+						<td class="px-5 py-2.5">SEO-стратегия (аудит, ключевые слова, schema)</td>
+						<td class="px-5 py-2.5 text-text-muted">Complete</td>
+					</tr>
+					<tr class="border-b border-[rgba(118,73,196,0.04)]">
+						<td class="px-5 py-2.5 text-secondary">/forge:analytics</td>
+						<td class="px-5 py-2.5">Планирование аналитики (трекинг, схемы, дашборды)</td>
+						<td class="px-5 py-2.5 text-text-muted">Complete</td>
+					</tr>
+					<tr class="border-b border-[rgba(118,73,196,0.04)]">
+						<td class="px-5 py-2.5 text-secondary">/forge:onboarding</td>
+						<td class="px-5 py-2.5">Дизайн онбординга (потоки активации, аудит)</td>
+						<td class="px-5 py-2.5 text-text-muted">Complete</td>
+					</tr>
+					<tr class="border-b border-[rgba(118,73,196,0.04)]">
+						<td class="px-5 py-2.5 text-secondary">/forge:growth</td>
+						<td class="px-5 py-2.5">Стратегия роста (удержание, рефералы, расширение)</td>
+						<td class="px-5 py-2.5 text-text-muted">Complete</td>
+					</tr>
+					<tr>
+						<td class="px-5 py-2.5 text-secondary">/forge:ab</td>
+						<td class="px-5 py-2.5">A/B-эксперименты (гипотеза, дизайн, анализ)</td>
+						<td class="px-5 py-2.5 text-text-muted">Complete</td>
 					</tr>
 				</tbody>
 			</table>

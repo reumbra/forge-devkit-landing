@@ -1,0 +1,237 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import DocHighlight from "@shared/ui/DocHighlight.astro";
+---
+
+<DocsLayout
+	title="Concepts - Forge DevKit"
+	description="How Forge DevKit works: meta-tool architecture, disposable artifacts, detection over configuration, and the advisory module ecosystem."
+>
+	<h1 class="font-sans text-[36px] md:text-[48px] font-black leading-[1.1] tracking-[-0.02em] text-text mb-4">
+		Concepts
+	</h1>
+	<p class="font-sans text-[18px] md:text-[20px] text-text-secondary leading-[1.6] mb-16">
+		How Forge DevKit thinks, why it works this way, and what makes it different from prompt libraries.
+	</p>
+
+	{/* Meta-Tool Architecture */}
+	<section class="mb-16">
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-4">
+			Meta-Tool Architecture
+		</h2>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			Forge is not a prompt library. It is a <strong class="text-text">meta-tool</strong> - a tool that generates tools. When you run <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/forge:setup</code>, Forge analyzes your project and generates project-specific artifacts: dev-skills, quality patterns, pipeline configurations, and guardrails. These artifacts live in your project's <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">.claude/</code> directory and work autonomously.
+		</p>
+		<DocHighlight variant="insight">
+			<strong>Disposable by design:</strong> After setup, you can uninstall Forge entirely. The generated artifacts continue to work - they are self-contained files your AI reads on session start. Forge is the generator, not the runtime.
+		</DocHighlight>
+
+		<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-6 mb-6">
+			<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-4">How it works</p>
+			<div class="space-y-4 text-[14px] text-text-secondary leading-[1.7]">
+				<div class="flex items-start gap-3">
+					<span class="flex h-6 w-6 items-center justify-center rounded-full bg-secondary/20 font-mono text-[11px] font-bold text-secondary shrink-0 mt-0.5">1</span>
+					<div>
+						<strong class="text-text">Detection.</strong> Forge scans your project: stack, frameworks, architecture layers, conventions, file structure, dependencies. No configuration files needed.
+					</div>
+				</div>
+				<div class="flex items-start gap-3">
+					<span class="flex h-6 w-6 items-center justify-center rounded-full bg-secondary/20 font-mono text-[11px] font-bold text-secondary shrink-0 mt-0.5">2</span>
+					<div>
+						<strong class="text-text">Generation.</strong> Based on detection results, Forge generates artifacts tailored to your project: dev-skills with your conventions, quality patterns for your stack, pipeline phases for your workflow.
+					</div>
+				</div>
+				<div class="flex items-start gap-3">
+					<span class="flex h-6 w-6 items-center justify-center rounded-full bg-secondary/20 font-mono text-[11px] font-bold text-secondary shrink-0 mt-0.5">3</span>
+					<div>
+						<strong class="text-text">Autonomy.</strong> Generated artifacts are loaded by your AI automatically on every session start. They contain your project's architecture, patterns, and rules - so the AI never forgets.
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* Detection Over Configuration */}
+	<section class="mb-16">
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-4">
+			Detection Over Configuration
+		</h2>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			Forge contains zero hardcoded project knowledge. It does not ship with NestJS templates, React patterns, or Django conventions. Instead, it <strong class="text-text">detects</strong> what your project uses and generates artifacts from what it finds.
+		</p>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			The 7-gate setup wizard examines your actual codebase: package.json, directory structure, import patterns, Docker configs, CI pipelines, database migrations. It builds a model of your architecture - not from templates, but from evidence.
+		</p>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5">
+				<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-3">What Forge detects</p>
+				<ul class="space-y-2 text-[14px] text-text-secondary">
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Stack and frameworks</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Architecture layers and boundaries</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Naming conventions and code style</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Test frameworks and patterns</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Docker, CI/CD, and infrastructure</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Database and ORM setup</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Auth, events, and AI/LLM patterns</li>
+				</ul>
+			</div>
+			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5">
+				<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-3">Why detection matters</p>
+				<ul class="space-y-2 text-[14px] text-text-secondary">
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Works with any stack combination</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> No config files to maintain</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Adapts to your project, not the other way around</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Captures conventions templates miss</li>
+					<li class="flex items-start gap-2"><span class="text-secondary shrink-0">&#10003;</span> Reconfigure anytime as your project evolves</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	{/* Core + Adapters */}
+	<section class="mb-16">
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-4">
+			Core + Adapters
+		</h2>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			Forge uses a <strong class="text-text">core + adapter</strong> architecture. forge-core is the foundation - it handles setup, detection, artifact generation, and the development pipeline. Every other module is an adapter that extends the core.
+		</p>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			Adapters are independent plugins that connect through shared state in <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">.claude/forge/</code>. Each adapter reads artifacts from others it depends on (discovery reads nothing, marketing reads discovery, copy reads marketing) - but all dependencies are optional. Every adapter works standalone; it just gets smarter with context from neighbors.
+		</p>
+
+		<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-6 mb-6">
+			<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-4">Ecosystem flow</p>
+			<div class="font-mono text-[13px] text-text-secondary leading-[2] whitespace-pre-wrap">discovery &rarr; marketing &rarr; product &rarr; /dev pipeline
+                                  &darr;
+                            copy, seo, analytics
+                                  &darr;
+                     onboarding, growth, ab</div>
+		</div>
+
+		<DocHighlight variant="insight">
+			<strong>Install what you need.</strong> Starter plan gives you the core pipeline (forge-core + forge-worktree). Pro adds product design, testing, task tracking, and prompt management. Complete unlocks 8 advisory modules that surround the pipeline with strategy: from discovery to A/B testing.
+		</DocHighlight>
+	</section>
+
+	{/* The Development Pipeline */}
+	<section class="mb-16">
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-4">
+			The Development Pipeline
+		</h2>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			When you type <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/dev</code>, Forge activates a multi-phase pipeline generated specifically for your project. Each phase has clear boundaries, quality checks, and guardrails that prevent the AI from cutting corners.
+		</p>
+
+		<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-6 mb-6">
+			<p class="font-mono text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted mb-4">Pipeline phases</p>
+			<div class="space-y-3 text-[14px]">
+				<div class="flex items-start gap-3">
+					<span class="font-mono text-[12px] text-secondary font-bold shrink-0 w-14">Phase 0</span>
+					<div>
+						<strong class="text-text">Understand.</strong>
+						<span class="text-text-secondary"> Read the task, load context from tracker and product artifacts, plan the approach.</span>
+					</div>
+				</div>
+				<div class="flex items-start gap-3">
+					<span class="font-mono text-[12px] text-secondary font-bold shrink-0 w-14">Phase 1</span>
+					<div>
+						<strong class="text-text">Plan.</strong>
+						<span class="text-text-secondary"> Break task into steps, identify affected files and layers, validate against architecture.</span>
+					</div>
+				</div>
+				<div class="flex items-start gap-3">
+					<span class="font-mono text-[12px] text-secondary font-bold shrink-0 w-14">Phase 2</span>
+					<div>
+						<strong class="text-text">Implement.</strong>
+						<span class="text-text-secondary"> Write code following detected conventions, layer boundaries, and naming patterns.</span>
+					</div>
+				</div>
+				<div class="flex items-start gap-3">
+					<span class="font-mono text-[12px] text-secondary font-bold shrink-0 w-14">Phase 3</span>
+					<div>
+						<strong class="text-text">Test.</strong>
+						<span class="text-text-secondary"> Generate tests from acceptance criteria (not AI guesswork), run quality gates.</span>
+					</div>
+				</div>
+				<div class="flex items-start gap-3">
+					<span class="font-mono text-[12px] text-secondary font-bold shrink-0 w-14">Phase 4</span>
+					<div>
+						<strong class="text-text">Review.</strong>
+						<span class="text-text-secondary"> Self-review against 50+ quality patterns, check for rationalization, verify completeness.</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			Each phase includes <strong class="text-text">rationalization detectors</strong> - 15 patterns that catch when AI tries to skip steps, simplify requirements, or cut corners. These are calibrated to your project's complexity level, so they don't slow down simple tasks but catch shortcuts on complex ones.
+		</p>
+	</section>
+
+	{/* Quality Patterns */}
+	<section class="mb-16">
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-4">
+			Quality Patterns
+		</h2>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			After detecting your project's capabilities (UI, API, database, Docker, auth, events, AI), Forge generates quality patterns scoped to what you actually have. A backend API project gets different patterns than a full-stack app with a React frontend.
+		</p>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5">
+				<p class="font-mono text-[13px] text-text font-medium mb-2">UI Patterns</p>
+				<p class="text-[13px] text-text-muted">Component boundaries, state management, accessibility, responsive design, performance budgets</p>
+			</div>
+			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5">
+				<p class="font-mono text-[13px] text-text font-medium mb-2">API Patterns</p>
+				<p class="text-[13px] text-text-muted">Error handling, validation, authentication guards, rate limiting, response contracts</p>
+			</div>
+			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5">
+				<p class="font-mono text-[13px] text-text font-medium mb-2">Infrastructure Patterns</p>
+				<p class="text-[13px] text-text-muted">Docker configuration, CI/CD safety, environment isolation, migration strategies</p>
+			</div>
+			<div class="rounded-[var(--radius-card)] border border-card bg-surface-card p-5">
+				<p class="font-mono text-[13px] text-text font-medium mb-2">Shared Patterns</p>
+				<p class="text-[13px] text-text-muted">Naming conventions, layer boundaries, dependency rules, code organization, test structure</p>
+			</div>
+		</div>
+	</section>
+
+	{/* Upgrade & Evolution */}
+	<section class="mb-16">
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-4">
+			Upgrade & Evolution
+		</h2>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			Forge tracks ownership of every generated file with version headers. When you upgrade a plugin, Forge knows which files it generated (safe to update) and which you modified (preserved). Run <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/forge:setup upgrade</code> to check for updates and apply them safely.
+		</p>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+			Your project evolves, and Forge evolves with it. Changed your testing framework? Restructured your layers? Run <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/forge:setup reconfigure</code> to re-detect and regenerate artifacts. The wizard saves progress after each gate, so interruptions are safe.
+		</p>
+	</section>
+
+	{/* CTA */}
+	<section class="mb-16">
+		<div class="rounded-[var(--radius-card)] border border-secondary/20 bg-secondary/5 p-8 text-center">
+			<p class="font-sans text-[20px] md:text-[24px] font-bold text-text mb-3">
+				Ready to see it in action?
+			</p>
+			<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+				<a
+					href="/docs/getting-started"
+					class="inline-flex items-center justify-center rounded-[var(--radius-button)] bg-primary px-8 py-3 font-sans text-[15px] font-medium text-white transition-all duration-200 hover:bg-primary-hover"
+				>
+					Get started in 5 minutes &rarr;
+				</a>
+				<a
+					href="/docs/usage-guide"
+					class="inline-flex items-center justify-center rounded-[var(--radius-button)] border border-card px-8 py-3 font-sans text-[15px] font-medium text-text transition-all duration-200 hover:border-secondary/40"
+				>
+					All 15 modules
+				</a>
+			</div>
+		</div>
+	</section>
+</DocsLayout>
