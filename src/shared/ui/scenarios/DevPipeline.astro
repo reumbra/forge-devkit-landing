@@ -1,75 +1,110 @@
-<!-- Scenario: /dev pipeline - RED > GREEN > REFACTOR cycle -->
-<!-- THE killer feature - shows how daily development workflow works -->
+<!-- Scenario: /dev pipeline - the full 6-phase TDD cycle with module integration -->
+<!-- THE killer feature: shows how forge-product, forge-qa, forge-tracker all work together -->
 
 {/* Phase 1: Hook */}
 <div class="at-line" data-phase="1" data-delay="0">
 	<span class="at-prompt"><span class="text-[#9A75EA]">&#10095; </span><span class="text-[#27C93F] at-typed" data-text="/dev &quot;Add payment webhook endpoint&quot;"></span></span>
 </div>
 
-{/* Phase 2: RED - Understanding */}
+{/* Phase 2: Gate - task analysis + module context loading */}
 <div class="at-line" data-phase="2" data-delay="800">
 	<br />
-	<p><span class="text-[#FF5F56] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 1: RED</span> <span class="text-[#8B8B8B]">- Understanding</span></p>
+	<p><span class="text-[#9A75EA] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 0: Gate</span></p>
 </div>
 
-<div class="at-line" data-phase="2" data-delay="1400">
-	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Loading acceptance criteria...</span></p>
+<div class="at-line whitespace-nowrap" data-phase="2" data-delay="1200">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Task:</span> <span class="text-white">new-feature</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#8B8B8B]">~8 files</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#8B8B8B]">Mode:</span> <span class="text-[#7DCFFF]">balanced</span></p>
 </div>
 
-<div class="at-line" data-phase="2" data-delay="1900">
-	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">3 user stories identified</span></p>
+<div class="at-line whitespace-nowrap" data-phase="2" data-delay="1600">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">forge-product</span> <span class="text-[#8B8B8B]">&rarr; loaded 5 AC from</span> <span class="text-[#8B8B8B]">features/payment.md</span></p>
 </div>
 
-<div class="at-line" data-phase="2" data-delay="2300">
-	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">5 acceptance criteria extracted</span></p>
+<div class="at-line whitespace-nowrap" data-phase="2" data-delay="1900">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">forge-tracker</span> <span class="text-[#8B8B8B]">&rarr; linked</span> <span class="text-[#FFBD2E]">ENG-142</span> <span class="text-[#8B8B8B]">&rarr; In Progress</span></p>
 </div>
 
-<div class="at-line" data-phase="2" data-delay="2700">
-	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Test stubs generated</span> <span class="text-[#FF5F56]">(3 failing)</span></p>
+<div class="at-line" data-phase="2" data-delay="2200">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Red flags: none</span></p>
 </div>
 
-{/* Phase 3: GREEN - Implementation */}
-<div class="at-line" data-phase="3" data-delay="3500">
+{/* Phase 3: Understand + RED */}
+<div class="at-line" data-phase="3" data-delay="3000">
 	<br />
-	<p><span class="text-[#27C93F] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 2: GREEN</span> <span class="text-[#8B8B8B]">- Implementation</span></p>
+	<p><span class="text-[#9A75EA] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 1: Understand</span></p>
 </div>
 
-<div class="at-line whitespace-nowrap" data-phase="3" data-delay="4000">
-	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Step core.2.10:</span> <span class="text-white">Create webhook controller</span></p>
+<div class="at-line whitespace-nowrap" data-phase="3" data-delay="3400">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Schema:</span> <span class="text-white">WebhookEvent table</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#8B8B8B]">Layers:</span> <span class="text-white">domain, infra, interface</span></p>
 </div>
 
-<div class="at-line whitespace-nowrap" data-phase="3" data-delay="4400">
-	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Step core.2.12:</span> <span class="text-white">Add signature verification</span></p>
+<div class="at-line whitespace-nowrap" data-phase="3" data-delay="3800">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Contracts: IWebhookRepository, ProcessWebhookCommand, WebhookDto</span></p>
+</div>
+
+<div class="at-line" data-phase="3" data-delay="4400">
+	<br />
+	<p><span class="text-[#FF5F56] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 2: Test</span> <span class="text-[#FF5F56] font-semibold">(RED)</span></p>
 </div>
 
 <div class="at-line whitespace-nowrap" data-phase="3" data-delay="4800">
-	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Step core.2.15:</span> <span class="text-white">Implement event handlers</span></p>
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">forge-qa</span> <span class="text-[#8B8B8B]">&rarr; AC mapped to 8 assertions</span></p>
 </div>
 
-<div class="at-line" data-phase="3" data-delay="5200">
-	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">All 5 acceptance criteria met</span></p>
+<div class="at-line whitespace-nowrap" data-phase="3" data-delay="5100">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Generated:</span> <span class="text-white">webhook.spec.ts</span> <span class="text-[#8B8B8B]">(5 tests)</span> <span class="text-[#8B8B8B]">+</span> <span class="text-white">stripe-sig.spec.ts</span> <span class="text-[#8B8B8B]">(3 tests)</span></p>
 </div>
 
-{/* Phase 4: REFACTOR - Polish */}
-<div class="at-line" data-phase="4" data-delay="6000">
+<div class="at-line" data-phase="3" data-delay="5400">
+	<p>&nbsp;&nbsp;<span class="text-[#FF5F56]">&#10007;</span> <span class="text-[#FF5F56]">8 tests failing</span> <span class="text-[#8B8B8B]">- ready for implementation</span></p>
+</div>
+
+{/* Phase 4: GREEN - implementation */}
+<div class="at-line" data-phase="4" data-delay="6200">
 	<br />
-	<p><span class="text-[#7DCFFF] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 3: REFACTOR</span> <span class="text-[#8B8B8B]">- Polish</span></p>
+	<p><span class="text-[#27C93F] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 3: Implement</span> <span class="text-[#27C93F] font-semibold">(GREEN)</span></p>
 </div>
 
-<div class="at-line" data-phase="4" data-delay="6500">
-	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Extract PaymentEventHandler</span></p>
+<div class="at-line whitespace-nowrap" data-phase="4" data-delay="6600">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">core.3.10:</span> <span class="text-white">WebhookEvent entity + value objects</span></p>
 </div>
 
-<div class="at-line" data-phase="4" data-delay="6900">
-	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Quality patterns: 12/12 passing</span></p>
+<div class="at-line whitespace-nowrap" data-phase="4" data-delay="6900">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">core.3.20:</span> <span class="text-white">WebhookRepository (Prisma)</span></p>
 </div>
 
-<div class="at-line" data-phase="4" data-delay="7300">
-	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">8 tests passing</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#27C93F]">0 rationalization flags</span></p>
+<div class="at-line whitespace-nowrap" data-phase="4" data-delay="7200">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">core.3.30:</span> <span class="text-white">ProcessWebhookHandler + signature verification</span></p>
 </div>
 
-{/* Phase 5: Ready */}
-<div class="at-line" data-phase="5" data-delay="8200">
+<div class="at-line whitespace-nowrap" data-phase="4" data-delay="7500">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">core.3.40:</span> <span class="text-white">WebhookController + route guards</span></p>
+</div>
+
+<div class="at-line" data-phase="4" data-delay="7800">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#27C93F] font-semibold">8/8 tests passing</span></p>
+</div>
+
+{/* Phase 5: Verify - quality + AC coverage */}
+<div class="at-line" data-phase="5" data-delay="8600">
 	<br />
-	<p><span class="text-[#27C93F]">&#10022;</span> <span class="text-white font-semibold">Feature complete.</span> <span class="text-[#8B8B8B]">Ready for review.</span></p>
+	<p><span class="text-[#7DCFFF] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 4: Verify</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="5" data-delay="9000">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Type check</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Lint</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Quality patterns: 14/14</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="5" data-delay="9300">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">forge-product</span> <span class="text-[#8B8B8B]">&rarr; AC coverage:</span> <span class="text-[#27C93F]">5/5</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#8B8B8B]">0 rationalization flags</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="5" data-delay="9600">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">forge-tracker</span> <span class="text-[#8B8B8B]">&rarr;</span> <span class="text-[#FFBD2E]">ENG-142</span> <span class="text-[#8B8B8B]">marked complete</span></p>
+</div>
+
+{/* Phase 6: Close */}
+<div class="at-line" data-phase="6" data-delay="10400">
+	<br />
+	<p><span class="text-[#27C93F]">&#10022;</span> <span class="text-white font-semibold">Feature complete.</span> <span class="text-[#8B8B8B]">6 phases &middot; 5/5 AC &middot; 8 tests &middot; 0 flags.</span></p>
 </div>
