@@ -44,7 +44,7 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 			Backend Project
 		</h3>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			NestJS with Prisma, PostgreSQL, JWT auth, Bull queues. Forge detects every layer and generates backend-specific quality patterns.
+			9 gates in under 10 seconds. Forge detects your full stack (NestJS, Prisma, PostgreSQL, JWT, Bull queues), audits naming conventions across all services, measures existing skill coverage, and generates a tailored dev-pipeline with 50+ quality patterns scoped to your exact capabilities.
 		</p>
 		<div class="w-full max-w-[720px] mb-12">
 			<AnimatedTerminal>
@@ -57,7 +57,7 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 			Frontend Project
 		</h3>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			Next.js with React 19, Tailwind v4, TanStack Query. Different stack, different patterns - same setup command. Forge generates UI-specific quality rules and component testing configuration.
+			Same command, completely different output. On a Next.js + React 19 + Tailwind v4 project, Forge generates UI-specific quality patterns (accessibility, performance, component boundaries), configures component testing with Testing Library + Vitest, and adapts the entire pipeline to frontend conventions.
 		</p>
 		<div class="w-full max-w-[720px] mb-12">
 			<AnimatedTerminal compact>
@@ -92,15 +92,15 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 			The Dev Pipeline
 		</h2>
 		<p class="text-[16px] text-text-secondary leading-[1.7] mb-10">
-			This is where Forge lives every day. <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">forge dev</code> runs a structured RED &rarr; GREEN &rarr; REFACTOR cycle for every feature. Tests first, implementation second, quality always.
+			This is where Forge lives every day. <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">forge dev</code> runs a 6-phase TDD pipeline where all your modules work together: forge-worktree isolates in a branch, forge-product loads acceptance criteria, forge-qa generates tests, forge-tracker syncs status - one command, full integration.
 		</p>
 
 		<!-- 2.1 Dev Pipeline -->
 		<h3 class="font-sans text-[20px] md:text-[22px] font-semibold text-text mb-4">
-			RED &rarr; GREEN &rarr; REFACTOR
+			6-Phase Pipeline with Module Integration
 		</h3>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			Give it a feature description. Forge extracts acceptance criteria, generates failing tests (RED), implements the code until tests pass (GREEN), then refactors while maintaining all assertions (REFACTOR). Every step is tracked and auditable.
+			Give it a feature description. Forge creates an isolated worktree, loads acceptance criteria from forge-product, generates failing tests via forge-qa (dispatched on Sonnet for cost efficiency), implements until green, runs self-review on Haiku, verifies AC coverage, and opens a PR - all in one command. Subagents run on cheaper models so you don't burn Opus tokens on mechanical work.
 		</p>
 		<div class="w-full max-w-[720px] mb-12">
 			<AnimatedTerminal>
@@ -113,7 +113,7 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 			Rationalization Detectors
 		</h3>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			AI models are trained to be helpful - sometimes too helpful. When an AI agent rationalizes skipping best practices ("let's add tests later", "error handling can wait"), Forge catches it and blocks the shortcut. 15 detectors, 50+ quality patterns.
+			AI models are trained to be helpful - sometimes too helpful. When an AI agent rationalizes skipping best practices ("let's add tests later", "error handling can wait"), Forge's 15 rationalization detectors catch it mid-generation and block the shortcut. Patterns are scoped to your capabilities: API guards, database migrations, auth flows, event handling - not generic checklists.
 		</p>
 		<div class="w-full max-w-[720px] mb-4">
 			<AnimatedTerminal compact>
@@ -143,7 +143,7 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 			Test Generation (forge-qa)
 		</h3>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			Tests generated from acceptance criteria, not AI hallucinations. 11 modes (unit, integration, component, acceptance, e2e), 4-level traceability, 8+ testing frameworks supported. Every test traces back to a requirement.
+			Tests generated from acceptance criteria, not AI guesswork. forge-qa reads your feature specs from forge-product, maps each AC to concrete assertions, and generates tests across 11 modes (unit, integration, component, acceptance, e2e). Every test traces back to a requirement through 4-level traceability: AC, use cases, UX criteria, and LLM-as-Judge evaluation.
 		</p>
 		<div class="w-full max-w-[720px] mb-12">
 			<AnimatedTerminal compact>
@@ -156,7 +156,7 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 			Task Sync (forge-tracker)
 		</h3>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			Your task tracker talks directly to the AI agent. Pull tasks from Linear, ClickUp, Jira, GitHub, or Notion. Acceptance criteria flow into the dev pipeline automatically. Status updates sync back.
+			Bidirectional sync between your task tracker and the AI agent. Pull tasks from Linear, ClickUp, Jira, GitHub, or Notion - acceptance criteria flow directly into the dev pipeline. When implementation is done, forge-tracker marks the task complete and posts a summary. No copy-pasting ticket IDs, no manual status updates.
 		</p>
 		<div class="w-full max-w-[720px] mb-12">
 			<AnimatedTerminal compact>
@@ -169,7 +169,7 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 			Agent Teams (forge-autopilot)
 		</h3>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			The endgame. Forge triages your backlog, identifies parallelizable features, spawns AI agent teams in isolated git worktrees, and executes entire sprints autonomously. 3 autonomy modes: supervised, semi-auto, full-auto.
+			The endgame. Forge triages your backlog, detects file conflicts between features, groups them into parallel waves, and spawns AI agent teams in isolated git worktrees. A tech-lead agent coordinates while teammates execute the full /dev pipeline independently. 3 autonomy modes: supervised (you approve each PR), semi-auto (auto-merge green PRs), full-auto (hands-off sprint execution).
 		</p>
 		<div class="w-full max-w-[720px] mb-12">
 			<AnimatedTerminal compact>

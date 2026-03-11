@@ -44,7 +44,7 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 			Backend-проект
 		</h3>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			NestJS с Prisma, PostgreSQL, JWT auth, Bull queues. Forge определяет каждый слой и генерирует backend-специфичные паттерны качества.
+			9 гейтов менее чем за 10 секунд. Forge определяет весь стек (NestJS, Prisma, PostgreSQL, JWT, Bull queues), аудирует naming conventions по всем сервисам, измеряет покрытие существующих скиллов и генерирует tailored dev-pipeline с 50+ паттернами качества, привязанными к вашим конкретным capabilities.
 		</p>
 		<div class="w-full max-w-[720px] mb-12">
 			<AnimatedTerminal>
@@ -57,7 +57,7 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 			Frontend-проект
 		</h3>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			Next.js с React 19, Tailwind v4, TanStack Query. Другой стек, другие паттерны - та же команда setup. Forge генерирует UI-специфичные правила качества и конфигурацию тестирования компонентов.
+			Та же команда, совершенно другой результат. На проекте Next.js + React 19 + Tailwind v4 Forge генерирует UI-специфичные паттерны качества (accessibility, performance, component boundaries), настраивает компонентное тестирование с Testing Library + Vitest и адаптирует весь пайплайн под frontend-конвенции.
 		</p>
 		<div class="w-full max-w-[720px] mb-12">
 			<AnimatedTerminal compact>
@@ -92,15 +92,15 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 			Dev-пайплайн
 		</h2>
 		<p class="text-[16px] text-text-secondary leading-[1.7] mb-10">
-			Здесь Forge живёт каждый день. <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">forge dev</code> запускает структурированный цикл RED &rarr; GREEN &rarr; REFACTOR для каждой фичи. Сначала тесты, потом реализация, качество - всегда.
+			Здесь Forge живёт каждый день. <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">forge dev</code> запускает 6-фазный TDD-пайплайн, где все модули работают вместе: forge-worktree изолирует в ветке, forge-product загружает критерии приёмки, forge-qa генерирует тесты, forge-tracker синхронизирует статус - одна команда, полная интеграция.
 		</p>
 
 		<!-- 2.1 Dev Pipeline -->
 		<h3 class="font-sans text-[20px] md:text-[22px] font-semibold text-text mb-4">
-			RED &rarr; GREEN &rarr; REFACTOR
+			6-фазный пайплайн с интеграцией модулей
 		</h3>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			Дайте описание фичи. Forge извлекает критерии приёмки, генерирует падающие тесты (RED), реализует код до прохождения тестов (GREEN), затем рефакторит, сохраняя все утверждения (REFACTOR). Каждый шаг отслеживается и доступен для аудита.
+			Дайте описание фичи. Forge создаёт изолированный worktree, загружает критерии приёмки из forge-product, генерирует падающие тесты через forge-qa (делегируя на Sonnet для экономии), реализует до зелёного, запускает self-review на Haiku, проверяет покрытие AC и открывает PR - всё одной командой. Сабагенты работают на дешёвых моделях, чтобы не тратить токены Opus на механическую работу.
 		</p>
 		<div class="w-full max-w-[720px] mb-12">
 			<AnimatedTerminal>
@@ -113,7 +113,7 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 			Детекторы рационализации
 		</h3>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			AI-модели обучены быть полезными - иногда слишком полезными. Когда AI-агент рационализирует пропуск best practices ("добавим тесты потом", "обработка ошибок подождёт"), Forge ловит это и блокирует шорткат. 15 детекторов, 50+ паттернов качества.
+			AI-модели обучены быть полезными - иногда слишком полезными. Когда AI-агент рационализирует пропуск best practices ("добавим тесты потом", "обработка ошибок подождёт"), 15 детекторов рационализации Forge ловят это прямо в процессе генерации и блокируют шорткат. Паттерны привязаны к вашим capabilities: API guards, database migrations, auth flows, event handling - не generic чеклисты.
 		</p>
 		<div class="w-full max-w-[720px] mb-4">
 			<AnimatedTerminal compact>
@@ -143,7 +143,7 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 			Генерация тестов (forge-qa)
 		</h3>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			Тесты генерируются из критериев приёмки, а не из галлюцинаций AI. 11 режимов (unit, integration, component, acceptance, e2e), 4-уровневая прослеживаемость, 8+ тестовых фреймворков. Каждый тест привязан к требованию.
+			Тесты генерируются из критериев приёмки, а не из догадок AI. forge-qa читает спецификации фич из forge-product, маппит каждый AC на конкретные assertions и генерирует тесты в 11 режимах (unit, integration, component, acceptance, e2e). Каждый тест привязан к требованию через 4-уровневую прослеживаемость: AC, use cases, UX-критерии и LLM-as-Judge оценка.
 		</p>
 		<div class="w-full max-w-[720px] mb-12">
 			<AnimatedTerminal compact>
@@ -156,7 +156,7 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 			Синхронизация задач (forge-tracker)
 		</h3>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			Ваш трекер задач общается напрямую с AI-агентом. Забирайте задачи из Linear, ClickUp, Jira, GitHub или Notion. Критерии приёмки автоматически попадают в dev-пайплайн. Статусы синхронизируются обратно.
+			Двусторонняя синхронизация между вашим трекером задач и AI-агентом. Забирайте задачи из Linear, ClickUp, Jira, GitHub или Notion - критерии приёмки попадают прямо в dev-пайплайн. После завершения реализации forge-tracker отмечает задачу как выполненную и публикует summary. Никакого копирования ticket ID, никаких ручных обновлений статуса.
 		</p>
 		<div class="w-full max-w-[720px] mb-12">
 			<AnimatedTerminal compact>
@@ -169,7 +169,7 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 			Агент-команды (forge-autopilot)
 		</h3>
 		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
-			Финальный уровень. Forge анализирует бэклог, определяет параллелизируемые фичи, запускает AI-команды в изолированных git worktree и выполняет целые спринты автономно. 3 режима автономности: supervised, semi-auto, full-auto.
+			Финальный уровень. Forge анализирует бэклог, определяет файловые конфликты между фичами, группирует их в параллельные волны и запускает AI-команды в изолированных git worktree. Агент-техлид координирует, а тиммейты независимо выполняют полный /dev пайплайн. 3 режима автономности: supervised (вы подтверждаете каждый PR), semi-auto (зелёные PR мерджатся автоматически), full-auto (hands-off выполнение спринта).
 		</p>
 		<div class="w-full max-w-[720px] mb-12">
 			<AnimatedTerminal compact>
