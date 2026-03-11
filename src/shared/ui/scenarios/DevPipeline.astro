@@ -1,5 +1,6 @@
 <!-- Scenario: /dev pipeline - the full 6-phase TDD cycle with module integration -->
-<!-- THE killer feature: shows how forge-product, forge-qa, forge-tracker all work together -->
+<!-- THE killer feature: shows how forge-product, forge-qa, forge-tracker, forge-worktree work together -->
+<!-- Also shows subagent delegation on cheaper models (sonnet/haiku) -->
 
 {/* Phase 1: Hook */}
 <div class="at-line" data-phase="1" data-delay="0">
@@ -16,15 +17,19 @@
 	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Task:</span> <span class="text-white">new-feature</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#8B8B8B]">~8 files</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#8B8B8B]">Mode:</span> <span class="text-[#7DCFFF]">balanced</span></p>
 </div>
 
-<div class="at-line whitespace-nowrap" data-phase="2" data-delay="1600">
+<div class="at-line whitespace-nowrap" data-phase="2" data-delay="1500">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">forge-worktree</span> <span class="text-[#8B8B8B]">&rarr; branch</span> <span class="text-[#7DCFFF]">feat/eng-142-webhook</span> <span class="text-[#8B8B8B]">in isolated worktree</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="2" data-delay="1800">
 	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">forge-product</span> <span class="text-[#8B8B8B]">&rarr; loaded 5 AC from</span> <span class="text-[#8B8B8B]">features/payment.md</span></p>
 </div>
 
-<div class="at-line whitespace-nowrap" data-phase="2" data-delay="1900">
+<div class="at-line whitespace-nowrap" data-phase="2" data-delay="2100">
 	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">forge-tracker</span> <span class="text-[#8B8B8B]">&rarr; linked</span> <span class="text-[#FFBD2E]">ENG-142</span> <span class="text-[#8B8B8B]">&rarr; In Progress</span></p>
 </div>
 
-<div class="at-line" data-phase="2" data-delay="2200">
+<div class="at-line" data-phase="2" data-delay="2400">
 	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Red flags: none</span></p>
 </div>
 
@@ -48,7 +53,7 @@
 </div>
 
 <div class="at-line whitespace-nowrap" data-phase="3" data-delay="4800">
-	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">forge-qa</span> <span class="text-[#8B8B8B]">&rarr; AC mapped to 8 assertions</span></p>
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">forge-qa</span> <span class="text-[#8B8B8B]">&rarr; AC mapped to 8 assertions</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#8B8B8B] text-[0.85em]">dispatched test-generator</span> <span class="text-[#7DCFFF] text-[0.85em]">(sonnet)</span></p>
 </div>
 
 <div class="at-line whitespace-nowrap" data-phase="3" data-delay="5100">
@@ -96,15 +101,28 @@
 </div>
 
 <div class="at-line whitespace-nowrap" data-phase="5" data-delay="9300">
-	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">forge-product</span> <span class="text-[#8B8B8B]">&rarr; AC coverage:</span> <span class="text-[#27C93F]">5/5</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#8B8B8B]">0 rationalization flags</span></p>
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Self-review</span> <span class="text-[#7DCFFF] text-[0.85em]">(haiku)</span> <span class="text-[#8B8B8B]">&rarr; 0 issues</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#8B8B8B]">0 rationalization flags</span></p>
 </div>
 
 <div class="at-line whitespace-nowrap" data-phase="5" data-delay="9600">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">forge-product</span> <span class="text-[#8B8B8B]">&rarr; AC coverage:</span> <span class="text-[#27C93F]">5/5</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="5" data-delay="9900">
 	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">forge-tracker</span> <span class="text-[#8B8B8B]">&rarr;</span> <span class="text-[#FFBD2E]">ENG-142</span> <span class="text-[#8B8B8B]">marked complete</span></p>
 </div>
 
-{/* Phase 6: Close */}
-<div class="at-line" data-phase="6" data-delay="10400">
+{/* Phase 6: Close - worktree PR */}
+<div class="at-line" data-phase="6" data-delay="10700">
+	<br />
+	<p><span class="text-[#8B8B8B] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 5: Close</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="6" data-delay="11000">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">forge-worktree</span> <span class="text-[#8B8B8B]">&rarr;</span> <span class="text-[#27C93F]">PR #91</span> <span class="text-[#8B8B8B]">created, worktree cleaned</span></p>
+</div>
+
+<div class="at-line" data-phase="6" data-delay="11500">
 	<br />
 	<p><span class="text-[#27C93F]">&#10022;</span> <span class="text-white font-semibold">Feature complete.</span> <span class="text-[#8B8B8B]">6 phases &middot; 5/5 AC &middot; 8 tests &middot; 0 flags.</span></p>
 </div>
