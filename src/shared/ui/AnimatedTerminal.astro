@@ -1,15 +1,16 @@
 ---
 /**
- * Animated Terminal Demo - Interactive forge setup showcase.
+ * Animated Terminal Shell - reusable container for animated demos.
  *
- * AIDA psychology sequence:
- *   Phase 1 (Hook):       Command typed - pattern interrupt
- *   Phase 2 (Detection):  Stack auto-detected - authority bias (specific versions)
- *   Phase 3 (Proof):      Gates passing - goal-gradient effect
- *   Phase 4 (Generation): Artifacts created - IKEA effect (built FOR you)
- *   Phase 5 (Close):      Ready + platform list - loss aversion (works standalone)
+ * Accepts scenario content via <slot />. Content should use:
+ *   .at-line[data-phase][data-delay]  - animated lines (hidden, revealed by delay)
+ *   .at-typed[data-text]              - typed text effect (phase 1 command)
  *
- * Triggers on scroll via IntersectionObserver. Falls back to static content if JS disabled.
+ * AIDA psychology baked into the animation engine:
+ *   Phase 1: Hook (command typed)
+ *   Phase 2+: Progressive reveal with configurable delays
+ *
+ * Triggers on scroll via IntersectionObserver. Falls back to static if JS disabled.
  */
 interface Props {
 	class?: string;
@@ -17,9 +18,14 @@ interface Props {
 	autoplay?: boolean;
 	/** Show replay button after animation completes (default: true) */
 	showReplay?: boolean;
+	/** Compact mode for guide page - smaller min-height (default: false) */
+	compact?: boolean;
 }
 
-const { class: className, autoplay = true, showReplay = true } = Astro.props;
+const { class: className, autoplay = true, showReplay = true, compact = false } = Astro.props;
+const heightClass = compact
+	? "min-h-[220px] sm:min-h-[240px] md:min-h-[260px]"
+	: "min-h-[320px] sm:min-h-[380px] md:min-h-[420px]";
 ---
 
 <div
@@ -43,100 +49,9 @@ const { class: className, autoplay = true, showReplay = true } = Astro.props;
 			<span class="ml-2 font-mono text-[11px] text-text-muted">Terminal</span>
 		</div>
 
-		{/* Terminal content */}
-		<div class="at-content overflow-x-auto p-5 font-mono text-[11px] sm:text-[12px] md:text-[13px] leading-[1.7] text-text-secondary min-h-[320px] sm:min-h-[380px] md:min-h-[420px]">
-
-			{/* Phase 1: Hook - command typed */}
-			<div class="at-line" data-phase="1" data-delay="0">
-				<span class="at-prompt"><span class="text-[#9A75EA]">&#10095; </span><span class="text-[#27C93F] at-typed" data-text="forge setup"></span></span>
-			</div>
-
-			{/* Phase 2: Detection - authority bias (specific versions) */}
-			<div class="at-line whitespace-nowrap" data-phase="2" data-delay="800">
-				<br />
-				<p><span class="text-[#9A75EA] font-semibold">&#9670;</span> <span class="text-white font-semibold">Gate 1: Architecture Audit</span></p>
-			</div>
-
-			<div class="at-line whitespace-nowrap" data-phase="2" data-delay="1200">
-				<br />
-				<p><span class="text-[#8B8B8B]">Stack:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-white">NestJS 11.0</span> <span class="text-[#8B8B8B]">+</span> <span class="text-white">TypeScript 5.8</span> <span class="text-[#8B8B8B]">+</span> <span class="text-white">Prisma 6.4</span></p>
-			</div>
-
-			<div class="at-line whitespace-nowrap" data-phase="2" data-delay="1600">
-				<p><span class="text-[#8B8B8B]">Architecture:</span>&nbsp;&nbsp;&nbsp;<span class="text-[#7DCFFF]">Clean Architecture (3 layers)</span></p>
-			</div>
-
-			<div class="at-line whitespace-nowrap" data-phase="2" data-delay="1900">
-				<p><span class="text-[#8B8B8B]">Database:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-white">PostgreSQL 16</span> <span class="text-[#8B8B8B]">&nbsp;|&nbsp;</span> <span class="text-[#8B8B8B]">CI:</span> <span class="text-white">GitHub Actions</span></p>
-			</div>
-
-			<div class="at-line whitespace-nowrap" data-phase="2" data-delay="2200">
-				<p><span class="text-[#8B8B8B]">Auth:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-white">JWT + Passport</span> <span class="text-[#8B8B8B]">&nbsp;|&nbsp;</span> <span class="text-[#8B8B8B]">Events:</span> <span class="text-white">Bull queues</span></p>
-			</div>
-
-			{/* Phase 3: Proof - goal-gradient (gates passing) */}
-			<div class="at-line" data-phase="3" data-delay="3000">
-				<br />
-				<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">52 dev-skills generated</span></p>
-			</div>
-
-			<div class="at-line" data-phase="3" data-delay="3400">
-				<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">50+ quality patterns applied</span></p>
-			</div>
-
-			<div class="at-line" data-phase="3" data-delay="3800">
-				<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">15 rationalization detectors active</span></p>
-			</div>
-
-			<div class="at-line" data-phase="3" data-delay="4200">
-				<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Parallel readiness:</span> <span class="text-[#27C93F] font-semibold">9/10</span></p>
-			</div>
-
-			{/* Phase 4: Generation - IKEA effect (artifacts built FOR you) */}
-			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="5200">
-				<br />
-				<p><span class="text-[#9A75EA] font-semibold">&#9670;</span> <span class="text-white font-semibold">Generated artifacts:</span></p>
-			</div>
-
-			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="5600">
-				<br />
-				<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">.claude/</span></p>
-			</div>
-
-			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="5900">
-				<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">&#9500;&#9472;&#9472;</span> <span class="text-white">settings.json</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B] text-[0.85em]">&larr; execution modes</span></p>
-			</div>
-
-			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="6200">
-				<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">&#9500;&#9472;&#9472;</span> <span class="text-[#FFBD2E]">CLAUDE.md</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B] text-[0.85em]">&larr; architecture rules</span></p>
-			</div>
-
-			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="6500">
-				<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">&#9492;&#9472;&#9472;</span> <span class="text-[#8B8B8B]">skills/</span></p>
-			</div>
-
-			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="6800">
-				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B]">&#9500;&#9472;&#9472;</span> <span class="text-white">dev-pipeline.md</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B] text-[0.85em]">&larr; RED &rarr; GREEN &rarr; REFACTOR</span></p>
-			</div>
-
-			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="7100">
-				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B]">&#9500;&#9472;&#9472;</span> <span class="text-white">step-catalog.md</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B] text-[0.85em]">&larr; 52 scoped steps</span></p>
-			</div>
-
-			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="7400">
-				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B]">&#9492;&#9472;&#9472;</span> <span class="text-white">quality-patterns/</span> &nbsp;&nbsp;<span class="text-[#8B8B8B] text-[0.85em]">&larr; 4 capability files</span></p>
-			</div>
-
-			{/* Phase 5: Close - loss aversion (works standalone) */}
-			<div class="at-line" data-phase="5" data-delay="8400">
-				<br />
-				<p><span class="text-[#27C93F]">&#10022;</span> <span class="text-white font-semibold">Project ready.</span> <span class="text-[#8B8B8B]">AI is now architecture-aware.</span></p>
-			</div>
-
-			<div class="at-line at-platforms" data-phase="5" data-delay="9000">
-				<br />
-				<p class="text-[#8B8B8B]">&nbsp;&nbsp;Works with: <span class="text-[#9A75EA]">Claude Code</span> &middot; <span class="text-[#9A75EA]">Cursor</span> &middot; <span class="text-[#9A75EA]">Windsurf</span> &middot; <span class="text-[#8B8B8B]">any AI agent</span></p>
-			</div>
+		{/* Terminal content - scenario injected via slot */}
+		<div class:list={["at-content overflow-x-auto p-5 font-mono text-[11px] sm:text-[12px] md:text-[13px] leading-[1.7] text-text-secondary", heightClass]}>
+			<slot />
 		</div>
 	</div>
 

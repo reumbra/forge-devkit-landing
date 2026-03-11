@@ -1,0 +1,69 @@
+<!-- Scenario: forge-autopilot launching parallel agent teams -->
+<!-- The "wow" scenario - multiple AI teams working on features simultaneously -->
+
+{/* Phase 1: Hook */}
+<div class="at-line" data-phase="1" data-delay="0">
+	<span class="at-prompt"><span class="text-[#9A75EA]">&#10095; </span><span class="text-[#27C93F] at-typed" data-text="forge autopilot"></span></span>
+</div>
+
+{/* Phase 2: Triage */}
+<div class="at-line" data-phase="2" data-delay="800">
+	<br />
+	<p><span class="text-[#9A75EA] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 1: Triage</span></p>
+</div>
+
+<div class="at-line" data-phase="2" data-delay="1400">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Analyzing backlog: 6 features classified</span></p>
+</div>
+
+<div class="at-line" data-phase="2" data-delay="1900">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">4 parallelizable, 2 sequential</span></p>
+</div>
+
+{/* Phase 3: Wave planning */}
+<div class="at-line" data-phase="3" data-delay="2700">
+	<br />
+	<p><span class="text-[#9A75EA] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 2: Wave Planning</span></p>
+</div>
+
+<div class="at-line" data-phase="3" data-delay="3200">
+	<br />
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Wave 1</span> <span class="text-[#27C93F]">(parallel)</span><span class="text-[#8B8B8B]">:</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="3" data-delay="3600">
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#7DCFFF]">&#9679;</span> <span class="text-white">Team A</span> <span class="text-[#8B8B8B]">&rarr;</span> <span class="text-[#8B8B8B]">ENG-142 Payment webhook</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="3" data-delay="3900">
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#7DCFFF]">&#9679;</span> <span class="text-white">Team B</span> <span class="text-[#8B8B8B]">&rarr;</span> <span class="text-[#8B8B8B]">ENG-145 Dashboard filters</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="3" data-delay="4200">
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#7DCFFF]">&#9679;</span> <span class="text-white">Team C</span> <span class="text-[#8B8B8B]">&rarr;</span> <span class="text-[#8B8B8B]">ENG-147 Rate limiting</span></p>
+</div>
+
+{/* Phase 4: Execution with progress */}
+<div class="at-line" data-phase="4" data-delay="5000">
+	<br />
+	<p><span class="text-[#9A75EA] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 3: Executing Wave 1...</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="4" data-delay="5600">
+	<br />
+	<p>&nbsp;&nbsp;<span class="text-white">Team A:</span> <span class="text-[#27C93F]">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</span><span class="text-[#8B8B8B]">&#9617;&#9617;</span> <span class="text-[#8B8B8B]">85%</span> <span class="text-[#27C93F]">(GREEN)</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="4" data-delay="6100">
+	<p>&nbsp;&nbsp;<span class="text-white">Team B:</span> <span class="text-[#27C93F]">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</span> <span class="text-[#8B8B8B]">100%</span> <span class="text-[#27C93F]">&#10003; PR #89</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="4" data-delay="6600">
+	<p>&nbsp;&nbsp;<span class="text-white">Team C:</span> <span class="text-[#9A75EA]">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</span><span class="text-[#8B8B8B]">&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;</span> <span class="text-[#8B8B8B]">45%</span> <span class="text-[#FF5F56]">(RED)</span></p>
+</div>
+
+{/* Phase 5: Close */}
+<div class="at-line" data-phase="5" data-delay="7600">
+	<br />
+	<p><span class="text-[#27C93F]">&#10022;</span> <span class="text-white font-semibold">2/3 features complete.</span> <span class="text-[#8B8B8B]">12 min elapsed.</span></p>
+</div>

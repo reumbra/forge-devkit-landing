@@ -3,6 +3,7 @@ import Container from "@shared/ui/Container.astro";
 import Button from "@shared/ui/Button.astro";
 import SectionLabel from "@shared/ui/SectionLabel.astro";
 import AnimatedTerminal from "@shared/ui/AnimatedTerminal.astro";
+import SetupBackend from "@shared/ui/scenarios/SetupBackend.astro";
 import { heroI18n } from "@shared/config/hero";
 import { socialProofI18n } from "@shared/config/social-proof";
 import { localePath, i18n } from "@shared/utils/locale";
@@ -60,7 +61,9 @@ const { sectionLabel, headline, subheadline, ctas } = hero;
 
 		{/* Animated terminal demo - forge setup in action */}
 		<div class="w-full max-w-[680px]">
-			<AnimatedTerminal />
+			<AnimatedTerminal>
+				<SetupBackend />
+			</AnimatedTerminal>
 		</div>
 	</Container>
 </section>

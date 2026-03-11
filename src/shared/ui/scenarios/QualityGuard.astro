@@ -1,0 +1,65 @@
+<!-- Scenario: Rationalization detector catching AI shortcut -->
+<!-- Shows how Forge prevents AI from explaining away best practices -->
+
+{/* Phase 1: Hook - AI tries to skip error handling */}
+<div class="at-line" data-phase="1" data-delay="0">
+	<span class="at-prompt"><span class="text-[#9A75EA]">&#10095; </span><span class="text-[#27C93F] at-typed" data-text="forge dev &quot;Skip error handling for now&quot;"></span></span>
+</div>
+
+{/* Phase 2: Detection triggered */}
+<div class="at-line" data-phase="2" data-delay="800">
+	<br />
+	<p><span class="text-[#FFBD2E] font-semibold">&#9888;</span> <span class="text-[#FFBD2E] font-semibold">Rationalization Detector Triggered</span></p>
+</div>
+
+<div class="at-line" data-phase="2" data-delay="1400">
+	<br />
+	<p>&nbsp;&nbsp;<span class="text-[#FF5F56]">DETECTED:</span> <span class="text-white">"Skip for now" pattern</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="2" data-delay="1800">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Rule:</span>&nbsp;&nbsp;<span class="text-[#9A75EA]">api.quality.error-handling</span></p>
+</div>
+
+{/* Phase 3: Explanation */}
+<div class="at-line" data-phase="3" data-delay="2600">
+	<br />
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">What AI said:</span></p>
+</div>
+
+<div class="at-line" data-phase="3" data-delay="3000">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B] italic">&nbsp;&nbsp;"We can add error handling later</span></p>
+</div>
+
+<div class="at-line" data-phase="3" data-delay="3200">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B] italic">&nbsp;&nbsp;&nbsp;to keep things simple for now"</span></p>
+</div>
+
+<div class="at-line" data-phase="3" data-delay="3800">
+	<br />
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Why it matters:</span></p>
+</div>
+
+<div class="at-line" data-phase="3" data-delay="4200">
+	<p>&nbsp;&nbsp;<span class="text-[#FFBD2E]">&rarr;</span> <span class="text-[#8B8B8B]">73% of production incidents trace to</span></p>
+</div>
+
+<div class="at-line" data-phase="3" data-delay="4400">
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B]">missing error handling added "later"</span></p>
+</div>
+
+{/* Phase 4: Resolution */}
+<div class="at-line" data-phase="4" data-delay="5200">
+	<br />
+	<p>&nbsp;&nbsp;<span class="text-[#FF5F56]">&#10007;</span> <span class="text-white font-semibold">Blocked.</span> <span class="text-[#8B8B8B]">Error handling is required.</span></p>
+</div>
+
+<div class="at-line" data-phase="4" data-delay="5800">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Generating error boundary template...</span></p>
+</div>
+
+{/* Phase 5: Fixed */}
+<div class="at-line" data-phase="5" data-delay="6600">
+	<br />
+	<p><span class="text-[#27C93F]">&#10022;</span> <span class="text-white font-semibold">Quality preserved.</span> <span class="text-[#8B8B8B]">AI stayed on track.</span></p>
+</div>

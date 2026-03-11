@@ -2,59 +2,244 @@
 import DocsLayout from "../../layouts/DocsLayout.astro";
 import AnimatedTerminal from "@shared/ui/AnimatedTerminal.astro";
 import Button from "@shared/ui/Button.astro";
+import SetupBackend from "@shared/ui/scenarios/SetupBackend.astro";
+import SetupFrontend from "@shared/ui/scenarios/SetupFrontend.astro";
+import AdapterDiscovery from "@shared/ui/scenarios/AdapterDiscovery.astro";
+import DevPipeline from "@shared/ui/scenarios/DevPipeline.astro";
+import QualityGuard from "@shared/ui/scenarios/QualityGuard.astro";
+import TestGeneration from "@shared/ui/scenarios/TestGeneration.astro";
+import TaskSync from "@shared/ui/scenarios/TaskSync.astro";
+import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 ---
 
 <DocsLayout
 	title="Interactive Guide - See Forge DevKit in Action"
-	description="Watch forge setup analyze a real NestJS project in seconds. Architecture audit, quality patterns, dev-skills - generated automatically."
+	description="Watch forge setup analyze real projects in seconds. Architecture audit, quality patterns, dev-skills, test generation, task tracking, agent teams - all demonstrated live."
 >
 	<h1 class="font-sans text-[36px] md:text-[48px] font-black leading-[1.1] tracking-[-0.02em] text-text mb-4">
 		Interactive Guide
 	</h1>
-	<p class="font-sans text-[18px] md:text-[20px] text-text-secondary leading-[1.6] mb-12">
-		Watch <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">forge setup</code> scan a NestJS project and generate architecture-aware guardrails in seconds.
+	<p class="font-sans text-[18px] md:text-[20px] text-text-secondary leading-[1.6] mb-16">
+		Every terminal below is a real scenario. Watch commands execute, see what gets generated, understand what Forge does at each step.
 	</p>
 
-	<div class="w-full max-w-[720px] mb-12">
-		<AnimatedTerminal />
-	</div>
+	<!-- ═══════════════════════════════════════════════════ -->
+	<!-- LEVEL 1: SETUP - Your Stack, Understood             -->
+	<!-- ═══════════════════════════════════════════════════ -->
 
-	<div class="flex flex-col md:flex-row items-center gap-4 mb-16">
-		<Button variant="primary" href="/pricing">
-			Get Forge - from EUR 29
-		</Button>
-		<Button variant="ghost" href="/docs/getting-started">
-			Installation guide
-		</Button>
-	</div>
+	<section class="mb-20">
+		<div class="flex items-center gap-3 mb-2">
+			<span class="text-[12px] font-mono font-semibold text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-2 py-0.5 rounded">LEVEL 1</span>
+			<span class="text-[13px] font-mono text-text-muted">SETUP</span>
+		</div>
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-3">
+			Your Stack, Understood
+		</h2>
+		<p class="text-[16px] text-text-secondary leading-[1.7] mb-10">
+			<code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">forge setup</code> reads your codebase - package.json, directory structure, config files - and builds a complete architecture profile. No questionnaires, no configuration files. It just works.
+		</p>
+
+		<!-- 1.1 Backend (NestJS) -->
+		<h3 class="font-sans text-[20px] md:text-[22px] font-semibold text-text mb-4">
+			Backend Project
+		</h3>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
+			NestJS with Prisma, PostgreSQL, JWT auth, Bull queues. Forge detects every layer and generates backend-specific quality patterns.
+		</p>
+		<div class="w-full max-w-[720px] mb-12">
+			<AnimatedTerminal>
+				<SetupBackend />
+			</AnimatedTerminal>
+		</div>
+
+		<!-- 1.2 Frontend (Next.js) -->
+		<h3 class="font-sans text-[20px] md:text-[22px] font-semibold text-text mb-4">
+			Frontend Project
+		</h3>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
+			Next.js with React 19, Tailwind v4, TanStack Query. Different stack, different patterns - same setup command. Forge generates UI-specific quality rules and component testing configuration.
+		</p>
+		<div class="w-full max-w-[720px] mb-12">
+			<AnimatedTerminal compact>
+				<SetupFrontend />
+			</AnimatedTerminal>
+		</div>
+
+		<!-- 1.3 Adapter Discovery -->
+		<h3 class="font-sans text-[20px] md:text-[22px] font-semibold text-text mb-4">
+			Ecosystem Discovery
+		</h3>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
+			Gate 0 scans your installed adapters and recommends additional modules based on your stack and workflow. Install them in seconds - they auto-register into the dev pipeline.
+		</p>
+		<div class="w-full max-w-[720px] mb-4">
+			<AnimatedTerminal compact>
+				<AdapterDiscovery />
+			</AnimatedTerminal>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════════════ -->
+	<!-- LEVEL 2: DAILY WORKFLOW - The Dev Pipeline           -->
+	<!-- ═══════════════════════════════════════════════════ -->
+
+	<section class="mb-20">
+		<div class="flex items-center gap-3 mb-2">
+			<span class="text-[12px] font-mono font-semibold text-[#27C93F] bg-[rgba(39,201,63,0.1)] px-2 py-0.5 rounded">LEVEL 2</span>
+			<span class="text-[13px] font-mono text-text-muted">DAILY WORKFLOW</span>
+		</div>
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-3">
+			The Dev Pipeline
+		</h2>
+		<p class="text-[16px] text-text-secondary leading-[1.7] mb-10">
+			This is where Forge lives every day. <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">forge dev</code> runs a structured RED &rarr; GREEN &rarr; REFACTOR cycle for every feature. Tests first, implementation second, quality always.
+		</p>
+
+		<!-- 2.1 Dev Pipeline -->
+		<h3 class="font-sans text-[20px] md:text-[22px] font-semibold text-text mb-4">
+			RED &rarr; GREEN &rarr; REFACTOR
+		</h3>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
+			Give it a feature description. Forge extracts acceptance criteria, generates failing tests (RED), implements the code until tests pass (GREEN), then refactors while maintaining all assertions (REFACTOR). Every step is tracked and auditable.
+		</p>
+		<div class="w-full max-w-[720px] mb-12">
+			<AnimatedTerminal>
+				<DevPipeline />
+			</AnimatedTerminal>
+		</div>
+
+		<!-- 2.2 Quality Guardrails -->
+		<h3 class="font-sans text-[20px] md:text-[22px] font-semibold text-text mb-4">
+			Rationalization Detectors
+		</h3>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
+			AI models are trained to be helpful - sometimes too helpful. When an AI agent rationalizes skipping best practices ("let's add tests later", "error handling can wait"), Forge catches it and blocks the shortcut. 15 detectors, 50+ quality patterns.
+		</p>
+		<div class="w-full max-w-[720px] mb-4">
+			<AnimatedTerminal compact>
+				<QualityGuard />
+			</AnimatedTerminal>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════════════ -->
+	<!-- LEVEL 3: ECOSYSTEM - Specialized Modules             -->
+	<!-- ═══════════════════════════════════════════════════ -->
+
+	<section class="mb-20">
+		<div class="flex items-center gap-3 mb-2">
+			<span class="text-[12px] font-mono font-semibold text-[#7DCFFF] bg-[rgba(125,207,255,0.1)] px-2 py-0.5 rounded">LEVEL 3</span>
+			<span class="text-[13px] font-mono text-text-muted">ECOSYSTEM</span>
+		</div>
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-3">
+			Specialized Modules
+		</h2>
+		<p class="text-[16px] text-text-secondary leading-[1.7] mb-10">
+			Beyond setup and the dev pipeline, Forge has specialized modules for testing, task tracking, product design, prompt engineering, and fully autonomous development.
+		</p>
+
+		<!-- 3.1 Test Generation -->
+		<h3 class="font-sans text-[20px] md:text-[22px] font-semibold text-text mb-4">
+			Test Generation (forge-qa)
+		</h3>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
+			Tests generated from acceptance criteria, not AI hallucinations. 11 modes (unit, integration, component, acceptance, e2e), 4-level traceability, 8+ testing frameworks supported. Every test traces back to a requirement.
+		</p>
+		<div class="w-full max-w-[720px] mb-12">
+			<AnimatedTerminal compact>
+				<TestGeneration />
+			</AnimatedTerminal>
+		</div>
+
+		<!-- 3.2 Task Tracking -->
+		<h3 class="font-sans text-[20px] md:text-[22px] font-semibold text-text mb-4">
+			Task Sync (forge-tracker)
+		</h3>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
+			Your task tracker talks directly to the AI agent. Pull tasks from Linear, ClickUp, Jira, GitHub, or Notion. Acceptance criteria flow into the dev pipeline automatically. Status updates sync back.
+		</p>
+		<div class="w-full max-w-[720px] mb-12">
+			<AnimatedTerminal compact>
+				<TaskSync />
+			</AnimatedTerminal>
+		</div>
+
+		<!-- 3.3 Agent Teams (Autopilot) -->
+		<h3 class="font-sans text-[20px] md:text-[22px] font-semibold text-text mb-4">
+			Agent Teams (forge-autopilot)
+		</h3>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
+			The endgame. Forge triages your backlog, identifies parallelizable features, spawns AI agent teams in isolated git worktrees, and executes entire sprints autonomously. 3 autonomy modes: supervised, semi-auto, full-auto.
+		</p>
+		<div class="w-full max-w-[720px] mb-12">
+			<AnimatedTerminal compact>
+				<AgentTeams />
+			</AnimatedTerminal>
+		</div>
+
+		<!-- Additional modules list -->
+		<h3 class="font-sans text-[20px] md:text-[22px] font-semibold text-text mb-4">
+			And More
+		</h3>
+		<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+			<div class="border-card rounded-lg p-4 bg-[rgba(118,73,196,0.03)]">
+				<p class="text-white font-semibold text-[14px] mb-1">forge-product</p>
+				<p class="text-[13px] text-text-secondary">Feature design with user stories, acceptance criteria, UX flows</p>
+			</div>
+			<div class="border-card rounded-lg p-4 bg-[rgba(118,73,196,0.03)]">
+				<p class="text-white font-semibold text-[14px] mb-1">forge-prompts</p>
+				<p class="text-[13px] text-text-secondary">Prompt engineering with CO-STAR, RISEN, TIDD-EC frameworks</p>
+			</div>
+			<div class="border-card rounded-lg p-4 bg-[rgba(118,73,196,0.03)]">
+				<p class="text-white font-semibold text-[14px] mb-1">forge-worktree</p>
+				<p class="text-[13px] text-text-secondary">Git worktree lifecycle - parallel branches, zero port conflicts</p>
+			</div>
+			<div class="border-card rounded-lg p-4 bg-[rgba(118,73,196,0.03)]">
+				<p class="text-white font-semibold text-[14px] mb-1">9 Advisory Modules</p>
+				<p class="text-[13px] text-text-secondary">Discovery, marketing, analytics, SEO, copy, onboarding, growth, A/B tests</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════════════ -->
+	<!-- LEVEL 4: CTA                                        -->
+	<!-- ═══════════════════════════════════════════════════ -->
 
 	<section class="mb-16">
-		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-6">
-			What just happened?
+		<div class="flex items-center gap-3 mb-2">
+			<span class="text-[12px] font-mono font-semibold text-[#FFBD2E] bg-[rgba(255,189,46,0.1)] px-2 py-0.5 rounded">NEXT STEP</span>
+		</div>
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-3">
+			Start Building Better
 		</h2>
-		<p class="text-[16px] text-text-secondary leading-[1.7] mb-6">
-			In about 10 seconds, <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">forge setup</code> performed a 7-gate architecture audit of a NestJS project and generated:
+		<p class="text-[16px] text-text-secondary leading-[1.7] mb-4">
+			Everything you saw runs in under 10 seconds. The artifacts live in <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">.claude/</code> - they work with Claude Code, Cursor, Windsurf, and any AI agent. Remove Forge after setup if you want - the artifacts are standalone.
 		</p>
-		<ul class="space-y-3 text-[16px] text-text-secondary leading-[1.7] mb-6">
-			<li class="flex gap-3">
-				<span class="text-[#27C93F] shrink-0">&#10003;</span>
-				<span><strong class="text-text">52 dev-skills</strong> - scoped steps for your development pipeline (RED, GREEN, REFACTOR phases)</span>
-			</li>
-			<li class="flex gap-3">
-				<span class="text-[#27C93F] shrink-0">&#10003;</span>
-				<span><strong class="text-text">50+ quality patterns</strong> - capability-scoped rules (UI, API, Infra, Shared) that prevent common AI coding mistakes</span>
-			</li>
-			<li class="flex gap-3">
-				<span class="text-[#27C93F] shrink-0">&#10003;</span>
-				<span><strong class="text-text">15 rationalization detectors</strong> - catch when AI explains away skipping best practices</span>
-			</li>
-			<li class="flex gap-3">
-				<span class="text-[#27C93F] shrink-0">&#10003;</span>
-				<span><strong class="text-text">Architecture-aware CLAUDE.md</strong> - your project's conventions, stack details, and coding rules in one place</span>
-			</li>
-		</ul>
-		<p class="text-[16px] text-text-secondary leading-[1.7]">
-			These artifacts live in your project's <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">.claude/</code> directory. They work with Claude Code, Cursor, Windsurf, and any AI agent that reads project context. Remove Forge after setup - the artifacts work standalone.
-		</p>
+
+		<div class="border-card rounded-lg p-6 bg-[rgba(118,73,196,0.03)] mb-8">
+			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+				<div>
+					<p class="text-[#9A75EA] font-mono font-bold text-[20px]">EUR 29</p>
+					<p class="text-[13px] text-text-muted">Starter - core + worktree</p>
+				</div>
+				<div class="border-l border-r border-[rgba(118,73,196,0.1)] sm:border-l sm:border-r">
+					<p class="text-[#27C93F] font-mono font-bold text-[20px]">EUR 79</p>
+					<p class="text-[13px] text-text-muted">Pro - + product, QA, tracker, prompts</p>
+				</div>
+				<div>
+					<p class="text-[#9A75EA] font-mono font-bold text-[20px]">EUR 149</p>
+					<p class="text-[13px] text-text-muted">Complete - all 15+ modules</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="flex flex-col md:flex-row items-center gap-4">
+			<Button variant="primary" href="/pricing">
+				Get Forge - from EUR 29
+			</Button>
+			<Button variant="ghost" href="/docs/getting-started">
+				Installation guide
+			</Button>
+		</div>
 	</section>
 </DocsLayout>

@@ -1,0 +1,75 @@
+<!-- Scenario: /dev pipeline - RED > GREEN > REFACTOR cycle -->
+<!-- THE killer feature - shows how daily development workflow works -->
+
+{/* Phase 1: Hook */}
+<div class="at-line" data-phase="1" data-delay="0">
+	<span class="at-prompt"><span class="text-[#9A75EA]">&#10095; </span><span class="text-[#27C93F] at-typed" data-text="forge dev &quot;Add payment webhook endpoint&quot;"></span></span>
+</div>
+
+{/* Phase 2: RED - Understanding */}
+<div class="at-line" data-phase="2" data-delay="800">
+	<br />
+	<p><span class="text-[#FF5F56] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 1: RED</span> <span class="text-[#8B8B8B]">- Understanding</span></p>
+</div>
+
+<div class="at-line" data-phase="2" data-delay="1400">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Loading acceptance criteria...</span></p>
+</div>
+
+<div class="at-line" data-phase="2" data-delay="1900">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">3 user stories identified</span></p>
+</div>
+
+<div class="at-line" data-phase="2" data-delay="2300">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">5 acceptance criteria extracted</span></p>
+</div>
+
+<div class="at-line" data-phase="2" data-delay="2700">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Test stubs generated</span> <span class="text-[#FF5F56]">(3 failing)</span></p>
+</div>
+
+{/* Phase 3: GREEN - Implementation */}
+<div class="at-line" data-phase="3" data-delay="3500">
+	<br />
+	<p><span class="text-[#27C93F] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 2: GREEN</span> <span class="text-[#8B8B8B]">- Implementation</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="3" data-delay="4000">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Step core.2.10:</span> <span class="text-white">Create webhook controller</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="3" data-delay="4400">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Step core.2.12:</span> <span class="text-white">Add signature verification</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="3" data-delay="4800">
+	<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">Step core.2.15:</span> <span class="text-white">Implement event handlers</span></p>
+</div>
+
+<div class="at-line" data-phase="3" data-delay="5200">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">All 5 acceptance criteria met</span></p>
+</div>
+
+{/* Phase 4: REFACTOR - Polish */}
+<div class="at-line" data-phase="4" data-delay="6000">
+	<br />
+	<p><span class="text-[#7DCFFF] font-semibold">&#9670;</span> <span class="text-white font-semibold">Phase 3: REFACTOR</span> <span class="text-[#8B8B8B]">- Polish</span></p>
+</div>
+
+<div class="at-line" data-phase="4" data-delay="6500">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Extract PaymentEventHandler</span></p>
+</div>
+
+<div class="at-line" data-phase="4" data-delay="6900">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Quality patterns: 12/12 passing</span></p>
+</div>
+
+<div class="at-line" data-phase="4" data-delay="7300">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">8 tests passing</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#27C93F]">0 rationalization flags</span></p>
+</div>
+
+{/* Phase 5: Ready */}
+<div class="at-line" data-phase="5" data-delay="8200">
+	<br />
+	<p><span class="text-[#27C93F]">&#10022;</span> <span class="text-white font-semibold">Feature complete.</span> <span class="text-[#8B8B8B]">Ready for review.</span></p>
+</div>
