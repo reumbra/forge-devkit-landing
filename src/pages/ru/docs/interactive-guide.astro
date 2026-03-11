@@ -1,0 +1,60 @@
+---
+import DocsLayout from "../../../layouts/DocsLayout.astro";
+import AnimatedTerminal from "@shared/ui/AnimatedTerminal.astro";
+import Button from "@shared/ui/Button.astro";
+---
+
+<DocsLayout
+	title="Интерактивный гайд - Forge DevKit в действии"
+	description="Смотрите, как forge setup анализирует реальный NestJS-проект за секунды. Аудит архитектуры, паттерны качества, dev-skills - генерируются автоматически."
+>
+	<h1 class="font-sans text-[36px] md:text-[48px] font-black leading-[1.1] tracking-[-0.02em] text-text mb-4">
+		Интерактивный гайд
+	</h1>
+	<p class="font-sans text-[18px] md:text-[20px] text-text-secondary leading-[1.6] mb-12">
+		Смотрите, как <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">forge setup</code> сканирует NestJS-проект и генерирует архитектурные guardrails за секунды.
+	</p>
+
+	<div class="w-full max-w-[720px] mb-12">
+		<AnimatedTerminal />
+	</div>
+
+	<div class="flex flex-col md:flex-row items-center gap-4 mb-16">
+		<Button variant="primary" href="/ru/pricing">
+			Купить Forge - от EUR 29
+		</Button>
+		<Button variant="ghost" href="/ru/docs/getting-started">
+			Руководство по установке
+		</Button>
+	</div>
+
+	<section class="mb-16">
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-6">
+			Что только что произошло?
+		</h2>
+		<p class="text-[16px] text-text-secondary leading-[1.7] mb-6">
+			За 10 секунд <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">forge setup</code> провёл 7-gate аудит архитектуры NestJS-проекта и сгенерировал:
+		</p>
+		<ul class="space-y-3 text-[16px] text-text-secondary leading-[1.7] mb-6">
+			<li class="flex gap-3">
+				<span class="text-[#27C93F] shrink-0">&#10003;</span>
+				<span><strong class="text-text">52 dev-skills</strong> - пошаговые инструкции для пайплайна разработки (RED, GREEN, REFACTOR фазы)</span>
+			</li>
+			<li class="flex gap-3">
+				<span class="text-[#27C93F] shrink-0">&#10003;</span>
+				<span><strong class="text-text">50+ паттернов качества</strong> - правила по capabilities (UI, API, Infra, Shared), предотвращающие типичные ошибки AI</span>
+			</li>
+			<li class="flex gap-3">
+				<span class="text-[#27C93F] shrink-0">&#10003;</span>
+				<span><strong class="text-text">15 детекторов рационализации</strong> - ловят моменты, когда AI объясняет, почему можно пропустить best practices</span>
+			</li>
+			<li class="flex gap-3">
+				<span class="text-[#27C93F] shrink-0">&#10003;</span>
+				<span><strong class="text-text">CLAUDE.md с архитектурой</strong> - конвенции проекта, детали стека и правила кодирования в одном месте</span>
+			</li>
+		</ul>
+		<p class="text-[16px] text-text-secondary leading-[1.7]">
+			Артефакты живут в директории <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">.claude/</code> вашего проекта. Работают с Claude Code, Cursor, Windsurf и любым AI-агентом. Удалите Forge после настройки - артефакты работают автономно.
+		</p>
+	</section>
+</DocsLayout>

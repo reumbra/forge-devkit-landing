@@ -19,6 +19,7 @@ export const docsNav = {
 		{
 			title: "Guides",
 			items: [
+				{ label: "Interactive Guide", href: "/docs/interactive-guide" },
 				{ label: "Getting Started", href: "/docs/getting-started" },
 				{ label: "Usage Guide", href: "/docs/usage-guide" },
 				{ label: "Concepts", href: "/docs/concepts" },
@@ -63,6 +64,7 @@ const docsNavRu: DocsNavConfig = {
 		{
 			title: "Руководства",
 			items: [
+				{ label: "Интерактивный гайд", href: "/docs/interactive-guide" },
 				{ label: "Начало работы", href: "/docs/getting-started" },
 				{ label: "Руководство по использованию", href: "/docs/usage-guide" },
 				{ label: "Концепция", href: "/docs/concepts" },

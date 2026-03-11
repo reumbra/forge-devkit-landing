@@ -8,7 +8,7 @@ export interface ModulePageConfig {
 	slug: string;
 	name: string;
 	tagline: string;
-	tier: "Core" | "Pro" | "Complete";
+	tier: "Starter" | "Pro" | "Complete";
 	tierPrice: string;
 	problems: { pain: string; evidence: string }[];
 	steps: { title: string; description: string; visual?: VisualLine[] }[];

@@ -4,7 +4,7 @@ export const corePageConfig: ModulePageConfig = {
 	slug: "core",
 	name: "forge-core",
 	tagline: "Architecture-aware guardrails from your codebase",
-	tier: "Core",
+	tier: "Starter",
 	tierPrice: "€29",
 
 	problems: [
@@ -184,7 +184,7 @@ const corePageConfigRu: ModulePageConfig = {
 	slug: "core",
 	name: "forge-core",
 	tagline: "Гайдрейлы из вашей кодовой базы с пониманием архитектуры",
-	tier: "Core",
+	tier: "Starter",
 	tierPrice: "€29",
 
 	problems: [

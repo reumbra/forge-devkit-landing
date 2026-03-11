@@ -131,7 +131,7 @@ export const pricingPage: PricingPageConfig = {
 		{
 			question: "Can I use it on multiple projects?",
 			answer:
-				"Yes. Each license includes device activations based on your tier: Core 2, Pro 3, Complete 5. You can use Forge on as many projects as you want on those devices.",
+				"Yes. Each license includes device activations based on your tier: Starter 2, Pro 3, Complete 5. You can use Forge on as many projects as you want on those devices.",
 		},
 		{
 			question: "What are the 8 advisory modules in Complete?",
@@ -253,7 +253,7 @@ const pricingPageRu: PricingPageConfig = {
 		{
 			question: "Можно ли использовать на нескольких проектах?",
 			answer:
-				"Да. Каждая лицензия включает активации по тарифу: Core 2, Pro 3, Complete 5 устройств. Вы можете использовать Forge на любом количестве проектов на этих устройствах.",
+				"Да. Каждая лицензия включает активации по тарифу: Starter 2, Pro 3, Complete 5 устройств. Вы можете использовать Forge на любом количестве проектов на этих устройствах.",
 		},
 		{
 			question: "Что входит в 8 advisory-модулей Complete?",

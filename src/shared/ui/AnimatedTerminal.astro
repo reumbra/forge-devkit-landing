@@ -1,0 +1,316 @@
+---
+/**
+ * Animated Terminal Demo - Interactive forge setup showcase.
+ *
+ * AIDA psychology sequence:
+ *   Phase 1 (Hook):       Command typed - pattern interrupt
+ *   Phase 2 (Detection):  Stack auto-detected - authority bias (specific versions)
+ *   Phase 3 (Proof):      Gates passing - goal-gradient effect
+ *   Phase 4 (Generation): Artifacts created - IKEA effect (built FOR you)
+ *   Phase 5 (Close):      Ready + platform list - loss aversion (works standalone)
+ *
+ * Triggers on scroll via IntersectionObserver. Falls back to static content if JS disabled.
+ */
+interface Props {
+	class?: string;
+	/** Auto-start animation when scrolled into view (default: true) */
+	autoplay?: boolean;
+	/** Show replay button after animation completes (default: true) */
+	showReplay?: boolean;
+}
+
+const { class: className, autoplay = true, showReplay = true } = Astro.props;
+---
+
+<div
+	class:list={["animated-terminal relative", className]}
+	data-autoplay={autoplay}
+	data-show-replay={showReplay}
+>
+	{/* Ambient glow */}
+	<div
+		class="glow-terminal pointer-events-none absolute -inset-8 md:-inset-12 -z-10 blur-[80px] md:blur-[140px] opacity-60"
+	></div>
+
+	<div
+		class="overflow-hidden rounded-[var(--radius-card)] border-card bg-surface-deep text-left relative"
+	>
+		{/* Title bar */}
+		<div class="flex items-center gap-2 px-4 py-3 border-b border-[rgba(118,73,196,0.06)]">
+			<span class="block h-[10px] w-[10px] rounded-full bg-[#FF5F56]"></span>
+			<span class="block h-[10px] w-[10px] rounded-full bg-[#FFBD2E]"></span>
+			<span class="block h-[10px] w-[10px] rounded-full bg-[#27C93F]"></span>
+			<span class="ml-2 font-mono text-[11px] text-text-muted">Terminal</span>
+		</div>
+
+		{/* Terminal content */}
+		<div class="at-content overflow-x-auto p-5 font-mono text-[11px] sm:text-[12px] md:text-[13px] leading-[1.7] text-text-secondary min-h-[320px] sm:min-h-[380px] md:min-h-[420px]">
+
+			{/* Phase 1: Hook - command typed */}
+			<div class="at-line" data-phase="1" data-delay="0">
+				<span class="at-prompt"><span class="text-[#9A75EA]">&#10095; </span><span class="text-[#27C93F] at-typed" data-text="forge setup"></span></span>
+			</div>
+
+			{/* Phase 2: Detection - authority bias (specific versions) */}
+			<div class="at-line whitespace-nowrap" data-phase="2" data-delay="800">
+				<br />
+				<p><span class="text-[#9A75EA] font-semibold">&#9670;</span> <span class="text-white font-semibold">Gate 1: Architecture Audit</span></p>
+			</div>
+
+			<div class="at-line whitespace-nowrap" data-phase="2" data-delay="1200">
+				<br />
+				<p><span class="text-[#8B8B8B]">Stack:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-white">NestJS 11.0</span> <span class="text-[#8B8B8B]">+</span> <span class="text-white">TypeScript 5.8</span> <span class="text-[#8B8B8B]">+</span> <span class="text-white">Prisma 6.4</span></p>
+			</div>
+
+			<div class="at-line whitespace-nowrap" data-phase="2" data-delay="1600">
+				<p><span class="text-[#8B8B8B]">Architecture:</span>&nbsp;&nbsp;&nbsp;<span class="text-[#7DCFFF]">Clean Architecture (3 layers)</span></p>
+			</div>
+
+			<div class="at-line whitespace-nowrap" data-phase="2" data-delay="1900">
+				<p><span class="text-[#8B8B8B]">Database:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-white">PostgreSQL 16</span> <span class="text-[#8B8B8B]">&nbsp;|&nbsp;</span> <span class="text-[#8B8B8B]">CI:</span> <span class="text-white">GitHub Actions</span></p>
+			</div>
+
+			<div class="at-line whitespace-nowrap" data-phase="2" data-delay="2200">
+				<p><span class="text-[#8B8B8B]">Auth:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-white">JWT + Passport</span> <span class="text-[#8B8B8B]">&nbsp;|&nbsp;</span> <span class="text-[#8B8B8B]">Events:</span> <span class="text-white">Bull queues</span></p>
+			</div>
+
+			{/* Phase 3: Proof - goal-gradient (gates passing) */}
+			<div class="at-line" data-phase="3" data-delay="3000">
+				<br />
+				<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">52 dev-skills generated</span></p>
+			</div>
+
+			<div class="at-line" data-phase="3" data-delay="3400">
+				<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">50+ quality patterns applied</span></p>
+			</div>
+
+			<div class="at-line" data-phase="3" data-delay="3800">
+				<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">15 rationalization detectors active</span></p>
+			</div>
+
+			<div class="at-line" data-phase="3" data-delay="4200">
+				<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Parallel readiness:</span> <span class="text-[#27C93F] font-semibold">9/10</span></p>
+			</div>
+
+			{/* Phase 4: Generation - IKEA effect (artifacts built FOR you) */}
+			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="5200">
+				<br />
+				<p><span class="text-[#9A75EA] font-semibold">&#9670;</span> <span class="text-white font-semibold">Generated artifacts:</span></p>
+			</div>
+
+			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="5600">
+				<br />
+				<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">.claude/</span></p>
+			</div>
+
+			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="5900">
+				<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">&#9500;&#9472;&#9472;</span> <span class="text-white">settings.json</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B] text-[0.85em]">&larr; execution modes</span></p>
+			</div>
+
+			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="6200">
+				<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">&#9500;&#9472;&#9472;</span> <span class="text-[#FFBD2E]">CLAUDE.md</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B] text-[0.85em]">&larr; architecture rules</span></p>
+			</div>
+
+			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="6500">
+				<p>&nbsp;&nbsp;<span class="text-[#8B8B8B]">&#9492;&#9472;&#9472;</span> <span class="text-[#8B8B8B]">skills/</span></p>
+			</div>
+
+			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="6800">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B]">&#9500;&#9472;&#9472;</span> <span class="text-white">dev-pipeline.md</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B] text-[0.85em]">&larr; RED &rarr; GREEN &rarr; REFACTOR</span></p>
+			</div>
+
+			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="7100">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B]">&#9500;&#9472;&#9472;</span> <span class="text-white">step-catalog.md</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B] text-[0.85em]">&larr; 52 scoped steps</span></p>
+			</div>
+
+			<div class="at-line whitespace-nowrap" data-phase="4" data-delay="7400">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#8B8B8B]">&#9492;&#9472;&#9472;</span> <span class="text-white">quality-patterns/</span> &nbsp;&nbsp;<span class="text-[#8B8B8B] text-[0.85em]">&larr; 4 capability files</span></p>
+			</div>
+
+			{/* Phase 5: Close - loss aversion (works standalone) */}
+			<div class="at-line" data-phase="5" data-delay="8400">
+				<br />
+				<p><span class="text-[#27C93F]">&#10022;</span> <span class="text-white font-semibold">Project ready.</span> <span class="text-[#8B8B8B]">AI is now architecture-aware.</span></p>
+			</div>
+
+			<div class="at-line at-platforms" data-phase="5" data-delay="9000">
+				<br />
+				<p class="text-[#8B8B8B]">&nbsp;&nbsp;Works with: <span class="text-[#9A75EA]">Claude Code</span> &middot; <span class="text-[#9A75EA]">Cursor</span> &middot; <span class="text-[#9A75EA]">Windsurf</span> &middot; <span class="text-[#8B8B8B]">any AI agent</span></p>
+			</div>
+		</div>
+	</div>
+
+	{/* Replay button - shown after animation completes */}
+	<button
+		class="at-replay hidden absolute bottom-4 right-4 px-3 py-1.5 rounded-lg bg-[rgba(118,73,196,0.15)] text-[#9A75EA] text-[12px] font-mono hover:bg-[rgba(118,73,196,0.25)] transition-colors cursor-pointer border border-[rgba(118,73,196,0.2)]"
+		aria-label="Replay animation"
+	>
+		&#8634; Replay
+	</button>
+
+	{/* Blinking cursor */}
+	<style>
+		.at-cursor::after {
+			content: "▋";
+			color: #9A75EA;
+			animation: at-blink 1s step-end infinite;
+			margin-left: 1px;
+		}
+		@keyframes at-blink {
+			0%, 100% { opacity: 1; }
+			50% { opacity: 0; }
+		}
+
+		/* Initial state: all lines hidden */
+		.animated-terminal .at-line {
+			opacity: 0;
+			transform: translateY(4px);
+			transition: opacity 0.25s ease, transform 0.25s ease;
+		}
+		.animated-terminal .at-line.at-visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		/* No-JS fallback: show everything */
+		@media (scripting: none) {
+			.animated-terminal .at-line {
+				opacity: 1;
+				transform: none;
+			}
+		}
+	</style>
+</div>
+
+<script>
+	function initAnimatedTerminals() {
+		document.querySelectorAll<HTMLElement>(".animated-terminal").forEach((terminal) => {
+			const lines = terminal.querySelectorAll<HTMLElement>(".at-line");
+			const replayBtn = terminal.querySelector<HTMLButtonElement>(".at-replay");
+			const typedEl = terminal.querySelector<HTMLElement>(".at-typed");
+			const autoplay = terminal.dataset.autoplay !== "false";
+			const showReplay = terminal.dataset.showReplay !== "false";
+
+			let hasPlayed = false;
+			let timeouts: number[] = [];
+
+			function reset() {
+				timeouts.forEach(clearTimeout);
+				timeouts = [];
+				lines.forEach((line) => {
+					line.classList.remove("at-visible");
+				});
+				if (typedEl) {
+					typedEl.textContent = "";
+					typedEl.classList.remove("at-cursor");
+				}
+				if (replayBtn) replayBtn.classList.add("hidden");
+			}
+
+			function typeText(el: HTMLElement, text: string, speed: number, callback: () => void) {
+				let i = 0;
+				el.classList.add("at-cursor");
+				function tick() {
+					if (i < text.length) {
+						el.textContent += text[i];
+						i++;
+						timeouts.push(window.setTimeout(tick, speed));
+					} else {
+						el.classList.remove("at-cursor");
+						callback();
+					}
+				}
+				tick();
+			}
+
+			function play() {
+				reset();
+
+				// Phase 1: Type the command
+				const commandText = typedEl?.dataset.text || "forge setup";
+				const typingDuration = commandText.length * 55; // ~55ms per char
+
+				if (typedEl) {
+					const promptLine = typedEl.closest(".at-line");
+					if (promptLine) {
+						promptLine.classList.add("at-visible");
+					}
+					typeText(typedEl, commandText, 55, () => {
+						// After typing, reveal remaining lines by delay
+						revealLines(typingDuration);
+					});
+				} else {
+					revealLines(0);
+				}
+			}
+
+			function revealLines(baseOffset: number) {
+				lines.forEach((line) => {
+					if (line.dataset.phase === "1") return; // Already shown
+					const delay = parseInt(line.dataset.delay || "0", 10) + baseOffset;
+					timeouts.push(
+						window.setTimeout(() => {
+							line.classList.add("at-visible");
+						}, delay)
+					);
+				});
+
+				// Show replay button after last line
+				const maxDelay = Array.from(lines).reduce((max, line) => {
+					return Math.max(max, parseInt(line.dataset.delay || "0", 10));
+				}, 0);
+
+				if (showReplay && replayBtn) {
+					timeouts.push(
+						window.setTimeout(() => {
+							replayBtn.classList.remove("hidden");
+						}, maxDelay + baseOffset + 1500)
+					);
+				}
+			}
+
+			// Replay handler
+			if (replayBtn) {
+				replayBtn.addEventListener("click", () => {
+					hasPlayed = false;
+					play();
+				});
+			}
+
+			// IntersectionObserver for autoplay
+			if (autoplay) {
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting && !hasPlayed) {
+								hasPlayed = true;
+								play();
+							}
+						});
+					},
+					{ threshold: 0.3 }
+				);
+				observer.observe(terminal);
+			} else {
+				// If not autoplay, show all lines immediately
+				lines.forEach((line) => line.classList.add("at-visible"));
+				if (typedEl) {
+					typedEl.textContent = typedEl.dataset.text || "";
+				}
+			}
+
+			// Respect reduced motion
+			if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+				lines.forEach((line) => line.classList.add("at-visible"));
+				if (typedEl) {
+					typedEl.textContent = typedEl.dataset.text || "";
+					typedEl.classList.remove("at-cursor");
+				}
+			}
+		});
+	}
+
+	// Run on initial load and on Astro view transitions
+	initAnimatedTerminals();
+	document.addEventListener("astro:after-swap", initAnimatedTerminals);
+</script>

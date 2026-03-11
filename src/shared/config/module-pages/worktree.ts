@@ -4,7 +4,7 @@ export const worktreePageConfig: ModulePageConfig = {
 	slug: "worktree",
 	name: "forge-worktree",
 	tagline: "Parallel branches, zero port conflicts",
-	tier: "Core",
+	tier: "Starter",
 	tierPrice: "€29",
 
 	problems: [
@@ -144,7 +144,7 @@ const worktreePageConfigRu: ModulePageConfig = {
 	slug: "worktree",
 	name: "forge-worktree",
 	tagline: "Параллельные ветки, ноль конфликтов портов",
-	tier: "Core",
+	tier: "Starter",
 	tierPrice: "€29",
 
 	problems: [

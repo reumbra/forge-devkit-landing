@@ -182,7 +182,7 @@
       "id": "i3YTh",
       "x": 0,
       "y": 1300,
-      "name": "Variant — Core",
+      "name": "Variant — Starter",
       "width": 1600,
       "height": 1200,
       "fill": "#08080F",
@@ -207,7 +207,7 @@
               "y": 9,
               "name": "badge_st",
               "fill": "#9A75EA",
-              "content": "CORE",
+              "content": "STARTER",
               "textAlign": "center",
               "fontFamily": "Inter",
               "fontSize": 32,
@@ -628,6 +628,2311 @@
           "textAlign": "center",
           "fontFamily": "Inter",
           "fontSize": 36,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ll86O",
+      "x": 1775,
+      "y": 0,
+      "name": "PH — Hero (v2)",
+      "width": 1600,
+      "height": 1200,
+      "fill": "#08080F",
+      "layout": "none",
+      "children": [
+        {
+          "type": "text",
+          "id": "VXkRM",
+          "x": 724,
+          "y": 200,
+          "name": "logo1",
+          "fill": "#7649C4",
+          "content": "⚒",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 120,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "sN4IQ",
+          "x": 418,
+          "y": 360,
+          "name": "title1",
+          "fill": "#FFFFFF",
+          "content": "Forge DevKit",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 120,
+          "fontWeight": "800"
+        },
+        {
+          "type": "text",
+          "id": "HcRG1",
+          "x": 200,
+          "y": 520,
+          "name": "sub1",
+          "fill": "#9A75EA",
+          "content": "One command. From feature idea to tested code.",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 52,
+          "fontWeight": "600"
+        },
+        {
+          "type": "text",
+          "id": "Tz0qE",
+          "x": 380,
+          "y": 620,
+          "name": "tag1",
+          "fill": "#777777",
+          "content": "for Claude Code, Cursor & any AI agent",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 48,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "RfXde",
+          "x": 336,
+          "y": 780,
+          "name": "pill_row",
+          "width": 928,
+          "height": 72,
+          "gap": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "xg6Br",
+              "name": "p1",
+              "width": 280,
+              "height": 64,
+              "fill": "#1A1A2E",
+              "cornerRadius": 32,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wBpd2",
+                  "x": 49,
+                  "y": 10,
+                  "name": "p1t",
+                  "fill": "#CCCCCC",
+                  "content": "15 Modules",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 36,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "eojIG",
+              "name": "p2",
+              "width": 320,
+              "height": 64,
+              "fill": "#1A1A2E",
+              "cornerRadius": 32,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "GYXy9",
+                  "x": 47,
+                  "y": 10,
+                  "name": "p2t",
+                  "fill": "#CCCCCC",
+                  "content": "50+ Patterns",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 36,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "cFRxA",
+              "name": "p3",
+              "width": 280,
+              "height": 64,
+              "fill": "#1A1A2E",
+              "cornerRadius": 32,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "bsYha",
+                  "x": 58,
+                  "y": 10,
+                  "name": "p3t",
+                  "fill": "#CCCCCC",
+                  "content": "One-time",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 36,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "tBiGa",
+          "x": 400,
+          "y": 940,
+          "name": "line1",
+          "width": 800,
+          "height": 2,
+          "fill": "#222233",
+          "cornerRadius": 1
+        },
+        {
+          "type": "text",
+          "id": "j3jG9",
+          "x": 277,
+          "y": 980,
+          "name": "foot1",
+          "fill": "#555566",
+          "content": "15 modules. One ecosystem. Your AI follows your rules.",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 40,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "YfR8o",
+      "x": 7742,
+      "y": 1627,
+      "name": "PH — Before / After",
+      "width": 1600,
+      "height": 1200,
+      "fill": "#08080F",
+      "layout": "vertical",
+      "gap": 40,
+      "padding": 80,
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "qJ6JQ",
+          "name": "ba_title",
+          "fill": "#FFFFFF",
+          "content": "Without Forge vs With Forge",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 52,
+          "fontWeight": "700"
+        },
+        {
+          "type": "frame",
+          "id": "9dZKU",
+          "name": "columns_row",
+          "width": 1422,
+          "height": "fill_container",
+          "gap": 22,
+          "children": [
+            {
+              "type": "frame",
+              "id": "wU5du",
+              "name": "before",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#12121F",
+              "cornerRadius": 20,
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 30,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "viGG6",
+                  "name": "content_group",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 20,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "E5mMm",
+                      "name": "bh",
+                      "fill": "#FF6B6B",
+                      "content": "WITHOUT",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "700",
+                      "letterSpacing": 6
+                    },
+                    {
+                      "type": "text",
+                      "id": "IDYxX",
+                      "name": "b1",
+                      "fill": "#AAAAAA",
+                      "content": "❌  Re-explain architecture\n     every session",
+                      "fontFamily": "Inter",
+                      "fontSize": 26,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "sXNb2",
+                      "name": "b2",
+                      "fill": "#AAAAAA",
+                      "content": "❌  AI ignores your conventions\n     and naming patterns",
+                      "fontFamily": "Inter",
+                      "fontSize": 26,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "LKBOA",
+                      "name": "b3",
+                      "fill": "#AAAAAA",
+                      "content": "❌  Tests pass but test nothing\n     real (mock everything)",
+                      "fontFamily": "Inter",
+                      "fontSize": 26,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "QO3Mj",
+                      "name": "b4",
+                      "fill": "#AAAAAA",
+                      "content": "❌  Manual CLAUDE.md drifts\n     as codebase evolves",
+                      "fontFamily": "Inter",
+                      "fontSize": 26,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "pgVIc",
+                      "name": "b5",
+                      "fill": "#AAAAAA",
+                      "content": "❌  Merge conflicts from\n     parallel AI agents",
+                      "fontFamily": "Inter",
+                      "fontSize": 26,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "aQXVq",
+                  "name": "bt",
+                  "fill": "#FF6B6B",
+                  "content": "Hours of rework per week",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 32,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "wh5nv",
+              "name": "after",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#12121F",
+              "cornerRadius": 20,
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 30,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Yy3Xn",
+                  "name": "content_group",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 20,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "okLdh",
+                      "name": "ah",
+                      "fill": "#3FB950",
+                      "content": "WITH FORGE",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "700",
+                      "letterSpacing": 6
+                    },
+                    {
+                      "type": "text",
+                      "id": "P3jPu",
+                      "name": "a1",
+                      "fill": "#E6EDF3",
+                      "content": "✓  7-gate audit understands\n     your entire project",
+                      "fontFamily": "Inter",
+                      "fontSize": 26,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "lfPYN",
+                      "name": "a2",
+                      "fill": "#E6EDF3",
+                      "content": "✓  50+ quality patterns enforce\n     your conventions automatically",
+                      "fontFamily": "Inter",
+                      "fontSize": 26,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "DSpcQ",
+                      "name": "a3",
+                      "fill": "#E6EDF3",
+                      "content": "✓  Tests traced to requirements\n     not AI guesswork",
+                      "fontFamily": "Inter",
+                      "fontSize": 26,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "xDR5A",
+                      "name": "a4",
+                      "fill": "#E6EDF3",
+                      "content": "✓  Auto-generated guardrails\n     evolve with your codebase",
+                      "fontFamily": "Inter",
+                      "fontSize": 26,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "N2cZz",
+                      "name": "a5",
+                      "fill": "#E6EDF3",
+                      "content": "✓  Agent Teams in worktrees\n     zero merge conflicts",
+                      "fontFamily": "Inter",
+                      "fontSize": 26,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "vDesG",
+                  "name": "at",
+                  "fill": "#3FB950",
+                  "content": "One setup. Works forever.",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 32,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "kc9si",
+      "x": 11280,
+      "y": 1627,
+      "name": "PH — Pipeline",
+      "width": 1600,
+      "height": 1200,
+      "fill": "#08080F",
+      "layout": "vertical",
+      "padding": 80,
+      "justifyContent": "space_between",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "RFkGH",
+          "name": "pip_title",
+          "fill": "#FFFFFF",
+          "textGrowth": "fixed-width",
+          "width": 1300,
+          "content": "Not just rules. A full pipeline.",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 60,
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "ZkfHE",
+          "name": "pip_sub",
+          "fill": "#555566",
+          "textGrowth": "fixed-width",
+          "width": 1300,
+          "content": "15 modules cover the entire dev lifecycle",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 36,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "cxfzE",
+          "name": "cards_row",
+          "width": 1481,
+          "height": 300,
+          "gap": 10,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "7hrNa",
+              "name": "step_design",
+              "width": 320,
+              "height": 300,
+              "fill": "#12121F",
+              "cornerRadius": 20,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 20,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "fJ7k2",
+                  "name": "bar1",
+                  "fill": "#9A75EA",
+                  "width": "fill_container",
+                  "height": 3
+                },
+                {
+                  "type": "text",
+                  "id": "pX9Qa",
+                  "name": "s1_icon",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "15+",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 32,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "gDN1c",
+                  "name": "s1_label",
+                  "fill": "#9A75EA",
+                  "textGrowth": "fixed-width-height",
+                  "width": "fill_container",
+                  "height": 28,
+                  "content": "DESIGN",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "700",
+                  "letterSpacing": 4
+                },
+                {
+                  "type": "text",
+                  "id": "n70Dh",
+                  "name": "s1_mod",
+                  "fill": "#6B7280",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "forge-product",
+                  "textAlign": "center",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "cVVzu",
+                  "name": "sep1",
+                  "fill": "#2A2A3F",
+                  "width": 240,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "LVxZK",
+                  "name": "s1_desc",
+                  "fill": "#888899",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Describe features in\nbusiness language.\nAI builds from spec.",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "xehMa",
+              "name": "arr1",
+              "fill": "#9A75EA",
+              "content": "→",
+              "fontFamily": "Inter",
+              "fontSize": 48,
+              "fontWeight": "300"
+            },
+            {
+              "type": "frame",
+              "id": "fBjdP",
+              "name": "step_code",
+              "width": 320,
+              "height": 300,
+              "fill": "#12121F",
+              "cornerRadius": 20,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 20,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "StU7n",
+                  "name": "bar2",
+                  "fill": "#9A75EA",
+                  "width": "fill_container",
+                  "height": 3
+                },
+                {
+                  "type": "text",
+                  "id": "3F6hA",
+                  "name": "s2_icon",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "52",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 32,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "d7Z3b",
+                  "name": "s2_label",
+                  "fill": "#9A75EA",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "CODE",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "700",
+                  "letterSpacing": 4
+                },
+                {
+                  "type": "text",
+                  "id": "ZkcHW",
+                  "name": "s2_mod",
+                  "fill": "#6B7280",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "forge-core",
+                  "textAlign": "center",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "0zb6T",
+                  "name": "sep2",
+                  "fill": "#2A2A3F",
+                  "width": 240,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "8kr93",
+                  "name": "s2_desc",
+                  "fill": "#888899",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "50+ quality patterns.\n15 rationalization\ndetectors.",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "tVulk",
+              "name": "arr2",
+              "fill": "#9A75EA",
+              "content": "→",
+              "fontFamily": "Inter",
+              "fontSize": 48,
+              "fontWeight": "300"
+            },
+            {
+              "type": "frame",
+              "id": "JR1HN",
+              "name": "step_test",
+              "width": 320,
+              "height": 300,
+              "fill": "#12121F",
+              "cornerRadius": 20,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 20,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "c3gMU",
+                  "name": "bar3",
+                  "fill": "#9A75EA",
+                  "width": "fill_container",
+                  "height": 3
+                },
+                {
+                  "type": "text",
+                  "id": "UGXis",
+                  "name": "s3_icon",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "8+",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 32,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "QRcFR",
+                  "name": "s3_label",
+                  "fill": "#9A75EA",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "TEST",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "700",
+                  "letterSpacing": 4
+                },
+                {
+                  "type": "text",
+                  "id": "hrbIP",
+                  "name": "s3_mod",
+                  "fill": "#6B7280",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "forge-qa",
+                  "textAlign": "center",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "wjUVK",
+                  "name": "sep3",
+                  "fill": "#2A2A3F",
+                  "width": 240,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "YPBKw",
+                  "name": "s3_desc",
+                  "fill": "#888899",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Tests traced to\nrequirements.\n8+ frameworks.",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "5xB1y",
+              "name": "arr3",
+              "fill": "#9A75EA",
+              "content": "→",
+              "fontFamily": "Inter",
+              "fontSize": 48,
+              "fontWeight": "300"
+            },
+            {
+              "type": "frame",
+              "id": "unkR2",
+              "name": "step_track",
+              "width": 320,
+              "height": 300,
+              "fill": "#12121F",
+              "cornerRadius": 20,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 20,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "S1wnE",
+                  "name": "bar4",
+                  "fill": "#9A75EA",
+                  "width": "fill_container",
+                  "height": 3
+                },
+                {
+                  "type": "text",
+                  "id": "oVknC",
+                  "name": "s4_icon",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "5",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 32,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "Ajvfh",
+                  "name": "s4_label",
+                  "fill": "#9A75EA",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "TRACK",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "700",
+                  "letterSpacing": 4
+                },
+                {
+                  "type": "text",
+                  "id": "veGvj",
+                  "name": "s4_mod",
+                  "fill": "#6B7280",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "forge-tracker",
+                  "textAlign": "center",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "Bf9E0",
+                  "name": "sep4",
+                  "fill": "#2A2A3F",
+                  "width": 240,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "mBuHW",
+                  "name": "s4_desc",
+                  "fill": "#888899",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "GitHub, ClickUp,\nLinear, Notion, Jira.\nAI reads your backlog.",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "aSYgg",
+          "name": "autopilot_section",
+          "width": 1440,
+          "height": 280,
+          "fill": "#0D0D18",
+          "cornerRadius": 16,
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 2,
+              "id": "4Nk0W",
+              "x": 20,
+              "y": 8,
+              "name": "apbar",
+              "fill": "#9A75EA",
+              "width": 1400,
+              "height": 3
+            },
+            {
+              "type": "text",
+              "id": "1zM8X",
+              "x": 30,
+              "y": 30,
+              "name": "aptitle",
+              "fill": "#9A75EA",
+              "content": "AUTOPILOT",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "700",
+              "letterSpacing": 3
+            },
+            {
+              "type": "text",
+              "id": "xmEw9",
+              "x": 830,
+              "y": 34,
+              "name": "apsub",
+              "fill": "#555566",
+              "content": "forge-autopilot + forge-worktree",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 5,
+              "id": "QnCPW",
+              "x": 30,
+              "y": 100,
+              "name": "pb1",
+              "fill": "#4ADE80",
+              "width": 1050,
+              "height": 14
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 5,
+              "id": "OyOF9",
+              "x": 30,
+              "y": 134,
+              "name": "pb2",
+              "fill": "#4ADE80",
+              "width": 800,
+              "height": 14
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 5,
+              "id": "wnRYZ",
+              "x": 30,
+              "y": 168,
+              "name": "pb3",
+              "fill": "#9A75EA",
+              "width": 500,
+              "height": 14
+            },
+            {
+              "type": "text",
+              "id": "t1FzV",
+              "x": 1095,
+              "y": 96,
+              "name": "lb1",
+              "fill": "#4ADE80",
+              "content": "Feature 1 · merged",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "O1iQv",
+              "x": 845,
+              "y": 130,
+              "name": "lb2",
+              "fill": "#4ADE80",
+              "content": "Feature 2 · merged",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "psC27",
+              "x": 545,
+              "y": 164,
+              "name": "lb3",
+              "fill": "#9A75EA",
+              "content": "Feature 3 · in progress",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "3qA9G",
+              "x": 30,
+              "y": 220,
+              "name": "apfoot",
+              "fill": "#555566",
+              "textGrowth": "fixed-width",
+              "width": 1380,
+              "content": "Isolated worktrees · Autonomous Agent Teams · Zero merge conflicts",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Ik3em",
+          "name": "footer_group",
+          "width": 1440,
+          "layout": "vertical",
+          "gap": 15,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "wdz94",
+              "name": "stats",
+              "fill": "#555566",
+              "content": "52 quality patterns  ·  8+ test frameworks  ·  5 task trackers  ·  15 product types",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "tgrEg",
+              "name": "pip_foot",
+              "fill": "#555566",
+              "content": "Works with Claude Code, Cursor, Windsurf & any AI agent",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 32,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "UZMWc",
+              "name": "pip_price",
+              "fill": "#9A75EA",
+              "content": "From EUR 29. One-time purchase.",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 36,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "S4r6O",
+      "x": 9518,
+      "y": 1627,
+      "name": "PH — Terminal Demo",
+      "width": 1600,
+      "height": 1200,
+      "fill": "#08080F",
+      "layout": "vertical",
+      "gap": 20,
+      "padding": 80,
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "dIx8V",
+          "name": "term_title",
+          "fill": "#FFFFFF",
+          "content": "7 gates. Every layer detected.",
+          "fontFamily": "Inter",
+          "fontSize": 56,
+          "fontWeight": "700"
+        },
+        {
+          "type": "frame",
+          "id": "veI90",
+          "name": "terminal",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#0D1117",
+          "cornerRadius": 16,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "AQR2o",
+              "x": 0,
+              "y": 0,
+              "name": "titlebar",
+              "width": 1200,
+              "height": 48,
+              "fill": "#161B22",
+              "cornerRadius": 16,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "LLaIz",
+                  "x": 20,
+                  "y": 17,
+                  "name": "dot1",
+                  "fill": "#FF5F57",
+                  "width": 14,
+                  "height": 14
+                },
+                {
+                  "type": "ellipse",
+                  "id": "lcJol",
+                  "x": 42,
+                  "y": 17,
+                  "name": "dot2",
+                  "fill": "#FEBC2E",
+                  "width": 14,
+                  "height": 14
+                },
+                {
+                  "type": "ellipse",
+                  "id": "ndFWq",
+                  "x": 64,
+                  "y": 17,
+                  "name": "dot3",
+                  "fill": "#28C840",
+                  "width": 14,
+                  "height": 14
+                },
+                {
+                  "type": "text",
+                  "id": "raDsc",
+                  "x": 540,
+                  "y": 15,
+                  "name": "term_titlet",
+                  "fill": "#555566",
+                  "content": "Terminal",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "R8JsB",
+              "x": 40,
+              "y": 70,
+              "name": "l1",
+              "fill": "#E6EDF3",
+              "content": "$ forge setup",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 28,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "b3byN",
+              "x": 40,
+              "y": 130,
+              "name": "l2",
+              "fill": "#3FB950",
+              "content": "✓ Gate 1: Stack detected — NestJS 10 + TypeORM",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 26,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "6fBc2",
+              "x": 40,
+              "y": 175,
+              "name": "l3",
+              "fill": "#3FB950",
+              "content": "✓ Gate 2: Architecture — Clean Architecture, 3 layers",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 26,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "l9Lud",
+              "x": 40,
+              "y": 220,
+              "name": "l4",
+              "fill": "#3FB950",
+              "content": "✓ Gate 3: Conventions — consistent naming",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 26,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "eeRRj",
+              "x": 40,
+              "y": 265,
+              "name": "l5",
+              "fill": "#3FB950",
+              "content": "✓ Gate 4: 52 quality patterns loaded",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 26,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "yzDRR",
+              "x": 40,
+              "y": 310,
+              "name": "l6",
+              "fill": "#3FB950",
+              "content": "✓ Gate 5: CI/CD — GitHub Actions",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 26,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "4d9qM",
+              "x": 40,
+              "y": 355,
+              "name": "l7",
+              "fill": "#3FB950",
+              "content": "✓ Gate 6: Task tracker — GitHub Issues",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 26,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "5M4EL",
+              "x": 40,
+              "y": 400,
+              "name": "l8",
+              "fill": "#3FB950",
+              "content": "✓ Gate 7: 15 rationalization detectors active",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 26,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "zzjlX",
+              "x": 40,
+              "y": 470,
+              "name": "l9",
+              "fill": "#9A75EA",
+              "content": "✨ Project ready. AI is now architecture-aware.",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 28,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "bH4ML",
+              "x": 40,
+              "y": 540,
+              "name": "l10",
+              "fill": "#8B949E",
+              "content": "Generated:",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 24,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "wEhUP",
+              "x": 40,
+              "y": 580,
+              "name": "l11",
+              "fill": "#8B949E",
+              "content": "  .claude/dev-skill.md          — full dev pipeline",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "giNwI",
+              "x": 40,
+              "y": 615,
+              "name": "l12",
+              "fill": "#8B949E",
+              "content": "  .claude/quality-patterns.md   — 52 guardrails",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "s227m",
+              "x": 40,
+              "y": 650,
+              "name": "l13",
+              "fill": "#8B949E",
+              "content": "  .claude/step-catalog.md       — phase execution",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "Pi3Sc",
+              "x": 40,
+              "y": 685,
+              "name": "l14",
+              "fill": "#8B949E",
+              "content": "  CLAUDE.md                     — project context",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "P7ZDc",
+              "x": 40,
+              "y": 750,
+              "name": "l15",
+              "fill": "#555566",
+              "content": "Remove Forge anytime. Artifacts work standalone.",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "xjCn8",
+      "x": 5992,
+      "y": -85,
+      "name": "PH — Pain Hook (Hero)",
+      "width": 1600,
+      "height": 1200,
+      "fill": "#08080F",
+      "layout": "none",
+      "children": [
+        {
+          "type": "text",
+          "id": "644TA",
+          "x": 150,
+          "y": 60,
+          "name": "pain_title",
+          "fill": "#FFFFFF",
+          "content": "Your AI writes code fast.\nYou fix it faster.",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 72,
+          "fontWeight": "800"
+        },
+        {
+          "type": "text",
+          "id": "BEJtg",
+          "x": 600,
+          "y": 260,
+          "name": "pain_sub",
+          "fill": "#555566",
+          "content": "Sound familiar?",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 36,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "oJ6Eh",
+          "x": 100,
+          "y": 320,
+          "name": "pain_row1",
+          "width": 1400,
+          "height": 120,
+          "fill": "#12121F",
+          "cornerRadius": 16,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "t7lZK",
+              "x": 24,
+              "y": 40,
+              "name": "p1_icon",
+              "content": "🔄",
+              "fontFamily": "Inter",
+              "fontSize": 36,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "mDwnp",
+              "x": 80,
+              "y": 44,
+              "name": "p1_text",
+              "fill": "#CCCCCC",
+              "content": "\"I spend 20 minutes re-explaining what NestJS guards do. Every. Single. Session.\"",
+              "fontFamily": "Inter",
+              "fontSize": 28,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "HyEpK",
+              "x": 80,
+              "y": 8,
+              "name": "p1_label",
+              "fill": "#FF6B6B",
+              "content": "CONTEXT ROT",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "H5Rb6",
+          "x": 100,
+          "y": 455,
+          "name": "pain_row2",
+          "width": 1400,
+          "height": 120,
+          "fill": "#12121F",
+          "cornerRadius": 16,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "Di8Xv",
+              "x": 24,
+              "y": 40,
+              "name": "p2_icon",
+              "content": "🔥",
+              "fontFamily": "Inter",
+              "fontSize": 36,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "0z0eO",
+              "x": 80,
+              "y": 44,
+              "name": "p2_text",
+              "fill": "#CCCCCC",
+              "content": "\"A simple rename burned 50K tokens. AI re-read the entire codebase.\"",
+              "fontFamily": "Inter",
+              "fontSize": 28,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "98Tyk",
+              "x": 80,
+              "y": 8,
+              "name": "p2_label",
+              "fill": "#FF6B6B",
+              "content": "TOKEN BURN",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "4RCxs",
+          "x": 100,
+          "y": 590,
+          "name": "pain_row3",
+          "width": 1400,
+          "height": 120,
+          "fill": "#12121F",
+          "cornerRadius": 16,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "74oIs",
+              "x": 24,
+              "y": 40,
+              "name": "p3_icon",
+              "content": "🌀",
+              "fontFamily": "Inter",
+              "fontSize": 36,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "7pbwQ",
+              "x": 80,
+              "y": 44,
+              "name": "p3_text",
+              "fill": "#CCCCCC",
+              "content": "\"AI patches over bugs with quick fixes until the module is unmaintainable.\"",
+              "fontFamily": "Inter",
+              "fontSize": 28,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "SRzNX",
+              "x": 80,
+              "y": 8,
+              "name": "p3_label",
+              "fill": "#FF6B6B",
+              "content": "CODE SPIRALS",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "s6ena",
+          "x": 100,
+          "y": 725,
+          "name": "pain_row4",
+          "width": 1400,
+          "height": 120,
+          "fill": "#12121F",
+          "cornerRadius": 16,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "nEyGk",
+              "x": 24,
+              "y": 40,
+              "name": "p4_icon",
+              "content": "💥",
+              "fontFamily": "Inter",
+              "fontSize": 36,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "u6sJY",
+              "x": 80,
+              "y": 44,
+              "name": "p4_text",
+              "fill": "#CCCCCC",
+              "content": "\"3 agents in parallel. 4 hours resolving merge conflicts. Net productivity: negative.\"",
+              "fontFamily": "Inter",
+              "fontSize": 28,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "jKsnP",
+              "x": 80,
+              "y": 8,
+              "name": "p4_label",
+              "fill": "#FF6B6B",
+              "content": "MERGE HELL",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "pcftz",
+          "x": 100,
+          "y": 860,
+          "name": "pain_row5",
+          "width": 1400,
+          "height": 120,
+          "fill": "#12121F",
+          "cornerRadius": 16,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "5jNCa",
+              "x": 24,
+              "y": 40,
+              "name": "p5_icon",
+              "content": "🎭",
+              "fontFamily": "Inter",
+              "fontSize": 36,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "1jddX",
+              "x": 80,
+              "y": 44,
+              "name": "p5_text",
+              "fill": "#CCCCCC",
+              "content": "\"Unit tests pass with 100% coverage. Every assertion uses mock data. Zero real behavior.\"",
+              "fontFamily": "Inter",
+              "fontSize": 28,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "gXy7K",
+              "x": 80,
+              "y": 8,
+              "name": "p5_label",
+              "fill": "#FF6B6B",
+              "content": "FAKE TESTS",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "u0y8j",
+          "x": 400,
+          "y": 1020,
+          "name": "pain_divider",
+          "width": 800,
+          "height": 2,
+          "fill": "#222233",
+          "cornerRadius": 1
+        },
+        {
+          "type": "text",
+          "id": "6Lb97",
+          "x": 150,
+          "y": 1050,
+          "name": "pain_cta",
+          "fill": "#9A75EA",
+          "content": "What if your AI understood your architecture from day one?",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 40,
+          "fontWeight": "600"
+        },
+        {
+          "type": "text",
+          "id": "mHA1j",
+          "x": 350,
+          "y": 1140,
+          "name": "pain_brand",
+          "fill": "#555566",
+          "content": "⚒ Forge DevKit  -  from EUR 29, one-time",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 32,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "D1h2b",
+      "x": 13079,
+      "y": 1627,
+      "name": "PH — Pricing Close",
+      "width": 1600,
+      "height": 1200,
+      "fill": "#08080F",
+      "layout": "vertical",
+      "gap": 30,
+      "padding": 80,
+      "justifyContent": "space_between",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "GgT76",
+          "name": "content_group",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 56,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "Up0pv",
+              "name": "price_headline",
+              "fill": "#FFFFFF",
+              "content": "Stop paying rent for AI tools.",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 68,
+              "fontWeight": "800"
+            },
+            {
+              "type": "frame",
+              "id": "ztMl6",
+              "name": "cards_row",
+              "width": "fill_container",
+              "height": 300,
+              "gap": 30,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "gmvrA",
+                  "name": "comp_devin",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#1A1A2E",
+                  "cornerRadius": 20,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 30,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GzgSe",
+                      "name": "cd_name",
+                      "fill": "#888899",
+                      "content": "Devin",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 36,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "uKiue",
+                      "name": "cd_price",
+                      "fill": "#FF6B6B",
+                      "content": "EUR 240/yr",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 52,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "9sYDF",
+                      "name": "cd_strike",
+                      "fill": "#FF6B6B",
+                      "content": "─────────────",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 30,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "9jH3Z",
+                      "name": "cd_note",
+                      "fill": "#666677",
+                      "content": "+ ACU charges\nMandatory subscription\nSandboxed environment",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 24,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "27POZ",
+                  "name": "comp_cursor",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#1A1A2E",
+                  "cornerRadius": 20,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 30,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Mt15f",
+                      "name": "cc_name",
+                      "fill": "#888899",
+                      "content": "Cursor Pro",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 36,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "O0S2l",
+                      "name": "cc_price",
+                      "fill": "#FF6B6B",
+                      "content": "EUR 240/yr",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 52,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "2UiB0",
+                      "name": "cc_strike",
+                      "fill": "#FF6B6B",
+                      "content": "─────────────",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 30,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "1Wtrl",
+                      "name": "cc_note",
+                      "fill": "#666677",
+                      "content": "IDE lock-in\nNo architecture awareness\nSingle rules file",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 24,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "3ZYAl",
+                  "name": "comp_forge",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#12221A",
+                  "cornerRadius": 20,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 30,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YJpfM",
+                      "name": "fg_name",
+                      "fill": "#3FB950",
+                      "content": "Forge DevKit",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 36,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "9SyQD",
+                      "name": "fg_price",
+                      "fill": "#3FB950",
+                      "content": "From EUR 29",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 52,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "luItm",
+                      "name": "fg_note",
+                      "fill": "#AADDAA",
+                      "content": "One-time purchase\n15 modules, any AI agent\nYour artifacts stay forever",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 24,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "m4W1n",
+                      "name": "fg_badge",
+                      "fill": "#3FB950",
+                      "content": "ONE-TIME",
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700",
+                      "letterSpacing": 4
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "5c9M8",
+              "name": "tiers_section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "wdtSP",
+                  "name": "price_divider",
+                  "width": 1200,
+                  "height": 2,
+                  "fill": "#222233",
+                  "cornerRadius": 1
+                },
+                {
+                  "type": "text",
+                  "id": "DSPMs",
+                  "name": "tiers_label",
+                  "fill": "#9A75EA",
+                  "content": "STARTER EUR 29   |   PRO EUR 79   |   COMPLETE EUR 149",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 36,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "lE471",
+                  "name": "tiers_detail",
+                  "fill": "#666677",
+                  "content": "Solo developers          Professional developers          Developer-founders",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 26,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Xy1Qm",
+              "name": "trust_section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "gkYDU",
+                  "name": "trust_1",
+                  "fill": "#888899",
+                  "content": "✓  14-day money-back guarantee",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 28,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "OgAC3",
+                  "name": "trust_2",
+                  "fill": "#888899",
+                  "content": "✓  1 year of updates included. Renewal optional at ~60%",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 28,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "8Nj3X",
+                  "name": "trust_3",
+                  "fill": "#888899",
+                  "content": "✓  Generated artifacts work forever - even without Forge",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 28,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "0hKb4",
+          "name": "footer_group",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "B8kZB",
+              "name": "price_foot",
+              "fill": "#FFFFFF",
+              "content": "One bug prevented pays for the entire year.",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 36,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "AZz7N",
+              "name": "price_badge",
+              "fill": "#555566",
+              "content": "reumbra.dev/forge",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 28,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "pQJ1k",
+      "x": 5992,
+      "y": 1627,
+      "name": "PH — Hero (v3 Terminal)",
+      "width": 1600,
+      "height": 1200,
+      "fill": "#08080F",
+      "layout": "vertical",
+      "gap": 16,
+      "padding": 80,
+      "justifyContent": "space_between",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "CKFCR",
+          "name": "header_group",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "ROIlh",
+              "name": "hero_title",
+              "fill": "#FFFFFF",
+              "content": "One command. Your AI\nunderstands your project.",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 72,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "HFVSx",
+              "name": "hero_sub",
+              "fill": "#555566",
+              "content": "for Claude Code, Cursor & any AI agent",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 32,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "bDiDf",
+          "name": "terminal",
+          "width": 998,
+          "height": 787,
+          "fill": "#0D1117",
+          "cornerRadius": 16,
+          "layout": "none",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "zVkTl",
+              "x": 24,
+              "y": 18,
+              "name": "dot_red",
+              "fill": "#FF5F57",
+              "width": 14,
+              "height": 14
+            },
+            {
+              "type": "ellipse",
+              "id": "ZuWnR",
+              "x": 46,
+              "y": 18,
+              "name": "dot_yellow",
+              "fill": "#FEBC2E",
+              "width": 14,
+              "height": 14
+            },
+            {
+              "type": "ellipse",
+              "id": "nWwXd",
+              "x": 68,
+              "y": 18,
+              "name": "dot_green",
+              "fill": "#28C840",
+              "width": 14,
+              "height": 14
+            },
+            {
+              "type": "text",
+              "id": "khJdL",
+              "x": 30,
+              "y": 52,
+              "name": "t_prompt",
+              "fill": "#E6EDF3",
+              "content": "$ forge setup",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 24,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "7qVsw",
+              "x": 30,
+              "y": 100,
+              "name": "t_header",
+              "fill": "#9A75EA",
+              "content": "◆ Gate 1: Architecture Audit - Results",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 24,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "9BJ8j",
+              "x": 30,
+              "y": 150,
+              "name": "t_stack",
+              "fill": "#E6EDF3",
+              "content": "Stack:   NestJS 11.0 + TypeScript 5.8 + Prisma 6.4",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "L4a3u",
+              "x": 30,
+              "y": 182,
+              "name": "t_build",
+              "fill": "#8B949E",
+              "content": "Build:   SWC  |  Linter: ESLint + Prettier",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "ryTpR",
+              "x": 30,
+              "y": 214,
+              "name": "t_arch",
+              "fill": "#58A6FF",
+              "content": "Arch:    DDD (3 bounded contexts)",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "O1YlW",
+              "x": 30,
+              "y": 260,
+              "name": "t_layers_hdr",
+              "fill": "#E6EDF3",
+              "content": "Layers:",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "pLmJs",
+              "x": 30,
+              "y": 292,
+              "name": "t_layer1",
+              "fill": "#8B949E",
+              "content": "  modules:  src/modules/   (24 files) - domain logic, CQRS handlers",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "eqHvq",
+              "x": 30,
+              "y": 320,
+              "name": "t_layer2",
+              "fill": "#8B949E",
+              "content": "  infra:    src/infra/     (12 files) - Prisma repos, external APIs",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "hMv1T",
+              "x": 30,
+              "y": 348,
+              "name": "t_layer3",
+              "fill": "#8B949E",
+              "content": "  shared:   src/shared/     (8 files) - guards, pipes, decorators",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "a38nz",
+              "x": 30,
+              "y": 396,
+              "name": "t_conflicts",
+              "fill": "#3FB950",
+              "content": "Conflict zones:    none (0 files)",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "HZ9qm",
+              "x": 30,
+              "y": 428,
+              "name": "t_parallel",
+              "fill": "#3FB950",
+              "content": "Parallel readiness: 9/10 - highly parallel",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "XBnYn",
+              "x": 30,
+              "y": 475,
+              "name": "t_sep",
+              "width": 1340,
+              "height": 1,
+              "fill": "#21262D"
+            },
+            {
+              "type": "text",
+              "id": "5Bw9G",
+              "x": 30,
+              "y": 498,
+              "name": "t_gen_hdr",
+              "fill": "#E6EDF3",
+              "content": "Generated:",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "TK7IZ",
+              "x": 30,
+              "y": 530,
+              "name": "t_gen1",
+              "fill": "#8B949E",
+              "content": "  .claude/dev-skill.md         - full dev pipeline",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "nbZ9q",
+              "x": 30,
+              "y": 558,
+              "name": "t_gen2",
+              "fill": "#8B949E",
+              "content": "  .claude/quality-patterns.md  - 52 guardrails",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "hwHo0",
+              "x": 30,
+              "y": 586,
+              "name": "t_gen3",
+              "fill": "#8B949E",
+              "content": "  .claude/step-catalog.md      - phase execution",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "0xPYG",
+              "x": 30,
+              "y": 614,
+              "name": "t_gen4",
+              "fill": "#8B949E",
+              "content": "  CLAUDE.md                    - project context",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "b1C0u",
+              "x": 30,
+              "y": 668,
+              "name": "t_ready",
+              "fill": "#9A75EA",
+              "content": "⚒ Project ready. AI is now architecture-aware.",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "efvKF",
+              "x": 30,
+              "y": 730,
+              "name": "t_sep2",
+              "width": 1340,
+              "height": 1,
+              "fill": "#21262D"
+            },
+            {
+              "type": "text",
+              "id": "TDSY7",
+              "x": 30,
+              "y": 750,
+              "name": "t_foot",
+              "fill": "#484F58",
+              "content": "Remove Forge anytime. Artifacts work standalone.",
+              "fontFamily": "JetBrains Mono",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "ftRhC",
+          "name": "hero_brand",
+          "fill": "#555566",
+          "content": "⚒ Forge DevKit  -  from EUR 29, one-time purchase",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 28,
           "fontWeight": "normal"
         }
       ]

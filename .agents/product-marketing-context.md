@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-*Last updated: 2026-03-10 (v3 - narrative update)*
+*Last updated: 2026-03-11 (v4 - elevator pitches aligned with landing hero)*
 *Source of truth for all marketing materials: landing, Lemon Squeezy, ads, social, emails.*
 
 ## Product Overview
@@ -17,28 +17,28 @@
 
 ## Pricing Tiers (Source of Truth)
 
-| | CORE | PRO | COMPLETE |
-|---|------|-----|----------|
+| | STARTER | PRO | COMPLETE |
+|---|---------|-----|----------|
 | **Price** | **EUR 29** | **EUR 79** | **EUR 149** |
 | **Persona** | For solo developers | For professional developers | For developer-founders |
-| **Description** | Foundation for architecture-aware AI development | Full dev pipeline: from feature spec to tested, tracked code | Full automation + product intelligence. 15 modules. One purchase. |
+| **Description** | Stop re-explaining your stack. One setup, forever. | Full dev pipeline: from feature spec to tested, tracked code | Full automation + product intelligence. 15 modules. One purchase. |
 | **Modules** | forge-core + forge-worktree | + forge-product + forge-qa + forge-tracker + forge-prompts | + forge-autopilot + 8 advisory adapters |
 | **Module count** | 2 | 6 | 15 |
 | **Devices** | 2 | 3 | 5 |
 | **Badge** | - | Recommended | - |
-| **CTA** | Get Core | Get Pro | Get Complete |
+| **CTA** | Get Starter | Get Pro | Get Complete |
 | **Renewal** | EUR 19/yr | EUR 49/yr | EUR 89/yr |
 | **Checkout** | 5fade325-8f39-41c5-a416-2ba827eae6d4 | 2429257a-9691-46c4-8e9d-10332a6639a3 | 01e422a5-7160-41eb-b2c8-f22318ec170d |
 
 ### Tier Features (verbatim from landing)
 
-**CORE:**
+**STARTER:**
 - Auto-detects your stack, layers, conventions
 - 50+ quality patterns for AI-generated code
 - Project-aware dev-skills - one setup, forever
 - Scoped phases prevent runaway sessions
 
-**PRO:** Everything in Core +
+**PRO:** Everything in Starter +
 - Describe features in business language - AI builds from spec (forge-product)
 - Tests traced to requirements, not AI guesswork (forge-qa)
 - Full pipeline: design -> code -> test -> track
@@ -51,8 +51,8 @@
 
 ### Module-to-Tier Mapping (from feature table)
 
-| Module | CORE | PRO | COMPLETE |
-|--------|------|-----|----------|
+| Module | STARTER | PRO | COMPLETE |
+|--------|---------|-----|----------|
 | forge-core | YES | YES | YES |
 | forge-worktree | YES | YES | YES |
 | forge-product | no | YES | YES |
@@ -63,26 +63,28 @@
 | 8 advisory adapters | no | no | YES |
 | Future modules | no | no | YES |
 
-**IMPORTANT:** forge-autopilot and 8 advisory adapters are COMPLETE-ONLY. forge-worktree is in all tiers (Core+). forge-prompts is in Pro+.
+**IMPORTANT:** forge-autopilot and 8 advisory adapters are COMPLETE-ONLY. forge-worktree is in all tiers (Starter+). forge-prompts is in Pro+.
 
 ### License Terms
 - One-time purchase (not subscription)
-- Device activations per license: Core 2, Pro 3, Complete 5
+- Device activations per license: Starter 2, Pro 3, Complete 5
 - 1 year of updates included
 - Renewal optional at reduced price (~60%)
 - 14-day money-back guarantee
 - Generated artifacts work forever (even without renewal)
 
-## Modules (6 total)
+## Modules (15 total: 7 dev pipeline + 8 advisory)
 
-| Module | Tagline | Key Stats |
-|--------|---------|-----------|
-| forge-core | Architecture audit & AI guardrails | 7-gate wizard, 50+ quality patterns, 15 rationalization detectors, 3 execution modes |
-| forge-product | Feature design in business language | 8 product archetypes, User flows, Stories with AC, 50 UX criteria |
-| forge-qa | Tests from requirements | 8+ test frameworks, AC to unit tests, UC to E2E, Traceability matrix |
-| forge-tracker | Bridge backlog and development | 5 integrations: GitHub, ClickUp, Linear, Notion, Jira |
-| forge-autopilot | Agent Teams without merge hell | 3 autonomy modes, 0 merge conflicts, wave planning |
-| forge-worktree | Git worktree lifecycle manager | 3 templates, Docker port isolation, auto-cleanup |
+| Module | Tagline | Key Stats | Tier |
+|--------|---------|-----------|------|
+| forge-core | Architecture audit & AI guardrails | 7-gate wizard, 50+ quality patterns, 15 rationalization detectors, 3 execution modes | Starter+ |
+| forge-worktree | Parallel branches, zero port conflicts | 3 templates, Docker port isolation, auto-cleanup | Starter+ |
+| forge-product | Feature design in business language | 8 product archetypes, User flows, Stories with AC, 50 UX criteria | Pro+ |
+| forge-qa | Tests from requirements | 8+ test frameworks, AC to unit tests, UC to E2E, Traceability matrix | Pro+ |
+| forge-tracker | Your tracker talks to your AI agent | 5 integrations: GitHub, ClickUp, Linear, Notion, Jira | Pro+ |
+| forge-prompts | Manage prompts like code | 3 frameworks, 5 modes, Learning loop | Pro+ |
+| forge-autopilot | Agent Teams without merge hell | 3 autonomy modes, 0 merge conflicts, wave planning | Complete |
+| 8 advisory | discovery, marketing, analytics, onboarding, copy, seo, growth, ab | Psychology bias detectors per module | Complete |
 
 ## Target Audience
 
@@ -243,7 +245,7 @@
 
 **Business goal:** Revenue from plugin sales via Lemon Squeezy
 
-**Conversion action:** Purchase a tier (Core/Pro/Complete) via checkout
+**Conversion action:** Purchase a tier (Starter/Pro/Complete) via checkout
 
 **Current metrics:** Pre-launch / early stage
 
@@ -253,7 +255,7 @@ Each tier card follows: Hero (white bold, benefit-first) → Accent (purple/gree
 
 | Tier | Hero line | Accent line | Description |
 |------|-----------|-------------|-------------|
-| CORE | Stop re-explaining your stack | 50+ patterns · 7-gate audit · one setup forever | forge-core + forge-worktree |
+| STARTER | Stop re-explaining your stack | 50+ patterns · 7-gate audit · one setup forever | forge-core + forge-worktree |
 | PRO | Design → Code → Test → Track | forge-product · qa · tracker · prompts · worktree | Describe features in business language - AI builds the rest |
 | COMPLETE | Agent Teams. Zero conflicts. | autopilot + 8 advisory + every future module | Full automation from product discovery to growth |
 
@@ -279,15 +281,15 @@ Design file: `design/product-images.pen` (edit via Pencil MCP, save manually in 
 
 ### Elevator Pitches
 
-**5-second:** Architecture-aware pipeline for AI coding agents.
+**5-second:** One command. From feature idea to tested code.
 
-**15-second:** Forge scans your repo and generates guardrails your AI actually follows. 50+ quality patterns, test traceability, Agent Teams orchestration. One-time purchase from EUR 29.
+**15-second:** Forge scans your repo - stack, layers, conventions - and generates a full dev pipeline: architecture guardrails, quality gates, test traceability. Your AI stops guessing and starts following your rules. From EUR 29, one-time.
 
-**30-second:** AI coding agents write fast but create technical debt because they don't understand your architecture. Forge DevKit runs a 7-gate audit on your project - stack, layers, conventions - and generates project-specific guardrails, quality patterns, and dev-skills. Full pipeline from design to tested code. Works with Claude Code, Cursor, any AI agent. One-time purchase, not a subscription.
+**30-second:** AI coding agents write fast but create technical debt because they don't understand your project. Forge DevKit scans your repo, detects your stack, and generates a full dev pipeline - architecture guardrails, quality gates, test traceability. 15 modules from architecture audit to Agent Teams orchestration. Works with Claude Code, Cursor, any AI agent. One-time purchase from EUR 29, not a subscription.
 
 ### Value Propositions by Tier
 
-**CORE (EUR 29):** "Your AI forgets your architecture every session. Forge doesn't. 7-gate audit, 50+ patterns, one setup forever."
+**STARTER (EUR 29):** "Your AI forgets your architecture every session. Forge doesn't. 7-gate audit, 50+ patterns, one setup forever."
 
 **PRO (EUR 79):** "From business requirement to tested code. Design features in plain language, get tests that prove requirements. Full pipeline."
 

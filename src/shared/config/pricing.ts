@@ -2,7 +2,7 @@ export interface PricingFeature {
 	text: string;
 }
 
-// Updated 2026-03-08: device limits per tier (Core 2, Pro 3, Complete 5). Bundle renamed to Complete.
+// Updated 2026-03-08: device limits per tier (Starter 2, Pro 3, Complete 5). Bundle renamed to Complete.
 export interface PricingTier {
 	id: string;
 	name: string;
@@ -35,7 +35,7 @@ export const pricing = {
 	tiers: [
 		{
 			id: "core",
-			name: "CORE",
+			name: "STARTER",
 			price: 29,
 			persona: "For solo developers",
 			description: "Stop re-explaining your stack. One setup, forever.",
@@ -45,7 +45,7 @@ export const pricing = {
 				"Project-aware dev-skills - one setup, forever",
 				"Scoped phases prevent runaway sessions",
 			],
-			cta: "Get Core",
+			cta: "Get Starter",
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/checkout/buy/6cf4f607-1a5c-4aca-9e10-c20c01b7741c",
 			isPopular: false,
 			devices: 2,
@@ -59,7 +59,7 @@ export const pricing = {
 			persona: "For professional developers",
 			description: "Full pipeline: Design \u2192 Code \u2192 Test \u2192 Track",
 			features: [
-				"Everything in Core",
+				"Everything in Starter",
 				"Describe features in business language - AI builds from spec",
 				"Tests traced to requirements, not AI guesswork",
 				"Prompt engineering frameworks - consistent AI output across sessions",
@@ -108,7 +108,7 @@ const pricingRu: PricingConfig = {
 	tiers: [
 		{
 			id: "core",
-			name: "CORE",
+			name: "STARTER",
 			price: 29,
 			persona: "Для инди-разработчиков",
 			description: "Хватит объяснять стек заново. Одна настройка - навсегда.",
@@ -118,7 +118,7 @@ const pricingRu: PricingConfig = {
 				"Dev-скиллы с пониманием проекта - один раз настроил, работают всегда",
 				"Контролируемые фазы предотвращают бесконтрольные сессии",
 			],
-			cta: "Получить Core",
+			cta: "Получить Starter",
 			checkoutUrl: "https://reumbra.lemonsqueezy.com/checkout/buy/6cf4f607-1a5c-4aca-9e10-c20c01b7741c",
 			isPopular: false,
 			devices: 2,
@@ -132,7 +132,7 @@ const pricingRu: PricingConfig = {
 			persona: "Для профессиональных разработчиков",
 			description: "Полный pipeline: Дизайн \u2192 Код \u2192 Тесты \u2192 Трекинг",
 			features: [
-				"Все из Core",
+				"Все из Starter",
 				"Описывайте фичи бизнес-языком - AI строит по спецификации",
 				"Тесты, привязанные к требованиям, а не угадывание AI",
 				"Фреймворки промпт-инжиниринга - стабильный AI-вывод между сессиями",

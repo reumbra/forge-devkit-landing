@@ -22,7 +22,7 @@ export interface ModulesConfig {
 
 export const modules = {
 	sectionLabel: "MODULES",
-	headline: "6 dev pipeline modules. 9 advisory. One ecosystem.",
+	headline: "7 dev pipeline modules. 8 advisory. One ecosystem.",
 	closingLine:
 		"The dev pipeline handles code from spec to deploy. Advisory modules cover product strategy, discovery, marketing, and growth. Every module works standalone.",
 	modules: [
@@ -253,7 +253,7 @@ export const modules = {
 
 const modulesRu: ModulesConfig = {
 	sectionLabel: "MODULES",
-	headline: "6 модулей разработки. 9 advisory. Одна экосистема.",
+	headline: "7 модулей разработки. 8 advisory. Одна экосистема.",
 	closingLine:
 		"Dev pipeline ведет код от спецификации до деплоя. Advisory-модули покрывают продуктовую стратегию, discovery, маркетинг и рост. Каждый модуль работает автономно.",
 	modules: [
