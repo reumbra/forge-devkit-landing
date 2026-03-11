@@ -65,7 +65,8 @@ const heightClass = compact
 
 	{/* Blinking cursor */}
 	<style>
-		.at-cursor::after {
+		/* :global() needed because .at-line/.at-cursor live in slot content (different Astro cid) */
+		:global(.at-cursor)::after {
 			content: "▋";
 			color: #9A75EA;
 			animation: at-blink 1s step-end infinite;
@@ -77,19 +78,19 @@ const heightClass = compact
 		}
 
 		/* Initial state: all lines hidden */
-		.animated-terminal .at-line {
+		.animated-terminal :global(.at-line) {
 			opacity: 0;
 			transform: translateY(4px);
 			transition: opacity 0.25s ease, transform 0.25s ease;
 		}
-		.animated-terminal .at-line.at-visible {
+		.animated-terminal :global(.at-line.at-visible) {
 			opacity: 1;
 			transform: translateY(0);
 		}
 
 		/* No-JS fallback: show everything */
 		@media (scripting: none) {
-			.animated-terminal .at-line {
+			.animated-terminal :global(.at-line) {
 				opacity: 1;
 				transform: none;
 			}
