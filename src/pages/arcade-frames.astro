@@ -1,0 +1,184 @@
+---
+/**
+ * Arcade Demo Frames - static terminal screenshots for Product Hunt interactive demo.
+ * Each section = one Arcade step. Screenshot at 1270x760.
+ * NOT linked from navigation - internal use only.
+ */
+import "../styles/global.css";
+import TerminalSnippet from "@shared/ui/TerminalSnippet.astro";
+---
+
+<html lang="en" class="dark">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Arcade Demo Frames</title>
+		<meta name="robots" content="noindex" />
+	</head>
+	<body class="bg-[#0D0B14]">
+		<!-- Frame 1: Install & Launch -->
+		<section id="frame-1" class="h-screen flex items-center justify-center p-12">
+			<div class="w-full max-w-[900px]">
+				<TerminalSnippet title="Terminal">
+					<div>
+						<p class="prompt"><span class="t-white">npx @reumbra/forge</span></p>
+						<br />
+						<p>&nbsp;&nbsp;<span class="t-purple t-bold">&#10022;</span> <span class="t-white t-bold">Forge</span> <span class="t-muted">- Plugin manager for Claude Code v0.3.8</span></p>
+						<br />
+						<p>&nbsp;&nbsp;<span class="t-green">&#9679;</span> <span class="t-green">Licensed</span>&nbsp;&nbsp;<span class="t-white">FRG-YGGT..TRE4</span> &middot; <span class="t-cyan t-bold">pro</span> &middot; <span class="t-muted">expires Mar 6, 2027</span></p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-green">6 plugins installed</span></p>
+						<br />
+						<p>&nbsp;&nbsp;<span class="t-purple">&#9670;</span> <span class="t-white">What would you like to do?</span></p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-green">&#9679;</span> <span class="t-white">Manage plugins</span> <span class="t-muted">(6 installed)</span></p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-muted">&#9675; License & devices</span></p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-muted">&#9675; Run diagnostics</span></p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-muted">&#9675; Exit</span></p>
+					</div>
+				</TerminalSnippet>
+			</div>
+		</section>
+
+		<!-- Frame 2: Architecture Audit -->
+		<section id="frame-2" class="h-screen flex items-center justify-center p-12">
+			<div class="w-full max-w-[900px]">
+				<TerminalSnippet title="forge:setup - Gate 1: Architecture Audit">
+					<div>
+						<p class="prompt"><span class="t-white">/forge:setup</span></p>
+						<br />
+						<p><span class="t-purple t-bold">&#9670;</span> <span class="t-white t-bold">Gate 1: Architecture Audit</span> <span class="t-muted">analyzing project...</span></p>
+						<br />
+						<table>
+							<tr><td><span class="t-muted">Stack</span></td><td><span class="t-white">NestJS 10 + TypeScript 5.3</span></td></tr>
+							<tr><td><span class="t-muted">Architecture</span></td><td><span class="t-white">Layered (domain / infra / interface)</span></td></tr>
+							<tr><td><span class="t-muted">Database</span></td><td><span class="t-white">PostgreSQL via Prisma 5.x</span></td></tr>
+							<tr><td><span class="t-muted">Auth</span></td><td><span class="t-white">JWT + Passport</span></td></tr>
+							<tr><td><span class="t-muted">Testing</span></td><td><span class="t-white">Jest + supertest</span></td></tr>
+							<tr><td><span class="t-muted">Docker</span></td><td><span class="t-white">docker-compose.yml (3 services)</span></td></tr>
+						</table>
+						<br />
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-muted">Capabilities:</span> <span class="t-cyan">has_api</span> <span class="t-cyan">has_database</span> <span class="t-cyan">has_docker</span> <span class="t-cyan">has_auth</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-muted">Layers:</span> <span class="t-white">4 detected</span> <span class="t-muted">(domain, application, infrastructure, interface)</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-muted">Conventions:</span> <span class="t-white">barrel exports, class-based DI, DTO validation</span></p>
+						<br />
+						<p><span class="t-green">&#10022;</span> <span class="t-white t-bold">Audit complete.</span> <span class="t-muted">Your AI agent now understands your architecture.</span></p>
+					</div>
+				</TerminalSnippet>
+			</div>
+		</section>
+
+		<!-- Frame 3: Ecosystem Dashboard -->
+		<section id="frame-3" class="h-screen flex items-center justify-center p-12">
+			<div class="w-full max-w-[900px]">
+				<TerminalSnippet title="forge:setup - Ecosystem Dashboard">
+					<div>
+						<p><span class="t-purple t-bold">&#10022;</span> <span class="t-white t-bold">Forge Ecosystem</span> <span class="t-muted">- 6 modules configured</span></p>
+						<br />
+						<table>
+							<tr><th>Module</th><th>Status</th><th>Purpose</th></tr>
+							<tr><td><span class="t-purple">forge-core</span></td><td><span class="badge-ok">ready</span></td><td><span class="t-muted">Architecture rules, quality patterns, dev pipeline</span></td></tr>
+							<tr><td><span class="t-purple">forge-product</span></td><td><span class="badge-ok">ready</span></td><td><span class="t-muted">User stories, acceptance criteria, UX specs</span></td></tr>
+							<tr><td><span class="t-purple">forge-qa</span></td><td><span class="badge-ok">ready</span></td><td><span class="t-muted">Test generation from AC, quality gates</span></td></tr>
+							<tr><td><span class="t-purple">forge-tracker</span></td><td><span class="badge-ok">ready</span></td><td><span class="t-muted">GitHub Issues sync, task lifecycle</span></td></tr>
+							<tr><td><span class="t-purple">forge-worktree</span></td><td><span class="badge-ok">ready</span></td><td><span class="t-muted">Git worktree isolation per feature</span></td></tr>
+							<tr><td><span class="t-purple">forge-autopilot</span></td><td><span class="badge-ok">ready</span></td><td><span class="t-muted">Parallel AI agents on your backlog</span></td></tr>
+						</table>
+						<br />
+						<p>&nbsp;&nbsp;<span class="t-muted">Generated:</span> <span class="t-white">47 files</span> <span class="t-muted">in</span> <span class="t-white">.claude/</span> <span class="t-muted">&middot; skills, patterns, step catalogs</span></p>
+						<p>&nbsp;&nbsp;<span class="t-muted">Pipeline:</span> <span class="t-white">TDD (Red-Green-Refactor)</span> <span class="t-muted">&middot; mode:</span> <span class="t-cyan">balanced</span></p>
+						<br />
+						<p><span class="t-green">&#10022;</span> <span class="t-white t-bold">Setup complete.</span> <span class="t-muted">Run</span> <span class="t-white">/forge:dev</span> <span class="t-muted">to start building.</span></p>
+					</div>
+				</TerminalSnippet>
+			</div>
+		</section>
+
+		<!-- Frame 4: Dev Pipeline -->
+		<section id="frame-4" class="h-screen flex items-center justify-center p-12">
+			<div class="w-full max-w-[900px]">
+				<TerminalSnippet title="forge:dev">
+					<div>
+						<p class="prompt"><span class="t-white">/forge:dev "Add payment webhook endpoint"</span></p>
+						<br />
+						<p><span class="t-purple t-bold">&#9670;</span> <span class="t-white t-bold">Phase 0: Gate</span></p>
+						<p>&nbsp;&nbsp;<span class="t-muted">Task:</span> <span class="t-white">new-feature</span> &middot; <span class="t-muted">~8 files</span> &middot; <span class="t-muted">Mode:</span> <span class="t-cyan">balanced</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-purple">forge-worktree</span> <span class="t-muted">&rarr; branch</span> <span class="t-cyan">feat/eng-142-webhook</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-purple">forge-product</span> <span class="t-muted">&rarr; loaded 5 AC from</span> <span class="t-muted">features/payment.md</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-purple">forge-tracker</span> <span class="t-muted">&rarr; linked</span> <span class="t-yellow">ENG-142</span> <span class="t-muted">&rarr; In Progress</span></p>
+						<br />
+						<p><span class="t-red t-bold">&#9670;</span> <span class="t-white t-bold">Phase 2: Test</span> <span class="t-red t-bold">(RED)</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-purple">forge-qa</span> <span class="t-muted">&rarr; AC mapped to 8 assertions</span> &middot; <span class="t-muted">dispatched test-generator</span> <span class="t-cyan">(sonnet)</span></p>
+						<p>&nbsp;&nbsp;<span class="t-muted">Generated:</span> <span class="t-white">webhook.spec.ts</span> <span class="t-muted">(5 tests) +</span> <span class="t-white">stripe-sig.spec.ts</span> <span class="t-muted">(3 tests)</span></p>
+						<p>&nbsp;&nbsp;<span class="t-red">&#10007;</span> <span class="t-red">8 tests failing</span> <span class="t-muted">- ready for implementation</span></p>
+						<br />
+						<p><span class="t-green t-bold">&#9670;</span> <span class="t-white t-bold">Phase 3: Implement</span> <span class="t-green t-bold">(GREEN)</span></p>
+						<p>&nbsp;&nbsp;<span class="t-muted">core.3.10:</span> <span class="t-white">WebhookEvent entity + value objects</span></p>
+						<p>&nbsp;&nbsp;<span class="t-muted">core.3.20:</span> <span class="t-white">WebhookRepository (Prisma)</span></p>
+						<p>&nbsp;&nbsp;<span class="t-muted">core.3.30:</span> <span class="t-white">ProcessWebhookHandler + signature verification</span></p>
+						<p>&nbsp;&nbsp;<span class="t-muted">core.3.40:</span> <span class="t-white">WebhookController + route guards</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-green t-bold">8/8 tests passing</span></p>
+						<br />
+						<p><span class="t-cyan t-bold">&#9670;</span> <span class="t-white t-bold">Phase 4: Verify</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-muted">Type check</span> &middot; <span class="t-green">&#10003;</span> <span class="t-muted">Lint</span> &middot; <span class="t-green">&#10003;</span> <span class="t-muted">Quality patterns: 14/14</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-purple">forge-product</span> <span class="t-muted">&rarr; AC coverage:</span> <span class="t-green">5/5</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-purple">forge-tracker</span> <span class="t-muted">&rarr;</span> <span class="t-yellow">ENG-142</span> <span class="t-muted">marked complete</span></p>
+						<br />
+						<p><span class="t-green">&#10022;</span> <span class="t-white t-bold">Feature complete.</span> <span class="t-muted">6 phases &middot; 5/5 AC &middot; 8 tests &middot; PR #91 created.</span></p>
+					</div>
+				</TerminalSnippet>
+			</div>
+		</section>
+
+		<!-- Frame 5: Quality Guard (rationalization blocked) -->
+		<section id="frame-5" class="h-screen flex items-center justify-center p-12">
+			<div class="w-full max-w-[900px]">
+				<TerminalSnippet title="forge:dev - Quality Gate">
+					<div>
+						<p><span class="t-cyan t-bold">&#9670;</span> <span class="t-white t-bold">Phase 4: Verify</span> <span class="t-muted">- Quality Gate</span></p>
+						<br />
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-muted">Type check passed</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-muted">Lint passed</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-muted">All 8 tests passing</span></p>
+						<br />
+						<p>&nbsp;&nbsp;<span class="t-red t-bold">&#9888;</span> <span class="t-red t-bold">RATIONALIZATION DETECTED</span></p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-muted">Pattern:</span> <span class="t-white">"This test isn't needed because the type system covers it"</span></p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-muted">Rule:</span> <span class="t-white">core.4.20 - Never skip test for AC-mapped assertion</span></p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-red">&#10007;</span> <span class="t-red">Blocked.</span> <span class="t-muted">AI must write the test, not rationalize skipping it.</span></p>
+						<br />
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-muted">After correction:</span> <span class="t-green t-bold">9/9 tests passing</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-muted">AC coverage:</span> <span class="t-green">5/5</span> <span class="t-muted">&middot; 0 rationalization flags remaining</span></p>
+						<br />
+						<p><span class="t-green">&#10022;</span> <span class="t-white t-bold">Quality verified.</span> <span class="t-muted">Your AI follows your rules, not its shortcuts.</span></p>
+					</div>
+				</TerminalSnippet>
+			</div>
+		</section>
+
+		<!-- Frame 6: Agent Teams (autopilot) -->
+		<section id="frame-6" class="h-screen flex items-center justify-center p-12">
+			<div class="w-full max-w-[900px]">
+				<TerminalSnippet title="forge:autopilot - Wave Execution">
+					<div>
+						<p class="prompt"><span class="t-white">/forge:autopilot</span></p>
+						<br />
+						<p><span class="t-purple t-bold">&#9670;</span> <span class="t-white t-bold">Backlog Triage</span> <span class="t-muted">- 4 features, analyzing conflicts...</span></p>
+						<br />
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-muted">No file conflicts detected. Running in parallel.</span></p>
+						<br />
+						<table>
+							<tr><th>Agent</th><th>Feature</th><th>Status</th></tr>
+							<tr><td><span class="t-cyan">teammate-1</span></td><td><span class="t-white">Add payment webhook</span></td><td><span class="badge-ok">&#10003; PR #91</span></td></tr>
+							<tr><td><span class="t-cyan">teammate-2</span></td><td><span class="t-white">User profile settings</span></td><td><span class="badge-ok">&#10003; PR #92</span></td></tr>
+							<tr><td><span class="t-cyan">teammate-3</span></td><td><span class="t-white">Email notifications</span></td><td><span class="badge-ok">&#10003; PR #93</span></td></tr>
+							<tr><td><span class="t-cyan">teammate-4</span></td><td><span class="t-white">Rate limiter middleware</span></td><td><span class="badge-ok">&#10003; PR #94</span></td></tr>
+						</table>
+						<br />
+						<p>&nbsp;&nbsp;<span class="t-muted">Each agent:</span> <span class="t-white">isolated worktree</span> <span class="t-muted">&middot;</span> <span class="t-white">full TDD pipeline</span> <span class="t-muted">&middot;</span> <span class="t-white">own branch</span></p>
+						<p>&nbsp;&nbsp;<span class="t-muted">Total:</span> <span class="t-white">4 features</span> <span class="t-muted">&middot;</span> <span class="t-white">32 tests</span> <span class="t-muted">&middot;</span> <span class="t-white">0 merge conflicts</span></p>
+						<br />
+						<p><span class="t-green">&#10022;</span> <span class="t-white t-bold">Wave complete.</span> <span class="t-muted">4 PRs ready for review. Zero merge conflicts.</span></p>
+					</div>
+				</TerminalSnippet>
+			</div>
+		</section>
+	</body>
+</html>

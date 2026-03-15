@@ -10,5 +10,6 @@ dist/
 .playwright-mcp/
 *.png
 !public/email/*.png
+!public/og-image.png
 .claude/forge-setup-state.yaml
 .claude/forge/

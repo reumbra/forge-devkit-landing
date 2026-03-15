@@ -1,0 +1,203 @@
+---
+/**
+ * OG Image frame - screenshot at 1200x630 for og:image / twitter:image.
+ * NOT linked from navigation - internal use only.
+ */
+import "../styles/global.css";
+---
+
+<html lang="en" class="dark">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=1200" />
+		<title>OG Frame</title>
+		<meta name="robots" content="noindex" />
+		<style>
+			body {
+				margin: 0;
+				width: 1200px;
+				height: 630px;
+				overflow: hidden;
+				background: #0D0B14;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+			}
+			.og-container {
+				width: 1200px;
+				height: 630px;
+				display: flex;
+				align-items: center;
+				padding: 0 80px;
+				gap: 60px;
+				position: relative;
+			}
+			/* Subtle gradient background - on body to avoid clipping */
+			body::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 700px;
+				height: 630px;
+				background: radial-gradient(ellipse at 85% 25%, rgba(118, 73, 196, 0.12) 0%, transparent 60%);
+				pointer-events: none;
+			}
+			body::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 500px;
+				height: 400px;
+				background: radial-gradient(ellipse at 15% 90%, rgba(118, 73, 196, 0.06) 0%, transparent 60%);
+				pointer-events: none;
+			}
+			.left {
+				flex: 1;
+				z-index: 1;
+			}
+			.right {
+				flex: 1;
+				z-index: 1;
+			}
+			.logo-line {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				margin-bottom: 24px;
+			}
+			.logo-icon {
+				width: 44px;
+				height: 34px;
+			}
+			.logo-text {
+				font-family: 'Satoshi', sans-serif;
+				font-size: 28px;
+				font-weight: 800;
+				color: #fff;
+				letter-spacing: -0.02em;
+			}
+			.tagline {
+				font-family: 'Satoshi', sans-serif;
+				font-size: 36px;
+				font-weight: 800;
+				color: #fff;
+				line-height: 1.2;
+				letter-spacing: -0.02em;
+				margin-bottom: 20px;
+			}
+			.subtitle {
+				font-family: 'Inter', sans-serif;
+				font-size: 16px;
+				color: #A5A5A5;
+				line-height: 1.6;
+				margin-bottom: 28px;
+			}
+			.badges {
+				display: flex;
+				gap: 10px;
+				flex-wrap: wrap;
+			}
+			.badge {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 12px;
+				padding: 5px 12px;
+				border-radius: 6px;
+				background: rgba(118, 73, 196, 0.15);
+				color: #9A75EA;
+				border: 1px solid rgba(118, 73, 196, 0.2);
+			}
+			/* Mini terminal */
+			.terminal {
+				background: rgba(22, 11, 45, 0.8);
+				border: 1px solid rgba(118, 73, 196, 0.12);
+				border-radius: 14px;
+				overflow: hidden;
+			}
+			.terminal-bar {
+				display: flex;
+				align-items: center;
+				gap: 6px;
+				padding: 12px 16px;
+				border-bottom: 1px solid rgba(118, 73, 196, 0.06);
+			}
+			.dot { width: 8px; height: 8px; border-radius: 50%; }
+			.dot-r { background: #FF5F56; }
+			.dot-y { background: #FFBD2E; }
+			.dot-g { background: #27C93F; }
+			.terminal-title {
+				margin-left: 8px;
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 10px;
+				color: #8B8B8B;
+			}
+			.terminal-body {
+				padding: 16px 20px;
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 11px;
+				line-height: 1.7;
+				color: #CCCCCC;
+			}
+			.t-green { color: #27C93F; }
+			.t-red { color: #FF5F56; }
+			.t-purple { color: #9A75EA; }
+			.t-cyan { color: #7DCFFF; }
+			.t-yellow { color: #FFBD2E; }
+			.t-muted { color: #8B8B8B; }
+			.t-white { color: #fff; }
+			.t-bold { font-weight: 600; }
+			.prompt { color: #27C93F; }
+			.prompt::before { content: "❯ "; color: #9A75EA; }
+		</style>
+	</head>
+	<body>
+		<div class="og-container">
+			<div class="left">
+				<div class="logo-line">
+					<svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129.2 100.5" fill="#9A75EA">
+						<polygon points="79,0 64.6,0 64.6,50.3 79,64.6 129.2,64.6 129.2,50.3 79,50.3"/>
+						<polygon points="0,35.9 0,50.3 50.2,50.3 50.2,100.5 64.6,100.5 64.6,50.3 50.2,35.9"/>
+					</svg>
+					<span class="logo-text">Forge DevKit</span>
+				</div>
+				<div class="tagline">One command.<br/>From feature idea<br/>to tested code.</div>
+				<div class="subtitle">Architecture guardrails, quality patterns, and TDD pipeline for AI coding agents.</div>
+				<div class="badges">
+					<span class="badge">Claude Code</span>
+					<span class="badge">Cursor</span>
+					<span class="badge">Any AI Agent</span>
+					<span class="badge">From EUR 29</span>
+				</div>
+			</div>
+			<div class="right">
+				<div class="terminal">
+					<div class="terminal-bar">
+						<span class="dot dot-r"></span>
+						<span class="dot dot-y"></span>
+						<span class="dot dot-g"></span>
+						<span class="terminal-title">forge:dev</span>
+					</div>
+					<div class="terminal-body">
+						<p><span class="prompt"><span class="t-white">/forge:dev "Add webhook"</span></span></p>
+						<br />
+						<p><span class="t-purple t-bold">&#9670;</span> <span class="t-white t-bold">Phase 0: Gate</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-purple">forge-worktree</span> <span class="t-muted">&rarr;</span> <span class="t-cyan">feat/eng-142</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-purple">forge-product</span> <span class="t-muted">&rarr; 5 AC loaded</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-purple">forge-tracker</span> <span class="t-muted">&rarr;</span> <span class="t-yellow">ENG-142</span></p>
+						<br />
+						<p><span class="t-red t-bold">&#9670;</span> <span class="t-white t-bold">Phase 2: Test</span> <span class="t-red t-bold">(RED)</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-purple">forge-qa</span> <span class="t-muted">&rarr; 8 assertions</span></p>
+						<p>&nbsp;&nbsp;<span class="t-red">&#10007;</span> <span class="t-red">8 failing</span> <span class="t-muted">- ready</span></p>
+						<br />
+						<p><span class="t-green t-bold">&#9670;</span> <span class="t-white t-bold">Phase 3: Implement</span> <span class="t-green t-bold">(GREEN)</span></p>
+						<p>&nbsp;&nbsp;<span class="t-green">&#10003;</span> <span class="t-green t-bold">8/8 passing</span></p>
+						<br />
+						<p><span class="t-green">&#10022;</span> <span class="t-white t-bold">Feature complete.</span> <span class="t-muted">PR #91</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
