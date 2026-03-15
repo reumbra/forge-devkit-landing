@@ -1,0 +1,128 @@
+---
+/**
+ * Reddit profile banner - screenshot at 1920x384.
+ * NOT linked from navigation - internal use only.
+ */
+import "../styles/global.css";
+---
+
+<html lang="en" class="dark">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=1920" />
+		<title>Reddit Banner</title>
+		<meta name="robots" content="noindex" />
+		<style>
+			body {
+				margin: 0;
+				width: 1920px;
+				height: 384px;
+				overflow: hidden;
+				background: #0D0B14;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+			}
+			body::before {
+				content: '';
+				position: absolute;
+				top: -100px;
+				right: 200px;
+				width: 800px;
+				height: 500px;
+				background: radial-gradient(ellipse at 70% 40%, rgba(118, 73, 196, 0.1) 0%, transparent 60%);
+				pointer-events: none;
+			}
+			body::after {
+				content: '';
+				position: absolute;
+				bottom: -50px;
+				left: 100px;
+				width: 600px;
+				height: 400px;
+				background: radial-gradient(ellipse at 30% 80%, rgba(118, 73, 196, 0.06) 0%, transparent 60%);
+				pointer-events: none;
+			}
+			.banner {
+				width: 1920px;
+				height: 384px;
+				display: flex;
+				align-items: center;
+				padding: 0 120px;
+				gap: 80px;
+				position: relative;
+				z-index: 1;
+			}
+			.left {
+				flex: 0 0 auto;
+				display: flex;
+				align-items: center;
+				gap: 24px;
+			}
+			.logo-icon {
+				width: 56px;
+				height: 44px;
+			}
+			.logo-text {
+				font-family: 'Satoshi', sans-serif;
+				font-size: 42px;
+				font-weight: 800;
+				color: #fff;
+				letter-spacing: -0.02em;
+			}
+			.divider {
+				width: 1px;
+				height: 60px;
+				background: rgba(118, 73, 196, 0.3);
+			}
+			.tagline {
+				font-family: 'Satoshi', sans-serif;
+				font-size: 22px;
+				font-weight: 600;
+				color: #A5A5A5;
+				line-height: 1.4;
+				max-width: 500px;
+			}
+			.tagline strong {
+				color: #fff;
+				font-weight: 800;
+			}
+			.badges {
+				display: flex;
+				gap: 12px;
+				margin-left: auto;
+			}
+			.badge {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 13px;
+				padding: 6px 16px;
+				border-radius: 6px;
+				background: rgba(118, 73, 196, 0.12);
+				color: #9A75EA;
+				border: 1px solid rgba(118, 73, 196, 0.2);
+				white-space: nowrap;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="banner">
+			<div class="left">
+				<svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129.2 100.5" fill="#9A75EA">
+					<polygon points="79,0 64.6,0 64.6,50.3 79,64.6 129.2,64.6 129.2,50.3 79,50.3"/>
+					<polygon points="0,35.9 0,50.3 50.2,50.3 50.2,100.5 64.6,100.5 64.6,50.3 50.2,35.9"/>
+				</svg>
+				<span class="logo-text">Forge DevKit</span>
+			</div>
+			<div class="divider"></div>
+			<div class="tagline">
+				<strong>One command.</strong> Architecture guardrails for AI coding agents. Your AI follows your rules forever.
+			</div>
+			<div class="badges">
+				<span class="badge">Claude Code</span>
+				<span class="badge">Cursor</span>
+				<span class="badge">Any AI Agent</span>
+			</div>
+		</div>
+	</body>
+</html>

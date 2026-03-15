@@ -49,6 +49,7 @@ forge.reumbra.com
 | Mar 17 (Launch) | Reddit r/ChatGPTCoding | Launch post (adapted) | draft |
 | Mar 17 (Launch) | Hacker News | Show HN | draft |
 | Mar 17 (Launch) | LinkedIn | Launch announcement | draft |
+| Mar 17 (Launch) | Dev.to | Article (long-form) | draft |
 | Mar 18 (T+1) | X | Results + thank you | template |
 | Mar 18 (T+1) | LinkedIn | Lessons learned | template |
 
@@ -306,6 +307,92 @@ Product Hunt link in comments.
 
 ---
 
+### Mar 17 (Launch) | Dev.to | Article
+
+**Title:** I built architecture guardrails for AI coding agents - here's what I learned about AI rationalization
+
+**Tags:** `claudecode`, `ai`, `devtools`, `testing`
+
+**Body (markdown):**
+```
+After a year of building with AI coding agents (Claude Code, Cursor), I noticed they all share the same five problems. So I built a tool to fix them.
+
+## The problems
+
+### 1. Context Rot
+Your AI forgets your architecture every session. I spent 20 minutes per session re-explaining my NestJS project structure - guards, interceptors, repository patterns.
+
+### 2. Fake Tests
+Unit tests with 100% coverage where every assertion uses mock data. Zero real behavior tested. The AI optimizes for "tests pass" not "tests verify behavior."
+
+### 3. Code Spirals
+The AI patches bugs with quick fixes until the module is unmaintainable. It doesn't see the architectural pattern it's violating because it doesn't know about it.
+
+### 4. Merge Conflicts
+I ran 3 AI agents in parallel once. Spent 4 hours resolving merge conflicts. Net productivity: negative.
+
+### 5. Rationalization (the sneakiest one)
+"This test isn't needed because the type system covers it."
+
+The AI sounds convincing. It's wrong. I've cataloged 50+ patterns like this. The AI will confidently explain why it should skip work - and the explanation sounds completely reasonable until you realize it just avoided writing a test.
+
+## What I built
+
+[Forge DevKit](https://forge.reumbra.com) is a disposable meta-tool. You run one command, it audits your repo (stack, layers, conventions), and generates:
+
+- **Architecture rules** derived from your actual codebase (not generic templates)
+- **50+ quality patterns** that prevent common AI shortcuts
+- **Rationalization detectors** that block the AI from skipping required work
+- **TDD pipeline**: tests from acceptance criteria, then implementation, then verification
+
+The key design decision: it's disposable. After setup, you can uninstall Forge. The generated artifacts in `.claude/` work standalone - your AI reads them automatically every session.
+
+## How the pipeline works
+
+When you run `/forge:dev "Add payment webhook"`, it triggers a 6-phase cycle:
+
+1. **Gate** - creates branch (isolated worktree), loads acceptance criteria, links task tracker
+2. **Test (RED)** - generates tests from AC, not from code
+3. **Implement (GREEN)** - writes code to pass tests
+4. **Verify** - type check, lint, quality patterns, AC coverage check
+5. **Close** - creates PR, updates tracker
+
+Each phase uses specialized subagents on cheaper models (Sonnet for test generation, Haiku for self-review) to keep costs down.
+
+## The rationalization detection in practice
+
+Here's what it looks like when the AI tries to skip work:
+
+```
+RATIONALIZATION DETECTED
+Pattern: "This test isn't needed because the type system covers it"
+Rule: core.4.20 - Never skip test for AC-mapped assertion
+Blocked. AI must write the test, not rationalize skipping it.
+```
+
+After correction: 9/9 tests passing. AC coverage: 5/5.
+
+## Pricing and philosophy
+
+From EUR 29 one-time purchase. Not a subscription. 14-day money-back guarantee.
+
+The generated artifacts work forever - even without renewal. I wanted pricing that respects developers: you pay once, you own the output.
+
+Works with Claude Code, Cursor, and any AI agent that reads project files.
+
+---
+
+**Try the interactive demo** (no signup): [forge.reumbra.com/docs/interactive-guide](https://forge.reumbra.com/docs/interactive-guide)
+
+We're launching today on [Product Hunt](https://producthunt.com/posts/forge-devkit) - would love your feedback.
+
+What's your biggest frustration with AI-generated code quality? I'd love to hear in the comments.
+```
+**Strategy:** Long-form tutorial/story format that Dev.to rewards. SEO-friendly title with "AI rationalization" keyword. Tags for discoverability. Same pain points but with code examples and deeper technical detail. Canonical URL to landing page for SEO.
+**Note:** Set canonical_url to forge.reumbra.com in Dev.to editor
+
+---
+
 ### Mar 18 (T+1) | X | Results + thank you
 
 ```
@@ -365,6 +452,7 @@ forge.reumbra.com
 - 10:00 CET: Post Reddit r/ChatGPTCoding
 - 10:30 CET: Post LinkedIn launch
 - 11:00 CET: Post Hacker News Show HN
+- 11:30 CET: Post Dev.to article
 - Throughout day: Reply to all PH comments within 1 hour
 
 **Content reuse rules:**
