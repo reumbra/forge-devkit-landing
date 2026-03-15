@@ -19,7 +19,7 @@ const allItems = [{ label: homeLabel, href: lp("/") }, ...items.map(item => ({
 	href: item.href ? lp(item.href) : undefined,
 }))];
 
-const siteOrigin = Astro.site?.origin ?? "https://reumbra.com";
+const siteOrigin = Astro.site?.origin ?? "https://forge.reumbra.com";
 const jsonLd = {
 	"@context": "https://schema.org",
 	"@type": "BreadcrumbList",

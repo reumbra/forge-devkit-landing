@@ -18,7 +18,7 @@ const locale = Astro.currentLocale ?? "en";
 const pricingHref = locale === "ru" ? "/ru/pricing" : "/pricing";
 
 const currentPath = Astro.url.pathname;
-const siteOrigin = Astro.site?.origin ?? "https://reumbra.com";
+const siteOrigin = Astro.site?.origin ?? "https://forge.reumbra.com";
 const canonicalUrl = `${siteOrigin}${currentPath}`;
 const enPath = currentPath.startsWith("/ru/") ? currentPath.replace(/^\/ru/, "") || "/" : currentPath;
 const ruPath = currentPath.startsWith("/ru/") ? currentPath : `/ru${currentPath === "/" ? "" : currentPath}`;
@@ -53,7 +53,7 @@ const ruUrl = `${siteOrigin}${ruPath}`;
 			"@context": "https://schema.org",
 			"@type": "Organization",
 			"name": "Reumbra",
-			"url": "https://reumbra.com",
+			"url": "https://forge.reumbra.com",
 			"logo": "https://reumbra.com/favicon.svg"
 		})} />
 		<script type="application/ld+json" set:html={JSON.stringify({

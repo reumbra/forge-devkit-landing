@@ -28,8 +28,8 @@ export const author = {
 	quote:
 		"I built Forge because I was tired of re-explaining my architecture to AI agents. Every project, every prompt, the same context from scratch. So I encoded 10 years of engineering decisions into a system that does it automatically.",
 	link: {
-		label: "reumbra.com \u2192",
-		href: "https://reumbra.com",
+		label: "forge.reumbra.com \u2192",
+		href: "https://forge.reumbra.com",
 	},
 	trustSignals: [
 		{ label: "Experience", value: "10+ years" },
@@ -48,8 +48,8 @@ const authorRu: AuthorConfig = {
 	quote:
 		"Я создал Forge, потому что устал заново объяснять свою архитектуру AI-агентам. Каждый проект, каждый промпт - один и тот же контекст с нуля. Поэтому я закодировал 10 лет инженерных решений в систему, которая делает это автоматически.",
 	link: {
-		label: "reumbra.com \u2192",
-		href: "https://reumbra.com",
+		label: "forge.reumbra.com \u2192",
+		href: "https://forge.reumbra.com",
 	},
 	trustSignals: [
 		{ label: "Опыт", value: "10+ лет" },

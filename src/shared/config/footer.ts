@@ -47,8 +47,7 @@ export const footer = {
 				{ label: "Pricing", href: "/pricing" },
 				{ label: "Getting Started", href: "/docs/getting-started" },
 				{ label: "Usage Guide", href: "/docs/usage-guide" },
-				{ label: "Changelog", href: "#", disabled: true },
-			],
+				],
 		},
 		{
 			title: "Modules",
@@ -117,8 +116,7 @@ const footerRu: FooterConfig = {
 				{ label: "Цены", href: "/pricing" },
 				{ label: "Начало работы", href: "/docs/getting-started" },
 				{ label: "Руководство", href: "/docs/usage-guide" },
-				{ label: "Changelog", href: "#", disabled: true },
-			],
+				],
 		},
 		{
 			title: "Модули",
