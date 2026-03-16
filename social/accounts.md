@@ -11,7 +11,7 @@ All accounts used for Forge DevKit / Reumbra marketing and launch activities.
 | **Reddit** | [u/Healthy-Oil-7291](https://reddit.com/user/Healthy-Oil-7291) | - | Brand (display: Reumbra) | Active, karma building |
 | **LinkedIn** | [Martin Sikora](https://linkedin.com/in/martin-sikora) | sikora.martin97@gmail.com | Personal (Head of Engineering) | Active, no changes for launch |
 | **GitHub** | [reumbra](https://github.com/reumbra) | martin@reumbra.com | Organization | Active, repo: forge-devkit-landing |
-| **Dev.to** | TBD | - | Personal or Brand | Create before Mar 17 |
+| **Dev.to** | [@reumbra](https://dev.to/reumbra) | martin@reumbra.com | Brand | Active, profile set up Mar 16 |
 | **Hacker News** | TBD | - | Personal | Create before Mar 17 |
 | **Arcade** | [Reumbra workspace](https://app.arcade.software) | martin@reumbra.com | Brand | Active, PH demo created |
 | **Google Calendar** | sikora.martin97@gmail.com | - | Personal | Launch events added |
