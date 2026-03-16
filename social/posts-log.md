@@ -542,4 +542,11 @@ Pre-launch karma building on r/ClaudeAI as u/Healthy-Oil-7291. No product mentio
 - Looking for alpha testers
 - **Competitor note:** getcaliper.dev overlaps with Forge's rationalization detection + quality patterns. Subset of what Forge does but focused specifically on convention enforcement per-turn.
 
-**Strategy:** Validate OP's pain (spec changes), share AC approach, humble exploration (vector DB), end with question for engagement. No product mentions. Thread became highest-engagement comment chain in the post.
+**Reply to trentbosworth (published):**
+> interesting, the per-turn convention check is a cool angle. my approach has been more spec-first tho - like i write acceptance criteria upfront and tests get generated from those, so the AI cant really drift bc its working against a fixed spec not just style rules
+>
+> the CLAUDE.md drift thing is real tho. i noticed the same ~15 turn window. my workaround was splitting context into phases so each phase loads only whats relevant instead of one massive file. seems to help with the forgetting problem
+>
+> how does your tool handle conflicting conventions? like if CLAUDE.md says "keep functions under 30 lines" but the existing codebase has 200-line functions everywhere
+
+**Strategy:** Validate OP's pain (spec changes), share AC approach, humble exploration (vector DB), end with question for engagement. No product mentions. Thread became highest-engagement comment chain in the post. Reply to trentbosworth positions spec-first (our approach) vs convention-enforcement (his), asks pointed question about conflicting conventions weakness.
