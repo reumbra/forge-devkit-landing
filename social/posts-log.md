@@ -3,7 +3,7 @@
 Chronological log of all @reumbra_dev social posts. Used for context continuity across sessions.
 
 **Launch date:** March 17, 2026 (Tuesday) 12:01 AM PST
-**PH link:** producthunt.com/posts/forge-devkit
+**PH link:** www.producthunt.com/products/forge-devkit
 **Landing:** forge.reumbra.com
 **Demo:** forge.reumbra.com/docs/interactive-guide
 **Account X:** @reumbra_dev
@@ -43,13 +43,13 @@ forge.reumbra.com
 | Mar 15 (T-2) | X | Pre-launch | published |
 | Mar 16 (T-1) | X | Countdown + demo | draft |
 | Mar 16 (T-1) | LinkedIn | Personal story | draft |
+| Mar 16 (T-1 eve) | Dev.to | Article 1/5 series (long-form) | ready to publish |
 | Mar 17 (Launch) | X | Launch announcement | draft |
 | Mar 17 (Launch) | X | Thread: 5 things AI agents get wrong | draft |
 | Mar 17 (Launch) | Reddit r/ClaudeAI | Launch post | draft |
 | Mar 17 (Launch) | Reddit r/ChatGPTCoding | Launch post (adapted) | draft |
 | Mar 17 (Launch) | Hacker News | Show HN | draft |
 | Mar 17 (Launch) | LinkedIn | Launch announcement | draft |
-| Mar 17 (Launch) | Dev.to | Article (long-form) | draft |
 | Mar 18 (T+1) | X | Results + thank you | template |
 | Mar 18 (T+1) | LinkedIn | Lessons learned | template |
 
@@ -108,7 +108,7 @@ Forge DevKit - one command turns any AI coding agent into a disciplined engineer
 Your AI writes tests first, follows your architecture, and gets blocked when it tries to cut corners.
 
 Would love your support:
-producthunt.com/posts/forge-devkit
+www.producthunt.com/products/forge-devkit
 ```
 **Strategy:** Direct announcement + PH link
 **Characters:** 278/280
@@ -169,7 +169,7 @@ Fix: isolated git worktrees per feature. Each agent gets its own branch. Zero co
 The AI sounds convincing. It's wrong. 50+ patterns like this - detected and blocked automatically.
 
 We built all of this into Forge DevKit. Live now on @ProductHunt:
-producthunt.com/posts/forge-devkit
+www.producthunt.com/products/forge-devkit
 ```
 **Strategy:** Educational content -> product tie-in. Each tweet = one pain point from product-marketing-context.md. Thread format for reach.
 
@@ -214,7 +214,7 @@ Each phase uses specialized subagents on cheaper models (Sonnet for test generat
 
 **Links:**
 - Interactive demo (no signup): forge.reumbra.com/docs/interactive-guide
-- Product Hunt: producthunt.com/posts/forge-devkit
+- Product Hunt: www.producthunt.com/products/forge-devkit
 - Landing: forge.reumbra.com
 
 Would love feedback from fellow Claude Code users. What problems do you hit most with AI-generated code quality?
@@ -247,7 +247,7 @@ I built Forge DevKit to fix this. One command audits your repo and generates arc
 
 Interactive demo: forge.reumbra.com/docs/interactive-guide
 
-Launching today on Product Hunt if you want to check it out: producthunt.com/posts/forge-devkit
+Launching today on Product Hunt if you want to check it out: www.producthunt.com/products/forge-devkit
 
 What's your biggest frustration with AI-generated code quality?
 ```
@@ -307,76 +307,97 @@ Product Hunt link in comments.
 
 ---
 
-### Mar 17 (Launch) | Dev.to | Article
+### Mar 16 (T-1 evening) | Dev.to | Article 1 of 5 (series: "Building AI Guardrails")
 
-**Title:** I built architecture guardrails for AI coding agents - here's what I learned about AI rationalization
+**Title:** I ran 4 AI agents on my backlog and went for coffee
 
-**Tags:** `claudecode`, `ai`, `devtools`, `testing`
+**Tags:** `claudecode`, `ai`, `devtools`, `productivity`
+
+**Publish:** Mar 16 evening (pre-warm for PH launch Mar 17). PH link already included.
 
 **Body (markdown):**
 ```
-After a year of building with AI coding agents (Claude Code, Cursor), I noticed they all share the same five problems. So I built a tool to fix them.
+A few weeks ago I picked 4 features from my backlog, typed one command, and walked away from my desk.
 
-## The problems
+I made coffee. I did laundry. I checked on the build about 40 minutes later.
 
-### 1. Context Rot
-Your AI forgets your architecture every session. I spent 20 minutes per session re-explaining my NestJS project structure - guards, interceptors, repository patterns.
+Three features were done - branches created, tests written, code implemented, PRs ready for review. The fourth was still in progress, working through a tricky edge case in the payment integration.
 
-### 2. Fake Tests
-Unit tests with 100% coverage where every assertion uses mock data. Zero real behavior tested. The AI optimizes for "tests pass" not "tests verify behavior."
+No merge conflicts. No "which file did agent 2 break?" debugging. Each agent worked in its own isolated worktree, on its own branch, completely unaware of the others.
 
-### 3. Code Spirals
-The AI patches bugs with quick fixes until the module is unmaintainable. It doesn't see the architectural pattern it's violating because it doesn't know about it.
+This is what I spent the last year building. And it almost didn't happen.
 
-### 4. Merge Conflicts
-I ran 3 AI agents in parallel once. Spent 4 hours resolving merge conflicts. Net productivity: negative.
+## Three months before the coffee moment
 
-### 5. Rationalization (the sneakiest one)
-"This test isn't needed because the type system covers it."
+Rewind to early 2025. I'm building a B2B platform - NestJS monorepo, TypeScript, the usual stack. I use Claude Code for everything. And every single session starts the same way.
 
-The AI sounds convincing. It's wrong. I've cataloged 50+ patterns like this. The AI will confidently explain why it should skip work - and the explanation sounds completely reasonable until you realize it just avoided writing a test.
+"Here's how my guards work. Here's the interceptor chain. Here's why the repository pattern matters. No, don't put business logic in the controller."
 
-## What I built
+Twenty minutes. Every. Session.
 
-[Forge DevKit](https://forge.reumbra.com) is a disposable meta-tool. You run one command, it audits your repo (stack, layers, conventions), and generates:
+I wrote a CLAUDE.md file. Helped for a week. Then my codebase evolved and the document didn't. The AI would read stale rules and generate code that didn't match the current architecture.
 
-- **Architecture rules** derived from your actual codebase (not generic templates)
-- **50+ quality patterns** that prevent common AI shortcuts
-- **Rationalization detectors** that block the AI from skipping required work
-- **TDD pipeline**: tests from acceptance criteria, then implementation, then verification
+So I built a tool that audits your repo automatically - framework, layers, naming conventions, database patterns, auth setup - and generates a `.claude/` directory with rules derived from your actual code. Not a template. Your code, your patterns, your conventions.
 
-The key design decision: it's disposable. After setup, you can uninstall Forge. The generated artifacts in `.claude/` work standalone - your AI reads them automatically every session.
+The first time I ran it, the AI went from "explain your guards again" to just... following the patterns. No more 20-minute warmups.
 
-## How the pipeline works
+That was the first piece of what became [Forge DevKit](https://forge.reumbra.com).
 
-When you run `/forge:dev "Add payment webhook"`, it triggers a 6-phase cycle:
+## Then I caught my AI lying about tests
 
-1. **Gate** - creates branch (isolated worktree), loads acceptance criteria, links task tracker
-2. **Test (RED)** - generates tests from AC, not from code
-3. **Implement (GREEN)** - writes code to pass tests
-4. **Verify** - type check, lint, quality patterns, AC coverage check
+With architecture rules in place, I asked Claude to add a payment webhook handler. Code looked great. Tests passed. 100% coverage.
+
+Then I read the tests.
+
+Every assertion was testing mock data. The coverage number was real. The verification was fake. The AI had optimized for "green checkmark" instead of "proves the webhook actually updates order status."
+
+I added a rule: tests must trace back to acceptance criteria (AC) - the actual requirements, not the code. If an AC says "webhook updates order status," there must be a test that verifies that exact thing.
+
+The AI started arguing. Not literally, but it generated explanations: "The type system already covers this." "This is an implementation detail." Each one sounded perfectly reasonable.
+
+It was rationalizing. Producing smart-sounding arguments for why it should skip work.
+
+I cataloged these patterns. Found 50+ distinct rationalizations over three months. Built detection for them. When the AI tries to skip a test mapped to a requirement, it gets blocked. It can't argue its way out.
+
+The first time it caught a rationalization I was about to approve myself - that's when I knew this was more than a side project.
+
+## From rules to a pipeline to Agent Teams
+
+Rules weren't enough. I needed a full process with gates that block bad output at every step.
+
+So I built a 5-phase TDD pipeline. When you run `/forge:dev "Add payment webhook"`:
+
+1. **Gate** - creates a branch, loads acceptance criteria, links your task tracker
+2. **Test (RED)** - generates tests from requirements, not from code
+3. **Implement (GREEN)** - writes code to make those tests pass
+4. **Verify** - type check, lint, quality patterns, requirement coverage check
 5. **Close** - creates PR, updates tracker
 
-Each phase uses specialized subagents on cheaper models (Sonnet for test generation, Haiku for self-review) to keep costs down.
+Tests come first. Always. The AI can't write implementation code until every requirement has a test. No negotiation.
 
-## The rationalization detection in practice
+Once I had a pipeline that reliably produced shippable code from a single command... the next question was obvious.
 
-Here's what it looks like when the AI tries to skip work:
+What if I ran multiple pipelines at the same time?
 
-```
-RATIONALIZATION DETECTED
-Pattern: "This test isn't needed because the type system covers it"
-Rule: core.4.20 - Never skip test for AC-mapped assertion
-Blocked. AI must write the test, not rationalize skipping it.
-```
+That's the autopilot module. You point it at your backlog, it analyzes which features can run in parallel without file conflicts, groups them into waves, and spawns an AI agent for each feature - each in its own isolated git worktree with its own branch and its own ports.
 
-After correction: 9/9 tests passing. AC coverage: 5/5.
+The agents don't know about each other. They can't step on each other's code. When they're done, each one has a clean PR ready for your review.
 
-## Pricing and philosophy
+That's how I ended up drinking coffee while 4 agents worked my backlog.
 
-From EUR 29 one-time purchase. Not a subscription. 14-day money-back guarantee.
+## The decision that felt wrong
 
-The generated artifacts work forever - even without renewal. I wanted pricing that respects developers: you pay once, you own the output.
+Early on I made a risky call: make the tool disposable.
+
+After Forge runs setup and generates your `.claude/` artifacts - architecture rules, quality patterns, dev-skills - you can uninstall Forge entirely. The generated files work on their own. No plugin required.
+
+No vendor lock-in. No runtime dependency. You pay once, you own the output forever.
+
+Why would I make it easy for people to stop using my product? Because forcing dependency is exactly what I hate about most dev tools. And the architecture audit alone - the thing that kills the 20-minute warmup - is the Starter tier. EUR 29, one-time. Not a subscription.
+
+The autopilot (the coffee moment) is the Complete tier at EUR 149. But you don't start there. You start by fixing context rot, then add the test pipeline, then grow into Agent Teams when you're ready.
+
+14-day money-back guarantee on all tiers.
 
 Works with Claude Code, Cursor, and any AI agent that reads project files.
 
@@ -384,12 +405,12 @@ Works with Claude Code, Cursor, and any AI agent that reads project files.
 
 **Try the interactive demo** (no signup): [forge.reumbra.com/docs/interactive-guide](https://forge.reumbra.com/docs/interactive-guide)
 
-We're launching today on [Product Hunt](https://producthunt.com/posts/forge-devkit) - would love your feedback.
+I'm launching Forge on [Product Hunt](https://www.producthunt.com/products/forge-devkit) tomorrow. I'll be writing more about how each piece works in this series - architecture audit, rationalization detection, the TDD pipeline, and Agent Teams.
 
-What's your biggest frustration with AI-generated code quality? I'd love to hear in the comments.
+What's the worst thing your AI agent has tried to get away with?
 ```
-**Strategy:** Long-form tutorial/story format that Dev.to rewards. SEO-friendly title with "AI rationalization" keyword. Tags for discoverability. Same pain points but with code examples and deeper technical detail. Canonical URL to landing page for SEO.
-**Note:** Set canonical_url to forge.reumbra.com in Dev.to editor
+**Strategy:** In medias res (hybrid). Hook = autopilot coffee result -> flashback to journey -> return to present. Dev.to "I did X, here's what happened" top pattern. Tier transparency: autopilot = Complete, but you start with Starter. Series tease for follow-up articles. Publish T-1 evening for organic indexing before PH launch.
+**Note:** Set canonical_url to forge.reumbra.com in Dev.to editor. Series name: "Building AI Guardrails". Edit to add PH link on launch morning. Cover image: terminal with 4 parallel agent outputs (if available).
 
 ---
 
@@ -444,7 +465,12 @@ forge.reumbra.com
 
 ## Cross-Platform Notes
 
-**Timing (Mar 17 launch day):**
+**Timing:**
+
+*Mar 16 (T-1 evening):*
+- 20:00-21:00 CET: Publish Dev.to article (pre-warm, organic indexing overnight)
+
+*Mar 17 (launch day):*
 - 00:01 PST: PH goes live automatically
 - 09:00 CET (~00:00 PST): Post X launch announcement
 - 09:15 CET: Post X thread
@@ -452,16 +478,45 @@ forge.reumbra.com
 - 10:00 CET: Post Reddit r/ChatGPTCoding
 - 10:30 CET: Post LinkedIn launch
 - 11:00 CET: Post Hacker News Show HN
-- 11:30 CET: Post Dev.to article
 - Throughout day: Reply to all PH comments within 1 hour
 
 **Content reuse rules:**
 - Each platform gets unique copy (no cross-posting identical text)
-- X = short punchy. LinkedIn = founder story. Reddit = technical depth. HN = no-BS technical
+- X = short punchy. LinkedIn = founder story. Reddit = technical depth. HN = no-BS technical. Dev.to = in medias res founder journey (autopilot hook -> backstory -> series tease)
 - Same pain points (P1-P5) rotated across platforms, different angles
 - Always end with question for engagement (except X launch post)
 
 **Links priority:**
 - T-1 posts: interactive demo link (pre-warm)
+- T-1 Dev.to: both demo + PH link (article is pre-warm + launch driver)
 - Launch posts: PH link (drive upvotes)
 - T+1 posts: landing page link (convert)
+
+---
+
+## Karma Comments (Reddit)
+
+Pre-launch karma building on r/ClaudeAI as u/Healthy-Oil-7291. No product mentions, pure experience sharing.
+
+### 2026-03-16 | Reddit r/ClaudeAI | Karma comment on finance app post
+
+**Thread:** "I built a personal finance app in 1 month with Claude Code. It was harder than expected. Here's what I learned"
+**URL:** https://www.reddit.com/r/ClaudeAI/comments/1rv6kss/
+**Account:** u/Healthy-Oil-7291
+**Status:** Published (top-level), Reply pending user confirmation
+
+**Top-level comment (published):**
+> yeah this matches my experience exactly. first 80% goes fast then you hit a wall
+>
+> the thing that helped me most was setting up architecture rules *and* product docs before letting claude loose. like if you have actual acceptance criteria written down before coding, claude can write tests against those instead of making up what to test. completely different quality
+>
+> i basically built a system where product specs -> test generation -> implementation -> verification all flows automatically. each phase has its own context so claude doesn't get confused. sounds overkill but after the 3rd time it rewrote my auth module bc it forgot the pattern i decided the setup cost was worth it lol
+
+**Engagement:** 2 upvotes, 8 reactions. OP replied agreeing.
+
+**Reply to OP (pending):**
+> oh man yeah the spec changing mid-build is the worst. what helped me was writing acceptance criteria before any code - just plain english "user clicks X, sees Y, data Z gets saved". keeps my specs in a markdown file right next to the code so when something changes i update one file and tests regenerate against it instead of hunting down 15 files manually
+>
+> tbh still figuring out the best approach tho. markdown works but im looking into vector databases so claude can semantically search architecture decisions instead of reading a flat file. not sure if the setup cost is worth it yet. do you mean actual interactive prototypes or just static layouts when you say wireframes? bc data flow matters way more than UI for keeping tests stable imo
+
+**Strategy:** Validate OP's pain (spec changes), share AC approach, humble exploration (vector DB), end with question for engagement. No product mentions.
