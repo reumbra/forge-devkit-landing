@@ -307,7 +307,7 @@ Product Hunt link in comments.
 
 ---
 
-### Mar 16 (T-1 evening) | Dev.to | Article 1 of 5 (series: "Building AI Guardrails")
+### Mar 16 (T-1 evening) | Dev.to | Article 1 of 5 (series: "From Solo Dev to Agent Teams")
 
 **Title:** I ran 4 AI agents on my backlog and went for coffee
 
@@ -373,7 +373,7 @@ So I built a 5-phase TDD pipeline. When you run `/forge:dev "Add payment webhook
 4. **Verify** - type check, lint, quality patterns, requirement coverage check
 5. **Close** - creates PR, updates tracker
 
-Tests come first. Always. The AI can't write implementation code until every requirement has a test. No negotiation.
+The pipeline runs off specs I already wrote - acceptance criteria, architecture rules, quality gates. It doesn't ask me "should I write this test?" It reads the requirements, generates tests, writes code, and only stops when information is genuinely missing. Not hand-holding - actual autonomy with guardrails.
 
 Once I had a pipeline that reliably produced shippable code from a single command... the next question was obvious.
 
@@ -384,6 +384,10 @@ That's the autopilot module. You point it at your backlog, it analyzes which fea
 The agents don't know about each other. They can't step on each other's code. When they're done, each one has a clean PR ready for your review.
 
 That's how I ended up drinking coffee while 4 agents worked my backlog.
+
+Here's what that actually looks like - a real autopilot session, 9 batches, 39 features:
+
+{% agent_session autopilot-39-features-9-batches-20-agents-0-conflicts-rg3huk %}
 
 ## The decision that felt wrong
 
@@ -410,7 +414,8 @@ I'm launching Forge on [Product Hunt](https://www.producthunt.com/products/forge
 What's the worst thing your AI agent has tried to get away with?
 ```
 **Strategy:** In medias res (hybrid). Hook = autopilot coffee result -> flashback to journey -> return to present. Dev.to "I did X, here's what happened" top pattern. Tier transparency: autopilot = Complete, but you start with Starter. Series tease for follow-up articles. Publish T-1 evening for organic indexing before PH launch.
-**Note:** Set canonical_url to forge.reumbra.com in Dev.to editor. Series name: "Building AI Guardrails". Edit to add PH link on launch morning. Cover image: terminal with 4 parallel agent outputs (if available).
+**Agent session:** `{% agent_session autopilot-39-features-9-batches-20-agents-0-conflicts-rg3huk %}` embedded after "coffee moment" section. Curated English session: 9 batches, 39 features, 20 teammates, full triage phase. Source: lumina-forge real autopilot sessions, translated + polished.
+**Note:** canonical_url = forge.reumbra.com. Series: "From Solo Dev to Agent Teams". Cover image: OG image (pipeline terminal). PH link already in body. Scheduled 21:00 Europe/Tallinn.
 
 ---
 
@@ -503,7 +508,7 @@ Pre-launch karma building on r/ClaudeAI as u/Healthy-Oil-7291. No product mentio
 **Thread:** "I built a personal finance app in 1 month with Claude Code. It was harder than expected. Here's what I learned"
 **URL:** https://www.reddit.com/r/ClaudeAI/comments/1rv6kss/
 **Account:** u/Healthy-Oil-7291
-**Status:** Published (top-level), Reply pending user confirmation
+**Status:** Published (top-level + reply). Active thread with 2 external replies.
 
 **Top-level comment (published):**
 > yeah this matches my experience exactly. first 80% goes fast then you hit a wall
@@ -512,11 +517,29 @@ Pre-launch karma building on r/ClaudeAI as u/Healthy-Oil-7291. No product mentio
 >
 > i basically built a system where product specs -> test generation -> implementation -> verification all flows automatically. each phase has its own context so claude doesn't get confused. sounds overkill but after the 3rd time it rewrote my auth module bc it forgot the pattern i decided the setup cost was worth it lol
 
-**Engagement:** 2 upvotes, 8 reactions. OP replied agreeing.
+**Engagement (updated 2026-03-16 17:30):** Top-level: 2 upvotes, **20 reactions**. Reply: 1 upvote, 7 reactions.
 
-**Reply to OP (pending):**
+**Reply to OP (published):**
 > oh man yeah the spec changing mid-build is the worst. what helped me was writing acceptance criteria before any code - just plain english "user clicks X, sees Y, data Z gets saved". keeps my specs in a markdown file right next to the code so when something changes i update one file and tests regenerate against it instead of hunting down 15 files manually
 >
 > tbh still figuring out the best approach tho. markdown works but im looking into vector databases so claude can semantically search architecture decisions instead of reading a flat file. not sure if the setup cost is worth it yet. do you mean actual interactive prototypes or just static layouts when you say wireframes? bc data flow matters way more than UI for keeping tests stable imo
 
-**Strategy:** Validate OP's pain (spec changes), share AC approach, humble exploration (vector DB), end with question for engagement. No product mentions.
+**OP reply to our reply (anirishafrican, 2h later):**
+- Claude excels at generating HTML storyboards (wireframes)
+- Has custom `/ac` skill for acceptance criteria extraction
+- Pipeline: Extract AC -> Plan -> Build -> Verify
+- Verification via Playwright / iOS native UI tests
+- Recommends **xtended.ai** for vector search (Airtable-like with vectorise for columns)
+- Self-learning "Ralph loop": logs learnings in table, skill updates itself after task
+- Pain point: Opus 4.6 struggling to remember unique details in longer sessions
+
+**trentbosworth (top-level, cites us):**
+- "u/Healthy-Oil-7291's point about setting up architecture rules before letting Claude loose is something I've been thinking about a lot"
+- Problem: CLAUDE.md rules drift - Claude follows for ~15 turns then quietly drifts
+- Built **getcaliper.dev** - compiles CLAUDE.md conventions into automated checks after every agent turn
+- Example checks: "functions under 30 lines", "use HTTP client wrapper", "every migration needs a test"
+- AI review layer before each commit
+- Looking for alpha testers
+- **Competitor note:** getcaliper.dev overlaps with Forge's rationalization detection + quality patterns. Subset of what Forge does but focused specifically on convention enforcement per-turn.
+
+**Strategy:** Validate OP's pain (spec changes), share AC approach, humble exploration (vector DB), end with question for engagement. No product mentions. Thread became highest-engagement comment chain in the post.
