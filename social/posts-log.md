@@ -550,3 +550,33 @@ Pre-launch karma building on r/ClaudeAI as u/Healthy-Oil-7291. No product mentio
 > how does your tool handle conflicting conventions? like if CLAUDE.md says "keep functions under 30 lines" but the existing codebase has 200-line functions everywhere
 
 **Strategy:** Validate OP's pain (spec changes), share AC approach, humble exploration (vector DB), end with question for engagement. No product mentions. Thread became highest-engagement comment chain in the post. Reply to trentbosworth positions spec-first (our approach) vs convention-enforcement (his), asks pointed question about conflicting conventions weakness.
+
+---
+
+### 2026-03-16 | Reddit r/ClaudeAI | Karma comment on AbsolutelySkilled skills registry post
+
+**Thread:** "I built a registry of 156 production-ready skills for Claude Code - think 'plugins' that teach it domain expertise"
+**URL:** https://www.reddit.com/r/ClaudeAI/comments/1rv1wsc/
+**OP:** u/maddhruv (AbsolutelySkilled, GitHub)
+**Account:** u/Healthy-Oil-7291
+**Status:** Published (top comment). 2 replies received.
+
+**Our comment (published, top comment, 3 upvotes, 43 reactions):**
+> tbh skills are probaly the most underrated claude code feature rn. nobody talks about them but they change everything
+>
+> one thing i noticed building a bunch of them - theres a huge difference between a skill that just says "write tests" vs one that has actual gates built in. like if it says "generate tests from acceptance criteria, block if any AC is untested" the output is way better than generic instructions
+>
+> also fwiw i settled on keeping SKILL.md short (like under 500 lines) as just the entry point and then lazy-loading reference files only when needed. past ~30 mandatory directives the quality starts droping off pretty noticeably
+>
+> how do you handle versioning tho? like when the project evolves do the skills drift or do you have somthing that keeps them in sync
+
+**Replies:**
+1. **maddhruv (OP)** - 1h ago, 2 upvotes: "npx skills CLI to update, all skills have versioning metadata"
+2. **Financial-Garlic-720** - 54m ago, 1 upvote: Shares own pattern (knowledge/background, workflow, mandatory, optional, gotchas, last ran, last updated). Checklist.md + plan.md for drift detection. Considering Obsidian.
+
+**Other notable comments:**
+- **InteractionSmall6778** - 5 upvotes: "Session amnesia kills momentum. CLAUDE.md drifts within a week. Skills registry = domain knowledge install is much better pattern."
+
+**Competitor note:** AbsolutelySkilled is free/open-source skills registry (GitHub). "Superhuman" skill overlaps with forge-core conductor (DAG decomposition, parallel sub-agents, TDD, persistent board.md). Key difference: free generic skills vs Forge's auto-detected project-specific artifacts.
+
+**Strategy:** Position as experienced skill builder sharing hard-won lessons (P16 line count, P18 directive budgets, gate-based quality). Subtly establishes expertise. No product mention.
