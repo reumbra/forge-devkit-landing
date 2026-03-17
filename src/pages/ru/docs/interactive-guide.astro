@@ -5,6 +5,7 @@ import Button from "@shared/ui/Button.astro";
 import SetupBackend from "@shared/ui/scenarios/SetupBackend.astro";
 import SetupFrontend from "@shared/ui/scenarios/SetupFrontend.astro";
 import AdapterDiscovery from "@shared/ui/scenarios/AdapterDiscovery.astro";
+import ForgeHub from "@shared/ui/scenarios/ForgeHub.astro";
 import DevPipeline from "@shared/ui/scenarios/DevPipeline.astro";
 import QualityGuard from "@shared/ui/scenarios/QualityGuard.astro";
 import TestGeneration from "@shared/ui/scenarios/TestGeneration.astro";
@@ -80,19 +81,48 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 	</section>
 
 	<!-- ═══════════════════════════════════════════════════ -->
-	<!-- LEVEL 2: DAILY WORKFLOW                              -->
+	<!-- LEVEL 2: HUB - Опишите что хотите                    -->
 	<!-- ═══════════════════════════════════════════════════ -->
 
 	<section class="mb-20">
 		<div class="flex items-center gap-3 mb-2">
-			<span class="text-[12px] font-mono font-semibold text-[#27C93F] bg-[rgba(39,201,63,0.1)] px-2 py-0.5 rounded">LEVEL 2</span>
+			<span class="text-[12px] font-mono font-semibold text-[#FFBD2E] bg-[rgba(255,189,46,0.1)] px-2 py-0.5 rounded">LEVEL 2</span>
+			<span class="text-[13px] font-mono text-text-muted">SMART ROUTING</span>
+		</div>
+		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-3">
+			Опишите что хотите
+		</h2>
+		<p class="text-[16px] text-text-secondary leading-[1.7] mb-10">
+			Без Hub нужно знать, что <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">/forge:product</code> должен запускаться до <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">/forge:qa</code>, который запускается до <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">/dev</code>. С Hub достаточно описать задачу на обычном языке. <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">/forge:hub</code> проверит какие пререквизиты есть, найдёт недостающие и построит правильную цепочку выполнения автоматически.
+		</p>
+
+		<h3 class="font-sans text-[20px] md:text-[22px] font-semibold text-text mb-4">
+			Автоматическое разрешение пререквизитов
+		</h3>
+		<p class="text-[15px] text-text-secondary leading-[1.7] mb-6">
+			Попросите платёжную систему. Hub проверит, есть ли product stories для платежей - их нет. Проверит, есть ли тест-план - его нет. Вместо того чтобы прыгать сразу к коду без контекста, Hub строит цепочку из 3 шагов: сначала спроектировать фичу, потом сгенерировать тесты из критериев приёмки, затем реализовать с TDD. Все пререквизиты решены до первой строки кода.
+		</p>
+		<div class="w-full max-w-[720px] mb-4">
+			<AnimatedTerminal>
+				<ForgeHub />
+			</AnimatedTerminal>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════════════ -->
+	<!-- LEVEL 3: DAILY WORKFLOW                              -->
+	<!-- ═══════════════════════════════════════════════════ -->
+
+	<section class="mb-20">
+		<div class="flex items-center gap-3 mb-2">
+			<span class="text-[12px] font-mono font-semibold text-[#27C93F] bg-[rgba(39,201,63,0.1)] px-2 py-0.5 rounded">LEVEL 3</span>
 			<span class="text-[13px] font-mono text-text-muted">DAILY WORKFLOW</span>
 		</div>
 		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-3">
 			Dev-пайплайн
 		</h2>
 		<p class="text-[16px] text-text-secondary leading-[1.7] mb-10">
-			Здесь Forge живёт каждый день. <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">forge dev</code> запускает 6-фазный TDD-пайплайн, где все модули работают вместе: forge-worktree изолирует в ветке, forge-product загружает критерии приёмки, forge-qa генерирует тесты, forge-tracker синхронизирует статус - одна команда, полная интеграция.
+			Когда Hub направляет на разработку, <code class="text-[#9A75EA] bg-[rgba(118,73,196,0.1)] px-1.5 py-0.5 rounded text-[0.9em]">/dev</code> берёт на себя 6-фазный TDD-пайплайн. Все модули работают вместе: forge-worktree изолирует в ветке, forge-product загружает критерии приёмки, forge-qa генерирует тесты, forge-tracker синхронизирует статус - полная интеграция, ноль ручной координации.
 		</p>
 
 		<!-- 2.1 Dev Pipeline -->
@@ -123,12 +153,12 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 	</section>
 
 	<!-- ═══════════════════════════════════════════════════ -->
-	<!-- LEVEL 3: ECOSYSTEM                                  -->
+	<!-- LEVEL 4: ECOSYSTEM                                  -->
 	<!-- ═══════════════════════════════════════════════════ -->
 
 	<section class="mb-20">
 		<div class="flex items-center gap-3 mb-2">
-			<span class="text-[12px] font-mono font-semibold text-[#7DCFFF] bg-[rgba(125,207,255,0.1)] px-2 py-0.5 rounded">LEVEL 3</span>
+			<span class="text-[12px] font-mono font-semibold text-[#7DCFFF] bg-[rgba(125,207,255,0.1)] px-2 py-0.5 rounded">LEVEL 4</span>
 			<span class="text-[13px] font-mono text-text-muted">ECOSYSTEM</span>
 		</div>
 		<h2 class="font-sans text-[28px] md:text-[32px] font-bold text-text mb-3">
@@ -202,7 +232,7 @@ import AgentTeams from "@shared/ui/scenarios/AgentTeams.astro";
 	</section>
 
 	<!-- ═══════════════════════════════════════════════════ -->
-	<!-- LEVEL 4: CTA                                        -->
+	<!-- LEVEL 5: CTA                                        -->
 	<!-- ═══════════════════════════════════════════════════ -->
 
 	<section class="mb-16">

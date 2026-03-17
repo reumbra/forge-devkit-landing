@@ -45,9 +45,9 @@ export const howItWorks = {
 		},
 		{
 			number: 4,
-			label: "CODE",
-			command: "Use your AI normally",
-			description: "Claude Code / Cursor / Cowork detect .claude/ automatically",
+			label: "BUILD",
+			command: "/forge:hub \"add payments\"",
+			description: "Describe what you want - Hub resolves prerequisites and runs the right pipeline",
 		},
 	],
 	platformBadges: [
@@ -86,9 +86,9 @@ const howItWorksRu: HowItWorksConfig = {
 		},
 		{
 			number: 4,
-			label: "CODE",
-			command: "Use your AI normally",
-			description: "Claude Code / Cursor / Cowork обнаруживают .claude/ автоматически",
+			label: "BUILD",
+			command: "/forge:hub \"добавь платежи\"",
+			description: "Опишите что хотите - Hub проверит пререквизиты и запустит нужный пайплайн",
 		},
 	],
 	platformBadges: [

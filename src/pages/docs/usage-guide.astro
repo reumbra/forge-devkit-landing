@@ -8,8 +8,9 @@ const coreModules = [
 		name: "forge-core",
 		tier: "Starter+",
 		tagline: "The foundation. One command makes your AI understand your entire project.",
-		description: "forge-core runs a 7-gate architecture audit that auto-detects your stack, layers, conventions, and patterns. It generates project-specific dev-skills and 50+ quality guardrails that your AI follows in every session. No manual prompt engineering. No re-explaining your architecture.",
+		description: "forge-core runs a 7-gate architecture audit that auto-detects your stack, layers, conventions, and patterns. It generates project-specific dev-skills and 50+ quality guardrails that your AI follows in every session. The universal Hub classifies your intent, walks the dependency graph, and routes to the right pipeline - so you never need to memorize commands or worry about missing prerequisites.",
 		benefits: [
+			"Universal Hub: describe what you want in plain English - no commands to memorize, no prerequisites to miss",
 			"Auto-detects stack, architecture patterns, and conventions",
 			"Generates 50+ quality patterns tailored to your project",
 			"Creates project-specific dev-skills your AI loads automatically",
@@ -28,6 +29,15 @@ const coreModules = [
 				],
 			},
 			{
+				command: "/forge:hub",
+				description: "Universal entry point - classifies intent, resolves prerequisites, executes the right pipeline.",
+				subcommands: [
+					{ sub: '/forge:hub "add payment system"', detail: "Describe what you want - Hub classifies intent, walks dependency graph, builds execution chain" },
+					{ sub: '/forge:hub "fix login bug"', detail: "Direct routing - bug fixes skip prerequisites and go straight to /dev" },
+					{ sub: '/forge:hub "run SEO audit"', detail: "Non-dev intents route to the right module without touching the dev pipeline" },
+				],
+			},
+			{
 				command: "/forge:patch",
 				description: "Quick config patches without running the full wizard.",
 				subcommands: [
@@ -36,7 +46,7 @@ const coreModules = [
 			},
 			{
 				command: "/dev",
-				description: "Start a development task using the generated pipeline.",
+				description: "Start a development task using the generated pipeline. Hub routes here automatically for implementation work.",
 				subcommands: [
 					{ sub: "/dev", detail: "Begin a feature/fix using your project's dev-skills and quality patterns" },
 					{ sub: "/forge:sync", detail: "Sync generated artifacts after architecture changes" },
@@ -44,7 +54,7 @@ const coreModules = [
 				],
 			},
 		],
-		workflow: "Install \u2192 /forge:setup (7-gate audit) \u2192 /dev to start building. Run /forge:setup anytime for dashboard.",
+		workflow: "Install \u2192 /forge:setup (7-gate audit) \u2192 /forge:hub to start any task. Hub resolves prerequisites and routes to /dev, /forge:qa, or other modules automatically.",
 	},
 	{
 		id: "product",

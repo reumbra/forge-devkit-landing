@@ -237,12 +237,25 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 			Your AI is now architecture-aware. The dashboard shows your complete ecosystem:
 		</p>
 		<ForgeDashboard />
-		<div class="mt-8 rounded-[var(--radius-card)] border-card bg-surface-card p-6">
-			<p class="font-sans text-[16px] text-text font-medium mb-3">What's next?</p>
+
+		{/* Hub callout - primary action */}
+		<div class="mt-8 rounded-[var(--radius-card)] border border-secondary/30 bg-[rgba(118,73,196,0.06)] p-6">
+			<div class="flex items-center gap-2 mb-3">
+				<span class="text-[12px] font-mono font-semibold text-secondary bg-secondary/15 px-2 py-0.5 rounded">RECOMMENDED</span>
+				<p class="font-sans text-[16px] text-text font-medium">Start with Hub</p>
+			</div>
+			<p class="text-[15px] text-text-secondary leading-[1.7] mb-4">
+				Type <code class="font-mono text-[14px] text-secondary bg-secondary/10 px-2 py-1 rounded font-medium">/forge:hub "add payment system"</code> and describe what you want to build. Hub classifies your intent, checks what prerequisites exist, and runs the right pipeline automatically. No commands to memorize.
+			</p>
+			<p class="text-[13px] text-text-muted">
+				Power users can also type <code class="font-mono text-[12px] bg-surface-deep px-1.5 py-0.5 rounded">/dev</code> directly to skip prerequisite checks.
+			</p>
+		</div>
+
+		<div class="mt-4 rounded-[var(--radius-card)] border-card bg-surface-card p-6">
+			<p class="font-sans text-[16px] text-text font-medium mb-3">Other actions</p>
 			<ul class="space-y-2 text-[15px] text-text-secondary">
-				<li>Type <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/dev</code> to start working on a feature - Forge guides you through the full pipeline</li>
 				<li>Run <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/forge:setup</code> anytime to see the dashboard or reconfigure</li>
-				<li>Run <code class="font-mono text-[13px] bg-surface-deep px-1.5 py-0.5 rounded">/forge:setup upgrade --check</code> to check for updates</li>
 				<li>Check the <a href="/docs/usage-guide" class="text-secondary hover:underline">Usage Guide</a> for the full command reference</li>
 			</ul>
 		</div>
@@ -266,6 +279,11 @@ import ForgeDashboard from "@shared/ui/snippets/ForgeDashboard.astro";
 					<tr class="border-b border-[rgba(118,73,196,0.04)]">
 						<td class="px-5 py-2.5 text-secondary">/forge:setup</td>
 						<td class="px-5 py-2.5">Setup wizard, dashboard, upgrade, reconfigure</td>
+						<td class="px-5 py-2.5 text-text-muted">Starter+</td>
+					</tr>
+					<tr class="border-b border-[rgba(118,73,196,0.04)] bg-[rgba(118,73,196,0.06)]">
+						<td class="px-5 py-2.5 text-secondary font-semibold">/forge:hub <span class="text-[10px] font-mono bg-secondary/20 text-secondary px-1.5 py-0.5 rounded ml-1">NEW</span></td>
+						<td class="px-5 py-2.5">Universal entry point - describe what you want, Hub resolves prerequisites</td>
 						<td class="px-5 py-2.5 text-text-muted">Starter+</td>
 					</tr>
 					<tr class="border-b border-[rgba(118,73,196,0.04)]">

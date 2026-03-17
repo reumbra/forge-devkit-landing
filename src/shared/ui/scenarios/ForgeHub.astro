@@ -1,0 +1,91 @@
+<!-- Scenario: /forge:hub - universal intent router -->
+<!-- Shows: intent classification, dependency graph walk, artifact state check, chain presentation + execution -->
+<!-- Key message: one command, hub figures out prerequisites automatically -->
+
+{/* Phase 1: User types intent */}
+<div class="at-line" data-phase="1" data-delay="0">
+	<span class="at-prompt"><span class="text-[#9A75EA]">&#10095; </span><span class="text-[#27C93F] at-typed" data-text="/forge:hub add Stripe payment system"></span></span>
+</div>
+
+{/* Phase 2: Classification + graph walk */}
+<div class="at-line" data-phase="2" data-delay="800">
+	<br />
+	<p><span class="text-[#9A75EA] font-semibold">&#9670;</span> <span class="text-white font-semibold">Intent</span> <span class="text-[#8B8B8B]">&rarr;</span> <span class="text-[#7DCFFF]">product_feature</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#8B8B8B]">domain:</span> <span class="text-white">payments</span></p>
+</div>
+
+{/* Phase 3: Prerequisite state check */}
+<div class="at-line" data-phase="3" data-delay="1400">
+	<br />
+	<p><span class="text-[#8B8B8B]">Prerequisite check:</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="3" data-delay="1700">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">discovery</span> <span class="text-[#8B8B8B]">&rarr; market context exists</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="3" data-delay="1900">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#9A75EA]">marketing</span> <span class="text-[#8B8B8B]">&rarr; positioning exists</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="3" data-delay="2100">
+	<p>&nbsp;&nbsp;<span class="text-[#FF5F56]">&#10007;</span> <span class="text-[#9A75EA]">product</span> <span class="text-[#8B8B8B]">&rarr; no stories for</span> <span class="text-white">payments</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="3" data-delay="2300">
+	<p>&nbsp;&nbsp;<span class="text-[#FF5F56]">&#10007;</span> <span class="text-[#9A75EA]">qa</span> <span class="text-[#8B8B8B]">&rarr; no test plan for</span> <span class="text-white">payments</span></p>
+</div>
+
+{/* Phase 4: Chain presentation */}
+<div class="at-line" data-phase="4" data-delay="3000">
+	<br />
+	<p><span class="text-white font-semibold">Execution chain:</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="4" data-delay="3300">
+	<p>&nbsp;&nbsp;<span class="text-[#FFBD2E]">1.</span> <span class="text-[#9A75EA]">product design</span> <span class="text-[#8B8B8B]">"payments"</span> <span class="text-[#8B8B8B]">&rarr; stories + acceptance criteria</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="4" data-delay="3500">
+	<p>&nbsp;&nbsp;<span class="text-[#FFBD2E]">2.</span> <span class="text-[#9A75EA]">qa test</span> <span class="text-[#8B8B8B]">"payments"</span> <span class="text-[#8B8B8B]">&rarr; test plan from AC</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="4" data-delay="3700">
+	<p>&nbsp;&nbsp;<span class="text-[#FFBD2E]">3.</span> <span class="text-[#9A75EA]">dev</span> <span class="text-[#8B8B8B]">"payments"</span> <span class="text-[#8B8B8B]">&rarr; implementation + TDD</span></p>
+</div>
+
+<div class="at-line" data-phase="4" data-delay="4000">
+	<br />
+	<p><span class="text-[#27C93F]">&#10003;</span> <span class="text-white">Proceed with 3 steps?</span> <span class="text-[#27C93F] font-semibold">Y</span></p>
+</div>
+
+{/* Phase 5: Execution summary */}
+<div class="at-line" data-phase="5" data-delay="4800">
+	<br />
+	<p><span class="text-[#9A75EA] font-semibold">&#9670;</span> <span class="text-white font-semibold">Step 1/3:</span> <span class="text-[#9A75EA]">product design</span> <span class="text-[#8B8B8B]">"payments"</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="5" data-delay="5200">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Generated 3 user stories, 7 acceptance criteria, 2 user flows</span></p>
+</div>
+
+<div class="at-line" data-phase="5" data-delay="5800">
+	<p><span class="text-[#9A75EA] font-semibold">&#9670;</span> <span class="text-white font-semibold">Step 2/3:</span> <span class="text-[#9A75EA]">qa test</span> <span class="text-[#8B8B8B]">"payments"</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="5" data-delay="6200">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#8B8B8B]">Mapped 7 AC to 12 assertions</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#8B8B8B]">Generated 4 test files</span></p>
+</div>
+
+<div class="at-line" data-phase="5" data-delay="6800">
+	<p><span class="text-[#9A75EA] font-semibold">&#9670;</span> <span class="text-white font-semibold">Step 3/3:</span> <span class="text-[#9A75EA]">dev</span> <span class="text-[#8B8B8B]">"payments"</span> <span class="text-[#8B8B8B]">&rarr; 6-phase TDD pipeline</span></p>
+</div>
+
+<div class="at-line whitespace-nowrap" data-phase="5" data-delay="7200">
+	<p>&nbsp;&nbsp;<span class="text-[#27C93F]">&#10003;</span> <span class="text-[#27C93F] font-semibold">12/12 tests passing</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#8B8B8B]">7/7 AC covered</span> <span class="text-[#8B8B8B]">&middot;</span> <span class="text-[#27C93F]">PR #94</span></p>
+</div>
+
+{/* Phase 6: Summary */}
+<div class="at-line" data-phase="6" data-delay="8000">
+	<br />
+	<p><span class="text-[#27C93F]">&#10022;</span> <span class="text-white font-semibold">Chain complete.</span> <span class="text-[#8B8B8B]">3 steps &middot; 12 tests &middot; 7 AC &middot; 0 skipped prerequisites.</span></p>
+</div>
