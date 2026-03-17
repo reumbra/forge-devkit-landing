@@ -23,6 +23,7 @@ export const docsNav = {
 				{ label: "Getting Started", href: "/docs/getting-started" },
 				{ label: "Usage Guide", href: "/docs/usage-guide" },
 				{ label: "Concepts", href: "/docs/concepts" },
+				{ label: "Customizing Pipeline", href: "/docs/concepts#customizing" },
 			],
 		},
 		{
@@ -69,6 +70,7 @@ const docsNavRu: DocsNavConfig = {
 				{ label: "Начало работы", href: "/docs/getting-started" },
 				{ label: "Руководство по использованию", href: "/docs/usage-guide" },
 				{ label: "Концепция", href: "/docs/concepts" },
+				{ label: "Кастомизация пайплайна", href: "/docs/concepts#customizing" },
 			],
 		},
 		{
