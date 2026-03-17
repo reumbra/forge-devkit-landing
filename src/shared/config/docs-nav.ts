@@ -29,8 +29,7 @@ export const docsNav = {
 		{
 			title: "Core Pipeline",
 			items: [
-				{ label: "/forge:hub", href: "/docs/usage-guide#core" },
-				{ label: "forge-core", href: "/docs/usage-guide#core" },
+				{ label: "forge-core + hub", href: "/docs/usage-guide#core" },
 				{ label: "forge-product", href: "/docs/usage-guide#product" },
 				{ label: "forge-qa", href: "/docs/usage-guide#qa" },
 				{ label: "forge-tracker", href: "/docs/usage-guide#tracker" },
@@ -76,8 +75,7 @@ const docsNavRu: DocsNavConfig = {
 		{
 			title: "Базовый пайплайн",
 			items: [
-				{ label: "/forge:hub", href: "/docs/usage-guide#core" },
-				{ label: "forge-core", href: "/docs/usage-guide#core" },
+				{ label: "forge-core + hub", href: "/docs/usage-guide#core" },
 				{ label: "forge-product", href: "/docs/usage-guide#product" },
 				{ label: "forge-qa", href: "/docs/usage-guide#qa" },
 				{ label: "forge-tracker", href: "/docs/usage-guide#tracker" },
