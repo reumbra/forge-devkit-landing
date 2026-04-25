@@ -21,7 +21,7 @@
 | BL-014 | P2 | backlog | Hero "See how it works" → scroll to #how-it-works broken on /pricing | `[bug]` `[nav]` |
 | BL-015 | P1 | done | Verify all LemonSqueezy checkout URLs are live | `[revenue]` `[qa]` |
 | BL-016 | P2 | backlog | 404 page: custom design with nav back to home | `[page]` `[ux]` |
-| BL-017 | P3 | concept | Product Hunt launch assets (tagline, screenshots, maker comment) | `[launch]` `[marketing]` |
+| BL-017 | P3 | done | Product Hunt launch assets (tagline, screenshots, maker comment) | `[launch]` `[marketing]` |
 | BL-018 | P2 | done | Sitemap.xml generation (Astro integration) | `[seo]` `[infra]` |
 | BL-019 | P2 | done | robots.txt: verify correct for Cloudflare Pages | `[seo]` `[infra]` |
 | BL-020 | P3 | backlog | DPA verification: Cloudflare, LemonSqueezy | `[gdpr]` `[legal]` |
@@ -59,7 +59,8 @@
 | BL-052 | P2 | backlog | Лицензии блогерам/ютуберам: outreach + tracking | `[launch]` `[borrowed-channel]` |
 | BL-053 | P2 | backlog | AI newsletters: питч в TLDR, Ben's Bites, The Rundown AI | `[launch]` `[borrowed-channel]` |
 | BL-054 | P1 | backlog | Demo video + GIF/скринкасты для launch assets | `[launch]` `[content]` `[assets]` |
-| BL-055 | P1 | backlog | Product Hunt: подготовка листинга + launch day plan | `[launch]` `[marketing]` |
+| BL-055 | P1 | done | Product Hunt: подготовка листинга + launch day plan | `[launch]` `[marketing]` |
+| BL-056 | P2 | done | PostYourStartup submission + footer badge | `[launch]` `[marketing]` |
 
 ---
 
