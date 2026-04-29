@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-*Last updated: 2026-03-11 (v4 - elevator pitches aligned with landing hero)*
+*Last updated: 2026-03-17 (v5 - Reddit audience research, hub intent router, launch day insights)*
 *Source of truth for all marketing materials: landing, Lemon Squeezy, ads, social, emails.*
 
 ## Product Overview
@@ -123,6 +123,17 @@
 
 **Emotional tension:** Frustration with repeating themselves, anxiety about AI-generated code quality, feeling that AI tools promise productivity but deliver rework
 
+**Reddit-validated pain ranking (r/ClaudeAI Jan-Mar 2026, by engagement):**
+1. Usage limits + cost (subscription fatigue, "death spiral" thread)
+2. CLAUDE.md drift ("drifts within a week", fragile hand-written rules)
+3. Creative test fixing (Claude weakens assertions instead of fixing bugs - popular thread)
+4. Context rot (20 min re-explaining every session)
+5. Config complexity ("YAML nightmare", layered rules fragile)
+6. Quality drift on large projects (devs building sensors to detect degradation)
+7. Vendor lock-in fear (Windsurf/Anthropic cutoff)
+
+**Reddit audience research:** See `.agents/reddit-audience-research.md` for full analysis
+
 ## Competitive Landscape
 
 **Direct:**
@@ -135,7 +146,13 @@
 **Indirect:**
 - "Just use AI without guardrails" - the default. Falls short: context rot, code spirals, merge conflicts
 
-**Competitor anchor (pricing):** "Devin: EUR 240/yr mandatory. Cursor Pro: EUR 240/yr. Forge: from EUR 29 once."
+**Competitor anchor (pricing):** "Devin: EUR 240/yr mandatory. Cursor Pro: EUR 240/yr (pricing changes frequently). Forge: from EUR 29 once."
+
+**Competitor sentiment (r/ClaudeAI research, Mar 2026):**
+- Cursor: strong inline edits but pricing volatile, quotas drain fast. Many use alongside Claude Code
+- Devin: autonomous but needs guardrails itself. Users add "don't open PRs without asking" rules
+- Windsurf: Anthropic access cutoff destroyed community trust. Vendor lock-in fear = real
+- DIY tools: active ecosystem of CLIs, CLAUDE.md templates, schedulers - fragmented, brittle
 
 ## Differentiation
 
@@ -187,7 +204,11 @@
 
 **Words to use:** architecture-aware, guardrails, quality patterns, dev-skills, one-time purchase, disposable meta-tool, pipeline
 
-**Words to avoid:** subscription, SaaS, AI replacement, autonomous coding, magic, revolutionary
+**Words to avoid:** subscription, SaaS, AI replacement, autonomous coding, magic, revolutionary, game-changing, innovative, streamline
+
+**Reddit-specific words to use:** "drifts within a week" (CLAUDE.md pain), "blocked not warned" (enforcement), "disposable" (anti lock-in), "one-time" (anti-subscription), "the type system covers this" (rationalization example everyone recognizes)
+
+**Reddit-specific words to avoid:** "guardrails" (overused in AI marketing), perfect paragraph structure, buzzword chains, em-dashes, exclamation points
 
 **Glossary:**
 
@@ -247,7 +268,17 @@
 
 **Conversion action:** Purchase a tier (Starter/Pro/Complete) via checkout
 
-**Current metrics:** Pre-launch / early stage
+**Current metrics:** Launch day (2026-03-17). PH live. LinkedIn T-1 post: 203 impressions, 4 reactions. Reddit karma: 63 reactions across 2 threads.
+
+## Hub Intent Router (v10.1.0 - NEW)
+
+**What it does:** Universal entry point for all Forge ecosystem work. User describes goal in natural language, hub classifies intent (20 types), walks dependency graph (14 modules), checks prerequisite artifacts, builds optimal skill chain, executes.
+
+**Example:** "add stripe payments" -> hub detects missing product stories -> generates stories first -> then test plan -> then implementation. All automatic.
+
+**Marketing angle:** "Stop memorizing commands. Describe your goal. Hub figures out the right sequence."
+
+**Gate taxonomy:** self-resolve (auto) / soft-gate (flag in report) / hard-gate (stop + ask user for big scope changes)
 
 ## Product Image Card Narrative (LemonSqueezy gallery)
 

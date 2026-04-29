@@ -46,7 +46,7 @@ forge.reumbra.com
 | Mar 16 (T-1 eve) | Dev.to | Article 1/5 series (long-form) | ready to publish |
 | Mar 17 (Launch) | X | Launch announcement | draft |
 | Mar 17 (Launch) | X | Thread: 5 things AI agents get wrong | draft |
-| Mar 17 (Launch) | Reddit r/ClaudeAI | Launch post | draft |
+| Mar 17 (Launch) | Reddit r/ClaudeAI | Launch post | **published** |
 | Mar 17 (Launch) | Reddit r/ChatGPTCoding | Launch post (adapted) | draft |
 | Mar 17 (Launch) | Hacker News | Show HN | draft |
 | Mar 17 (Launch) | LinkedIn | Launch announcement | draft |
