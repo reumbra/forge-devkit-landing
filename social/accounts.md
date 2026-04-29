@@ -81,7 +81,6 @@ All accounts used for Forge DevKit / Reumbra marketing and launch activities.
 | Property | URL | Hosting | Status |
 |----------|-----|---------|--------|
 | Landing | forge.reumbra.com | Cloudflare Pages | Live |
-| API (dev) | dev.api.reumbra.com | AWS Lambda (SST) | Live |
 | API (prod) | api.reumbra.com | AWS Lambda (SST) | Live |
 | Checkout | lemonsqueezy.com | Lemon Squeezy | Live |
 | Docs | forge.reumbra.com/docs/* | Cloudflare Pages | Live |

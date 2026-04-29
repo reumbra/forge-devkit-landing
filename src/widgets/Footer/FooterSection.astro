@@ -113,7 +113,7 @@ const footer = i18n(footerI18n, locale);
 <script
 	is:inline
 	define:vars={{
-		apiBase: import.meta.env.DEV ? "https://dev.api.reumbra.com" : "https://api.reumbra.com",
+		apiBase: "https://api.reumbra.com",
 		successMsg: footer.subscribe.successMessage,
 		errorMsg: footer.subscribe.errorMessage,
 		lang: locale === "ru" ? "ru" : "en",
