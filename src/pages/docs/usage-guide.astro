@@ -788,7 +788,7 @@ const modules = [...coreModules, ...advisoryModules];
 					<tbody>
 						<tr class="border-b border-card/30">
 							<td class="py-2 pr-4 font-mono text-[13px] text-text whitespace-nowrap align-top">/forge:feedback</td>
-							<td class="py-2 text-[13px] text-text-muted">Interactive feedback wizard &mdash; select type (bug, friction, suggestion), describe the issue, auto-attaches session context</td>
+							<td class="py-2 text-[13px] text-text-muted">Interactive feedback wizard - describe the issue, say how much it affected you, and choose once per project whether to attach technical context</td>
 						</tr>
 					</tbody>
 				</table>
@@ -800,12 +800,16 @@ const modules = [...coreModules, ...advisoryModules];
 				The feedback command collects:
 			</p>
 			<ul class="list-disc pl-6 space-y-1">
-				<li><strong class="text-text">Your description</strong> &mdash; what happened, what you expected</li>
-				<li><strong class="text-text">Session context</strong> &mdash; plugin versions, detected stack, execution mode (auto-attached, no manual work)</li>
-				<li><strong class="text-text">Feedback type</strong> &mdash; friction (something was hard), bug (something broke), suggestion (feature request)</li>
+				<li><strong class="text-text">Your description</strong> - what happened, what you expected</li>
+				<li><strong class="text-text">How much it affected you</strong> - one choice: it blocked you, you found a workaround, it was annoying but you continued, or it is a feature request</li>
+				<li><strong class="text-text">Technical context</strong> - installed plugin versions, your pipeline configuration, operating system and shell, and the label of your most recent run. Collected only after you agree, once per project, and the exact content is shown to you before anything is sent</li>
+				<li><strong class="text-text">A contact address</strong> - optional, and only asked if no license key is found on the machine. Used to follow up on your report, never added to a mailing list unless you separately ask for it</li>
 			</ul>
 			<p>
-				Reports are sent securely using your license key. No source code or file contents are included &mdash; only metadata and your description.
+				Reports are sent with your license key when one is present, and anonymously when it is not. No source code, file contents, or project documentation are read or included - only the metadata listed above and what you wrote.
+			</p>
+			<p>
+				Run <code>/forge:feedback --forget</code> to stop future submissions from carrying technical context. It does not delete reports you already sent; to request erasure, email <a href="mailto:info@reumbra.com">info@reumbra.com</a>.
 			</p>
 			<p>
 				Alternatively, email <a href="mailto:support@reumbra.com" class="text-secondary hover:underline">support@reumbra.com</a> for direct support.
