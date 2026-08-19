@@ -12,4 +12,7 @@ dist/
 !public/email/*.png
 !public/og-image.png
 .claude/forge-setup-state.yaml
-.claude/forge/
+.claude/forge/**
+!.claude/forge/
+!.claude/forge/*/
+!.claude/forge/*/config.yaml

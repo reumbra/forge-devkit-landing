@@ -1,0 +1,95 @@
+# Managed by forge-core v5.0.0 — /forge:patch for tracked changes
+# Direct edits work but may need manual reconciliation on upgrade
+# After plugin removal, this file is fully yours
+
+forge_version: "5.0.0"
+template_used: frontend
+catalog_version: 1
+step_count: 38
+pipeline:
+  mode: parallel
+  execution_mode: balanced
+  execution_strategy: adaptive
+  worktree: auto
+  analytics_consent: true
+project:
+  stack: "Astro 5.7.0 + Tailwind CSS v4.1.0"
+  name: "forge-devkit-landing"
+  framework: Astro
+  meta_framework: none
+  arch: "Adapted FSD"
+  has_product_module: false
+  has_qa_module: false
+  llm_judge_enabled: false
+  has_tracker_module: false
+  has_worktree_module: false
+  has_autopilot_module: false
+  has_cross_repo: false
+  worktree_enabled: true
+  pkg_manager: pnpm
+  test_command: null
+  lint_command: "pnpm lint"
+  build_command: "pnpm build"
+  type_check_command: null
+generated_files:
+  - "skills/dev/SKILL.md"
+  - "skills/dev/references/step-catalog.md"
+  - "skills/dev/references/phase-0-assemble.md"
+  - "skills/dev/references/phase-0-examples.md"
+  - "skills/dev/references/phase-1-understand.md"
+  - "skills/dev/references/phase-2-implement.md"
+  - "skills/dev/references/phase-3-verify.md"
+  - "skills/dev/references/phase-4-finish.md"
+  - "skills/dev/references/contract-convention.md"
+  - "skills/dev/references/quality-gates.md"
+  - "agents/feature-worker.md"
+  - "commands/dev.md"
+  - "forge/core/config.yaml"
+  - "forge/analytics/friction-log.yaml"
+  - "forge/analytics/feedback-history.yaml"
+  - "scripts/forge-feedback.sh"
+  - "hooks/hooks.json"
+  - "forge/last-upgrade-check.txt"
+gates:
+  0:
+    adapters:
+      forge-product: "deferred"
+      forge-qa: "deferred"
+      forge-tracker: "deferred"
+      forge-autopilot: "deferred"
+      forge-worktree: "deferred"
+    analytics_consent: true
+  1:
+    stack: "Astro 5.7.0 + Tailwind CSS v4.1.0"
+    framework: Astro
+    arch: "Adapted FSD"
+    layers: ["pages", "widgets", "shared", "layouts"]
+    parallel_score: 8
+    ci_system: null
+    has_ci: false
+  2:
+    mode: parallel
+    git_workflow: trunk-based
+    commit_convention: emoji-prefix
+    protected_branches: ["main"]
+    has_git_conventions: true
+    execution_mode: balanced
+    execution_strategy: adaptive
+  3:
+    backlog_mode: backlog
+    github_repo: "reumbra/forge-devkit-landing"
+    has_tracker_module: false
+    has_product_module: false
+    has_qa_module: false
+    has_cross_repo: false
+  4:
+    quality_checks: ["build:required", "lint:required", "secret-scan:required", "env-safety:required", "a11y:recommended", "dep-audit:recommended", "lockfile:recommended"]
+  5:
+    conventions:
+      widget_dirs: "PascalCase"
+      shared_ui: "PascalCase.astro"
+      config_files: "kebab-case.ts"
+      pages: "kebab-case.astro"
+  6:
+    exports_applied: ["CLAUDE.md"]
+    hook_enabled: true
