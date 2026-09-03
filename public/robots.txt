@@ -1,4 +1,55 @@
+# Forge DevKit - crawling policy
+#
+# AI crawlers and AI search agents are DELIBERATELY WELCOME here.
+#
+# Why: Forge DevKit is a plugin suite for AI coding agents. The people who buy
+# it find tools by asking an assistant what to use, so an AI crawler reading
+# this site is a potential customer doing product research, not a leech. We
+# want this content indexed, retrieved, cited and used for grounding. Training
+# is permitted as well.
+#
+# IMPORTANT - THIS FILE IS NOT NECESSARILY WHAT IS SERVED.
+#
+# Cloudflare injects a managed robots.txt block at the edge and PREPENDS it to
+# this file. That managed block currently disallows ClaudeBot, GPTBot,
+# Google-Extended, CCBot, Amazonbot, Applebot-Extended, Bytespider,
+# meta-externalagent and CloudflareBrowserRenderingCrawler, and it sets
+# Content-Signal: search=yes,ai-train=no,use=reference - the exact opposite of
+# the policy stated below. The managed block is toggled by hand in the
+# Cloudflare dashboard (Security -> Settings -> AI crawl control / managed
+# robots.txt) and cannot be changed from this repository.
+#
+# So: do not assume this file is live. Always check what is actually served:
+#
+#     https://forge.reumbra.com/robots.txt
+#
+# If the served file still contains a "BEGIN Cloudflare Managed content"
+# section, the edge is overriding the intent below and the toggle has not been
+# turned off yet.
+
+# Default group: everything is crawlable, and the permissive content signal.
 User-agent: *
+Content-Signal: search=yes,ai-train=yes,ai-input=yes,use=full
+Allow: /
+
+# AI crawlers, AI search agents and user-triggered assistant fetchers.
+# Named explicitly so the intent is machine-legible, not only a comment above.
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Google-Extended
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: CCBot
+User-agent: Applebot-Extended
+User-agent: Amazonbot
+User-agent: meta-externalagent
+User-agent: Bytespider
+User-agent: CloudflareBrowserRenderingCrawler
+Content-Signal: search=yes,ai-train=yes,ai-input=yes,use=full
 Allow: /
 
 Sitemap: https://forge.reumbra.com/sitemap-index.xml
