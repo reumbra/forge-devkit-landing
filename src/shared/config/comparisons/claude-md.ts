@@ -46,17 +46,17 @@ export const claudeMdComparison: ComparisonPageConfig = {
 		{
 			module: "forge-core",
 			description: "Generates CLAUDE.md from a 7-gate architecture audit",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-product",
 			description: "Product specs that connect to the same guardrails",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 		{
 			module: "forge-qa",
 			description: "Test generation from the same requirements",
-			href: "/modules/qa",
+			href: "/modules/qa/",
 		},
 	],
 	relatedModulesHeading: "Modules behind this comparison",
@@ -113,17 +113,17 @@ const claudeMdComparisonRu: ComparisonPageConfig = {
 		{
 			module: "forge-core",
 			description: "Генерирует CLAUDE.md из 7-этапного аудита архитектуры",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-product",
 			description: "Продуктовые спеки, связанные с теми же гайдрейлами",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 		{
 			module: "forge-qa",
 			description: "Генерация тестов из тех же требований",
-			href: "/modules/qa",
+			href: "/modules/qa/",
 		},
 	],
 	relatedModulesHeading: "Модули в этом сравнении",

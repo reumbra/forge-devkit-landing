@@ -91,12 +91,12 @@ export const copyPageConfig: ModulePageConfig = {
 		{
 			module: "forge-marketing",
 			description: "Brand voice and positioning guide all generated copy",
-			href: "/modules/marketing",
+			href: "/modules/marketing/",
 		},
 		{
 			module: "forge-product",
 			description: "Product context informs user-facing terminology and flows",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 	],
 
@@ -222,12 +222,12 @@ const copyPageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-marketing",
 			description: "Голос бренда и позиционирование направляют весь сгенерированный копирайтинг",
-			href: "/modules/marketing",
+			href: "/modules/marketing/",
 		},
 		{
 			module: "forge-product",
 			description: "Продуктовый контекст информирует пользовательскую терминологию и flow",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 	],
 

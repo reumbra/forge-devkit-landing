@@ -91,17 +91,17 @@ export const growthPageConfig: ModulePageConfig = {
 		{
 			module: "forge-product",
 			description: "Product context identifies natural expansion and upsell triggers",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 		{
 			module: "forge-analytics",
 			description: "Churn signals and funnel metrics feed retention strategy",
-			href: "/modules/analytics",
+			href: "/modules/analytics/",
 		},
 		{
 			module: "forge-marketing",
 			description: "Positioning informs referral messaging and upgrade value props",
-			href: "/modules/marketing",
+			href: "/modules/marketing/",
 		},
 	],
 
@@ -228,17 +228,17 @@ const growthPageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-product",
 			description: "Продуктовый контекст определяет естественные триггеры расширения и апсейла",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 		{
 			module: "forge-analytics",
 			description: "Сигналы оттока и funnel-метрики питают стратегию retention",
-			href: "/modules/analytics",
+			href: "/modules/analytics/",
 		},
 		{
 			module: "forge-marketing",
 			description: "Позиционирование информирует реферральный месседжинг и value props апгрейда",
-			href: "/modules/marketing",
+			href: "/modules/marketing/",
 		},
 	],
 

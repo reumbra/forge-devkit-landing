@@ -102,17 +102,17 @@ export const trackerPageConfig: ModulePageConfig = {
 		{
 			module: "forge-core",
 			description: "Dev-skills reference tracked tasks for context-aware development",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-autopilot",
 			description: "Agent Teams pull tasks from tracker for batch execution",
-			href: "/modules/autopilot",
+			href: "/modules/autopilot/",
 		},
 		{
 			module: "forge-qa",
 			description: "Test generation traces back to tracked acceptance criteria",
-			href: "/modules/qa",
+			href: "/modules/qa/",
 		},
 	],
 
@@ -243,17 +243,17 @@ const trackerPageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-core",
 			description: "Dev-скиллы используют отслеживаемые задачи для контекстной разработки",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-autopilot",
 			description: "Agent Teams берут задачи из трекера для пакетного выполнения",
-			href: "/modules/autopilot",
+			href: "/modules/autopilot/",
 		},
 		{
 			module: "forge-qa",
 			description: "Генерация тестов трассируется к acceptance criteria из задач",
-			href: "/modules/qa",
+			href: "/modules/qa/",
 		},
 	],
 

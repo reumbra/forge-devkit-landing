@@ -38,9 +38,11 @@ function getLang(): string {
 function getPageType(): string {
 	const path = location.pathname.replace(/^\/ru/, "") || "/";
 	if (path === "/") return "homepage";
-	if (path === "/pricing") return "pricing";
+	if (path === "/pricing/") return "pricing";
+	// The index must be tested before the prefix branch: "/modules/" satisfies
+	// both, so the prefix would otherwise swallow the index page.
+	if (path === "/modules/") return "modules";
 	if (path.startsWith("/modules/")) return "module";
-	if (path === "/modules") return "modules";
 	if (path.startsWith("/vs/")) return "comparison";
 	if (path.startsWith("/docs/")) return "docs";
 	return "other";

@@ -91,12 +91,12 @@ export const onboardingPageConfig: ModulePageConfig = {
 		{
 			module: "forge-product",
 			description: "Reads user flows to identify the aha moment and activation path",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 		{
 			module: "forge-analytics",
 			description: "Activation events feed into the measurement plan",
-			href: "/modules/analytics",
+			href: "/modules/analytics/",
 		},
 	],
 
@@ -219,12 +219,12 @@ const onboardingPageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-product",
 			description: "Читает user flow для определения aha-момента и пути активации",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 		{
 			module: "forge-analytics",
 			description: "События активации попадают в план измерений",
-			href: "/modules/analytics",
+			href: "/modules/analytics/",
 		},
 	],
 

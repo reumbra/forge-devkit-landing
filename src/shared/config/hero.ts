@@ -27,7 +27,7 @@ export const hero = {
 	ctas: [
 		{
 			label: "Get Forge - from €29",
-			href: "/pricing",
+			href: "/pricing/",
 			variant: "primary",
 		},
 		{
@@ -61,7 +61,7 @@ const heroRu: HeroConfig = {
 	ctas: [
 		{
 			label: "Получить Forge - от \u20ac29",
-			href: "/pricing",
+			href: "/pricing/",
 			variant: "primary",
 		},
 		{

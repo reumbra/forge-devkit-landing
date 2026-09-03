@@ -91,17 +91,17 @@ export const seoPageConfig: ModulePageConfig = {
 		{
 			module: "forge-marketing",
 			description: "Positioning and brand voice inform keyword selection and content strategy",
-			href: "/modules/marketing",
+			href: "/modules/marketing/",
 		},
 		{
 			module: "forge-product",
 			description: "Product features map to keyword opportunities and landing pages",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 		{
 			module: "forge-analytics",
 			description: "Search performance metrics feed into measurement plan",
-			href: "/modules/analytics",
+			href: "/modules/analytics/",
 		},
 	],
 
@@ -224,17 +224,17 @@ const seoPageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-marketing",
 			description: "Позиционирование и голос бренда информируют выбор ключевых слов и контент-стратегию",
-			href: "/modules/marketing",
+			href: "/modules/marketing/",
 		},
 		{
 			module: "forge-product",
 			description: "Фичи продукта маппятся на возможности ключевых слов и лендинги",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 		{
 			module: "forge-analytics",
 			description: "Метрики поисковой эффективности попадают в план измерений",
-			href: "/modules/analytics",
+			href: "/modules/analytics/",
 		},
 	],
 

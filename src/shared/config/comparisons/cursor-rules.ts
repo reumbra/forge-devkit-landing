@@ -46,12 +46,12 @@ export const cursorRulesComparison: ComparisonPageConfig = {
 		{
 			module: "forge-core",
 			description: "The architecture audit that replaces static rules",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-qa",
 			description: "Test generation connected to the same guardrails",
-			href: "/modules/qa",
+			href: "/modules/qa/",
 		},
 	],
 	relatedModulesHeading: "Modules behind this comparison",
@@ -108,12 +108,12 @@ const cursorRulesComparisonRu: ComparisonPageConfig = {
 		{
 			module: "forge-core",
 			description: "Аудит архитектуры, который заменяет статичные правила",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-qa",
 			description: "Генерация тестов, связанная с теми же гайдрейлами",
-			href: "/modules/qa",
+			href: "/modules/qa/",
 		},
 	],
 	relatedModulesHeading: "Модули в этом сравнении",

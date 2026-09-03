@@ -32,37 +32,37 @@ export const navigation = {
 	links: [
 		{
 			label: "Modules",
-			href: "/modules",
+			href: "/modules/",
 			children: [
 				{
 					title: "Core Pipeline",
 					items: [
-						{ name: "forge-core", description: "Architecture audit & guardrails", href: "/modules/core" },
-						{ name: "forge-product", description: "Business \u2192 AI specs", href: "/modules/product" },
-						{ name: "forge-qa", description: "Test traceability", href: "/modules/qa" },
-						{ name: "forge-tracker", description: "Task management", href: "/modules" },
+						{ name: "forge-core", description: "Architecture audit & guardrails", href: "/modules/core/" },
+						{ name: "forge-product", description: "Business \u2192 AI specs", href: "/modules/product/" },
+						{ name: "forge-qa", description: "Test traceability", href: "/modules/qa/" },
+						{ name: "forge-tracker", description: "Task management", href: "/modules/tracker/" },
 					],
 				},
 				{
 					title: "Automation",
 					items: [
-						{ name: "forge-autopilot", description: "Agent Teams orchestration", href: "/modules/autopilot" },
-						{ name: "forge-worktree", description: "Worktree lifecycle", href: "/modules" },
+						{ name: "forge-autopilot", description: "Agent Teams orchestration", href: "/modules/autopilot/" },
+						{ name: "forge-worktree", description: "Worktree lifecycle", href: "/modules/worktree/" },
 					],
 				},
 			],
 		},
-		{ label: "Pricing", href: "/pricing" },
+		{ label: "Pricing", href: "/pricing/" },
 		{ label: "Try it", href: "/#journey" },
 		{
 			label: "Docs",
-			href: "/docs/getting-started",
+			href: "/docs/getting-started/",
 			children: [
 				{
 					title: "Guides",
 					items: [
-						{ name: "Getting Started", description: "Install in 5 minutes", href: "/docs/getting-started" },
-						{ name: "Usage Guide", description: "Commands & workflows", href: "/docs/usage-guide" },
+						{ name: "Getting Started", description: "Install in 5 minutes", href: "/docs/getting-started/" },
+						{ name: "Usage Guide", description: "Commands & workflows", href: "/docs/usage-guide/" },
 					],
 				},
 			],
@@ -70,7 +70,7 @@ export const navigation = {
 	],
 	cta: {
 		label: "Get Forge",
-		href: "/pricing",
+		href: "/pricing/",
 	},
 } as const satisfies NavigationConfig;
 
@@ -79,37 +79,37 @@ const navigationRu: NavigationConfig = {
 	links: [
 		{
 			label: "Модули",
-			href: "/modules",
+			href: "/modules/",
 			children: [
 				{
 					title: "Основной pipeline",
 					items: [
-						{ name: "forge-core", description: "Аудит архитектуры", href: "/modules/core" },
-						{ name: "forge-product", description: "Бизнес-спецификации", href: "/modules/product" },
-						{ name: "forge-qa", description: "Трассировка тестов", href: "/modules/qa" },
-						{ name: "forge-tracker", description: "Управление задачами", href: "/modules" },
+						{ name: "forge-core", description: "Аудит архитектуры", href: "/modules/core/" },
+						{ name: "forge-product", description: "Бизнес-спецификации", href: "/modules/product/" },
+						{ name: "forge-qa", description: "Трассировка тестов", href: "/modules/qa/" },
+						{ name: "forge-tracker", description: "Управление задачами", href: "/modules/tracker/" },
 					],
 				},
 				{
 					title: "Автоматизация",
 					items: [
-						{ name: "forge-autopilot", description: "Оркестрация Agent Teams", href: "/modules/autopilot" },
-						{ name: "forge-worktree", description: "Жизненный цикл worktree", href: "/modules" },
+						{ name: "forge-autopilot", description: "Оркестрация Agent Teams", href: "/modules/autopilot/" },
+						{ name: "forge-worktree", description: "Жизненный цикл worktree", href: "/modules/worktree/" },
 					],
 				},
 			],
 		},
-		{ label: "Цены", href: "/pricing" },
+		{ label: "Цены", href: "/pricing/" },
 		{ label: "Попробовать", href: "/#journey" },
 		{
 			label: "Документация",
-			href: "/docs/getting-started",
+			href: "/docs/getting-started/",
 			children: [
 				{
 					title: "Руководства",
 					items: [
-						{ name: "Начало работы", description: "Установка за 5 минут", href: "/docs/getting-started" },
-						{ name: "Руководство", description: "Команды и процессы", href: "/docs/usage-guide" },
+						{ name: "Начало работы", description: "Установка за 5 минут", href: "/docs/getting-started/" },
+						{ name: "Руководство", description: "Команды и процессы", href: "/docs/usage-guide/" },
 					],
 				},
 			],
@@ -117,7 +117,7 @@ const navigationRu: NavigationConfig = {
 	],
 	cta: {
 		label: "Получить Forge",
-		href: "/pricing",
+		href: "/pricing/",
 	},
 };
 

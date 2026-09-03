@@ -29,7 +29,7 @@ const isRu = locale === "ru";
 				{tagline}
 			</p>
 			<div class="mt-6 flex items-center gap-4">
-				<Button variant="primary" href={lp("/pricing")}>
+				<Button variant="primary" href={lp("/pricing/")}>
 					{isRu ? `${tier} - ${tierPrice} \u2192` : `Get ${tier} \u2014 ${tierPrice} \u2192`}
 				</Button>
 				<span class="font-mono text-[13px] text-text-muted">{isRu ? "разовый платёж" : "one-time"}</span>

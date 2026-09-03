@@ -116,21 +116,21 @@ export const autopilotPageConfig: ModulePageConfig = {
 		{
 			module: "forge-core",
 			description: "Architecture map powers conflict detection",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-worktree",
 			description: "Provisions isolated worktrees for each teammate",
-			href: "/modules",
+			href: "/modules/",
 		},
 		{
 			module: "forge-tracker",
 			description: "Syncs task status during batch execution",
-			href: "/modules",
+			href: "/modules/",
 		},
 	],
 	relatedComparisons: [
-		{ label: "Forge vs Devin", href: "/vs/devin" },
+		{ label: "Forge vs Devin", href: "/vs/devin/" },
 	],
 	relatedComparisonsHeading: "See how Forge compares",
 
@@ -275,21 +275,21 @@ const autopilotPageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-core",
 			description: "Карта архитектуры обеспечивает детекцию конфликтов",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-worktree",
 			description: "Создаёт изолированные worktree для каждого участника",
-			href: "/modules",
+			href: "/modules/",
 		},
 		{
 			module: "forge-tracker",
 			description: "Синхронизирует статусы задач во время batch-выполнения",
-			href: "/modules",
+			href: "/modules/",
 		},
 	],
 	relatedComparisons: [
-		{ label: "Forge vs Devin", href: "/vs/devin" },
+		{ label: "Forge vs Devin", href: "/vs/devin/" },
 	],
 	relatedComparisonsHeading: "Сравнения",
 

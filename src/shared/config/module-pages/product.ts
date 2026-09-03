@@ -101,16 +101,16 @@ export const productPageConfig: ModulePageConfig = {
 		{
 			module: "forge-core",
 			description: "Architecture data informs product constraints",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-qa",
 			description: "Test generation traces directly to product artifacts",
-			href: "/modules/qa",
+			href: "/modules/qa/",
 		},
 	],
 	relatedComparisons: [
-		{ label: "Forge vs Manual CLAUDE.md", href: "/vs/claude-md" },
+		{ label: "Forge vs Manual CLAUDE.md", href: "/vs/claude-md/" },
 	],
 	relatedComparisonsHeading: "See how Forge compares",
 
@@ -247,16 +247,16 @@ const productPageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-core",
 			description: "Данные архитектуры определяют продуктовые ограничения",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-qa",
 			description: "Генерация тестов напрямую связана с продуктовыми артефактами",
-			href: "/modules/qa",
+			href: "/modules/qa/",
 		},
 	],
 	relatedComparisons: [
-		{ label: "Forge vs ручной CLAUDE.md", href: "/vs/claude-md" },
+		{ label: "Forge vs ручной CLAUDE.md", href: "/vs/claude-md/" },
 	],
 	relatedComparisonsHeading: "Сравнения",
 

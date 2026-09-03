@@ -7,7 +7,7 @@ export function localePath(path: string, locale: string | undefined): string {
 		return path;
 	}
 	if (locale && locale !== "en") {
-		return `/${locale}${path === "/" ? "" : path}`;
+		return `/${locale}${path === "/" ? "/" : path}`;
 	}
 	return path;
 }

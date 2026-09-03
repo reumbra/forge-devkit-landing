@@ -198,7 +198,7 @@ const personaModules = config.personas.map((p) => {
 						<div id="ov-fill" class="relative h-full rounded-full bg-secondary transition-all duration-1000 ease-out" style="width:0%"></div>
 					</div>
 					<p id="rec-text" class="mt-3 font-sans text-[13px] leading-[1.6] text-text-secondary"></p>
-					<a id="cta-link" href={`${lp("/pricing")}`}
+					<a id="cta-link" href={`${lp("/pricing/")}`}
 						class="mt-4 inline-block rounded-[10px] bg-secondary px-6 py-2.5 font-sans text-[14px] font-semibold text-white transition-all duration-200 hover:opacity-90">
 					</a>
 				</div>
@@ -231,7 +231,7 @@ const personaModules = config.personas.map((p) => {
 									<p class="mt-0.5 font-sans text-[12px] text-text-muted">{capI18n?.description}</p>
 									<div class="mt-1.5 flex flex-wrap gap-1">
 										{capModules.map((mod) => (
-											<a href={lp(`/modules/${mod.slug}`)} class="font-mono text-[10px] text-text-muted hover:text-secondary transition-colors" onclick="event.stopPropagation()">{mod.name}</a>
+											<a href={lp(`/modules/${mod.slug}/`)} class="font-mono text-[10px] text-text-muted hover:text-secondary transition-colors" onclick="event.stopPropagation()">{mod.name}</a>
 										))}
 									</div>
 								</div>
@@ -253,7 +253,7 @@ const personaModules = config.personas.map((p) => {
 
 			{/* Cross-cutting */}
 			<a
-				href={lp(`/modules/${config.crossCutting.slug}`)}
+				href={lp(`/modules/${config.crossCutting.slug}/`)}
 				class="group flex items-center gap-3 rounded-[14px] border border-card bg-surface px-5 py-3.5 transition-all duration-300 hover:border-card-hover"
 			>
 				<span class="text-secondary text-[10px]">{"\u25C7"}</span>

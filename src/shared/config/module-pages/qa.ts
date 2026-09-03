@@ -107,17 +107,17 @@ export const qaPageConfig: ModulePageConfig = {
 		{
 			module: "forge-core",
 			description: "Architecture data for smart test coverage decisions",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-product",
 			description: "Product artifacts provide requirements for test generation",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 	],
 	relatedComparisons: [
-		{ label: "Forge vs Cursor Rules", href: "/vs/cursor-rules" },
-		{ label: "Forge vs Manual CLAUDE.md", href: "/vs/claude-md" },
+		{ label: "Forge vs Cursor Rules", href: "/vs/cursor-rules/" },
+		{ label: "Forge vs Manual CLAUDE.md", href: "/vs/claude-md/" },
 	],
 	relatedComparisonsHeading: "See how Forge compares",
 
@@ -260,17 +260,17 @@ const qaPageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-core",
 			description: "Данные архитектуры для умных решений по тестовому покрытию",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-product",
 			description: "Продуктовые артефакты дают требования для генерации тестов",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 	],
 	relatedComparisons: [
-		{ label: "Forge vs Cursor Rules", href: "/vs/cursor-rules" },
-		{ label: "Forge vs ручной CLAUDE.md", href: "/vs/claude-md" },
+		{ label: "Forge vs Cursor Rules", href: "/vs/cursor-rules/" },
+		{ label: "Forge vs ручной CLAUDE.md", href: "/vs/claude-md/" },
 	],
 	relatedComparisonsHeading: "Сравнения",
 

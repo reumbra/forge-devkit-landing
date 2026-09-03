@@ -29,7 +29,7 @@ export const howItWorks = {
 			command: "npm i -g @reumbra/forge",
 			description: "Global CLI install",
 			hint: "Or use Forge Manager - desktop app for Windows and macOS",
-			hintHref: "/docs/getting-started#option-b",
+			hintHref: "/docs/getting-started/#option-b",
 		},
 		{
 			number: 2,
@@ -70,7 +70,7 @@ const howItWorksRu: HowItWorksConfig = {
 			command: "npm i -g @reumbra/forge",
 			description: "Глобальная установка CLI",
 			hint: "Или используйте Forge Manager - десктоп-приложение для Windows и macOS",
-			hintHref: "/ru/docs/getting-started#option-b",
+			hintHref: "/ru/docs/getting-started/#option-b",
 		},
 		{
 			number: 2,

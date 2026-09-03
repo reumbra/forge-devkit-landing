@@ -13,7 +13,7 @@ const currentPath = Astro.url.pathname;
 
 const alternatePath = locale === "ru"
 	? (currentPath.replace(/^\/ru/, "") || "/")
-	: `/ru${currentPath === "/" ? "" : currentPath}`;
+	: `/ru${currentPath === "/" ? "/" : currentPath}`;
 ---
 
 <a

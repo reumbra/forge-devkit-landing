@@ -101,17 +101,17 @@ export const promptsPageConfig: ModulePageConfig = {
 		{
 			module: "forge-core",
 			description: "Prompt principles integrate with architecture-aware guardrails",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-qa",
 			description: "LLM-as-judge regression tests for prompt quality",
-			href: "/modules/qa",
+			href: "/modules/qa/",
 		},
 		{
 			module: "forge-product",
 			description: "Product context informs prompt design decisions",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 	],
 
@@ -242,17 +242,17 @@ const promptsPageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-core",
 			description: "Принципы промптов интегрируются с архитектурными гайдрейлами",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-qa",
 			description: "LLM-as-judge регрессионные тесты для качества промптов",
-			href: "/modules/qa",
+			href: "/modules/qa/",
 		},
 		{
 			module: "forge-product",
 			description: "Продуктовый контекст информирует решения по дизайну промптов",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 	],
 

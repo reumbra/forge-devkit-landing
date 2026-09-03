@@ -102,12 +102,12 @@ export const worktreePageConfig: ModulePageConfig = {
 		{
 			module: "forge-core",
 			description: "Generated dev-skills work in each worktree independently",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-autopilot",
 			description: "Agent Teams use worktrees for isolated parallel development",
-			href: "/modules/autopilot",
+			href: "/modules/autopilot/",
 		},
 	],
 
@@ -239,12 +239,12 @@ const worktreePageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-core",
 			description: "Сгенерированные dev-скиллы работают в каждом worktree независимо",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-autopilot",
 			description: "Agent Teams используют worktree для изолированной параллельной разработки",
-			href: "/modules/autopilot",
+			href: "/modules/autopilot/",
 		},
 	],
 

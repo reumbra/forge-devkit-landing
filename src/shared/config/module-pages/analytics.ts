@@ -91,17 +91,17 @@ export const analyticsPageConfig: ModulePageConfig = {
 		{
 			module: "forge-product",
 			description: "Reads user flows and goals to generate relevant tracking plans",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 		{
 			module: "forge-ab",
 			description: "Experiment events integrate with the analytics schema",
-			href: "/modules/ab",
+			href: "/modules/ab/",
 		},
 		{
 			module: "forge-growth",
 			description: "Retention metrics and funnel events feed growth analysis",
-			href: "/modules/growth",
+			href: "/modules/growth/",
 		},
 	],
 
@@ -227,17 +227,17 @@ const analyticsPageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-product",
 			description: "Читает user flow и цели для генерации релевантных tracking-планов",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 		{
 			module: "forge-ab",
 			description: "События экспериментов интегрируются с аналитической схемой",
-			href: "/modules/ab",
+			href: "/modules/ab/",
 		},
 		{
 			module: "forge-growth",
 			description: "Метрики retention и funnel-события питают анализ роста",
-			href: "/modules/growth",
+			href: "/modules/growth/",
 		},
 	],
 

@@ -126,23 +126,23 @@ export const corePageConfig: ModulePageConfig = {
 		{
 			module: "forge-product",
 			description: "Product specs reference architecture guardrails",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 		{
 			module: "forge-qa",
 			description: "Test generation uses architecture data for smart coverage",
-			href: "/modules/qa",
+			href: "/modules/qa/",
 		},
 		{
 			module: "forge-autopilot",
 			description: "Conflict detection uses architecture map for wave planning",
-			href: "/modules/autopilot",
+			href: "/modules/autopilot/",
 		},
 	],
 	relatedComparisons: [
-		{ label: "Forge vs Cursor Rules", href: "/vs/cursor-rules" },
-		{ label: "Forge vs Manual CLAUDE.md", href: "/vs/claude-md" },
-		{ label: "Forge vs Devin", href: "/vs/devin" },
+		{ label: "Forge vs Cursor Rules", href: "/vs/cursor-rules/" },
+		{ label: "Forge vs Manual CLAUDE.md", href: "/vs/claude-md/" },
+		{ label: "Forge vs Devin", href: "/vs/devin/" },
 	],
 	relatedComparisonsHeading: "See how Forge compares",
 
@@ -301,23 +301,23 @@ const corePageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-product",
 			description: "Продуктовые спеки используют архитектурные гайдрейлы",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 		{
 			module: "forge-qa",
 			description: "Генерация тестов использует данные архитектуры для умного покрытия",
-			href: "/modules/qa",
+			href: "/modules/qa/",
 		},
 		{
 			module: "forge-autopilot",
 			description: "Детекция конфликтов использует карту архитектуры для планирования волн",
-			href: "/modules/autopilot",
+			href: "/modules/autopilot/",
 		},
 	],
 	relatedComparisons: [
-		{ label: "Forge vs Cursor Rules", href: "/vs/cursor-rules" },
-		{ label: "Forge vs ручной CLAUDE.md", href: "/vs/claude-md" },
-		{ label: "Forge vs Devin", href: "/vs/devin" },
+		{ label: "Forge vs Cursor Rules", href: "/vs/cursor-rules/" },
+		{ label: "Forge vs ручной CLAUDE.md", href: "/vs/claude-md/" },
+		{ label: "Forge vs Devin", href: "/vs/devin/" },
 	],
 	relatedComparisonsHeading: "Сравнения",
 

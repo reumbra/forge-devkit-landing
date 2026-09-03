@@ -91,12 +91,12 @@ export const abPageConfig: ModulePageConfig = {
 		{
 			module: "forge-analytics",
 			description: "Experiment events integrate with the analytics schema and measurement plan",
-			href: "/modules/analytics",
+			href: "/modules/analytics/",
 		},
 		{
 			module: "forge-product",
 			description: "Product context helps prioritize high-impact pages for testing",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 	],
 
@@ -222,12 +222,12 @@ const abPageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-analytics",
 			description: "События экспериментов интегрируются с аналитической схемой и планом измерений",
-			href: "/modules/analytics",
+			href: "/modules/analytics/",
 		},
 		{
 			module: "forge-product",
 			description: "Продуктовый контекст помогает приоритизировать high-impact страницы для тестирования",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 	],
 

@@ -1,11 +1,11 @@
 # Forge DevKit Landing
 
-**URL:** `reumbra.dev/forge`
-**Role:** Product website — pricing, docs, purchase flow
+**URL:** `forge.reumbra.com`
+**Role:** Product website - pricing, docs, purchase flow
 
 ## Ecosystem
 
-Forge DevKit is a commercial product by [Reumbra](https://reumbra.dev) — AI-powered project scaffolding tools for Claude Code.
+Forge DevKit is a commercial product by [Reumbra](https://forge.reumbra.com/) - AI-powered project scaffolding tools for Claude Code.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
@@ -22,7 +22,7 @@ Forge DevKit is a commercial product by [Reumbra](https://reumbra.dev) — AI-po
 │  └─ Node.js (Fastify) + PostgreSQL (Supabase) + Cloudflare R2   │
 │                                                                  │
 │  forge-devkit-landing (this repo)    PUBLIC                      │
-│  └─ reumbra.dev/forge — website, pricing, docs                   │
+│  └─ forge.reumbra.com - website, pricing, docs                   │
 │  └─ Astro + Tailwind, hosted on Cloudflare Pages                 │
 │                                                                  │
 │  forge-devkit-plugins                PRIVATE (currently public)   │
@@ -35,7 +35,7 @@ Forge DevKit is a commercial product by [Reumbra](https://reumbra.dev) — AI-po
 ## Page Structure
 
 ```
-reumbra.dev/forge
+forge.reumbra.com
 ├─ Hero: "AI-powered project scaffolding for Claude Code"
 │   └─ Subtitle + 30-sec demo GIF/video
 ├─ Problem -> Solution: "Claude Code is powerful but unstructured..."
@@ -66,7 +66,7 @@ reumbra.dev/forge
 ## Purchase Flow
 
 ```
-1. User visits reumbra.dev/forge
+1. User visits forge.reumbra.com
 2. Selects package -> payment via LemonSqueezy (checkout overlay)
 3. Webhook -> API creates license record
 4. User receives email with license key + install instructions
@@ -81,7 +81,7 @@ Installation:
 ## Modules
 
 ### forge-core
-7-gate project setup wizard. Detects stack, architecture, integrations. Generates dev-skills — autonomous coding instructions tailored to the project. Generated artifacts work independently after plugin removal.
+7-gate project setup wizard. Detects stack, architecture, integrations. Generates dev-skills - autonomous coding instructions tailored to the project. Generated artifacts work independently after plugin removal.
 
 ### forge-product
 Product design pipeline. Creates user flows, stories, use cases, UX criteria. Integrates with forge-core: enriches generated dev-skills with product context, validates UX in code review.
@@ -112,5 +112,5 @@ Task management hub. Connects to GitHub Issues, ClickUp, Linear. Picks tasks, sy
 | Company | Reumbra |
 | Product (full) | Forge DevKit |
 | Product (short) | Forge |
-| Domain | reumbra.dev/forge |
+| Domain | forge.reumbra.com |
 | License key prefix | FRG- |

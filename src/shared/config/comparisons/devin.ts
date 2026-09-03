@@ -46,12 +46,12 @@ export const devinComparison: ComparisonPageConfig = {
 		{
 			module: "forge-core",
 			description: "Architecture-aware pipeline for your existing AI agent",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-autopilot",
 			description: "Multi-agent parallel execution - Forge's answer to Devin",
-			href: "/modules/autopilot",
+			href: "/modules/autopilot/",
 		},
 	],
 	relatedModulesHeading: "Modules behind this comparison",
@@ -108,12 +108,12 @@ const devinComparisonRu: ComparisonPageConfig = {
 		{
 			module: "forge-core",
 			description: "Пайплайн с пониманием архитектуры для вашего AI-агента",
-			href: "/modules/core",
+			href: "/modules/core/",
 		},
 		{
 			module: "forge-autopilot",
 			description: "Мультиагентное параллельное выполнение - ответ Forge на Devin",
-			href: "/modules/autopilot",
+			href: "/modules/autopilot/",
 		},
 	],
 	relatedModulesHeading: "Модули в этом сравнении",

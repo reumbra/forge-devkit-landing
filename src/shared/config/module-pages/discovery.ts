@@ -91,12 +91,12 @@ export const discoveryPageConfig: ModulePageConfig = {
 		{
 			module: "forge-marketing",
 			description: "Discovery insights feed positioning and go-to-market strategy",
-			href: "/modules/marketing",
+			href: "/modules/marketing/",
 		},
 		{
 			module: "forge-product",
 			description: "Validated problems become product specs and user flows",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 	],
 
@@ -222,12 +222,12 @@ const discoveryPageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-marketing",
 			description: "Инсайты discovery питают позиционирование и GTM-стратегию",
-			href: "/modules/marketing",
+			href: "/modules/marketing/",
 		},
 		{
 			module: "forge-product",
 			description: "Валидированные проблемы становятся продуктовыми спеками и user flow",
-			href: "/modules/product",
+			href: "/modules/product/",
 		},
 	],
 

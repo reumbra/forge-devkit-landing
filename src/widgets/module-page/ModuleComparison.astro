@@ -30,8 +30,8 @@ const lp = (path: string) => localePath(path, locale);
 		{vsSlug && (
 			<p class="font-sans text-[14px] text-text-muted mb-8">
 				{isRu
-					? <>Смотрите <a href={lp(`/vs/${vsSlug}`)} class="text-secondary hover:underline">полное сравнение</a> для деталей.</>
-					: <>See the <a href={lp(`/vs/${vsSlug}`)} class="text-secondary hover:underline">full comparison</a> for details.</>
+					? <>Смотрите <a href={lp(`/vs/${vsSlug}/`)} class="text-secondary hover:underline">полное сравнение</a> для деталей.</>
+					: <>See the <a href={lp(`/vs/${vsSlug}/`)} class="text-secondary hover:underline">full comparison</a> for details.</>
 				}
 			</p>
 		)}

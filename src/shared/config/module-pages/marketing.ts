@@ -91,17 +91,17 @@ export const marketingPageConfig: ModulePageConfig = {
 		{
 			module: "forge-discovery",
 			description: "Reads validated insights for evidence-based positioning",
-			href: "/modules/discovery",
+			href: "/modules/discovery/",
 		},
 		{
 			module: "forge-copy",
 			description: "Brand voice and positioning guide all generated copy",
-			href: "/modules/copy",
+			href: "/modules/copy/",
 		},
 		{
 			module: "forge-seo",
 			description: "Keyword strategy aligned with positioning and market gaps",
-			href: "/modules/seo",
+			href: "/modules/seo/",
 		},
 	],
 
@@ -223,17 +223,17 @@ const marketingPageConfigRu: ModulePageConfig = {
 		{
 			module: "forge-discovery",
 			description: "Читает валидированные инсайты для доказательного позиционирования",
-			href: "/modules/discovery",
+			href: "/modules/discovery/",
 		},
 		{
 			module: "forge-copy",
 			description: "Голос бренда и позиционирование направляют весь сгенерированный копирайтинг",
-			href: "/modules/copy",
+			href: "/modules/copy/",
 		},
 		{
 			module: "forge-seo",
 			description: "Стратегия ключевых слов выровнена с позиционированием и рыночными пробелами",
-			href: "/modules/seo",
+			href: "/modules/seo/",
 		},
 	],
 

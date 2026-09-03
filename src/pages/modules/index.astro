@@ -24,7 +24,7 @@ const breadcrumbs = [{ label: "Modules" }];
 			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 				{modules.modules.map((mod) => (
 					<a
-						href={`/modules/${mod.id.replace("forge-", "")}`}
+						href={`/modules/${mod.id.replace("forge-", "")}/`}
 						class="rounded-[14px] border border-card bg-surface p-6 transition-all duration-300 hover:border-card-hover hover:-translate-y-0.5"
 					>
 						<h2 class="font-mono text-[15px] font-medium text-text">
