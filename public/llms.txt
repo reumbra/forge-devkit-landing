@@ -1,27 +1,51 @@
 # Forge DevKit
 
-> Architecture-aware AI development pipeline by Reumbra
+> Forge DevKit is a commercial plugin ecosystem for AI coding agents (Claude Code, Cursor, Windsurf) by Reumbra. One command runs a 7-gate architecture audit of your repository and generates AI guardrails your agent follows in every session.
 
-Forge DevKit is a commercial plugin ecosystem for AI coding agents (Claude Code, Cursor, Windsurf). One command scans your repository - stack, layers, patterns - and generates guardrails your AI actually follows.
+Forge DevKit ships 15 modules and is sold as a one-time purchase, not a subscription: Starter EUR 29, Pro EUR 79, Complete EUR 149. Each purchase includes 1 year of updates; renewal after that is optional, at a reduced price (Starter EUR 19/yr, Pro EUR 49/yr, Complete EUR 89/yr), and generated artifacts keep working with or without renewal. Device activations per license: Starter 2, Pro 3, Complete 5. There is a 14-day money-back guarantee.
 
-## Key Facts
-- One-time purchase: EUR 29 (Core), EUR 79 (Pro), EUR 149 (Bundle)
-- 7-gate architecture audit with 50+ quality patterns
-- 6 modules: forge-core, forge-product, forge-qa, forge-tracker, forge-autopilot, forge-worktree
-- Works with Claude Code, Cursor, Windsurf, and any AI agent that reads .claude/ or .cursorrules
-- Disposable meta-tool: generated artifacts work independently after setup
-- 14-day money-back guarantee
+Tiers are cumulative by module set:
+- Starter (EUR 29): forge-core, forge-worktree.
+- Pro (EUR 79): everything in Starter, plus forge-product, forge-qa, forge-tracker, forge-prompts (6 modules total).
+- Complete (EUR 149): everything in Pro, plus forge-autopilot and 8 product-advisory modules - forge-discovery, forge-marketing, forge-analytics, forge-onboarding, forge-copy, forge-seo, forge-growth, forge-ab (all 15 modules, plus every future module).
+
+forge-core's audit covers 50+ quality patterns and includes 15 rationalization detectors that catch common AI shortcuts. Artifacts are generated into `.claude/` (or equivalent) and keep working even if a plugin is later removed.
 
 ## Modules
-- forge-core: Architecture audit, quality patterns, dev-skills generation
-- forge-product: Feature design in business language, user stories with acceptance criteria
-- forge-qa: Test generation from requirements, requirement traceability matrix
-- forge-tracker: Task tracker sync (GitHub, ClickUp, Linear, Notion, Jira)
-- forge-autopilot: Parallel agent orchestration, conflict detection, wave execution
-- forge-worktree: Git worktree lifecycle management
 
-## Links
-- Website: https://forge.reumbra.com
-- Pricing: https://forge.reumbra.com/pricing
-- Getting Started: https://forge.reumbra.com/docs/getting-started
-- Usage Guide: https://forge.reumbra.com/docs/usage-guide
+- [forge-core](https://forge.reumbra.com/modules/core/): Architecture audit and AI guardrails, quality patterns, dev-skills generation. Starter tier and above.
+- [forge-worktree](https://forge.reumbra.com/modules/worktree/): Parallel git worktree branches with zero port conflicts. Starter tier and above.
+- [forge-product](https://forge.reumbra.com/modules/product/): Feature design in business language, user stories with acceptance criteria. Pro tier and above.
+- [forge-qa](https://forge.reumbra.com/modules/qa/): Test generation traced to requirements, across 8+ test frameworks. Pro tier and above.
+- [forge-tracker](https://forge.reumbra.com/modules/tracker/): Syncs your task tracker (GitHub, ClickUp, Linear, Notion, Jira) with your AI agent. Pro tier and above.
+- [forge-prompts](https://forge.reumbra.com/modules/prompts/): Manages prompts like code, with prompt inventory, audit, and regression tests. Pro tier and above.
+- [forge-autopilot](https://forge.reumbra.com/modules/autopilot/): Agent Teams batch orchestration across a backlog, with conflict-free wave execution. Complete tier only.
+- [forge-discovery](https://forge.reumbra.com/modules/discovery/): Product discovery and problem validation before you build. Complete tier only.
+- [forge-marketing](https://forge.reumbra.com/modules/marketing/): Positioning, pricing, and go-to-market strategy. Complete tier only.
+- [forge-analytics](https://forge.reumbra.com/modules/analytics/): Measurement planning - tracking plans, event schemas, dashboard specs. Complete tier only.
+- [forge-onboarding](https://forge.reumbra.com/modules/onboarding/): Activation flow design from signup to first value. Complete tier only.
+- [forge-copy](https://forge.reumbra.com/modules/copy/): Consistent product copy and brand voice across every surface. Complete tier only.
+- [forge-seo](https://forge.reumbra.com/modules/seo/): SEO strategy and technical audit grounded in the product, not generic tactics. Complete tier only.
+- [forge-growth](https://forge.reumbra.com/modules/growth/): Retention loops and referral mechanics before acquisition tactics. Complete tier only.
+- [forge-ab](https://forge.reumbra.com/modules/ab/): Structured A/B test design, sample-size pre-commitment, and analysis. Complete tier only.
+
+## Pricing and Docs
+
+- [Pricing](https://forge.reumbra.com/pricing/): Full tier comparison table, feature matrix, and pricing FAQ.
+- [Getting Started](https://forge.reumbra.com/docs/getting-started/): Install Forge DevKit and run the first architecture audit.
+- [Usage Guide](https://forge.reumbra.com/docs/usage-guide/): Command reference and workflow for every module.
+- [Concepts](https://forge.reumbra.com/docs/concepts/): Meta-tool architecture, disposable artifacts, detection over configuration.
+- [Interactive Guide](https://forge.reumbra.com/docs/interactive-guide/): Walkthrough of setup, hub routing, the dev pipeline, quality guardrails, test generation, task sync, and Agent Teams.
+- [Modules Directory](https://forge.reumbra.com/modules/): Index of all 15 modules.
+
+## Comparisons
+
+- [Forge DevKit vs Cursor Rules](https://forge.reumbra.com/vs/cursor-rules/): Comparison against hand-written Cursor rules files.
+- [Forge DevKit vs Devin](https://forge.reumbra.com/vs/devin/): Comparison against Devin, an autonomous AI developer.
+- [Forge DevKit vs Manual CLAUDE.md](https://forge.reumbra.com/vs/claude-md/): Comparison against a hand-written CLAUDE.md file.
+
+## Optional
+
+- [Terms of Service](https://forge.reumbra.com/terms/): Terms governing use of Forge DevKit.
+- [Privacy Policy](https://forge.reumbra.com/privacy/): How Reumbra handles user data.
+- [Refund Policy](https://forge.reumbra.com/refund/): 14-day money-back guarantee details.
