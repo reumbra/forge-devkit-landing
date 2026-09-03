@@ -61,6 +61,9 @@
 | BL-054 | P1 | backlog | Demo video + GIF/скринкасты для launch assets | `[launch]` `[content]` `[assets]` |
 | BL-055 | P1 | done | Product Hunt: подготовка листинга + launch day plan | `[launch]` `[marketing]` |
 | BL-056 | P2 | done | PostYourStartup submission + footer badge | `[launch]` `[marketing]` |
+| BL-057 | P1 | backlog | Analytics: begin_checkout never fires (0 events vs 14 select_item) | `[analytics]` `[bug]` `[funnel]` |
+| BL-058 | P2 | backlog | Analytics: server-side purchase event from LemonSqueezy webhook | `[analytics]` `[revenue]` `[cross-repo]` |
+| BL-059 | P1 | backlog | Test webhooks create real licences in production DB | `[data]` `[bug]` `[cross-repo]` |
 
 ---
 
@@ -245,7 +248,7 @@ Pricing, plan names, included modules, and checkout URLs must be consistent acro
 
 ### BL-049: Blog/Changelog — инфраструктура + скилл blog
 
-**Цель:** Создать blog-секцию на лендинге (reumbra.dev/forge/blog) и скилл `blog` для AI-assisted ведения.
+**Цель:** Создать blog-секцию на лендинге (forge.reumbra.com/blog/) и скилл `blog` для AI-assisted ведения.
 
 **Инфра:**
 - Astro content collection для постов (MDX)
@@ -361,3 +364,19 @@ Pricing, plan names, included modules, and checkout URLs must be consistent acro
 - Create `/refund` page with full refund policy (14-day money-back guarantee, process, conditions)
 - Create `/ru/refund` page (Russian translation)
 - Add /refund to footer Legal section in `src/shared/config/footer.ts`
+
+### BL-057: begin_checkout never fires
+
+Measured 2026-09-03 (`docs/analytics-baseline-2026-09-03.md`). All-time GA4: `select_item` 14 events / 3 users, `begin_checkout` **0**. The detector in `src/shared/tracking/analytics.ts` is a MutationObserver waiting for a LemonSqueezy overlay; if the CTA navigates away instead of opening an overlay, nothing fires. A step that CANNOT fire reads identically to a step nobody reached, and the two call for opposite decisions. Verify by clicking a pricing CTA in a real browser with `zaraz.debug(...)` on - headless does not get Zaraz injected.
+
+Re-measure: `python3 scripts/google-api.py ga4-events --property 525437386 --days 400`
+
+### BL-058: server-side purchase event
+
+`purchase` reads 0 and structurally always will: the transaction completes on LemonSqueezy's domain, so no client-side listener on our origin can observe it. Closing this needs the API's existing LemonSqueezy webhook (`forge-devkit-api/src/features/webhooks/`) to emit a GA4 Measurement Protocol event. Until then the funnel has no terminal step and CAC/conversion cannot be computed from GA4 alone.
+
+### BL-059: test webhooks write to the production licence table
+
+Three `starter` licences with `source=lemonsqueezy` and zero activations exist in production, most recent created 2026-09-03. LemonSqueezy has processed four orders total, all Pro or Complete - no Starter order has ever existed. These are test-webhook artifacts in real data. Any conversion metric computed over `licenses` is wrong while they are indistinguishable from real rows. Needs either a `test_mode` column honoured on write, or a dedicated non-production target for webhook tests.
+
+Re-measure: in `forge-devkit-api`, `DATABASE_URL=... npx tsx scripts/product-metrics.ts`
