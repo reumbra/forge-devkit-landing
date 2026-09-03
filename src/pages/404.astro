@@ -1,0 +1,81 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+
+// Why this file exists, beyond showing a nicer page.
+//
+// Without it the build emits no dist/404.html, and Cloudflare Pages then falls back to
+// serving index.html for EVERY unmatched route - with HTTP 200. Measured 2026-09-03:
+// /.well-known/agent-card.json, /ads.txt, /this-page-does-not-exist and every other
+// nonexistent path all returned 200 with the full 179 KB homepage. That is an unbounded
+// soft-404 surface: every URL on the domain is valid and every one returns the same page.
+//
+// Two things it cost before it was found. Google reports the homepage as "Crawled -
+// currently not indexed" and has not returned since 2026-04-10, which is the documented
+// response to exactly this shape. And a link check in this repo verified a replacement URL
+// by asking for a 200, got one, and shipped a link to a page that does not exist.
+//
+// Astro emits dist/404.html from this file and Cloudflare Pages serves it with a real 404.
+// Do not delete this page. If it is ever removed, every URL becomes valid again, silently.
+---
+
+<PageLayout
+	title="Page not found - Forge DevKit"
+	description="This page does not exist. Find the documentation, module catalogue and pricing from here."
+>
+	<section class="mx-auto max-w-[720px] px-6 py-24 md:py-32">
+		<p class="font-mono text-[13px] uppercase tracking-[0.14em] text-secondary">Error 404</p>
+
+		<h1 class="mt-4 text-[38px] md:text-[52px] font-bold leading-[1.08] tracking-[-0.02em] text-balance">
+			This page does not exist
+		</h1>
+
+		<p class="mt-5 text-[17px] leading-relaxed text-white/70">
+			The address may be mistyped, or the page may have moved. Everything below still works.
+		</p>
+
+		<ul class="mt-10 grid gap-3 sm:grid-cols-2">
+			<li>
+				<a
+					href="/"
+					class="block rounded-[var(--radius-card)] border border-secondary/20 bg-secondary/5 px-5 py-4 transition-colors hover:border-secondary/40 hover:bg-secondary/10"
+				>
+					<span class="block font-semibold">Home</span>
+					<span class="mt-1 block text-[14px] text-white/60">What Forge DevKit does, and how the pipeline fits together</span>
+				</a>
+			</li>
+			<li>
+				<a
+					href="/docs/getting-started/"
+					class="block rounded-[var(--radius-card)] border border-secondary/20 bg-secondary/5 px-5 py-4 transition-colors hover:border-secondary/40 hover:bg-secondary/10"
+				>
+					<span class="block font-semibold">Getting started</span>
+					<span class="mt-1 block text-[14px] text-white/60">Install the CLI and run the first architecture audit</span>
+				</a>
+			</li>
+			<li>
+				<a
+					href="/modules/"
+					class="block rounded-[var(--radius-card)] border border-secondary/20 bg-secondary/5 px-5 py-4 transition-colors hover:border-secondary/40 hover:bg-secondary/10"
+				>
+					<span class="block font-semibold">Modules</span>
+					<span class="mt-1 block text-[14px] text-white/60">All 15 modules and what each one adds to the pipeline</span>
+				</a>
+			</li>
+			<li>
+				<a
+					href="/pricing/"
+					class="block rounded-[var(--radius-card)] border border-secondary/20 bg-secondary/5 px-5 py-4 transition-colors hover:border-secondary/40 hover:bg-secondary/10"
+				>
+					<span class="block font-semibold">Pricing</span>
+					<span class="mt-1 block text-[14px] text-white/60">Starter, Pro and Complete, with the full feature table</span>
+				</a>
+			</li>
+		</ul>
+
+		<p class="mt-10 text-[15px] text-white/60">
+			If a link on this site brought you here, write to
+			<a href="mailto:info@reumbra.com" class="text-secondary hover:underline">info@reumbra.com</a>
+			and name the page you came from.
+		</p>
+	</section>
+</PageLayout>
