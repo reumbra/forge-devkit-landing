@@ -35,7 +35,115 @@ interface CheckoutTierData {
 	page_language: string;
 }
 
-const forgeWindow = window as Window & { __forgeLastTier?: CheckoutTierData };
+const ATTRIBUTION_STORAGE_KEY = "forge_attribution_v1";
+const MEASUREMENT_RUN_STORAGE_KEY = "forge_measurement_run_v1";
+const ATTRIBUTION_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+const MEASUREMENT_RUN_TTL_MS = 2 * 60 * 60 * 1000;
+const MAX_ATTRIBUTION_VALUE_LENGTH = 200;
+
+const ATTRIBUTION_FIELDS = [
+	"utm_source",
+	"utm_medium",
+	"utm_campaign",
+	"utm_content",
+	"utm_term",
+	"gclid",
+	"gbraid",
+	"wbraid",
+] as const;
+
+type AttributionField = (typeof ATTRIBUTION_FIELDS)[number];
+type Attribution = Partial<Record<AttributionField, string>>;
+
+interface StoredAttribution {
+	values: Attribution;
+	expires_at: number;
+}
+
+interface StoredMeasurementRun {
+	value: string;
+	expires_at: number;
+}
+
+function queryValue(name: string): string | undefined {
+	const value = new URLSearchParams(location.search).get(name)?.trim();
+	return value ? value.substring(0, MAX_ATTRIBUTION_VALUE_LENGTH) : undefined;
+}
+
+function readStoredAttribution(now = Date.now()): StoredAttribution | undefined {
+	try {
+		const raw = localStorage.getItem(ATTRIBUTION_STORAGE_KEY);
+		if (!raw) return undefined;
+		const stored = JSON.parse(raw) as StoredAttribution;
+		if (!stored.values || !Number.isFinite(stored.expires_at) || stored.expires_at <= now) {
+			localStorage.removeItem(ATTRIBUTION_STORAGE_KEY);
+			return undefined;
+		}
+		return stored;
+	} catch {
+		return undefined;
+	}
+}
+
+function captureAttribution(now = Date.now()): Attribution {
+	const stored = readStoredAttribution(now);
+	const values: Attribution = { ...(stored?.values || {}) };
+	let changed = false;
+
+	for (const field of ATTRIBUTION_FIELDS) {
+		const value = queryValue(field);
+		if (value && !values[field]) {
+			values[field] = value;
+			changed = true;
+		}
+	}
+
+	if (Object.keys(values).length === 0) return values;
+	if (stored && !changed) return values;
+
+	try {
+		localStorage.setItem(
+			ATTRIBUTION_STORAGE_KEY,
+			JSON.stringify({ values, expires_at: stored?.expires_at || now + ATTRIBUTION_TTL_MS }),
+		);
+	} catch {
+		// Storage is optional. The current checkout still receives query attribution below.
+	}
+	return values;
+}
+
+function readMeasurementRunId(now = Date.now()): string | undefined {
+	try {
+		const raw = sessionStorage.getItem(MEASUREMENT_RUN_STORAGE_KEY);
+		if (!raw) return undefined;
+		const stored = JSON.parse(raw) as StoredMeasurementRun;
+		if (!stored.value || !Number.isFinite(stored.expires_at) || stored.expires_at <= now) {
+			sessionStorage.removeItem(MEASUREMENT_RUN_STORAGE_KEY);
+			return undefined;
+		}
+		return stored.value;
+	} catch {
+		return undefined;
+	}
+}
+
+function captureMeasurementRunId(now = Date.now()): string | undefined {
+	const explicitRunId = queryValue("measurement_run_id");
+	if (!explicitRunId) return readMeasurementRunId(now);
+
+	try {
+		sessionStorage.setItem(
+			MEASUREMENT_RUN_STORAGE_KEY,
+			JSON.stringify({ value: explicitRunId, expires_at: now + MEASUREMENT_RUN_TTL_MS }),
+		);
+	} catch {
+		// The explicit value still applies to the current page when storage is unavailable.
+	}
+	return explicitRunId;
+}
+
+captureAttribution();
+captureMeasurementRunId();
 
 function track(event: string, props: Record<string, unknown> = {}) {
 	if (typeof zaraz !== "undefined") {
@@ -58,6 +166,28 @@ function getPageType(): string {
 	if (path.startsWith("/vs/")) return "comparison";
 	if (path.startsWith("/docs/")) return "docs";
 	return "other";
+}
+
+function getCheckoutPlan(itemId: string): string {
+	return itemId === "core" ? "starter" : itemId;
+}
+
+function enrichCheckoutUrl(href: string, tier: CheckoutTierData): string {
+	const url = new URL(href, location.href);
+	const customData: Record<string, string> = {
+		plan: getCheckoutPlan(tier.item_id),
+		checkout_attempt_id: crypto.randomUUID(),
+		...captureAttribution(),
+		source_page: tier.source_page,
+		page_language: tier.page_language,
+	};
+	const measurementRunId = captureMeasurementRunId();
+	if (measurementRunId) customData.measurement_run_id = measurementRunId;
+
+	for (const [key, value] of Object.entries(customData)) {
+		url.searchParams.set(`checkout[custom][${key}]`, value);
+	}
+	return url.toString();
 }
 
 // --- Section View (homepage only) ---
@@ -205,73 +335,41 @@ function initPricingTracking() {
 		observer.observe(el);
 	}
 
-	// select_item via click delegation
-	document.addEventListener("click", (e) => {
-		const link = (e.target as HTMLElement).closest(
-			"a[href*='lemonsqueezy']",
-		) as HTMLAnchorElement | null;
-		if (!link) return;
+	// Capture phase enriches href before Lemon.js handles the click on the link itself.
+	document.addEventListener(
+		"click",
+		(e) => {
+			const link = (e.target as HTMLElement).closest(
+				"a[href*='lemonsqueezy']",
+			) as HTMLAnchorElement | null;
+			if (!link) return;
 
-		const card = link.closest("[data-tier-id]") as HTMLElement | null;
-		if (!card) return;
+			const card = link.closest("[data-tier-id]") as HTMLElement | null;
+			if (!card) return;
 
-		const tierData = {
-			item_id: card.dataset.tierId || "",
-			item_name: card.dataset.tierName || "",
-			price: Number(card.dataset.tierPrice) || 0,
-			currency: "EUR",
-			item_category: "license",
-			source_page: getPageType(),
-			page_language: getLang(),
-		};
+			const tierData = {
+				item_id: card.dataset.tierId || "",
+				item_name: card.dataset.tierName || "",
+				price: Number(card.dataset.tierPrice) || 0,
+				currency: "EUR",
+				item_category: "license",
+				source_page: getPageType(),
+				page_language: getLang(),
+			};
 
-		// Store the checkout context for the later purchase callback.
-		forgeWindow.__forgeLastTier = tierData;
-		track("select_item", tierData);
-		track("begin_checkout", {
-			item_id: tierData.item_id,
-			item_name: tierData.item_name,
-			price: tierData.price,
-			currency: tierData.currency,
-			source_page: tierData.source_page,
-			page_language: tierData.page_language,
-		});
-	});
-}
-
-// --- LemonSqueezy Checkout Events ---
-
-declare const LemonSqueezy:
-	| {
-			Setup: (config: {
-				eventHandler: (event: {
-					event: string;
-					data?: { order?: { first_order_item?: { id?: string } } };
-				}) => void;
-			}) => void;
-	  }
-	| undefined;
-
-function initCheckoutTracking() {
-	// purchase via LemonSqueezy native events
-	if (typeof LemonSqueezy !== "undefined") {
-		LemonSqueezy.Setup({
-			eventHandler: (event) => {
-				if (event.event === "Checkout.Success") {
-					const tier = forgeWindow.__forgeLastTier || {};
-					track("purchase", {
-						item_id: tier.item_id || "unknown",
-						item_name: tier.item_name || "unknown",
-						price: tier.price || 0,
-						currency: "EUR",
-						source_page: getPageType(),
-						page_language: getLang(),
-						transaction_id: event.data?.order?.first_order_item?.id || "",
-					});
-				}
-			},
-		});
-	}
+			link.setAttribute("href", enrichCheckoutUrl(link.getAttribute("href") || "", tierData));
+			track("select_item", tierData);
+			track("begin_checkout", {
+				item_id: tierData.item_id,
+				item_name: tierData.item_name,
+				price: tierData.price,
+				currency: tierData.currency,
+				source_page: tierData.source_page,
+				page_language: tierData.page_language,
+			});
+		},
+		true,
+	);
 }
 
 // --- Language Switch ---
@@ -432,7 +530,6 @@ initSectionTracking();
 initCtaTracking();
 initFaqTracking();
 initPricingTracking();
-initCheckoutTracking();
 initLangSwitchTracking();
 initModuleClickTracking();
 initPageContextTracking();

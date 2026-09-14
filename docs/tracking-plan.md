@@ -326,7 +326,12 @@ Pricing-тир попал в видимую зону.
 | `item_id` | string | ID тира | `core`, `pro`, `bundle` |
 | `item_name` | string | Название тира | `CORE`, `PRO`, `BUNDLE` |
 
-**Триггер:** LemonSqueezy JS SDK callback `Checkout.Success` или webhook (см. раздел 5.3).
+**Триггер:** Только подписанный production webhook `order_created` со статусом `paid` и
+`test_mode=false` в `forge-devkit-api`.
+
+**Владелец:** Backend является единственным authoritative источником GA4 `purchase`. Landing и
+Lemon.js не отправляют это событие. `Checkout.Success` допустим только для локального UX после
+покупки.
 
 **Бизнес-вопрос:** Конверсия по всей воронке. Revenue по тирам. Attribution по source/medium.
 
@@ -579,24 +584,50 @@ mount checkout. `PaymentMethodUpdate.Mounted` относится только к
 См. [Handling Events with Lemon.js](https://docs.lemonsqueezy.com/help/lemonjs/handling-events) и
 [Using Lemon.js](https://docs.lemonsqueezy.com/guides/developer-guide/lemonjs).
 
-**purchase event - два подхода:**
+Authoritative `purchase` имеет одного владельца:
 
-| Подход | Плюсы | Минусы |
-|---|---|---|
-| **A. Client-side (LS SDK callback)** | Мгновенная атрибуция, session привязка | Ненадежен (закрытие вкладки, adblock) |
-| **B. Server-side (LS Webhook -> GA4 MP)** | 100% надежность | Нет session/client_id, сложнее атрибуция |
-
-**Рекомендация: оба.**
-
-- **Client-side**: LS SDK callback/event -> `zaraz.track("purchase", ...)` для session-атрибуции
-- **Server-side**: LS Webhook `order_created` -> GA4 Measurement Protocol (server-side) как backup
-
-Webhook endpoint можно добавить в forge-devkit-api:
 ```
 POST /velvet/webhooks/lemonsqueezy
 -> Validate signature
+-> Accept only paid, live order_created in production
 -> POST to GA4 Measurement Protocol (mp/collect)
 ```
+
+Client-side `purchase` запрещён. Два источника создают дубли и расходятся при закрытии вкладки,
+adblock или повторной доставке webhook. API использует Lemon Squeezy order ID как GA4
+`transaction_id` и webhook replay key для дедупликации.
+
+#### 5.3.1 Cross-repo `custom_data` contract
+
+Landing добавляет данные в checkout URL как `checkout[custom][field]=value`. Lemon Squeezy возвращает
+их в `meta.custom_data` событий order, subscription и license key.
+
+| Поле | Наличие | Источник | Текущий API |
+|---|---|---|---|
+| `plan` | Всегда | Mapping `core -> starter`, `pro -> pro`, `bundle -> bundle` | Использует как purchase `item_id` и license plan |
+| `checkout_attempt_id` | Всегда | Новый opaque UUID на принятую попытку | Пока не использует |
+| `ga_client_id` | Только если доступен | Документированный GA runtime | Использует после проверки numeric-pair; иначе non-PII fallback |
+| `ga_session_id` | Только если доступен | Документированный GA runtime | Добавляет в campaign и purchase |
+| `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term` | Если присутствуют | First-touch query attribution | Использует в `campaign_details` |
+| `gclid`, `gbraid`, `wbraid` | Если присутствуют | First-touch query attribution | Пока не использует |
+| `source_page`, `page_language` | Всегда | Контекст checkout click | Пока не использует |
+| `measurement_run_id` | Только явный контрольный запуск | Query parameter с тем же именем | Пока не использует |
+
+Production-проверка 2026-09-14 установила: при разрешённом analytics consent Zaraz не создаёт
+`_ga` cookies, не предоставляет `gtag` и не документирует Web API getter для GA client/session ID.
+Поэтому текущий landing опускает оба GA identity поля. Он не создаёт поддельные значения. API
+генерирует детерминированный numeric-pair fallback из Lemon Squeezy customer/order identifiers без
+email или имени.
+
+UTM и click identifiers хранятся как first-touch attribution 30 дней без продления срока при
+последующих page views. Пустые параметры ничего не перезаписывают. `measurement_run_id` хранится в
+текущей browser session не более двух часов и появляется только после явного query parameter. Email,
+имя и другие PII не сохраняются. GA4 Measurement Protocol API secret существует только в backend
+environment и никогда не входит в checkout URL, HTML или client bundle.
+
+Сверено с текущими `forge-devkit-api/src/features/webhooks/handlers.ts` и `src/lib/ga4.ts`. API уже
+потребляет `plan`, GA identity и UTM. Остальные поля пока проходят через Lemon Squeezy webhook без
+backend-обработки; это не является основанием закрывать BL-058 или BL-059.
 
 ### 5.4 Cross-domain tracking
 
@@ -770,11 +801,12 @@ if (ref) {
 - [ ] IntersectionObserver для `view_item` на pricing-карточках
 - [ ] `zaraz.track("select_item", ...)` на pricing CTA кнопки
 - [ ] Pricing checkout click -> `begin_checkout`; overlay does not emit a duplicate
-- [ ] LemonSqueezy SDK callback -> `purchase` (client-side)
+- [ ] Checkout URL содержит cross-repo `custom_data`
+- [ ] Client-side код не отправляет `purchase`
 - [ ] Пометить `purchase` как conversion в GA4
 - [ ] Настроить Funnel exploration в GA4
 
-**Результат:** полная воронка от landing до purchase.
+**Результат:** landing измеряет checkout intent и передаёт attribution backend-владельцу purchase.
 
 ### Phase 4: Context events + Server-side (день 6-7)
 
@@ -783,16 +815,16 @@ if (ref) {
 - [ ] `docs_view` на /docs/* страницах
 - [ ] `module_click` на ссылках модулей
 - [ ] `pricing_feature_table_view` на /pricing
-- [ ] Server-side purchase webhook (LS -> forge-devkit-api -> GA4 MP)
+- [ ] Проверить server-side purchase webhook (LS -> forge-devkit-api -> GA4 MP)
 - [ ] UTM links для launch-кампании
 
-**Результат:** полная аналитика + server-side backup для purchase.
+**Результат:** backend является единственным authoritative источником purchase.
 
 ### Phase 5: Dashboards (день 8)
 
 - [ ] GA4 Explorations: 4 dashboard (разделы 7.1-7.4)
 - [ ] Или Looker Studio подключение к GA4 для кастомных dashboard
-- [ ] Проверка данных: сравнить client-side vs server-side purchase events
+- [ ] Контрольный measurement run: begin_checkout и backend purchase связаны через custom_data
 
 ---
 
@@ -810,7 +842,7 @@ if (ref) {
 | 8 | `view_item` | GA4 recommended | `zaraz.track()` | item_id, item_name, price, currency, item_category | Видимость тиров |
 | 9 | `select_item` | GA4 recommended | `zaraz.track()` | item_id, item_name, price, currency, item_category, source_page, page_language | Выбор тира |
 | 10 | `begin_checkout` | GA4 recommended | `zaraz.track()` | item_id, item_name, price, currency, source_page, page_language | Открытие checkout |
-| 11 | `purchase` | GA4 recommended | `zaraz.track()` + webhook | transaction_id, value, currency, item_id, item_name | Конверсия, revenue |
+| 11 | `purchase` | GA4 recommended | API webhook -> GA4 MP | transaction_id, value, currency, item_id, item_name | Конверсия, revenue |
 | 12 | `lang_switch` | Custom | `zaraz.track()` | lang_from, lang_to, source_page | Языковые предпочтения |
 | 13 | `module_click` | Custom | `zaraz.track()` | module_slug, click_source, page_language | Интерес к модулям |
 | 14 | `comparison_view` | Custom | `zaraz.track()` | comparison_slug, page_language | Трафик сравнений |
