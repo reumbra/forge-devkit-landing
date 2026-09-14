@@ -8,7 +8,7 @@
  * - faq_toggle (toggle event on .accordion-item)
  * - view_item (IntersectionObserver on [data-tier-id])
  * - select_item (click on LemonSqueezy links inside [data-tier-id])
- * - begin_checkout (MutationObserver for LS overlay)
+ * - begin_checkout (checkout-link click, once per checkout attempt)
  * - lang_switch (click on [data-lang-switch])
  * - comparison_view (pageload on /vs/*)
  * - docs_view (pageload on /docs/*)
@@ -24,6 +24,18 @@
 declare const zaraz:
 	| { track: (event: string, props?: Record<string, unknown>) => void }
 	| undefined;
+
+interface CheckoutTierData {
+	item_id: string;
+	item_name: string;
+	price: number;
+	currency: string;
+	item_category: string;
+	source_page: string;
+	page_language: string;
+}
+
+const forgeWindow = window as Window & { __forgeLastTier?: CheckoutTierData };
 
 function track(event: string, props: Record<string, unknown> = {}) {
 	if (typeof zaraz !== "undefined") {
@@ -213,46 +225,40 @@ function initPricingTracking() {
 			page_language: getLang(),
 		};
 
-		// Store for begin_checkout
-		(window as any).__forgeLastTier = tierData;
+		// Store the checkout context for the later purchase callback.
+		forgeWindow.__forgeLastTier = tierData;
 		track("select_item", tierData);
+		track("begin_checkout", {
+			item_id: tierData.item_id,
+			item_name: tierData.item_name,
+			price: tierData.price,
+			currency: tierData.currency,
+			source_page: tierData.source_page,
+			page_language: tierData.page_language,
+		});
 	});
 }
 
 // --- LemonSqueezy Checkout Events ---
 
-declare const LemonSqueezy: {
-	Setup: (config: { eventHandler: (event: { event: string; data?: any }) => void }) => void;
-} | undefined;
+declare const LemonSqueezy:
+	| {
+			Setup: (config: {
+				eventHandler: (event: {
+					event: string;
+					data?: { order?: { first_order_item?: { id?: string } } };
+				}) => void;
+			}) => void;
+	  }
+	| undefined;
 
 function initCheckoutTracking() {
-	// begin_checkout via overlay detection
-	let overlayOpen = false;
-	const observer = new MutationObserver(() => {
-		const hasOverlay = document.querySelector(".lemonsqueezy-overlay") !== null;
-		if (hasOverlay && !overlayOpen) {
-			overlayOpen = true;
-			const tier = (window as any).__forgeLastTier || {};
-			track("begin_checkout", {
-				item_id: tier.item_id || "unknown",
-				item_name: tier.item_name || "unknown",
-				price: tier.price || 0,
-				currency: "EUR",
-				source_page: getPageType(),
-				page_language: getLang(),
-			});
-		} else if (!hasOverlay) {
-			overlayOpen = false;
-		}
-	});
-	observer.observe(document.body, { childList: true, subtree: true });
-
 	// purchase via LemonSqueezy native events
 	if (typeof LemonSqueezy !== "undefined") {
 		LemonSqueezy.Setup({
 			eventHandler: (event) => {
 				if (event.event === "Checkout.Success") {
-					const tier = (window as any).__forgeLastTier || {};
+					const tier = forgeWindow.__forgeLastTier || {};
 					track("purchase", {
 						item_id: tier.item_id || "unknown",
 						item_name: tier.item_name || "unknown",

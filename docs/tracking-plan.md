@@ -53,7 +53,7 @@ GA4 Enhanced Measurement автоматически трекает следую�
 |---|---|
 | `view_item` | Просмотр pricing-тира (карточка в видимой зоне) |
 | `select_item` | Клик по CTA тира ("Get Core", "Get Pro", "Get Bundle") |
-| `begin_checkout` | Открытие LemonSqueezy overlay |
+| `begin_checkout` | Начало перехода в Lemon Squeezy checkout |
 | `purchase` | Завершение покупки |
 
 ---
@@ -291,7 +291,8 @@ Pricing-тир попал в видимую зону.
 
 #### `begin_checkout` (GA4 recommended)
 
-LemonSqueezy overlay открылся (SDK перехватил клик и показал iframe).
+Пользователь начал переход в Lemon Squeezy checkout. Способ открытия не меняет событие: Lemon.js
+может показать overlay, а браузер может открыть hosted checkout.
 
 | Свойство | Тип | Описание | Примеры значений |
 |---|---|---|---|
@@ -302,9 +303,14 @@ LemonSqueezy overlay открылся (SDK перехватил клик и по
 | `source_page` | string | Страница, с которой открыли checkout | `homepage`, `pricing` |
 | `page_language` | string | Язык | `en`, `ru` |
 
-**Триггер:** LemonSqueezy JS SDK событие (см. раздел 5.3 ниже).
+**Триггер:** Обработчик принимает клик по checkout-ссылке конкретного pricing-тира. Событие
+отправляется синхронно и ровно один раз на принятый клик, до overlay или навигации. Появление overlay
+не отправляет дополнительное событие.
 
-**Бизнес-вопрос:** Воронка select_item -> begin_checkout: какой процент кликов по тиру приводит к открытию overlay?
+**Инвариант:** `select_item` и `begin_checkout` имеют кардинальность 1:1. Расхождение между ними
+означает дефект инструментирования, а не продуктовый drop-off.
+
+**Бизнес-вопрос:** Сколько checkout attempts начинается по каждому тиру, странице-источнику и языку?
 
 ---
 
@@ -553,39 +559,25 @@ Zaraz Dashboard: для каждого `zaraz.track()` вызова создат
 
 ### 5.3 LemonSqueezy интеграция
 
-LemonSqueezy JS SDK (`lemon.js`) предоставляет события для overlay checkout. Интеграция через глобальный обработчик:
+Lemon.js перехватывает ссылки с классом `lemonsqueezy-button` и открывает overlay. Если перехват не
+сработал, ссылка остается обычным переходом на hosted checkout. Поэтому появление DOM-элемента
+overlay не является границей измерения `begin_checkout`.
 
 ```js
 // В BaseLayout.astro, после загрузки lemon.js
 window.createLemonSqueezy?.();
 
-// Перехват открытия overlay
-// LemonSqueezy SDK добавляет класс .lemonsqueezy-overlay к body при открытии.
-// Способ 1: MutationObserver на body class
-const observer = new MutationObserver((mutations) => {
-  for (const m of mutations) {
-    if (m.attributeName === "class") {
-      const hasOverlay = document.body.classList.contains("lemonsqueezy-overlay");
-      if (hasOverlay) {
-        // Определить тир из последнего select_item
-        zaraz.track("begin_checkout", {
-          item_id: window.__lastSelectedTier?.id || "unknown",
-          item_name: window.__lastSelectedTier?.name || "unknown",
-          price: window.__lastSelectedTier?.price || 0,
-          currency: "EUR",
-          source_page: location.pathname,
-          page_language: document.documentElement.lang || "en"
-        });
-      }
-    }
-  }
-});
-observer.observe(document.body, { attributes: true });
+// begin_checkout отправляется обработчиком клика по pricing checkout link.
+// Overlay не отправляет второе событие.
 
-// Способ 2: LemonSqueezy eventCallback (если SDK поддерживает)
-// Проверить в актуальной документации LemonSqueezy:
+// События после открытия overlay:
 // window.LemonSqueezy?.Setup({ eventHandler: (event) => { ... } });
 ```
+
+Официальный список Lemon.js events содержит `Checkout.Success`, но не содержит событие открытия или
+mount checkout. `PaymentMethodUpdate.Mounted` относится только к форме обновления платежного метода.
+См. [Handling Events with Lemon.js](https://docs.lemonsqueezy.com/help/lemonjs/handling-events) и
+[Using Lemon.js](https://docs.lemonsqueezy.com/guides/developer-guide/lemonjs).
 
 **purchase event - два подхода:**
 
@@ -710,7 +702,7 @@ if (ref) {
 | Funnel by language | Funnel exploration | Segment: page_language = en / ru |
 | Funnel by entry page | Funnel exploration | Segment: landing page type |
 | Tier selection distribution | Pie chart | select_item by item_id |
-| Checkout drop-off | Scorecard | select_item -> begin_checkout conversion % |
+| Checkout starts | Scorecard | begin_checkout by item_id, source_page, page_language |
 | Purchase drop-off | Scorecard | begin_checkout -> purchase conversion % |
 | Revenue by tier | Bar chart | purchase by item_id, value |
 
@@ -777,7 +769,7 @@ if (ref) {
 
 - [ ] IntersectionObserver для `view_item` на pricing-карточках
 - [ ] `zaraz.track("select_item", ...)` на pricing CTA кнопки
-- [ ] LemonSqueezy overlay detection -> `begin_checkout`
+- [ ] Pricing checkout click -> `begin_checkout`; overlay does not emit a duplicate
 - [ ] LemonSqueezy SDK callback -> `purchase` (client-side)
 - [ ] Пометить `purchase` как conversion в GA4
 - [ ] Настроить Funnel exploration в GA4

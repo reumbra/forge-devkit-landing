@@ -61,7 +61,7 @@
 | BL-054 | P1 | backlog | Demo video + GIF/скринкасты для launch assets | `[launch]` `[content]` `[assets]` |
 | BL-055 | P1 | done | Product Hunt: подготовка листинга + launch day plan | `[launch]` `[marketing]` |
 | BL-056 | P2 | done | PostYourStartup submission + footer badge | `[launch]` `[marketing]` |
-| BL-057 | P1 | backlog | Analytics: begin_checkout never fires (0 events vs 14 select_item) | `[analytics]` `[bug]` `[funnel]` |
+| BL-057 | P1 | done | Analytics: begin_checkout never fires (0 events vs 14 select_item) | `[analytics]` `[bug]` `[funnel]` |
 | BL-058 | P2 | backlog | Analytics: server-side purchase event from LemonSqueezy webhook | `[analytics]` `[revenue]` `[cross-repo]` |
 | BL-059 | P1 | backlog | Test webhooks create real licences in production DB | `[data]` `[bug]` `[cross-repo]` |
 
@@ -368,6 +368,8 @@ Pricing, plan names, included modules, and checkout URLs must be consistent acro
 ### BL-057: begin_checkout never fires
 
 Measured 2026-09-03 (`docs/analytics-baseline-2026-09-03.md`). All-time GA4: `select_item` 14 events / 3 users, `begin_checkout` **0**. The detector in `src/shared/tracking/analytics.ts` is a MutationObserver waiting for a LemonSqueezy overlay; if the CTA navigates away instead of opening an overlay, nothing fires. A step that CANNOT fire reads identically to a step nobody reached, and the two call for opposite decisions. Verify by clicking a pricing CTA in a real browser with `zaraz.debug(...)` on - headless does not get Zaraz injected.
+
+Resolved 2026-09-14. The measurement contract now defines an accepted pricing checkout-link click as the start of a checkout attempt. The same delegated handler emits `select_item` and one `begin_checkout` with `item_id`, `item_name`, `price`, `currency`, `source_page`, and `page_language`; overlay creation emits nothing. `pnpm test` executes the compiled tracker in a DOM harness and verifies one click event plus no overlay duplicate. Running that harness against the pre-fix `main` source fails with `0 !== 1`. `pnpm build` produced all 65 pages and scoped Biome checks passed. Repository-wide `pnpm lint` still reports 110 pre-existing formatting and import-order errors outside BL-057.
 
 Re-measure: `python3 scripts/google-api.py ga4-events --property 525437386 --days 400`
 

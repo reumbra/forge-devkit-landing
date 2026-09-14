@@ -7,6 +7,7 @@
 		"dev": "astro dev",
 		"prebuild": "node scripts/check-privacy-gate.mjs",
 		"privacy-gate": "node scripts/check-privacy-gate.mjs",
+		"test": "node scripts/check-analytics-checkout.mjs",
 		"build": "astro build",
 		"preview": "astro preview",
 		"lint": "biome check .",
