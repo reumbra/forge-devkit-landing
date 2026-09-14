@@ -100,13 +100,12 @@ function runPage({ href, localStorage, sessionStorage }) {
 	}
 
 	const pageUrl = new URL(href);
-	const window = {
-		LemonSqueezy: {
-			Setup({ eventHandler }) {
-				lemonEvents.push(eventHandler);
-			},
+	const LemonSqueezy = {
+		Setup({ eventHandler }) {
+			lemonEvents.push(eventHandler);
 		},
 	};
+	const window = { LemonSqueezy };
 	const context = vm.createContext({
 		crypto: {
 			randomUUID() {
@@ -117,6 +116,7 @@ function runPage({ href, localStorage, sessionStorage }) {
 		document,
 		exports: {},
 		IntersectionObserver,
+		LemonSqueezy,
 		localStorage,
 		location: {
 			href: pageUrl.toString(),
@@ -195,6 +195,12 @@ const pricingPage = runPage({
 });
 
 const firstCheckoutUrl = pricingPage.dispatchCheckoutClick();
+pricingPage.fireCheckoutSuccess();
+assert.equal(
+	pricingPage.events("purchase").length,
+	0,
+	"Checkout.Success must not emit client-side purchase",
+);
 assert.deepEqual(customData(firstCheckoutUrl), {
 	plan: "pro",
 	checkout_attempt_id: "00000000-0000-4000-8000-000000000001",
@@ -220,13 +226,6 @@ assert.equal(
 	pricingPage.events("begin_checkout").length,
 	1,
 	"opening the overlay must not duplicate begin_checkout",
-);
-
-pricingPage.fireCheckoutSuccess();
-assert.equal(
-	pricingPage.events("purchase").length,
-	0,
-	"Checkout.Success must not emit client-side purchase",
 );
 
 const secondCheckoutUrl = pricingPage.dispatchCheckoutClick();
