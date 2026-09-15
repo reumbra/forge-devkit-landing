@@ -617,9 +617,9 @@ Landing добавляет данные в checkout URL как `checkout[custom]
 Production inspection on 2026-09-15 established the supported identity boundary. The deployed GA4
 Managed Component tool ID is `UYgN` (not the GA measurement ID), and its configured permissions
 include client KV access. A Zaraz Context Enricher reads `system.clientKV.UYgN_ga4` and
-`system.clientKV.UYgN_ga4sid` only for `begin_checkout`, then submits the real values to the
-protected API checkout-context endpoint. Landing JavaScript still cannot read those values and does
-not fabricate replacements.
+`system.clientKV.UYgN_ga4sid` only for `begin_checkout`, then submits values that satisfy the API
+identity contract to the protected checkout-context endpoint. Landing JavaScript still cannot read
+those values and does not fabricate replacements.
 
 The same generated `checkout_attempt_id` is present in the `begin_checkout` event and Lemon
 `custom_data`; it keys the API context record. Zaraz KV, GA identity and API credentials never enter
@@ -633,6 +633,16 @@ Production consent currently defines the analytics purpose `CdgR` only. The brid
 purposes exist, `ad_storage`, `ad_user_data` and `ad_personalization` are conservatively denied and
 the bridge does not send click IDs to the API. Adding advertising purposes requires a separate
 consent decision and production contract update.
+
+The clean production control on 2026-09-15 found a cross-product format mismatch. Zaraz supplied a
+UUID-shaped `UYgN_ga4` value and a numeric `UYgN_ga4sid`; this matches the maintained GA4 Managed
+Component source, which generates `crypto.randomUUID()` for a new client. The API correctly rejected
+that client value instead of transforming it. Google's Measurement Protocol debug endpoint also
+returned `VALUE_INVALID` for a synthetic UUID client ID under `ENFORCE_RECOMMENDATIONS`, requiring
+the `<number>.<number>` format. The bridge therefore remains fail-open for checkout and fail-closed
+for identity delivery on clean Zaraz clients. The session-join gate is not passed, and a control
+purchase must not be requested until the web collector and Measurement Protocol share a supported
+client ID format.
 
 UTM и click identifiers хранятся как first-touch attribution 30 дней без продления срока при
 последующих page views. Пустые параметры ничего не перезаписывают. `measurement_run_id` хранится в
