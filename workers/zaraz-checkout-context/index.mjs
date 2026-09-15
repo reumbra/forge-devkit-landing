@@ -87,6 +87,21 @@ async function sendCheckoutContext(payload, env) {
 		signal: AbortSignal.timeout(API_TIMEOUT_MS),
 	});
 	if (!response.ok) throw new Error(`checkout context API returned ${response.status}`);
+
+	if (payload.measurement_run_id) {
+		const identityBytes = new TextEncoder().encode(
+			`${payload.ga_client_id}|${payload.ga_session_id}`,
+		);
+		const identityDigest = await crypto.subtle.digest("SHA-256", identityBytes);
+		const identityFingerprint = Array.from(new Uint8Array(identityDigest))
+			.map((byte) => byte.toString(16).padStart(2, "0"))
+			.join("");
+		console.info("Checkout context proof stored", {
+			checkout_attempt_id: payload.checkout_attempt_id,
+			measurement_run_id: payload.measurement_run_id,
+			identity_fingerprint: identityFingerprint,
+		});
+	}
 }
 
 export default {

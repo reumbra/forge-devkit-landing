@@ -624,7 +624,9 @@ not fabricate replacements.
 The same generated `checkout_attempt_id` is present in the `begin_checkout` event and Lemon
 `custom_data`; it keys the API context record. Zaraz KV, GA identity and API credentials never enter
 the Lemon URL, HTML or browser bundle. The API webhook remains the sole authoritative owner of GA4
-`purchase`.
+`purchase`. For an explicit `measurement_run_id` only, the Worker logs a SHA-256 fingerprint of the
+client/session pair after a successful context write. Comparing that fingerprint with the API row
+proves exact delivery without logging the underlying identifiers.
 
 Production consent currently defines the analytics purpose `CdgR` only. The bridge maps it to
 `analytics_storage` and sends no identity when it is denied. Because no separate advertising

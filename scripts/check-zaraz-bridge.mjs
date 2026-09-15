@@ -51,6 +51,9 @@ async function invoke(context, fetchImpl) {
 
 const calls = [];
 const context = zarazContext();
+const proofLogs = [];
+const originalInfo = console.info;
+console.info = (...values) => proofLogs.push(values);
 const success = await invoke(context, async (url, init) => {
 	calls.push({ url, init });
 	return new Response(null, { status: 201 });
@@ -76,6 +79,11 @@ assert.deepEqual(payload.consent, {
 });
 assert.equal(payload.gclid, undefined, "click IDs require all advertising consent states");
 assert.equal(calls[0].init.headers.Authorization, "Bearer unit-test-placeholder");
+console.info = originalInfo;
+assert.equal(proofLogs.length, 1);
+const proofLog = JSON.stringify(proofLogs[0]);
+assert.match(proofLog, /identity_fingerprint/);
+assert.doesNotMatch(proofLog, /123456789\.987654321|1789500000/);
 
 let deniedCalls = 0;
 const denied = await invoke(zarazContext({ system: { consent: { CdgR: false } } }), async () => {
