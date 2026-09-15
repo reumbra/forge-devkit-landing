@@ -76,6 +76,28 @@ function checkoutContext(context, env) {
 	return payload;
 }
 
+function logProofSkip(context, env) {
+	const system = context?.system;
+	const client = context?.client;
+	const measurementRunId = safeValue(client?.measurement_run_id, 100);
+	if (client?.__zarazTrack !== "begin_checkout" || !measurementRunId) return;
+
+	const clientKv = system?.clientKV;
+	const gaClientId = clientKv?.[`${env.GA_TOOL_ID}_ga4`];
+	const gaSessionId = clientKv?.[`${env.GA_TOOL_ID}_ga4sid`];
+	console.info("Checkout context proof skipped", {
+		checkout_attempt_id:
+			typeof client.checkout_attempt_id === "string" ? client.checkout_attempt_id : "missing",
+		measurement_run_id: measurementRunId,
+		analytics_consent_granted: purposeGranted(system, env.ANALYTICS_PURPOSE_ID),
+		has_client_kv: Boolean(clientKv),
+		has_ga_client_id: typeof gaClientId === "string",
+		has_ga_session_id: typeof gaSessionId === "string",
+		valid_ga_client_id: typeof gaClientId === "string" && CLIENT_ID_PATTERN.test(gaClientId),
+		valid_ga_session_id: typeof gaSessionId === "string" && SESSION_ID_PATTERN.test(gaSessionId),
+	});
+}
+
 async function sendCheckoutContext(payload, env) {
 	const response = await fetch(env.CHECKOUT_CONTEXT_URL, {
 		method: "POST",
@@ -123,6 +145,8 @@ export default {
 					});
 				}),
 			);
+		} else {
+			logProofSkip(context, env);
 		}
 
 		return Response.json(context);

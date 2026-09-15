@@ -85,20 +85,41 @@ const proofLog = JSON.stringify(proofLogs[0]);
 assert.match(proofLog, /identity_fingerprint/);
 assert.doesNotMatch(proofLog, /123456789\.987654321|1789500000/);
 
-let deniedCalls = 0;
-const denied = await invoke(zarazContext({ system: { consent: { CdgR: false } } }), async () => {
-	deniedCalls += 1;
-	return new Response(null, { status: 201 });
+const skipLogs = [];
+console.info = (...values) => skipLogs.push(values);
+await invoke(zarazContext({ system: { clientKV: {} } }), async () => {
+	throw new Error("identity-less proof must not call the API");
 });
+console.info = originalInfo;
+assert.equal(skipLogs.length, 1);
+const skipLog = JSON.stringify(skipLogs[0]);
+assert.match(skipLog, /Checkout context proof skipped/);
+assert.match(skipLog, /"has_ga_client_id":false/);
+assert.doesNotMatch(skipLog, /123456789\.987654321|1789500000/);
+
+let deniedCalls = 0;
+const denied = await invoke(
+	zarazContext({
+		system: { consent: { CdgR: false } },
+		client: { measurement_run_id: undefined },
+	}),
+	async () => {
+		deniedCalls += 1;
+		return new Response(null, { status: 201 });
+	},
+);
 assert.equal(denied.response.status, 200);
 assert.equal(deniedCalls, 0, "denied analytics consent must not send identity");
 
 for (const clientKV of [{ UYgN_ga4sid: "1789500000" }, { UYgN_ga4: "123.456" }]) {
 	let identitylessCalls = 0;
-	const identityless = await invoke(zarazContext({ system: { clientKV } }), async () => {
-		identitylessCalls += 1;
-		return new Response(null, { status: 201 });
-	});
+	const identityless = await invoke(
+		zarazContext({ system: { clientKV }, client: { measurement_run_id: undefined } }),
+		async () => {
+			identitylessCalls += 1;
+			return new Response(null, { status: 201 });
+		},
+	);
 	assert.equal(identityless.response.status, 200);
 	assert.equal(identitylessCalls, 0, "missing cid or sid must not fabricate identity");
 }
