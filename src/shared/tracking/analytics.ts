@@ -35,6 +35,12 @@ interface CheckoutTierData {
 	page_language: string;
 }
 
+interface CheckoutAttemptData {
+	checkout_attempt_id: string;
+	attribution: Attribution;
+	measurement_run_id?: string;
+}
+
 const ATTRIBUTION_STORAGE_KEY = "forge_attribution_v1";
 const MEASUREMENT_RUN_STORAGE_KEY = "forge_measurement_run_v1";
 const ATTRIBUTION_TTL_MS = 30 * 24 * 60 * 60 * 1000;
@@ -172,17 +178,28 @@ function getCheckoutPlan(itemId: string): string {
 	return itemId === "core" ? "starter" : itemId;
 }
 
-function enrichCheckoutUrl(href: string, tier: CheckoutTierData): string {
+function createCheckoutAttempt(): CheckoutAttemptData {
+	return {
+		checkout_attempt_id: crypto.randomUUID(),
+		attribution: captureAttribution(),
+		measurement_run_id: captureMeasurementRunId(),
+	};
+}
+
+function enrichCheckoutUrl(
+	href: string,
+	tier: CheckoutTierData,
+	attempt: CheckoutAttemptData,
+): string {
 	const url = new URL(href, location.href);
 	const customData: Record<string, string> = {
 		plan: getCheckoutPlan(tier.item_id),
-		checkout_attempt_id: crypto.randomUUID(),
-		...captureAttribution(),
+		checkout_attempt_id: attempt.checkout_attempt_id,
+		...attempt.attribution,
 		source_page: tier.source_page,
 		page_language: tier.page_language,
 	};
-	const measurementRunId = captureMeasurementRunId();
-	if (measurementRunId) customData.measurement_run_id = measurementRunId;
+	if (attempt.measurement_run_id) customData.measurement_run_id = attempt.measurement_run_id;
 
 	for (const [key, value] of Object.entries(customData)) {
 		url.searchParams.set(`checkout[custom][${key}]`, value);
@@ -356,8 +373,12 @@ function initPricingTracking() {
 				source_page: getPageType(),
 				page_language: getLang(),
 			};
+			const attempt = createCheckoutAttempt();
 
-			link.setAttribute("href", enrichCheckoutUrl(link.getAttribute("href") || "", tierData));
+			link.setAttribute(
+				"href",
+				enrichCheckoutUrl(link.getAttribute("href") || "", tierData, attempt),
+			);
 			track("select_item", tierData);
 			track("begin_checkout", {
 				item_id: tierData.item_id,
@@ -366,6 +387,9 @@ function initPricingTracking() {
 				currency: tierData.currency,
 				source_page: tierData.source_page,
 				page_language: tierData.page_language,
+				checkout_attempt_id: attempt.checkout_attempt_id,
+				...attempt.attribution,
+				...(attempt.measurement_run_id ? { measurement_run_id: attempt.measurement_run_id } : {}),
 			});
 		},
 		true,

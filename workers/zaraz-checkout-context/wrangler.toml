@@ -1,0 +1,13 @@
+name = "forge-zaraz-checkout-context"
+main = "index.mjs"
+compatibility_date = "2026-09-15"
+account_id = "c87ac8a3a7fa35383efbf3fded53970d"
+workers_dev = false
+
+[observability]
+enabled = true
+
+[vars]
+CHECKOUT_CONTEXT_URL = "https://api.reumbra.com/velvet/internal/analytics/checkout-context"
+GA_TOOL_ID = "UYgN"
+ANALYTICS_PURPOSE_ID = "CdgR"

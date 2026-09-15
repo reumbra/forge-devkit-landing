@@ -302,6 +302,9 @@ Pricing-тир попал в видимую зону.
 | `currency` | string | Валюта | `EUR` |
 | `source_page` | string | Страница, с которой открыли checkout | `homepage`, `pricing` |
 | `page_language` | string | Язык | `en`, `ru` |
+| `checkout_attempt_id` | UUID | Opaque correlation ID shared with Lemon and the API context write | `018f...` |
+| `measurement_run_id` | string | Explicit control-run ID only | `bridge-proof-...` |
+| `gclid`, `gbraid`, `wbraid` | string | First-touch click IDs when present; the edge bridge applies consent before API delivery | — |
 
 **Триггер:** Обработчик принимает клик по checkout-ссылке конкретного pricing-тира. Событие
 отправляется синхронно и ровно один раз на принятый клик, до overlay или навигации. Появление overlay
@@ -605,19 +608,29 @@ Landing добавляет данные в checkout URL как `checkout[custom]
 | Поле | Наличие | Источник | Текущий API |
 |---|---|---|---|
 | `plan` | Всегда | Mapping `core -> starter`, `pro -> pro`, `bundle -> bundle` | Использует как purchase `item_id` и license plan |
-| `checkout_attempt_id` | Всегда | Новый opaque UUID на принятую попытку | Пока не использует |
-| `ga_client_id` | Только если доступен | Документированный GA runtime | Использует после проверки numeric-pair; иначе non-PII fallback |
-| `ga_session_id` | Только если доступен | Документированный GA runtime | Добавляет в campaign и purchase |
+| `checkout_attempt_id` | Всегда | Новый opaque UUID на принятую попытку | Resolves the bounded server-side checkout context |
 | `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term` | Если присутствуют | First-touch query attribution | Использует в `campaign_details` |
-| `gclid`, `gbraid`, `wbraid` | Если присутствуют | First-touch query attribution | Пока не использует |
+| `gclid`, `gbraid`, `wbraid` | Если присутствуют | First-touch query attribution | Preserved in the Lemon webhook contract; edge-to-API delivery is consent-gated |
 | `source_page`, `page_language` | Всегда | Контекст checkout click | Пока не использует |
-| `measurement_run_id` | Только явный контрольный запуск | Query parameter с тем же именем | Пока не использует |
+| `measurement_run_id` | Только явный контрольный запуск | Query parameter с тем же именем | Correlates an explicit context proof |
 
-Production-проверка 2026-09-14 установила: при разрешённом analytics consent Zaraz не создаёт
-`_ga` cookies, не предоставляет `gtag` и не документирует Web API getter для GA client/session ID.
-Поэтому текущий landing опускает оба GA identity поля. Он не создаёт поддельные значения. API
-генерирует детерминированный numeric-pair fallback из Lemon Squeezy customer/order identifiers без
-email или имени.
+Production inspection on 2026-09-15 established the supported identity boundary. The deployed GA4
+Managed Component tool ID is `UYgN` (not the GA measurement ID), and its configured permissions
+include client KV access. A Zaraz Context Enricher reads `system.clientKV.UYgN_ga4` and
+`system.clientKV.UYgN_ga4sid` only for `begin_checkout`, then submits the real values to the
+protected API checkout-context endpoint. Landing JavaScript still cannot read those values and does
+not fabricate replacements.
+
+The same generated `checkout_attempt_id` is present in the `begin_checkout` event and Lemon
+`custom_data`; it keys the API context record. Zaraz KV, GA identity and API credentials never enter
+the Lemon URL, HTML or browser bundle. The API webhook remains the sole authoritative owner of GA4
+`purchase`.
+
+Production consent currently defines the analytics purpose `CdgR` only. The bridge maps it to
+`analytics_storage` and sends no identity when it is denied. Because no separate advertising
+purposes exist, `ad_storage`, `ad_user_data` and `ad_personalization` are conservatively denied and
+the bridge does not send click IDs to the API. Adding advertising purposes requires a separate
+consent decision and production contract update.
 
 UTM и click identifiers хранятся как first-touch attribution 30 дней без продления срока при
 последующих page views. Пустые параметры ничего не перезаписывают. `measurement_run_id` хранится в
@@ -825,6 +838,7 @@ if (ref) {
 - [ ] GA4 Explorations: 4 dashboard (разделы 7.1-7.4)
 - [ ] Или Looker Studio подключение к GA4 для кастомных dashboard
 - [ ] Контрольный measurement run: begin_checkout и backend purchase связаны через custom_data
+- [ ] One control purchase proves that the API GA4 purchase uses the exact Zaraz client/session identity
 
 ---
 

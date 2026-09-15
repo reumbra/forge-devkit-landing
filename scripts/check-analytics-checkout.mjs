@@ -220,6 +220,18 @@ assert.equal(customData(firstCheckoutUrl).ga_client_id, undefined);
 assert.equal(customData(firstCheckoutUrl).ga_session_id, undefined);
 assert.equal(pricingPage.events("select_item").length, 1);
 assert.equal(pricingPage.events("begin_checkout").length, 1);
+const firstBeginCheckout = pricingPage.events("begin_checkout")[0].properties;
+assert.equal(
+	firstBeginCheckout.checkout_attempt_id,
+	customData(firstCheckoutUrl).checkout_attempt_id,
+	"begin_checkout and Lemon custom_data must share the checkout attempt ID",
+);
+assert.equal(firstBeginCheckout.measurement_run_id, "run-control-1");
+assert.equal(firstBeginCheckout.gclid, "g-1");
+assert.equal(firstBeginCheckout.gbraid, "gb-1");
+assert.equal(firstBeginCheckout.wbraid, "wb-1");
+assert.equal(firstBeginCheckout.ga_client_id, undefined);
+assert.equal(firstBeginCheckout.ga_session_id, undefined);
 
 pricingPage.fireOverlayMutation();
 assert.equal(
@@ -235,6 +247,10 @@ assert.notEqual(
 	customData(secondCheckoutUrl).checkout_attempt_id,
 	customData(firstCheckoutUrl).checkout_attempt_id,
 	"each accepted click must start a new checkout attempt",
+);
+assert.equal(
+	pricingPage.events("begin_checkout")[1].properties.checkout_attempt_id,
+	customData(secondCheckoutUrl).checkout_attempt_id,
 );
 
 const anonymousPage = runPage({
